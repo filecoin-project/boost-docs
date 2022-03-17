@@ -1,13 +1,10 @@
-# Boost
+# What is Boost?
 
 ## Overview
 
-Boost is a tool for Storage Providers to manage data storage and retrievals on filecoin.
-It replaces the go-fil-markets package in lotus with a standalone binary that runs
-alongside a lotus daemon and lotus miner. Boost exposes libp2p interfaces for storage
-and retrieval deals, and a web interface for managing storage deals.
+Boost is a tool for Storage Providers to manage data storage and retrievals on filecoin. It replaces the go-fil-markets package in lotus with a standalone binary that runs alongside a lotus daemon and lotus miner. Boost exposes libp2p interfaces for making storage and retrieval deals, a web interface for managing storage deals, and a graphql interface for accessing and updating real time deal information.
 
-DIAGRAM: lotus daemon, miner, boost
+![](<.gitbook/assets/Boost Interfaces.png>)
 
 ## Running Boost
 
@@ -23,7 +20,7 @@ make build
 
 ### Initialisation and Running
 
-0. Compile and install (move binaries to $PATH)
+1. Compile and install (move binaries to $PATH)
 
 ```
 make build
@@ -31,20 +28,19 @@ make install
 ```
 
 1. Make sure you have a Lotus fullnode and miner running
-
 2. Create wallets
 
 Boost uses two wallets for storage deals:
 
-- The publish storage deals wallet
+*   The publish storage deals wallet
 
-  This wallet pays the gas cost when Boost sends the PublishStorageDeals message.
-  
-- The pledge collateral wallet
+    This wallet pays the gas cost when Boost sends the PublishStorageDeals message.
+*   The pledge collateral wallet
 
-  When Boost accepts a deal, it moves funds from this wallet into escrow with the StorageMarketActor.
+    When Boost accepts a deal, it moves funds from this wallet into escrow with the StorageMarketActor.
 
 Create the wallets and send funds to the wallets:
+
 ```
 PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
 PLEDGE_COLLAT_WALLET=`lotus wallet new bls`
@@ -52,11 +48,9 @@ lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
 
-3. Create Boost repository
+1. Create Boost repository
 
-Boost keeps all data in a directory called the repository.
-By default the repository is at `~/.boost`. To use a different
-location pass the `--boost-repo` parameter.
+Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
 Run `boost init` to create and initialize the repository:
 
@@ -72,17 +66,13 @@ boost --vv init \
       --max-staging-deals-bytes=50000000000
 ```
 
-- `--api-sealer` is the API info for the lotus-miner instance
- that does sealing
-- `--api-sector-index` is the API info for the lotus-miner instance
- that provides storage
-- `--max-staging-deals-bytes` is the size of the space where Boost
- stores downloaded files
+* `--api-sealer` is the API info for the lotus-miner instance that does sealing
+* `--api-sector-index` is the API info for the lotus-miner instance that provides storage
+* `--max-staging-deals-bytes` is the size of the space where Boost stores downloaded files
 
-4. Run Boost service
+1. Run Boost service
 
-Run the boost service to start libp2p listeners for storage and retrieval,
-and to start the web interface.
+Run the boost service to start libp2p listeners for storage and retrieval, and to start the web interface.
 
 ```
 export $(lotus auth api-info --perm=admin)
@@ -90,13 +80,13 @@ export $(lotus auth api-info --perm=admin)
 boost --vv run
 ```
 
-5. Open the Web UI
+1. Open the Web UI
 
 Open http://localhost:8080 in your browser.
 
 {% hint style="info" %}
-To access a web UI running on a remote server you can open an SSH tunnel from
-your local machine:
+To access a web UI running on a remote server you can open an SSH tunnel from your local machine:
+
 ```
 ssh -L 8080:localhost:8080 myserver
 ```
@@ -104,8 +94,8 @@ ssh -L 8080:localhost:8080 myserver
 
 ## Migrate from a split markets process to Boost
 
-If you are running markets as a separate lotus-miner instance,
-use `boost migrate`:
+If you are running markets as a separate lotus-miner instance, use `boost migrate`:
+
 ```
 boost --vv migrate \
       --import-markets-repo=~/.my-markets-repo \
