@@ -103,3 +103,13 @@ boost --vv migrate \
       --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
       --max-staging-deals-bytes=50000000000
 ```
+
+The migrate command
+
+* Initializes a Boost repository
+* Migrates markets datastore keys to Boost
+  * Storage and retrieval deal metadata
+  * Storage and retrieval ask data
+* Migrates markets libp2p keys to Boost
+* Migrates markets config to Boost (libp2p endpoints, settings etc)
+* Migrates the markets DAG store to Boost
