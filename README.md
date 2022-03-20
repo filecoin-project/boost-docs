@@ -35,9 +35,9 @@ Boost uses two wallets for storage deals:
 *   The publish storage deals wallet
 
     This wallet pays the gas cost when Boost sends the PublishStorageDeals message.
-*   The pledge collateral wallet
+*   The deal collateral wallet
 
-    When Boost accepts a deal, it moves funds from this wallet into escrow with the StorageMarketActor.
+    When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the StorageMarketActor.
 
 Create the wallets and send funds to the wallets:
 
