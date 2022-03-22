@@ -1,6 +1,18 @@
 # Migrate from a split markets process to Boost
 
-If you are running markets as a separate lotus-miner instance (MRA), use `boost migrate` instead of `boost init`:
+If you are running markets as a separate lotus-miner instance (MRA)
+
+1\. Stop accepting incoming deals
+
+2\. Wait for incoming deals to complete
+
+3\. Shutdown the markets process
+
+4\. Backup the markets repo
+
+TODO: backup commands
+
+5\. Follow [getting-started.md](getting-started.md "mention"), but use `boost migrate` instead of `boost init`:
 
 ```
 boost --vv migrate \
