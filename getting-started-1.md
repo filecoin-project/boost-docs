@@ -1,4 +1,4 @@
-# Boost Database
+# Database
 
 Boost stores metadata about deals in a sqlite database in the root directory of the Boost repo.
 

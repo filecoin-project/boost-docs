@@ -16,7 +16,7 @@ If you are running a `markets` service as a separate `lotus-miner` process:
 
 4\. Backup the markets repository
 
-5\. Follow [as-a-storage-provider.md](../getting-started/as-a-storage-provider.md "mention"), but use `boostd migrate` instead of `boostd init`:
+5\. Follow [getting-started.md](getting-started.md "mention"), but use `boostd migrate` instead of `boostd init`:
 
 ```
 boostd --vv migrate \

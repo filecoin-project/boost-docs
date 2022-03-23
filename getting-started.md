@@ -49,7 +49,7 @@ boostd --vv init \
 {% hint style="warning" %}
 If you are already running a split markets process (MRA) don't run `boostd init`
 
-Instead see the section [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")
+Instead see the section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention")
 {% endhint %}
 
 4\. Run Boost service
@@ -68,7 +68,7 @@ boostd --vv run
 ```
 
 {% hint style="info" %}
-In your firewall you will need to open the ports that libp2p listens on so that Boost can receive storage and retrieval deals. See the `Libp2p` section of `config.toml` in the [architecture.md](../architecture/architecture.md "mention")
+In your firewall you will need to open the ports that libp2p listens on so that Boost can receive storage and retrieval deals. See the `Libp2p` section of `config.toml` in the [architecture.md](architecture.md "mention")
 {% endhint %}
 
 ### Web UI

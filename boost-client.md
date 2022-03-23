@@ -1,4 +1,4 @@
-# Boost Client
+# As a client
 
 Boost comes with a client `boost` executable that can be used to send a deal proposal to a Boost server.
 
