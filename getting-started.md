@@ -84,6 +84,10 @@ export $(lotus auth api-info --perm=admin)
 boost --vv run
 ```
 
+{% hint style="info" %}
+In your firewall you will need to open the ports that libp2p listens on so that Boost can receive storage and retrieval deals. See the `Libp2p` section of `config.toml` in the [architecture.md](architecture.md "mention")
+{% endhint %}
+
 ### Web UI
 
 1. Build the react front-end
