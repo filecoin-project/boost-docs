@@ -7,3 +7,4 @@
 * [Boost Database](getting-started-1.md)
 * [Configuration](tutorials.md)
 * [Roll back to legacy markets](roll-back-to-legacy-markets.md)
+* [Boost Client](boost-client.md)
