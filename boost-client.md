@@ -16,9 +16,9 @@ export FULLNODE_API_INFO=<filecoin API endpoint>
 boost -vv init
 ```
 
-The init command
+The `init` command
 
-* Creates a Boost client repo (at `~/.boost-client` by default)
+* Creates a Boost client repository (at `~/.boost-client` by default)
 * Generates a libp2p peer ID key
 * Generates a wallet for on-chain operations and outputs the wallet address
 
