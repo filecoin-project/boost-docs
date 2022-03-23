@@ -51,12 +51,12 @@ Run `boost init` to create and initialize the repository:
 export $(lotus auth api-info --perm=admin)
 export $(lotus-miner auth api-info --perm=admin)
 
-boost --vv init \
-      --api-sealer=`lotus-miner auth api-info --perm=admin` \
-      --api-sector-index=`lotus-miner auth api-info --perm=admin` \
-      --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
-      --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
-      --max-staging-deals-bytes=50000000000
+boostd --vv init \
+       --api-sealer=`lotus-miner auth api-info --perm=admin` \
+       --api-sector-index=`lotus-miner auth api-info --perm=admin` \
+       --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
+       --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
+       --max-staging-deals-bytes=50000000000
 ```
 
 * `--api-sealer` is the API info for the lotus-miner instance that does sealing
@@ -81,7 +81,7 @@ Run the boost service to start
 ```
 export $(lotus auth api-info --perm=admin)
 
-boost --vv run
+boostd --vv run
 ```
 
 {% hint style="info" %}
