@@ -4,18 +4,12 @@
 
 1\. Make sure you have a Lotus fullnode and miner running
 
-2\. Create wallets
+2\. Create and send funds to two new wallets for Boost
 
-Boost uses two wallets for storage deals:
+Boost currently uses two wallets for storage deals:
 
-*   The publish storage deals wallet
-
-    This wallet pays the gas cost when Boost sends the PublishStorageDeals message.
-*   The deal collateral wallet
-
-    When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the StorageMarketActor.
-
-Create the wallets and send funds to the wallets:
+* The publish storage deals wallet - This wallet pays the gas cost when Boost sends the `PublishStorageDeals` message.
+* The deal collateral wallet - When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the `StorageMarketActor`.
 
 ```
 PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
@@ -24,7 +18,7 @@ lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
 
-3\. Create Boost repository
+3\. Create the Boost repository
 
 {% hint style="warning" %}
 If you are already running a Lotus markets service process, you should\
@@ -53,7 +47,7 @@ boostd --vv init \
 * `--api-sector-index` is the API info for the lotus-miner instance that provides storage
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
-4\. Run the `boostd` service to start:
+4\. Run the `boostd` service, which will start:
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API
