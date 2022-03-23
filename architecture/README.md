@@ -1,8 +1,8 @@
-# Boost Architecture
+# Architecture
 
 The `boostd` executable runs alongside a lotus full node and lotus miner. It exposes a libp2p interface for storage and retrieval deals, performs on-chain operations with the lotus full node, and hands off downloaded data to the lotus miner for sealing. `boostd` serves a react app for managing deals that consumes a graphql interface.
 
-![](<.gitbook/assets/Boost Interfaces.png>)
+![](<../.gitbook/assets/Boost Interfaces.png>)
 
 ### Storage Deal Flow
 
@@ -17,7 +17,7 @@ The typical flow for a Storage Deal is:
 7. Boost publishes the deal on chain.
 8. The client checks that the deal was successfully published on chain.
 
-![](<.gitbook/assets/Boost Flow.png>)
+![](<../.gitbook/assets/Boost Flow.png>)
 
 Boost exposes a libp2p interface to listen for storage deal proposals from clients.
 

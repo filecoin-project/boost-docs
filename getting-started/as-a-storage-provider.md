@@ -1,27 +1,10 @@
-# Getting Started
-
-The Boost source code repository is hosted at [github.com/filecoin-project/boost](https://github.com/filecoin-project/boost)
-
-### Building
-
-```
-git clone https://github.com/filecoin-project/boost
-cd boost
-make build
-```
+# As a storage provider
 
 ### Initialization and Running
 
-1. Compile and install (move binaries to $PATH)
+1\. Make sure you have a Lotus fullnode and miner running
 
-```
-make build
-make install
-```
-
-2\. Make sure you have a Lotus fullnode and miner running
-
-3\. Create wallets
+2\. Create wallets
 
 Boost uses two wallets for storage deals:
 
@@ -41,7 +24,7 @@ lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
 
-4\. Create Boost repository
+3\. Create Boost repository
 
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
@@ -66,10 +49,10 @@ boostd --vv init \
 {% hint style="warning" %}
 If you are already running a split markets process (MRA) don't run `boostd init`
 
-Instead see the section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention")
+Instead see the section [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")
 {% endhint %}
 
-5\. Run Boost service
+4\. Run Boost service
 
 Run the `boostd` service to start
 
@@ -85,7 +68,7 @@ boostd --vv run
 ```
 
 {% hint style="info" %}
-In your firewall you will need to open the ports that libp2p listens on so that Boost can receive storage and retrieval deals. See the `Libp2p` section of `config.toml` in the [architecture.md](architecture.md "mention")
+In your firewall you will need to open the ports that libp2p listens on so that Boost can receive storage and retrieval deals. See the `Libp2p` section of `config.toml` in the [architecture.md](../architecture/architecture.md "mention")
 {% endhint %}
 
 ### Web UI

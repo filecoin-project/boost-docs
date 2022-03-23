@@ -1,4 +1,10 @@
-# Migrate from a split markets process to Boost
+# Migrate a Lotus markets service process to Boost
+
+This section describes how to upgrade your `lotus-miner` `markets` service to `boostd`.
+
+{% hint style="warning" %}
+If you are running a `monolith` `lotus-miner`and have not yet split the `markets` service into an individual process, refer to the [Lotus documentation](https://lotus.filecoin.io/storage-providers/configure/split-markets-miners/) and first do that, before upgrading to Boost.
+{% endhint %}
 
 If you are running a `markets` service as a separate `lotus-miner` process:
 
@@ -10,7 +16,7 @@ If you are running a `markets` service as a separate `lotus-miner` process:
 
 4\. Backup the markets repository
 
-5\. Follow [getting-started.md](getting-started.md "mention"), but use `boostd migrate` instead of `boostd init`:
+5\. Follow [as-a-storage-provider.md](../getting-started/as-a-storage-provider.md "mention"), but use `boostd migrate` instead of `boostd init`:
 
 ```
 boostd --vv migrate \
@@ -20,7 +26,7 @@ boostd --vv migrate \
        --max-staging-deals-bytes=50000000000
 ```
 
-The migrate command
+The `migrate` command
 
 * Initializes a Boost repository
 * Migrates markets datastore keys to Boost

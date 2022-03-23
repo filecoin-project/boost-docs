@@ -1,8 +1,8 @@
-# Boost Repo
+# Repository
 
-By default the Boost Repo is at `~/.boost`
+By default the Boost repository is located at `~/.boost`
 
-It has the following files:
+It contains the following files:
 
 * `api` The local multi-address of Boost's libp2p API
 * `boost.db` The sqlite database with all deal metadata
