@@ -1,6 +1,6 @@
 # Migrate from a split markets process to Boost
 
-If you are running markets as a separate lotus-miner instance (MRA)
+If you are running a `markets` service as a separate `lotus-miner` process:
 
 1\. Stop accepting incoming deals
 
@@ -8,9 +8,7 @@ If you are running markets as a separate lotus-miner instance (MRA)
 
 3\. Shutdown the markets process
 
-4\. Backup the markets repo
-
-TODO: backup commands
+4\. Backup the markets repository
 
 5\. Follow [getting-started.md](getting-started.md "mention"), but use `boostd migrate` instead of `boostd init`:
 
