@@ -14,7 +14,7 @@ Boost supports multiple options for data transfer when making storage deals, inc
 
 Boost comes with a web interface that can be used to manage deals, watch disk usage, monitor funds, adjust settings and more.
 
-![Boost Web UI](<.gitbook/assets/Screen Shot 2022-03-23 at 10.12.26 AM.png>)
+![Boost Web UI](<.gitbook/assets/Web UI>)
 
 ### Backwards compatibility with go-fil-markets
 

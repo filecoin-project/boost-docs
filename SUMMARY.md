@@ -8,3 +8,4 @@
 * [Configuration](tutorials.md)
 * [Roll back to legacy markets](roll-back-to-legacy-markets.md)
 * [Boost Client](boost-client.md)
+* [Boost Architecture](boost-architecture.md)
