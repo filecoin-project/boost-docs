@@ -53,7 +53,7 @@ boostd --vv init \
 * `--api-sector-index` is the API info for the lotus-miner instance that provides storage
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
-4\. Run Boost service
+4\. Run the Boost daemon service
 
 Run the `boostd` service to start
 
