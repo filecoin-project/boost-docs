@@ -12,7 +12,7 @@ Before you begin migration from Lotus markets service process to Boost, make sur
 You can also do a full backup of the Lotus markets repository directory.
 {% endhint %}
 
-1. If you haven't made any legacy deals with Boost, you can just switch back to using your old `markets` service process.
+1. If you haven't made any legacy deals with Boost, you can stop `boost` and switch back to using your old `markets` service process.
 2. If you have made new legacy deals with Boost, and want to migrate them back:
    1. Copy the backup `config.toml` to `markets` repository.
    2. Copy the `dagstore` directory from `boost` repository to `markets` repository.
