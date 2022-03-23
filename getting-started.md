@@ -27,9 +27,10 @@ lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 3\. Create Boost repository
 
 {% hint style="warning" %}
-If you are already running a split markets process (MRA) don't run `boostd init`
+If you are already running a Lotus markets service process, you should\
+run `boostd migrate` instead of `boostd init`
 
-Instead see the section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention")
+See section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention") for more details.
 {% endhint %}
 
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
@@ -68,17 +69,19 @@ boostd --vv run
 ```
 
 {% hint style="info" %}
-In your firewall you will need to open the ports that libp2p listens on so that Boost can receive storage and retrieval deals. See the `Libp2p` section of `config.toml` in the [architecture.md](architecture.md "mention")
+In your firewall you will need to open the ports that libp2p listens on, so that Boost can receive storage and retrieval deals.
+
+See the `Libp2p` section of `config.toml` in the [architecture.md](architecture.md "mention")
 {% endhint %}
 
 ### Web UI
 
-1. Build the react front-end
+1. Build the React frontend
 
 ```
 cd react
 
-# Download and install npm packages needed by the react front-end
+# Download and install npm packages needed by the React frontend
 npm install
 
 # Build the optimized javascript and css in boost/react/build
@@ -90,7 +93,7 @@ npm run build
 Open http://localhost:8080 in your browser.
 
 {% hint style="info" %}
-To access a web UI running on a remote server you can open an SSH tunnel from your local machine:
+To access a web UI running on a remote server, you can open an SSH tunnel from your local machine:
 
 ```
 ssh -L 8080:localhost:8080 myserver
