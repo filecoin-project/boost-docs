@@ -63,15 +63,15 @@ boostd --vv init \
 * `--api-sector-index` is the API info for the lotus-miner instance that provides storage
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
-{% hint style="info" %}
-If you are already running a split markets process (MRA) don't run `boost init`
+{% hint style="warning" %}
+If you are already running a split markets process (MRA) don't run `boostd init`
 
 Instead see the section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention")
 {% endhint %}
 
 5\. Run Boost service
 
-Run the boost service to start
+Run the `boostd` service to start
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API
@@ -94,8 +94,10 @@ In your firewall you will need to open the ports that libp2p listens on so that 
 
 ```
 cd react
+
 # Download and install npm packages needed by the react front-end
 npm install
+
 # Build the optimized javascript and css in boost/react/build
 npm run build
 ```
