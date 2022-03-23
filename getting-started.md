@@ -26,6 +26,12 @@ lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 
 3\. Create Boost repository
 
+{% hint style="warning" %}
+If you are already running a split markets process (MRA) don't run `boostd init`
+
+Instead see the section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention")
+{% endhint %}
+
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
 Run `boostd init` to create and initialize the repository:
@@ -45,12 +51,6 @@ boostd --vv init \
 * `--api-sealer` is the API info for the lotus-miner instance that does sealing
 * `--api-sector-index` is the API info for the lotus-miner instance that provides storage
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
-
-{% hint style="warning" %}
-If you are already running a split markets process (MRA) don't run `boostd init`
-
-Instead see the section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention")
-{% endhint %}
 
 4\. Run Boost service
 
