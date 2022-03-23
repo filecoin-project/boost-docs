@@ -12,14 +12,14 @@ If you are running markets as a separate lotus-miner instance (MRA)
 
 TODO: backup commands
 
-5\. Follow [getting-started.md](getting-started.md "mention"), but use `boost migrate` instead of `boost init`:
+5\. Follow [getting-started.md](getting-started.md "mention"), but use `boostd migrate` instead of `boostd init`:
 
 ```
-boost --vv migrate \
-      --import-markets-repo=~/.my-markets-repo \
-      --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
-      --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
-      --max-staging-deals-bytes=50000000000
+boostd --vv migrate \
+       --import-markets-repo=~/.my-markets-repo \
+       --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
+       --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
+       --max-staging-deals-bytes=50000000000
 ```
 
 The migrate command
