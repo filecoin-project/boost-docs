@@ -1,6 +1,6 @@
 # Repository
 
-By default the Boost repository is located at `~/.boost`
+By default the Boost daemon repository is located at `~/.boost`
 
 It contains the following files:
 
