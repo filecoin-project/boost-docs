@@ -45,7 +45,7 @@ lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
-Run `boost init` to create and initialize the repository:
+Run `boostd init` to create and initialize the repository:
 
 ```
 export $(lotus auth api-info --perm=admin)
