@@ -1,7 +1,7 @@
 ---
 description: >-
   This section details how to get started with Boost if you are a storage
-  provider or as a client.
+  provider or as a client
 ---
 
 # Getting started

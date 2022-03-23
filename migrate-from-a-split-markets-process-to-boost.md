@@ -1,7 +1,7 @@
 ---
 description: >-
   This section describes how to upgrade your lotus-miner markets service to
-  boostd.
+  boostd
 ---
 
 # Migrate a Lotus markets service process to Boost

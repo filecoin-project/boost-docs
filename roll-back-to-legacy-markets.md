@@ -1,3 +1,9 @@
+---
+description: >-
+  This section describes how to roll back to Lotus markets service process if
+  you are not happy with boostd
+---
+
 # Roll back to Lotus markets service process
 
 TODO: Describe how to manually roll back to Lotus markets
