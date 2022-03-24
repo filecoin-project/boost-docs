@@ -12,7 +12,9 @@ Before you begin migration from Lotus markets service process to Boost, make sur
 You can also do a full backup of the Lotus markets repository directory.
 {% endhint %}
 
-1. If you haven't made any legacy deals with Boost, you can stop `boostd` and switch back to using your `lotus-miner` `markets` service process.\
+1. If you haven't made any legacy deals with Boost:
+   1. Stop `boostd`&#x20;
+   2. Run your `lotus-miner` `markets` service process as you previously did\
 
 2. If you have made new legacy deals with Boost, and want to migrate them back:
    1. Stop `boostd`
