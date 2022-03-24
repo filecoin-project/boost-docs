@@ -1,6 +1,10 @@
-# How to store files with Boost
+---
+description: >-
+  This tutorial goes through all the steps required to make a storage deal with
+  Boost on Filecoin.
+---
 
-This page goes through all the steps required to make a storage deal with Boost.
+# How to store files with Boost on Filecoin
 
 First, you need to initialise a new Boost client and also set the endpoint for a public Filecoin node. In this example we are using [https://glif.io](https://glif.io)
 
