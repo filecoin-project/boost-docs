@@ -29,15 +29,19 @@ See section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-sp
 
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
+Create authentication tokens for the `boost` nodes. They will be used by the `boost` node to make JSON-RPC calls to the `mining/sealing/proving` node.
+
+```
+export APISEALER=`lotus-miner auth api-info --perm=admin`
+export APISECTORINDEX=`lotus-miner auth api-info --perm=admin`
+```
+
 Run `boostd init` to create and initialize the repository:
 
 ```
-export $(lotus auth api-info --perm=admin)
-export $(lotus-miner auth api-info --perm=admin)
-
 boostd --vv init \
-       --api-sealer=`lotus-miner auth api-info --perm=admin` \
-       --api-sector-index=`lotus-miner auth api-info --perm=admin` \
+       --api-sealer=$APISEALER \
+       --api-sector-index=$APISECTORINDEX \
        --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
        --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
        --max-staging-deals-bytes=50000000000
@@ -55,8 +59,6 @@ boostd --vv init \
 * the web server for the react front-end
 
 ```
-export $(lotus auth api-info --perm=admin)
-
 boostd --vv run
 ```
 
