@@ -49,17 +49,10 @@ boostx commp ./my-data.car
 
 CommP CID:  baga6ea4seaqjaxked6ovoj5f3bdisfeuwtjhrzh3s34mg5cyzevgoebe7tdckdi
 Piece size:  2097152
+Car file size: 1101978 
 ```
 
 Place the generated `car` file on a public HTTP server, so that a storage provider can later fetch it.
-
-Note the `car` file size, as you will need it later:
-
-```
-ls -la | grep my-data.car
-
--rwxr-xr-x     1 user  staff     1101978 Mar 21 17:11 my-data.car
-```
 
 Finally, trigger an online storage deal with a given storage provider:
 
