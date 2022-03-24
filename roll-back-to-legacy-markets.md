@@ -16,7 +16,8 @@ You can also do a full backup of the Lotus markets repository directory.
 2. If you have made new legacy deals with Boost, and want to migrate them back:
    1. Copy the backup `config.toml` to `markets` repository.
    2. Copy the `dagstore` directory from `boost` repository to `markets` repository.
-   3. TODO: Copy relevant datastore keys/values from `boost` to `markets`.
+   3. Copy `markets` datastore keys/values from `boost` to `markets`:\
+      `lotus-shed market import-datastore --repo <repo> --backup-path <backup-path>`
    4. Copy the `keystore` directory from `boost` repository to `markets` repository.
    5. Copy the `indexer-provider` directory from `boost` repository to `markets` repository.
    6. Copy the `storage.json` file from `boost` repository to `markets` repository.
