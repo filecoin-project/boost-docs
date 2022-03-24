@@ -11,7 +11,9 @@ export FULLNODE_API_INFO=<filecoin API endpoint>
 ```
 
 {% hint style="info" %}
-There are a number of public Filecoin APIs ran by a number of organisations, such as Infura, Glif, etc. For test purposes you can try: `export FULLNODE_API_INFO=https://api.node.glif.io`
+There are a number of public Filecoin APIs ran by a number of organisations, such as Infura, Glif, etc. For test purposes you can try: \
+\
+`export FULLNODE_API_INFO=https://api.node.glif.io`
 {% endhint %}
 
 #### 2. Initialize the client
