@@ -22,7 +22,7 @@ Boost comes with a web interface that can be used to manage deals, watch disk us
 
 ### Backwards compatibility with go-fil-markets package
 
-Boost supports the same endpoints as `go-fil-markets` package for making storage and retrieval deals, getting the storage and retrieval ask, and getting the status of ongoing deals. This ensures that the client running lotus can also make deals with storage providers running boost.
+Boost supports the same endpoints as `go-fil-markets` package for making storage and retrieval deals, getting the storage and retrieval ask, and getting the status of ongoing deals. This ensures that clients running lotus can make deals with Storage Providers running boost.
 
 ### A client for proposing deals that doesn't require a fullnode
 
