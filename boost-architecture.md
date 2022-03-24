@@ -1,8 +1,8 @@
 # Architecture
 
-The `boostd` executable runs alongside a lotus full node and lotus miner as a daemon. This daemon replaces the current market subsystem in the lotus miner. The boost daemon exposes a libp2p interface for storage and retrieval deals. All the on-chain operations are performed by making API calls to a lotus node. The daemon also hands off downloaded data to the lotus miner for sealing via API calls to the lotus miner.
+The `boostd` executable runs as a daemon alongside a lotus full node and lotus miner. This daemon replaces the current markets subsystem in the lotus miner. The boost daemon exposes a libp2p interface for storage and retrieval deals. It performs on-chain operations by making API calls to the lotus full node. The daemon hands off downloaded data to the lotus miner for sealing via API calls to the lotus miner.
 
-The `boostd` market subsystem also had a UI interface for easier fund management and deal monitoring. This UI is built as a react app for managing deals that consumes a graphql interface exposed by the daemon.
+`boostd` has a web interface for fund management and deal monitoring. The web interface is a react app that consumes a graphql interface exposed by the daemon.
 
 ![](<.gitbook/assets/Boost Interfaces.png>)
 

@@ -28,4 +28,4 @@ Boost supports the same endpoints as `go-fil-markets` package for making storage
 
 Boost comes with a client that can be used to make storage deals, and can be configured to point at a public Filecoin API endpoint. That means clients don't need to run a Filecoin node or sync from chain.
 
-See the [boost-client.md](boost-client.md "mention") for details.
+See [boost-client.md](boost-client.md "mention") for details.
