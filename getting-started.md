@@ -78,7 +78,7 @@ cd react
 # Download and install npm packages needed by the React frontend
 npm install
 
-# Build the optimized javascript and css in boost/react/build
+# Build the optimized JavaScript and CSS in boost/react/build
 npm run build
 ```
 
