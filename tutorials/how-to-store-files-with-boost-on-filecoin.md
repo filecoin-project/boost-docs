@@ -42,7 +42,7 @@ boostx generate-car ./my-data ./my-data.car
 Payload CID:  bafykbzacedzjq6jvlqnclrseq8pp5lypa6ozuqgug3wjie3orh67berkwv7e4
 ```
 
-Then you need to calculate the `commp` and `piece size` for generated `car` file:
+Then you need to calculate the `commp` and `piece size` for the generated `car` file:
 
 ```
 boostx commp ./my-data.car
