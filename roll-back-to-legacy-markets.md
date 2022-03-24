@@ -22,4 +22,6 @@ You can also do a full backup of the Lotus markets repository directory.
       ``\
       `Wrote backup file to <backup-dir>/markets.datastore.backup`
    4. Import the exported deals datastore keys/values from `boost` to `lotus markets`:\
-      `lotus-shed market import-datastore --repo <repo> --backup-path <backup-path>`
+      `lotus-shed market import-datastore --repo <repo> --backup-path <backup-path>`\
+      ``\
+      `Completed importing from backup file <backup-path>`
