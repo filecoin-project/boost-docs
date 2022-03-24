@@ -2,7 +2,7 @@
 
 ### Initialization and Running
 
-1\. Make sure you have a Lotus fullnode and miner running
+1\. Make sure you have a Lotus node and miner running
 
 2\. Create and send funds to two new wallets for Boost
 
@@ -18,7 +18,7 @@ lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
 
-3\. Create the Boost repository
+3\. Create and initialize the Boost repository
 
 {% hint style="warning" %}
 If you are already running a Lotus markets service process, you should\
