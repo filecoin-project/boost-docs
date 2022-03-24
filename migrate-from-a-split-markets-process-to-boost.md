@@ -20,7 +20,13 @@ If you are running a `markets` service as a separate `lotus-miner` process:
 
 4\. Backup the markets repository
 
-5\. Follow [getting-started.md](getting-started.md "mention"), but use `boostd migrate` instead of `boostd init`:
+5\. Backup the markets datastore (in case you decide to roll back from Boost to Lotus) with:
+
+```
+lotus-shed market export-datastore --repo <repo> --backup-dir <backup-dir>
+```
+
+6\. Follow [getting-started.md](getting-started.md "mention"), but use `boostd migrate` instead of `boostd init`:
 
 ```
 boostd --vv migrate \
