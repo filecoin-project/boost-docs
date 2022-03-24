@@ -24,7 +24,7 @@ boost/init_cmd.go:60    wallet balance  {"value": "0"}
 boost/init_cmd.go:65    market actor is not initialised, you must add funds to it in order to send online deals
 ```
 
-Then you need to send funds to the wallet, and add funds to the market actor.
+Then you need to send funds to the wallet, and add funds to the market actor (in the example below we are adding `1 FIL`).
 
 You can use the `boostx` utilities to add funds to the market actor:
 
