@@ -38,6 +38,7 @@ After that you need to generate a `car` file for data you want to store on Filec
 
 ```
 boostx generate-car ./my-data ./my-data.car
+
 Payload CID:  bafykbzacedzjq6jvlqnclrseq8pp5lypa6ozuqgug3wjie3orh67berkwv7e4
 ```
 
@@ -45,6 +46,7 @@ Then you need to calculate the `commp` and `piece size` for generated `car` file
 
 ```
 boostx commp ./my-data.car
+
 CommP CID:  baga6ea4seaqjaxked6ovoj5f3bdisfeuwtjhrzh3s34mg5cyzevgoebe7tdckdi
 Piece size:  2097152
 ```
