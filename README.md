@@ -1,6 +1,6 @@
 # What is Boost?
 
-Boost is a tool for Storage Providers to manage data storage and retrievals on Filecoin. It replaces the `go-fil-markets` package in lotus with a standalone binary that runs alongside a Lotus daemon and Lotus miner.
+Boost is a tool for Storage Providers to manage data onboarding and retrieval on the Filecoin network. It replaces the `go-fil-markets` package in lotus with a standalone binary that runs alongside a Lotus daemon and Lotus miner.
 
 Boost exposes libp2p interfaces for making storage and retrieval deals, a web interface for managing storage deals, and a GraphQL interface for accessing and updating real-time deal information.
 
@@ -22,7 +22,7 @@ Boost comes with a web interface that can be used to manage deals, watch disk us
 
 ### Backwards compatibility with go-fil-markets package
 
-Boost supports the same endpoints as `go-fil-markets` package for making storage and retrieval deals, getting the storage and retrieval ask, and getting the status of ongoing deals.
+Boost supports the same endpoints as `go-fil-markets` package for making storage and retrieval deals, getting the storage and retrieval ask, and getting the status of ongoing deals. This ensures that the client running lotus can also make deals with storage providers running boost.
 
 ### A client for proposing deals that doesn't require a fullnode
 
