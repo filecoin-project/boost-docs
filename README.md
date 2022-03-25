@@ -12,7 +12,7 @@ Boost exposes libp2p interfaces for making storage and retrieval deals, a web in
 
 Boost supports multiple options for data transfer when making storage deals, including HTTP. Clients can host their CAR file on an HTTP server, such as S3, and provide that URL when proposing the storage deal. Once accepted, Boost will automatically fetch the CAR file from the specified URL.
 
-See [boost-client.md](boost-client.md "mention") for more details.
+See [boost-client.md](getting-started/boost-client.md "mention") for more details.
 
 ### Web UI
 
@@ -28,4 +28,4 @@ Boost supports the same endpoints as `go-fil-markets` package for making storage
 
 Boost comes with a client that can be used to make storage deals, and can be configured to point at a public Filecoin API endpoint. That means clients don't need to run a Filecoin node or sync from chain.
 
-See [boost-client.md](boost-client.md "mention") for details.
+See [boost-client.md](getting-started/boost-client.md "mention") for details.

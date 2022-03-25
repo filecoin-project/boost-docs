@@ -24,7 +24,7 @@ lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 If you are already running a Lotus markets service process, you should\
 run `boostd migrate` instead of `boostd init`
 
-See section [migrate-from-a-split-markets-process-to-boost.md](migrate-from-a-split-markets-process-to-boost.md "mention") for more details.
+See section [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention") for more details.
 {% endhint %}
 
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
@@ -65,7 +65,7 @@ boostd --vv run
 {% hint style="info" %}
 In your firewall you will need to open the ports that libp2p listens on, so that Boost can receive storage and retrieval deals.
 
-See the `Libp2p` section of `config.toml` in the [architecture.md](architecture.md "mention")
+See the `Libp2p` section of `config.toml` in the [architecture.md](../boost-architecture/architecture.md "mention")
 {% endhint %}
 
 ### Web UI
