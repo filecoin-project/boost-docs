@@ -6,74 +6,77 @@ description: >-
 
 # JSON-RPC API
 
-# Groups
-* [Actor](#Actor)
-  * [ActorSectorSize](#ActorSectorSize)
-* [Auth](#Auth)
-  * [AuthNew](#AuthNew)
-  * [AuthVerify](#AuthVerify)
-* [Boost](#Boost)
-  * [BoostDagstoreInitializeAll](#BoostDagstoreInitializeAll)
-  * [BoostDagstoreInitializeShard](#BoostDagstoreInitializeShard)
-  * [BoostDeal](#BoostDeal)
-  * [BoostDummyDeal](#BoostDummyDeal)
-  * [BoostIndexerAnnounceAllDeals](#BoostIndexerAnnounceAllDeals)
-  * [BoostOfflineDealWithData](#BoostOfflineDealWithData)
-* [Deals](#Deals)
-  * [DealsConsiderOfflineRetrievalDeals](#DealsConsiderOfflineRetrievalDeals)
-  * [DealsConsiderOfflineStorageDeals](#DealsConsiderOfflineStorageDeals)
-  * [DealsConsiderOnlineRetrievalDeals](#DealsConsiderOnlineRetrievalDeals)
-  * [DealsConsiderOnlineStorageDeals](#DealsConsiderOnlineStorageDeals)
-  * [DealsConsiderUnverifiedStorageDeals](#DealsConsiderUnverifiedStorageDeals)
-  * [DealsConsiderVerifiedStorageDeals](#DealsConsiderVerifiedStorageDeals)
-  * [DealsPieceCidBlocklist](#DealsPieceCidBlocklist)
-  * [DealsSetConsiderOfflineRetrievalDeals](#DealsSetConsiderOfflineRetrievalDeals)
-  * [DealsSetConsiderOfflineStorageDeals](#DealsSetConsiderOfflineStorageDeals)
-  * [DealsSetConsiderOnlineRetrievalDeals](#DealsSetConsiderOnlineRetrievalDeals)
-  * [DealsSetConsiderOnlineStorageDeals](#DealsSetConsiderOnlineStorageDeals)
-  * [DealsSetConsiderUnverifiedStorageDeals](#DealsSetConsiderUnverifiedStorageDeals)
-  * [DealsSetConsiderVerifiedStorageDeals](#DealsSetConsiderVerifiedStorageDeals)
-  * [DealsSetPieceCidBlocklist](#DealsSetPieceCidBlocklist)
-* [I](#I)
-  * [ID](#ID)
-* [Log](#Log)
-  * [LogList](#LogList)
-  * [LogSetLevel](#LogSetLevel)
-* [Market](#Market)
-  * [MarketDataTransferUpdates](#MarketDataTransferUpdates)
-  * [MarketGetAsk](#MarketGetAsk)
-  * [MarketGetRetrievalAsk](#MarketGetRetrievalAsk)
-  * [MarketImportDealData](#MarketImportDealData)
-  * [MarketListDataTransfers](#MarketListDataTransfers)
-  * [MarketListRetrievalDeals](#MarketListRetrievalDeals)
-  * [MarketRestartDataTransfer](#MarketRestartDataTransfer)
-  * [MarketSetAsk](#MarketSetAsk)
-  * [MarketSetRetrievalAsk](#MarketSetRetrievalAsk)
-* [Net](#Net)
-  * [NetAddrsListen](#NetAddrsListen)
-  * [NetAgentVersion](#NetAgentVersion)
-  * [NetAutoNatStatus](#NetAutoNatStatus)
-  * [NetBandwidthStats](#NetBandwidthStats)
-  * [NetBandwidthStatsByPeer](#NetBandwidthStatsByPeer)
-  * [NetBandwidthStatsByProtocol](#NetBandwidthStatsByProtocol)
-  * [NetBlockAdd](#NetBlockAdd)
-  * [NetBlockList](#NetBlockList)
-  * [NetBlockRemove](#NetBlockRemove)
-  * [NetConnect](#NetConnect)
-  * [NetConnectedness](#NetConnectedness)
-  * [NetDisconnect](#NetDisconnect)
-  * [NetFindPeer](#NetFindPeer)
-  * [NetPeerInfo](#NetPeerInfo)
-  * [NetPeers](#NetPeers)
-## Actor
+## Groups
 
+* [Actor](json-rpc-api.md#Actor)
+  * [ActorSectorSize](json-rpc-api.md#ActorSectorSize)
+* [Auth](json-rpc-api.md#Auth)
+  * [AuthNew](json-rpc-api.md#AuthNew)
+  * [AuthVerify](json-rpc-api.md#AuthVerify)
+* [Boost](json-rpc-api.md#Boost)
+  * [BoostDagstoreInitializeAll](json-rpc-api.md#BoostDagstoreInitializeAll)
+  * [BoostDagstoreInitializeShard](json-rpc-api.md#BoostDagstoreInitializeShard)
+  * [BoostDeal](json-rpc-api.md#BoostDeal)
+  * [BoostDummyDeal](json-rpc-api.md#BoostDummyDeal)
+  * [BoostIndexerAnnounceAllDeals](json-rpc-api.md#BoostIndexerAnnounceAllDeals)
+  * [BoostOfflineDealWithData](json-rpc-api.md#BoostOfflineDealWithData)
+* [Deals](json-rpc-api.md#Deals)
+  * [DealsConsiderOfflineRetrievalDeals](json-rpc-api.md#DealsConsiderOfflineRetrievalDeals)
+  * [DealsConsiderOfflineStorageDeals](json-rpc-api.md#DealsConsiderOfflineStorageDeals)
+  * [DealsConsiderOnlineRetrievalDeals](json-rpc-api.md#DealsConsiderOnlineRetrievalDeals)
+  * [DealsConsiderOnlineStorageDeals](json-rpc-api.md#DealsConsiderOnlineStorageDeals)
+  * [DealsConsiderUnverifiedStorageDeals](json-rpc-api.md#DealsConsiderUnverifiedStorageDeals)
+  * [DealsConsiderVerifiedStorageDeals](json-rpc-api.md#DealsConsiderVerifiedStorageDeals)
+  * [DealsPieceCidBlocklist](json-rpc-api.md#DealsPieceCidBlocklist)
+  * [DealsSetConsiderOfflineRetrievalDeals](json-rpc-api.md#DealsSetConsiderOfflineRetrievalDeals)
+  * [DealsSetConsiderOfflineStorageDeals](json-rpc-api.md#DealsSetConsiderOfflineStorageDeals)
+  * [DealsSetConsiderOnlineRetrievalDeals](json-rpc-api.md#DealsSetConsiderOnlineRetrievalDeals)
+  * [DealsSetConsiderOnlineStorageDeals](json-rpc-api.md#DealsSetConsiderOnlineStorageDeals)
+  * [DealsSetConsiderUnverifiedStorageDeals](json-rpc-api.md#DealsSetConsiderUnverifiedStorageDeals)
+  * [DealsSetConsiderVerifiedStorageDeals](json-rpc-api.md#DealsSetConsiderVerifiedStorageDeals)
+  * [DealsSetPieceCidBlocklist](json-rpc-api.md#DealsSetPieceCidBlocklist)
+* [I](json-rpc-api.md#I)
+  * [ID](json-rpc-api.md#ID)
+* [Log](json-rpc-api.md#Log)
+  * [LogList](json-rpc-api.md#LogList)
+  * [LogSetLevel](json-rpc-api.md#LogSetLevel)
+* [Market](json-rpc-api.md#Market)
+  * [MarketDataTransferUpdates](json-rpc-api.md#MarketDataTransferUpdates)
+  * [MarketGetAsk](json-rpc-api.md#MarketGetAsk)
+  * [MarketGetRetrievalAsk](json-rpc-api.md#MarketGetRetrievalAsk)
+  * [MarketImportDealData](json-rpc-api.md#MarketImportDealData)
+  * [MarketListDataTransfers](json-rpc-api.md#MarketListDataTransfers)
+  * [MarketListRetrievalDeals](json-rpc-api.md#MarketListRetrievalDeals)
+  * [MarketRestartDataTransfer](json-rpc-api.md#MarketRestartDataTransfer)
+  * [MarketSetAsk](json-rpc-api.md#MarketSetAsk)
+  * [MarketSetRetrievalAsk](json-rpc-api.md#MarketSetRetrievalAsk)
+* [Net](json-rpc-api.md#Net)
+  * [NetAddrsListen](json-rpc-api.md#NetAddrsListen)
+  * [NetAgentVersion](json-rpc-api.md#NetAgentVersion)
+  * [NetAutoNatStatus](json-rpc-api.md#NetAutoNatStatus)
+  * [NetBandwidthStats](json-rpc-api.md#NetBandwidthStats)
+  * [NetBandwidthStatsByPeer](json-rpc-api.md#NetBandwidthStatsByPeer)
+  * [NetBandwidthStatsByProtocol](json-rpc-api.md#NetBandwidthStatsByProtocol)
+  * [NetBlockAdd](json-rpc-api.md#NetBlockAdd)
+  * [NetBlockList](json-rpc-api.md#NetBlockList)
+  * [NetBlockRemove](json-rpc-api.md#NetBlockRemove)
+  * [NetConnect](json-rpc-api.md#NetConnect)
+  * [NetConnectedness](json-rpc-api.md#NetConnectedness)
+  * [NetDisconnect](json-rpc-api.md#NetDisconnect)
+  * [NetFindPeer](json-rpc-api.md#NetFindPeer)
+  * [NetPeerInfo](json-rpc-api.md#NetPeerInfo)
+  * [NetPeers](json-rpc-api.md#NetPeers)
 
-### ActorSectorSize
+### Actor
+
+#### ActorSectorSize
+
 There are not yet any comments for this method.
 
 Perms: read
 
 Inputs:
+
 ```json
 [
   "f01234"
@@ -82,15 +85,14 @@ Inputs:
 
 Response: `34359738368`
 
-## Auth
+### Auth
 
-
-### AuthNew
-
+#### AuthNew
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   [
@@ -101,12 +103,12 @@ Inputs:
 
 Response: `"Ynl0ZSBhcnJheQ=="`
 
-### AuthVerify
-
+#### AuthVerify
 
 Perms: read
 
 Inputs:
+
 ```json
 [
   "string value"
@@ -114,21 +116,21 @@ Inputs:
 ```
 
 Response:
+
 ```json
 [
   "write"
 ]
 ```
 
-## Boost
+### Boost
 
-
-### BoostDagstoreInitializeAll
-
+#### BoostDagstoreInitializeAll
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   {
@@ -139,6 +141,7 @@ Inputs:
 ```
 
 Response:
+
 ```json
 {
   "Key": "string value",
@@ -150,12 +153,12 @@ Response:
 }
 ```
 
-### BoostDagstoreInitializeShard
-
+#### BoostDagstoreInitializeShard
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   "string value"
@@ -164,12 +167,12 @@ Inputs:
 
 Response: `{}`
 
-### BoostDeal
-
+#### BoostDeal
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   "07070707-0707-0707-0707-070707070707"
@@ -177,6 +180,7 @@ Inputs:
 ```
 
 Response:
+
 ```json
 {
   "DealUuid": "07070707-0707-0707-0707-070707070707",
@@ -225,12 +229,12 @@ Response:
 }
 ```
 
-### BoostDummyDeal
-
+#### BoostDummyDeal
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   {
@@ -271,6 +275,7 @@ Inputs:
 ```
 
 Response:
+
 ```json
 {
   "Accepted": true,
@@ -278,7 +283,8 @@ Response:
 }
 ```
 
-### BoostIndexerAnnounceAllDeals
+#### BoostIndexerAnnounceAllDeals
+
 There are not yet any comments for this method.
 
 Perms: admin
@@ -287,12 +293,12 @@ Inputs: `null`
 
 Response: `{}`
 
-### BoostOfflineDealWithData
-
+#### BoostOfflineDealWithData
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   "string value"
@@ -300,6 +306,7 @@ Inputs:
 ```
 
 Response:
+
 ```json
 {
   "Accepted": true,
@@ -307,11 +314,9 @@ Response:
 }
 ```
 
-## Deals
+### Deals
 
-
-### DealsConsiderOfflineRetrievalDeals
-
+#### DealsConsiderOfflineRetrievalDeals
 
 Perms: admin
 
@@ -319,17 +324,7 @@ Inputs: `null`
 
 Response: `true`
 
-### DealsConsiderOfflineStorageDeals
-
-
-Perms: admin
-
-Inputs: `null`
-
-Response: `true`
-
-### DealsConsiderOnlineRetrievalDeals
-
+#### DealsConsiderOfflineStorageDeals
 
 Perms: admin
 
@@ -337,7 +332,16 @@ Inputs: `null`
 
 Response: `true`
 
-### DealsConsiderOnlineStorageDeals
+#### DealsConsiderOnlineRetrievalDeals
+
+Perms: admin
+
+Inputs: `null`
+
+Response: `true`
+
+#### DealsConsiderOnlineStorageDeals
+
 There are not yet any comments for this method.
 
 Perms: admin
@@ -346,17 +350,7 @@ Inputs: `null`
 
 Response: `true`
 
-### DealsConsiderUnverifiedStorageDeals
-
-
-Perms: admin
-
-Inputs: `null`
-
-Response: `true`
-
-### DealsConsiderVerifiedStorageDeals
-
+#### DealsConsiderUnverifiedStorageDeals
 
 Perms: admin
 
@@ -364,14 +358,22 @@ Inputs: `null`
 
 Response: `true`
 
-### DealsPieceCidBlocklist
+#### DealsConsiderVerifiedStorageDeals
 
+Perms: admin
+
+Inputs: `null`
+
+Response: `true`
+
+#### DealsPieceCidBlocklist
 
 Perms: admin
 
 Inputs: `null`
 
 Response:
+
 ```json
 [
   {
@@ -380,12 +382,12 @@ Response:
 ]
 ```
 
-### DealsSetConsiderOfflineRetrievalDeals
-
+#### DealsSetConsiderOfflineRetrievalDeals
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   true
@@ -394,12 +396,12 @@ Inputs:
 
 Response: `{}`
 
-### DealsSetConsiderOfflineStorageDeals
-
+#### DealsSetConsiderOfflineStorageDeals
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   true
@@ -408,12 +410,12 @@ Inputs:
 
 Response: `{}`
 
-### DealsSetConsiderOnlineRetrievalDeals
-
+#### DealsSetConsiderOnlineRetrievalDeals
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   true
@@ -422,12 +424,12 @@ Inputs:
 
 Response: `{}`
 
-### DealsSetConsiderOnlineStorageDeals
-
+#### DealsSetConsiderOnlineStorageDeals
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   true
@@ -436,12 +438,12 @@ Inputs:
 
 Response: `{}`
 
-### DealsSetConsiderUnverifiedStorageDeals
-
+#### DealsSetConsiderUnverifiedStorageDeals
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   true
@@ -450,12 +452,12 @@ Inputs:
 
 Response: `{}`
 
-### DealsSetConsiderVerifiedStorageDeals
-
+#### DealsSetConsiderVerifiedStorageDeals
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   true
@@ -464,12 +466,12 @@ Inputs:
 
 Response: `{}`
 
-### DealsSetPieceCidBlocklist
-
+#### DealsSetPieceCidBlocklist
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   [
@@ -482,11 +484,9 @@ Inputs:
 
 Response: `{}`
 
-## I
+### I
 
-
-### ID
-
+#### ID
 
 Perms: read
 
@@ -494,29 +494,28 @@ Inputs: `null`
 
 Response: `"12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"`
 
-## Log
+### Log
 
-
-### LogList
-
+#### LogList
 
 Perms: write
 
 Inputs: `null`
 
 Response:
+
 ```json
 [
   "string value"
 ]
 ```
 
-### LogSetLevel
-
+#### LogSetLevel
 
 Perms: write
 
 Inputs:
+
 ```json
 [
   "string value",
@@ -526,17 +525,16 @@ Inputs:
 
 Response: `{}`
 
-## Market
+### Market
 
-
-### MarketDataTransferUpdates
-
+#### MarketDataTransferUpdates
 
 Perms: write
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "TransferID": 3,
@@ -569,14 +567,14 @@ Response:
 }
 ```
 
-### MarketGetAsk
-
+#### MarketGetAsk
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "Ask": {
@@ -596,14 +594,14 @@ Response:
 }
 ```
 
-### MarketGetRetrievalAsk
-
+#### MarketGetRetrievalAsk
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "PricePerByte": "0",
@@ -613,12 +611,12 @@ Response:
 }
 ```
 
-### MarketImportDealData
-
+#### MarketImportDealData
 
 Perms: write
 
 Inputs:
+
 ```json
 [
   {
@@ -630,14 +628,14 @@ Inputs:
 
 Response: `{}`
 
-### MarketListDataTransfers
-
+#### MarketListDataTransfers
 
 Perms: write
 
 Inputs: `null`
 
 Response:
+
 ```json
 [
   {
@@ -672,7 +670,8 @@ Response:
 ]
 ```
 
-### MarketListRetrievalDeals
+#### MarketListRetrievalDeals
+
 There are not yet any comments for this method.
 
 Perms: read
@@ -680,6 +679,7 @@ Perms: read
 Inputs: `null`
 
 Response:
+
 ```json
 [
   {
@@ -725,12 +725,12 @@ Response:
 ]
 ```
 
-### MarketRestartDataTransfer
-
+#### MarketRestartDataTransfer
 
 Perms: write
 
 Inputs:
+
 ```json
 [
   3,
@@ -741,12 +741,12 @@ Inputs:
 
 Response: `{}`
 
-### MarketSetAsk
-
+#### MarketSetAsk
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   "0",
@@ -759,12 +759,12 @@ Inputs:
 
 Response: `{}`
 
-### MarketSetRetrievalAsk
-
+#### MarketSetRetrievalAsk
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   {
@@ -778,17 +778,16 @@ Inputs:
 
 Response: `{}`
 
-## Net
+### Net
 
-
-### NetAddrsListen
-
+#### NetAddrsListen
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "ID": "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf",
@@ -798,12 +797,12 @@ Response:
 }
 ```
 
-### NetAgentVersion
-
+#### NetAgentVersion
 
 Perms: read
 
 Inputs:
+
 ```json
 [
   "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"
@@ -812,14 +811,14 @@ Inputs:
 
 Response: `"string value"`
 
-### NetAutoNatStatus
-
+#### NetAutoNatStatus
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "Reachability": 1,
@@ -827,14 +826,14 @@ Response:
 }
 ```
 
-### NetBandwidthStats
-
+#### NetBandwidthStats
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "TotalIn": 9,
@@ -844,14 +843,14 @@ Response:
 }
 ```
 
-### NetBandwidthStatsByPeer
-
+#### NetBandwidthStatsByPeer
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "12D3KooWSXmXLJmBR1M7i9RW9GQPNUhZSzXKzxDHWtAgNuJAbyEJ": {
@@ -863,14 +862,14 @@ Response:
 }
 ```
 
-### NetBandwidthStatsByProtocol
-
+#### NetBandwidthStatsByProtocol
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "/fil/hello/1.0.0": {
@@ -882,12 +881,12 @@ Response:
 }
 ```
 
-### NetBlockAdd
-
+#### NetBlockAdd
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   {
@@ -906,14 +905,14 @@ Inputs:
 
 Response: `{}`
 
-### NetBlockList
-
+#### NetBlockList
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 {
   "Peers": [
@@ -928,12 +927,12 @@ Response:
 }
 ```
 
-### NetBlockRemove
-
+#### NetBlockRemove
 
 Perms: admin
 
 Inputs:
+
 ```json
 [
   {
@@ -952,12 +951,12 @@ Inputs:
 
 Response: `{}`
 
-### NetConnect
-
+#### NetConnect
 
 Perms: write
 
 Inputs:
+
 ```json
 [
   {
@@ -971,12 +970,12 @@ Inputs:
 
 Response: `{}`
 
-### NetConnectedness
-
+#### NetConnectedness
 
 Perms: read
 
 Inputs:
+
 ```json
 [
   "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"
@@ -985,12 +984,12 @@ Inputs:
 
 Response: `1`
 
-### NetDisconnect
-
+#### NetDisconnect
 
 Perms: write
 
 Inputs:
+
 ```json
 [
   "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"
@@ -999,12 +998,12 @@ Inputs:
 
 Response: `{}`
 
-### NetFindPeer
-
+#### NetFindPeer
 
 Perms: read
 
 Inputs:
+
 ```json
 [
   "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"
@@ -1012,6 +1011,7 @@ Inputs:
 ```
 
 Response:
+
 ```json
 {
   "ID": "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf",
@@ -1021,12 +1021,12 @@ Response:
 }
 ```
 
-### NetPeerInfo
-
+#### NetPeerInfo
 
 Perms: read
 
 Inputs:
+
 ```json
 [
   "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf"
@@ -1034,6 +1034,7 @@ Inputs:
 ```
 
 Response:
+
 ```json
 {
   "ID": "12D3KooWGzxzKZYveHXtpG6AsrUJBcWxHBFS2HsEoGTxrMLvKXtf",
@@ -1057,14 +1058,14 @@ Response:
 }
 ```
 
-### NetPeers
-
+#### NetPeers
 
 Perms: read
 
 Inputs: `null`
 
 Response:
+
 ```json
 [
   {
