@@ -11,5 +11,6 @@
 * [Upgrade from Lotus to Boost](upgrade-from-lotus-to-boost/README.md)
   * [Migrate a Lotus markets service process to Boost](migrate-from-a-split-markets-process-to-boost.md)
   * [Roll back to Lotus markets service process](roll-back-to-legacy-markets.md)
+* [JSON-RPC API](json-rpc-api.md)
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
