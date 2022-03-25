@@ -1,5 +1,9 @@
 # As a storage provider
 
+{% hint style="warning" %}
+If you are already running a standalone markets process, follow the guide at [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")
+{% endhint %}
+
 ### Initialization and Running
 
 1\. Make sure you have a Lotus node and miner running
