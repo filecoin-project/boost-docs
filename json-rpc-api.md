@@ -4,8 +4,6 @@ description: >-
   exposed as JSON-RPC 2.0 endpoints by the boostd daemon.
 ---
 
-# JSON-RPC API
-
 # Groups
 * [Actor](#actor)
   * [ActorSectorSize](#actorsectorsize)
