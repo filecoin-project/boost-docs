@@ -1,7 +1,7 @@
 ---
 description: >-
-  This page contains all boost API definitions. Interfaces defined here are
-  exposed as JsonRPC 2.0 endpoints by boost programs.
+  This page contains all Boost API definitions. Interfaces defined here are
+  exposed as JSON-RPC 2.0 endpoints by the boostd daemon.
 ---
 
 # JSON-RPC API
