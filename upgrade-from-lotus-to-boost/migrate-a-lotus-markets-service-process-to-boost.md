@@ -44,7 +44,14 @@ lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 
 8\. Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
-9\. Run `boostd migrate` to initialize the repository and start the migration:
+9\. Export the environment variables needed for `boostd migrate` to connect to the lotus daemon and lotus miner.
+
+```
+export $(lotus auth api-info --perm=admin)
+export $(lotus-miner auth api-info --perm=admin)
+```
+
+10\. Run `boostd migrate` to initialize the repository and start the migration:
 
 ```
 boostd --vv migrate \
@@ -64,7 +71,7 @@ The `migrate` command
 * Migrates markets config to Boost (libp2p endpoints, settings etc)
 * Migrates the markets DAG store to Boost
 
-10\. Run the `boostd` service, which will start:
+11\. Run the `boostd` service, which will start:
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API

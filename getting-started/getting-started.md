@@ -33,7 +33,14 @@ See section [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-fro
 
 Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
-Create authentication tokens for the `boost` nodes. They will be used by the `boost` node to make JSON-RPC calls to the `mining/sealing/proving` node.
+Export the environment variables needed for `boostd init` to connect to the lotus daemon and lotus miner.
+
+```
+export $(lotus auth api-info --perm=admin)
+export $(lotus-miner auth api-info --perm=admin)
+```
+
+Export environment variables that point to the API endpoints for the sealing and mining processes. They will be used by the `boost` node to make JSON-RPC calls to the `mining/sealing/proving` node.
 
 ```
 export APISEALER=`lotus-miner auth api-info --perm=admin`
