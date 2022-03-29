@@ -14,3 +14,4 @@
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
 * [Need help?](need-help.md)
+* [Troubleshooting](troubleshooting.md)
