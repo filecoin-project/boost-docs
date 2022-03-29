@@ -1,8 +1,8 @@
 ---
 description: >-
-  The dagstore is a sharded store to hold large IPLD graphs efficiently,
-  packaged as location-transparent attachable CAR files, with mechanical
-  sympathy resulting in zero-copy access in ideal situations
+  The DAG store manages a copy of unsealed deal data stored as CAR files. It
+  maintains indexes over the CAR files to facilitate efficient querying of
+  multihashes.
 ---
 
 # Dagstore
@@ -11,7 +11,7 @@ description: >-
 
 By default, the dagstore root will be:
 
-- `$BOOST_REPO_PATH/dagstore`
+* `$BOOST_REPO_PATH/dagstore`
 
 The directory structure is as follows:
 
@@ -34,8 +34,8 @@ The directory structure is as follows:
 
 When you first start your boost process without a dagstore repo, a migration process will register all shards for both legacy and Boost deals in **lazy initialization** mode. As deals come in, shards are fetched and initialized just in time to serve the retrieval.
 
-- For legacy deals, you can monitor the progress of the migration in your log output, by grepping for the keyword `migrator`. Here's example output. Notice the first line, which specifies how many deals will be evaluated (this number includes failed deals that never went on chain, and therefore will not be migrated), and the last lines (which communicate that migration completed successfully):
-- For Boost deals, you can do the same by grepping for the keyword `boost-migrator`.
+* For legacy deals, you can monitor the progress of the migration in your log output, by grepping for the keyword `migrator`. Here's example output. Notice the first line, which specifies how many deals will be evaluated (this number includes failed deals that never went on chain, and therefore will not be migrated), and the last lines (which communicate that migration completed successfully):
+* For Boost deals, you can do the same by grepping for the keyword `boost-migrator`.
 
 ```
 2021-08-09T22:06:35.701+0300    INFO    dagstore.migrator       dagstore/wrapper.go:286 registering shards for all active deals in sealing subsystem    {"count": 453}
@@ -56,21 +56,17 @@ nveknyqhkkh7mltcrrcx35yvuxdmcbfouaafkvp6niay"}
 
 Forcing bulk initialization will become important in the near future, when miners begin publishing indices to the network to advertise content they have, and new retrieval features become available (e.g. automatic shard routing).
 
-
-{{< alert icon="warning" >}}
 Initialization places IO workload on your storage system. You can stop/start this command at your wish/convenience as proving deadlines approach and elapse, to avoid IOPS starvation or competition with window PoSt.
 
 To stop a bulk initialization(see the next paragraph), press Control-C. Shards being initialized at that time will continue in the background, but no more initializations will be performed. The next time you run the command, it will resume from where it left off.
-{{< /alert >}}
 
 You can force bulk initialization using the `boostd dagstore initialize-all` command. This command will force initialization of every shard that is still in `ShardStateNew` state for both legacy and Boost deals. To control the operation:
-- You must set a concurrency level through the `--concurrency=N` flag.
-  - A value of `0` will disable throttling and all shards will be initialized at once. ⚠️ Use with caution!
-- By default, only unsealed pieces will be indexed to avoid forcing unsealing jobs. To index also sealed pieces, use the `--include-sealed` flag.
 
-{{< alert icon="tip" >}}
+* You must set a concurrency level through the `--concurrency=N` flag.
+  * A value of `0` will disable throttling and all shards will be initialized at once. ⚠️ Use with caution!
+* By default, only unsealed pieces will be indexed to avoid forcing unsealing jobs. To index also sealed pieces, use the `--include-sealed` flag.
+
 In our test environments, we found the migration to proceed at a rate of 400-500 shards/deals per second, on the following hardware specs: AMD Ryzen Threadripper 3970X, 256GB DDR4 3200 RAM, Samsung 970 EVO 2TB SSD, RTX3080 10GB GPU.
-{{< /alert >}}
 
 ## Configuration
 
@@ -130,10 +126,9 @@ You can view failed shards by using the `boostd dagstore list-shards` command, a
 
 The `boostd` executable contains a `dagstore` command with several useful subcommands:
 
-- `boostd dagstore list-shards`
-- `boostd dagstore initialize-shard <key>`
-- `boostd dagstore initialize-all --concurrency=10`
-- `boostd dagstore gc`
+* `boostd dagstore list-shards`
+* `boostd dagstore initialize-shard <key>`
+* `boostd dagstore initialize-all --concurrency=10`
+* `boostd dagstore gc`
 
 Refer to the `--help` texts for more information.
-
