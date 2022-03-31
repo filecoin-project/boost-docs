@@ -61,7 +61,7 @@ export FULLNODE_API_INFO=https://api.node.glif.io
 
 boost deal --verified=false \
            --provider=f0026876 \
-           --url=https://public-http-server.com/my-data.car \
+           --http-url=https://public-http-server.com/my-data.car \
            --commp=baga6ea4seaqjaxked6ovoj5f3bdisfeuwtjhrzh3s34mg5cyzevgoebe7tdckdi \
            --car-size=1101978 \
            --piece-size=2097152 \
