@@ -47,3 +47,34 @@ boost -vv deal --provider=<f00001> \
                --payload-cid=<payload-cid>
 
 ```
+
+When a storage provider accepts the deal, you should see output of the command similar to:
+
+```
+sent deal proposal
+  deal uuid: 9e68fb16-ff9a-488e-ad0a-1289b512d176
+  storage provider: f0127896
+  client wallet: f1sw5zjcyo4mff5cbvgsgmm8uoko6gcr4tptvtkhy
+  payload cid: bafyaa6qshafcmalqudsbeidrunclaep6mdbipm2gjfvuosjfd6cbqd6th7bshy5hi5npxe727yjaagelucbyabasgafcmalqudsaeieapsxspo2i36no36n7yitswsxdazvziwvgj4vbp2scuxasrc6n4ejaage3r7m3saykcqeaegeavdllsbzaqcaibaaeecakrvvzam
+  url: https://webserver/file.car
+  commp: baga6ea4seaqh5prrl6ykov4t64k6m5giijsc44dcxtdnzsp4izjakqhs7twauiq
+  start epoch: 1700711
+  end epoch: 2219111
+  provider collateral: 358.687 μFIL
+```
+
+You can check the `deal status` with the following command:
+
+```
+boost deal-status --provider=<provider> --deal-uuid=<deal-uuid>
+```
+
+```
+got deal status response
+  deal uuid: 9e68fb16-ff8a-488e-ad0a-1289b512d176
+  deal status: Transfer Queued
+  deal label: bafyaa6qsgafcmalqudsaeidrunclaep6mdbipm2gjfvuosjfd6cbqd6th7bshy5hi5npxe727yjaagelucbyabasgafcmalqudsaeieapsxspo2i36no36n7yitswsxdazvziwvgj4vbp2scuxasrc6n4ejaage3r7m3saykcqeaegeavdllsbzaqcaibaaeecakrvvzam
+  publish cid: <nil>
+  chain deal id: 0
+```
+
