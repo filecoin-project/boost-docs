@@ -4,7 +4,7 @@ Boost comes with a client executable, `boost`, that can be used to send a deal p
 
 The client is intentionally minimal. It does not require a daemon process, and can be pointed at any public Filecoin API for on-chain operations. This means that users of the client do not need to run a Filecoin node that syncs the chain.
 
-#### 1. Set the API endpoint environment variable
+### Set the API endpoint environment variable
 
 ```
 export FULLNODE_API_INFO=<filecoin API endpoint>
@@ -16,7 +16,7 @@ There are a number of public Filecoin APIs ran by a number of organisations, suc
 `export FULLNODE_API_INFO=https://api.node.glif.io`
 {% endhint %}
 
-#### 2. Initialize the client
+### Initialize the client
 
 ```
 boost -vv init
@@ -28,13 +28,13 @@ The `init` command
 * Generates a libp2p peer ID key
 * Generates a wallet for on-chain operations and outputs the wallet address
 
-#### 3. Add funds to the wallet and to the market actor
+### Add funds to the wallet and to the market actor
 
 To make deals you will need to:\
 a) add funds to the wallet\
 b) add funds to the market actor for that wallet address
 
-#### 4. Make a storage deal
+### Make a storage deal
 
 Currently, we don't distribute binaries, so you will have to build from source.
 
@@ -62,6 +62,8 @@ sent deal proposal
   end epoch: 2219111
   provider collateral: 358.687 μFIL
 ```
+
+### Check deal status
 
 You can check the `deal status` with the following command:
 
