@@ -1,3 +1,7 @@
+---
+description: Frequently asked questions about Boost
+---
+
 # FAQ
 
 Q: Is there a way to stop `boostd` daemon?\
