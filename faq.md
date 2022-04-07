@@ -13,4 +13,4 @@ Q: Can I specify another wallet address in Boost? For example, I have multiple a
 A: Not yet. We are working on adding this feature.
 
 Q: Can Boost make verified deals?\
-A: Yes, the payment for the deal can be from a regular FIL wallet, or from DataCap. The deals that are paid for with DataCap are called verified deals.
+A: Yes, payments for deals can be made either from a regular wallet, or from DataCap. Deals that are paid for with DataCap are called `verified` deals.
