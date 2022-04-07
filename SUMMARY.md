@@ -5,7 +5,7 @@
 * [Architecture](boost-architecture/README.md)
   * [Repository](boost-architecture/architecture.md)
   * [Database](boost-architecture/getting-started-1.md)
-  * [Dagstore](boost-architecture/dagstore.md)
+  * [DAG store](boost-architecture/dagstore.md)
 * [Getting started](getting-started/README.md)
   * [As a storage provider](getting-started/getting-started.md)
   * [As a client](getting-started/boost-client.md)
