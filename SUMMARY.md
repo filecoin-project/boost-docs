@@ -1,6 +1,7 @@
 # Table of contents
 
 * [What is Boost?](README.md)
+* [Features](features.md)
 * [Architecture](boost-architecture/README.md)
   * [Repository](boost-architecture/architecture.md)
   * [Database](boost-architecture/getting-started-1.md)
