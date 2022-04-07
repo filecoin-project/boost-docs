@@ -6,7 +6,7 @@ Boost exposes libp2p interfaces for making storage and retrieval deals, a web in
 
 ![](<.gitbook/assets/Boost Interfaces.png>)
 
-## Boost Features
+## Features
 
 ### Make storage deals with HTTP data transfer
 
