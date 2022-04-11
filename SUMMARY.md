@@ -15,6 +15,7 @@
 * [JSON-RPC API](json-rpc-api.md)
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
+* [Using filters for storage and retrieval deals](using-filters-for-storage-and-retrieval-deals.md)
 * [Need help?](need-help.md)
 * [Troubleshooting](troubleshooting.md)
 * [FAQ](faq.md)
