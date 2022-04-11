@@ -33,7 +33,7 @@ RetrievalFilter = "/path/to/go/bin/bitscreen"
 
 Here is a sample JSON representation of the input sent to the deal filter:
 
-```
+```json
 {
   "DealParams": {
     "DealUUID": "48c31c8c-dcc8-4372-a0ac-b5468eea555b",
