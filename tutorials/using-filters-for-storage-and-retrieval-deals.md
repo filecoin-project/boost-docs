@@ -31,3 +31,53 @@ Filter = "/path/to/go/bin/bitscreen"
 RetrievalFilter = "/path/to/go/bin/bitscreen"
 ```
 
+Here is a sample JSON representation of the input sent to the deal filter:
+
+```
+{
+  "DealParams": {
+    "DealUUID": "48c31c8c-dcc8-4372-a0ac-b5468eea555b",
+    "IsOffline": false,
+    "ClientDealProposal": {
+      "Proposal": {
+        "PieceCID": {
+          "/": "baga6ea4seaqh5prrl6ykov4t64k6m6giijsc44dcxtdnzsp4izjakqhs7twauiq"
+        },
+        "PieceSize": 2147483648,
+        "VerifiedDeal": false,
+        "Client": "f1sw5zjcyo4mff5cbvgsgmm7uoko6gcr4tptvtkhy",
+        "Provider": "f0127896",
+        "Label": "bafyaa7qsgafcmalqudsaeidrunclaep6mdbipm2gjfvuosjfd6cbqd6th7bshy5hi5npxe727yjaagelucbyabasgafcmalqudsaeieapsxspo2i36no36n7yitswsxdazvziwvgj4vbp2scuxasrc6n4ejaage3r7m3saykcqeaegeavdllsbzaqcaibaaeecakrvvzam",
+        "StartEpoch": 1717840,
+        "EndEpoch": 2236240,
+        "StoragePricePerEpoch": "1",
+        "ProviderCollateral": "363196619502649",
+        "ClientCollateral": "0"
+      },
+      "ClientSignature": {
+        "Type": 1,
+        "Data": "SmgcBnQE+0ZIb4zAXw7TpxLliSaliShEvX9P4+uwvxBhRDlJD+F6N3NFoNrA2y5bTeWF5aWWuL93w+SSmXFkoAA="
+      }
+    },
+    "DealDataRoot": {
+      "/": "bafyaa7qsgafcmalqudsaeidrunclaep6mdbipm2gjfvuosjfd6cbqd6th7bshy5hi5npxe727yjaagelucbyabasgafcmalqudsaeieapsxspo2i36no36n7yitswsxdazvziwvgj4vbp2scuxasrc6n4ejaage3r7m3saykcqeaegeavdllsbzaqcaibaaeecakrvvzam"
+    },
+    "Transfer": {
+      "Type": "http",
+      "ClientID": "",
+      "Params": "eyJVUkwiOiJodHRwczovL2FudG8uLXB1YmxpYy1idWNrZXQtYm9vc3QuczMuZXUtY2VudHJhbC0xLmFtYXpvbmF3cy5jb20vcmFuZGZpbGVfMkdCXzAuY2FyIiwiSGVhZGVycyI6bnVsbH0=",
+      "Size": 2000177948
+    }
+  },
+  "SealingPipelineState": {
+    "SectorStates": {
+      "Available": 684,
+      "Proving": 307,
+      "Removed": 82,
+      "TerminateFailed": 1,
+      "TerminateWait": 5
+    },
+    "Workers": null
+  }
+}
+```
