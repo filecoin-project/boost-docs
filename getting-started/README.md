@@ -10,7 +10,19 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 
 ### Building and installing
 
+#### Linux
+
 ```
+git clone https://github.com/filecoin-project/boost
+cd boost
+make build
+make install
+```
+
+#### MacOS
+
+```
+export export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
 git clone https://github.com/filecoin-project/boost
 cd boost
 make build
