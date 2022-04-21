@@ -19,3 +19,4 @@
 * [Need help?](need-help.md)
 * [Troubleshooting](troubleshooting.md)
 * [FAQ](faq.md)
+* [GraphQL API](graphql-api.md)
