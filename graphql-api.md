@@ -12,7 +12,9 @@ You can test out queries, or explore the GraphQL API by clicking on the `< Docs`
 
 To run a graphql query with CURL:
 
-`curl -X POST`\
-`-H "Content-Type: application/json"`\
-`-d '{"query":"query { deals(offset: 5, limit: 10) { deals { ID CreatedAt PieceCid } } }"}'`\
-`http://localhost:8080/graphql/query | jq`
+```
+curl -X POST
+-H "Content-Type: application/json"
+-d '{"query":"query { deals(offset: 5, limit: 10) { deals { ID CreatedAt PieceCid } } }"}'
+http://localhost:8080/graphql/query | jq
+```
