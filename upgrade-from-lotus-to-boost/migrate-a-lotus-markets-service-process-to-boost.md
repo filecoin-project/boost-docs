@@ -7,7 +7,7 @@ description: >-
 # Migrate a Lotus markets service process to Boost
 
 {% hint style="warning" %}
-If you are running a `monolith` `lotus-miner`and have not yet split the `markets` service into an individual process, refer to the [Lotus documentation](https://lotus.filecoin.io/storage-providers/configure/split-markets-miners/) and first do that, before upgrading to Boost.
+If you are running a `monolith` `lotus-miner`and have not yet split the `markets` service into an individual process, follow the steps in [migrate-a-monolith-lotus-miner-to-boost.md](migrate-a-monolith-lotus-miner-to-boost.md "mention").
 {% endhint %}
 
 If you are running a `markets` service as a separate `lotus-miner` process:
@@ -44,24 +44,24 @@ lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 
 8\. Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
 
-9\. Export the environment variables needed for `boostd migrate` to connect to the lotus daemon and lotus miner.
+9\. Export the environment variables needed for `boostd migrate-markets` to connect to the lotus daemon and lotus miner.
 
 ```
 export $(lotus auth api-info --perm=admin)
 export $(lotus-miner auth api-info --perm=admin)
 ```
 
-10\. Run `boostd migrate` to initialize the repository and start the migration:
+10\. Run `boostd migrate-markets` to initialize the repository and start the migration:
 
 ```
-boostd --vv migrate \
+boostd --vv migrate-markets \
        --import-markets-repo=~/.my-markets-repo \
        --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
        --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
        --max-staging-deals-bytes=50000000000
 ```
 
-The `migrate` command
+The `migrate-markets` command
 
 * Initializes a Boost repository
 * Migrates markets datastore keys to Boost

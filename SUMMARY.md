@@ -10,6 +10,7 @@
   * [As a storage provider](getting-started/getting-started.md)
   * [As a client](getting-started/boost-client.md)
 * [Upgrade from Lotus to Boost](upgrade-from-lotus-to-boost/README.md)
+  * [Migrate a monolith lotus-miner to Boost](upgrade-from-lotus-to-boost/migrate-a-monolith-lotus-miner-to-boost.md)
   * [Migrate a Lotus markets service process to Boost](upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md)
   * [Roll back to Lotus markets service process](upgrade-from-lotus-to-boost/roll-back-to-legacy-markets.md)
 * [JSON-RPC API](json-rpc-api.md)
