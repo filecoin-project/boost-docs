@@ -28,7 +28,7 @@ lotus-shed market export-datastore --repo <repo> --backup-dir <backup-dir>
 
 6\. Make sure you have a Lotus node and miner running
 
-7\. Create and send funds to two new wallets for Boost
+7\. Create and send funds to two new wallets on the lotus node to be used for Boost
 
 &#x20;   Boost currently uses two wallets for storage deals:
 
@@ -113,3 +113,12 @@ To access a web UI running on a remote server, you can open an SSH tunnel from y
 ssh -L 8080:localhost:8080 myserver
 ```
 {% endhint %}
+
+### API Access
+
+Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.&#x20;
+
+```
+export BOOST_API_INFO=<TOKEN>:<API Address>
+boostd auth api-info -perm auth
+```

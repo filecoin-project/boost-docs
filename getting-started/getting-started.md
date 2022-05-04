@@ -8,7 +8,7 @@ If you are already running a standalone markets process, follow the guide at [mi
 
 1\. Make sure you have a Lotus node and miner running
 
-2\. Create and send funds to two new wallets for Boost
+2\. Create and send funds to two new wallets on the lotus node to be used for Boost
 
 Boost currently uses two wallets for storage deals:
 
@@ -105,4 +105,11 @@ ssh -L 8080:localhost:8080 myserver
 ```
 {% endhint %}
 
-##
+### API Access
+
+Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.&#x20;
+
+```
+export BOOST_API_INFO=<TOKEN>:<API Address>
+boostd auth api-info -perm auth
+```

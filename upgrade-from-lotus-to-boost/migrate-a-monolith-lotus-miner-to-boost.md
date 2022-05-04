@@ -4,15 +4,24 @@
 If you have already split a your lotus-miner into a separate markets process (MRA), follow the steps in [migrate-a-lotus-markets-service-process-to-boost.md](migrate-a-lotus-markets-service-process-to-boost.md "mention").
 {% endhint %}
 
+{% hint style="info" %}
+Please note that a monolith miner can only split into boost(market)+miner on the same physical machine as it requires access to the miner repo to migrate the deal metadata.
+{% endhint %}
+
 ### Prepare to migrate
 
 1\. Make sure you have a Lotus node and miner running
 
-2\. Create and send funds to two new wallets for Boost
+2\. Create and send funds to two new wallets on the lotus node to be used for Boost
 
 Boost currently uses two wallets for storage deals:
 
 * The publish storage deals wallet - This wallet pays the gas cost when Boost sends the `PublishStorageDeals` message.
+
+{% hint style="info" %}
+If PublishStorageDeal control wallet is already setup then it can be reused in the boost for `PUBLISH_STORAGE_DEALS_WALLET`.
+{% endhint %}
+
 * The deal collateral wallet - When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the `StorageMarketActor`.
 
 ```
@@ -52,6 +61,12 @@ export APISECTORINDEX=`lotus-miner auth api-info --perm=admin`
 
 ```
 lotus-shed market export-datastore --repo <repo> --backup-dir <backup-dir>
+```
+
+6\. Set the environment variable `LOTUS_FULLNODE_API` to allow access to the lotus node API.
+
+```
+lotus auth api-info -perm auth
 ```
 
 ### Migrate from the lotus-miner repo to the Boost repo
@@ -115,8 +130,58 @@ The `boostd` service will start:
 boostd --vv run
 ```
 
-In your firewall you will need to ensure that the libp2p ports that Boost listens on are open, so that Boost can receive storage and retrieval deals.
-
 {% hint style="info" %}
+In your firewall you will need to ensure that the libp2p ports that Boost listens on are open, so that Boost can receive storage and retrieval deals.\
 See the `Libp2p` section of `config.toml` in the [architecture.md](../boost-architecture/architecture.md "mention")
 {% endhint %}
+
+### Web UI
+
+1\. Build the React frontend
+
+```
+cd react
+
+# Download and install npm packages needed by the React frontend
+npm install
+
+# Build the optimized JavaScript and CSS in boost/react/build
+npm run build
+```
+
+2\. Open the Web UI
+
+Open http://localhost:8080 in your browser.
+
+{% hint style="info" %}
+To access a web UI running on a remote server, you can open an SSH tunnel from your local machine:
+
+```
+ssh -L 8080:localhost:8080 myserver
+```
+{% endhint %}
+
+### API Access
+
+Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.&#x20;
+
+```
+export BOOST_API_INFO=<TOKEN>:<API Address>
+boostd auth api-info -perm auth
+```
+
+### Migrating Boost from one machine to another
+
+Once the Boost has been split from the monolith miner, it can be moved to another physical or virtual machine by following the below steps.
+
+1. Build the boost binary on the new machine by following the [Getting Started](../getting-started/) step.
+2. Copy the boost repo from the original monolith miner machine to the new dedicated boost machine.
+3. Set the environment variable `LOTUS_FULLNODE_API` to allow access to the lotus node API.
+4. Open the required port on the firewall on the monolith miner machine to allow connection to lotus-miner API.
+5. In your firewall you will need to ensure that the libp2p ports that Boost listens on are open, so that Boost can receive storage and retrieval deals.\
+   See the `Libp2p` section of `config.toml` in the [architecture.md](../boost-architecture/architecture.md "mention")
+6. Start the `boostd` process.
+
+```
+boostd --vv run
+```
