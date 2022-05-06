@@ -6,6 +6,7 @@
   * [Repository](boost-architecture/architecture.md)
   * [Database](boost-architecture/getting-started-1.md)
   * [DAG store](boost-architecture/dagstore.md)
+  * [libp2p Protocols](boost-architecture/libp2p-protocols.md)
 * [Getting started](getting-started/README.md)
   * [As a storage provider](getting-started/getting-started.md)
   * [As a client](getting-started/boost-client.md)
