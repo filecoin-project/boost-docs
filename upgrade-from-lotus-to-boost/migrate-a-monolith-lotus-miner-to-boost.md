@@ -31,7 +31,13 @@ lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
 
-3\. Set up environment variables needed for Boost migration
+3\. Set the publish storage deals wallet as a control wallet.
+
+```
+lotus-miner actor control set --really-do-it $PUBMSG_WALLET
+```
+
+4\. Set up environment variables needed for Boost migration
 
 Export the environment variables needed for `boostd migrate-monolith` to connect to the lotus daemon and lotus miner.
 

@@ -22,7 +22,13 @@ lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
 
-3\. Create and initialize the Boost repository
+3\. Set the publish storage deals wallet as a control wallet.
+
+```
+lotus-miner actor control set --really-do-it $PUBMSG_WALLET
+```
+
+4\. Create and initialize the Boost repository
 
 {% hint style="warning" %}
 If you are already running a Lotus markets service process, you should\
@@ -62,7 +68,7 @@ boostd --vv init \
 * `--api-sector-index` is the API info for the lotus-miner instance that provides storage
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
-4\. Run the `boostd` service, which will start:
+5\. Run the `boostd` service, which will start:
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API

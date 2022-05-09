@@ -12,6 +12,10 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 
 #### Prerequisites
 
+{% hint style="warning" %}
+Please make sure that installed version of `node` ≤ 16.x
+{% endhint %}
+
 Linux
 
 ```

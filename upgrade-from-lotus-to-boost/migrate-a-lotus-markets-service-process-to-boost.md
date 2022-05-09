@@ -51,7 +51,13 @@ export $(lotus auth api-info --perm=admin)
 export $(lotus-miner auth api-info --perm=admin)
 ```
 
-10\. Run `boostd migrate-markets` to initialize the repository and start the migration:
+10\. Set the publish storage deals wallet as a control wallet.
+
+```
+lotus-miner actor control set --really-do-it $PUBMSG_WALLET
+```
+
+11\. Run `boostd migrate-markets` to initialize the repository and start the migration:
 
 ```
 boostd --vv migrate-markets \
@@ -71,7 +77,7 @@ The `migrate-markets` command
 * Migrates markets config to Boost (libp2p endpoints, settings etc)
 * Migrates the markets DAG store to Boost
 
-11\. Run the `boostd` service, which will start:
+12\. Run the `boostd` service, which will start:
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API
