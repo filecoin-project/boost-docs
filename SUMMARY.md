@@ -16,6 +16,7 @@
   * [Roll back to Lotus markets service process](upgrade-from-lotus-to-boost/roll-back-to-legacy-markets.md)
 * [JSON-RPC API](json-rpc-api.md)
 * [GraphQL API](graphql-api.md)
+* [Hardware requirements](hardware-requirements.md)
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
