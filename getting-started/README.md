@@ -44,9 +44,38 @@ sudo make install
 Please make sure that `node` installed before running the `make build`.
 
 ```
-export export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
 git clone https://github.com/filecoin-project/boost
 cd boost
 make build
 sudo make install
 ```
+
+### Upgrading Boost
+
+#### Linux
+
+1\. Make sure that Boost daemon is not running. Run the below commands to upgrade the binary.
+
+```
+cd boost
+git pull
+make build
+sudo make install
+```
+
+2\. Start the boost daemon.
+
+#### MacOS
+
+1\. Make sure that Boost daemon is not running. Run the below commands to upgrade the binary.
+
+```
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
+cd boost
+git pull
+make build
+sudo make install
+```
+
+2\. Start the boost daemon.
