@@ -68,7 +68,9 @@ boostd --vv init \
 * `--api-sector-index` is the API info for the lotus-miner instance that provides storage
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
-5\. Run the `boostd` service, which will start:
+5\. Update `ulimit` file descriptor limit if necessary. Boost deals will fail if the file descriptor limit for the process is not set high enough. This limit can be raised temporarily before starting the Boost process by running the command `ulimit -n 1048576`. We recommend setting it permanently by following the [Permanently Setting Your ULIMIT System Value](https://lotus.filecoin.io/kb/#soft-fd-limit) guide.
+
+6\. Run the `boostd` service, which will start:
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API
