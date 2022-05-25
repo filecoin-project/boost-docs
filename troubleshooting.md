@@ -32,3 +32,24 @@ To fix the problem, the SP should register the new peer id on chain:
 ```
 lotus-miner actor set-peer-id <new peer id>
 ```
+
+### Error in _lotus-miner info_ output
+
+After migrating to Boost, following error is seen when running `lotus-miner info` :
+
+```
+ERROR: fatal error calling 'Filecoin.MarketListIncompleteDeals': panic in rpc method 'Filecoin.MarketListIncompleteDeals': runtime error: invalid memory address or nil pointer dereference
+```
+
+#### Problem:
+
+`lotus-miner` is making a call on `lotus-market` process which has been replaced by Boost. But, `lotus-miner` command is not aware of the new market process.
+
+#### Solution:
+
+Export the `LOTUS_MARKET_PATH` variable on your lotus-miner node.
+
+```
+export LOTUS_MARKETS_PATH=/data/mainnet32GiB/.boost
+```
+
