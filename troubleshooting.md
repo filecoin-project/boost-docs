@@ -50,6 +50,6 @@ ERROR: fatal error calling 'Filecoin.MarketListIncompleteDeals': panic in rpc me
 Export the `LOTUS_MARKET_PATH` variable on your lotus-miner node.
 
 ```
-export LOTUS_MARKETS_PATH=/data/mainnet32GiB/.boost
+export LOTUS_MARKETS_PATH=<BOOST REPO PATH>
 ```
 
