@@ -19,7 +19,7 @@ Boost currently uses two wallets for storage deals:
 PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
 COLLAT_WALLET=`lotus wallet new bls`
 lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
-lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
+lotus send --from mywallet $COLLAT_WALLET 10
 ```
 
 3\. Set the publish storage deals wallet as a control wallet.
