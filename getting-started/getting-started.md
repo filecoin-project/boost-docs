@@ -17,7 +17,7 @@ Boost currently uses two wallets for storage deals:
 
 ```
 PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
-PLEDGE_COLLAT_WALLET=`lotus wallet new bls`
+COLLAT_WALLET=`lotus wallet new bls`
 lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
 ```
@@ -60,7 +60,7 @@ boostd --vv init \
        --api-sealer=$APISEALER \
        --api-sector-index=$APISECTORINDEX \
        --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
-       --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
+       --wallet-deal-collateral=$COLLAT_WALLET \
        --max-staging-deals-bytes=50000000000
 ```
 

@@ -33,13 +33,22 @@ lotus-shed market export-datastore --repo <repo> --backup-dir <backup-dir>
 &#x20;   Boost currently uses two wallets for storage deals:
 
 * The publish storage deals wallet - This wallet pays the gas cost when Boost sends the `PublishStorageDeals` message.
+
+{% hint style="info" %}
+If you already have a PublishStorageDeal control wallet setup then it can be reused in boost as the `PUBLISH_STORAGE_DEALS_WALLET`.
+{% endhint %}
+
 * The deal collateral wallet - When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the `StorageMarketActor`.
+
+{% hint style="info" %}
+If you already have a wallet that you want to use as the source of funds for deal collateral, then it can be reused in boost as the `COLLAT_WALLET`.
+{% endhint %}
 
 ```
 PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
-PLEDGE_COLLAT_WALLET=`lotus wallet new bls`
+COLLAT_WALLET=`lotus wallet new bls`
 lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
-lotus send --from mywallet $PLEDGE_COLLAT_WALLET 10
+lotus send --from mywallet $COLLAT_WALLET 10
 ```
 
 8\. Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
@@ -63,7 +72,7 @@ lotus-miner actor control set --really-do-it $PUBMSG_WALLET
 boostd --vv migrate-markets \
        --import-markets-repo=~/.my-markets-repo \
        --wallet-publish-storage-deals=$PUBLISH_STORAGE_DEALS_WALLET \
-       --wallet-collateral-pledge=$PLEDGE_COLLAT_WALLET \
+       --wallet-deal-collateral=$COLLAT_WALLET \
        --max-staging-deals-bytes=50000000000
 ```
 
