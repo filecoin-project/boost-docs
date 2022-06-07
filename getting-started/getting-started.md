@@ -2,6 +2,8 @@
 
 {% hint style="warning" %}
 If you are already running a standalone markets process, follow the guide at [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")
+
+If you are already running a monolith lotus-miner instance, follow the guide at [migrate-a-monolith-lotus-miner-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-monolith-lotus-miner-to-boost.md "mention")
 {% endhint %}
 
 ### Initialization and Running
