@@ -17,7 +17,7 @@ It is a request / response protocol, where the request and response are CBOR-mar
 | ClientDealProposal | ClientDealProposal | Same as `<v1 proposal>.DealProposal`                                                               |
 | DealDataRoot       | cid                | The root cid of the CAR file. Same as `<v1 proposal>.Piece.Root`                                   |
 | Transfer.Type      | string             | eg "http"                                                                                          |
-| Transfer.ClientID  | string             | Any id the client wants (useful for matching lots between client and server)                       |
+| Transfer.ClientID  | string             | Any id the client wants (useful for matching logs between client and server)                       |
 | Transfer.Params    | byte array         | Interpreted according to `Type`. eg for "http" `Transfer.Params` contains the http headers as JSON |
 | Transfer.Size      | integer            | The size of the data that is sent across the network                                               |
 
