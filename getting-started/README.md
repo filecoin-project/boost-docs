@@ -13,9 +13,13 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 #### Prerequisites
 
 {% hint style="warning" %}
-Please make sure that installed version of **Go** following [https://go.dev/learn/](https://go.dev/learn/)
+Please make sure that installed version of:\
+\
+**Go** - following [https://go.dev/learn/](https://go.dev/learn/)
 
-Please make sure that installed version of **Node <= 16.x**
+**Rust** - following [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+
+**Node 16.x**
 {% endhint %}
 
 Linux / Ubuntu
