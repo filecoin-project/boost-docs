@@ -14,6 +14,8 @@
   * [Migrate a monolith lotus-miner to Boost](upgrade-from-lotus-to-boost/migrate-a-monolith-lotus-miner-to-boost.md)
   * [Migrate a Lotus markets service process to Boost](upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md)
   * [Roll back to Lotus markets service process](upgrade-from-lotus-to-boost/roll-back-to-legacy-markets.md)
+* [Configuration](configuration/README.md)
+  * [UI Settings](configuration/ui-settings.md)
 * [JSON-RPC API](json-rpc-api.md)
 * [GraphQL API](graphql-api.md)
 * [Hardware requirements](hardware-requirements.md)
