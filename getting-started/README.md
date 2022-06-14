@@ -16,10 +16,11 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 Please make sure that installed version of `node` ≤ 16.x
 {% endhint %}
 
-Linux
+Linux / Ubuntu
 
 ```
-sudo apt install node
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
 MacOS
