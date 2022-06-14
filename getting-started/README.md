@@ -31,6 +31,15 @@ brew install node
 
 #### Linux
 
+{% hint style="warning" %}
+Depending on your architecture, you will want to export additional environment variables:
+
+```
+export RUSTFLAGS="-C target-cpu=native -g"
+export FFI_BUILD_FROM_SOURCE=1
+```
+{% endhint %}
+
 Please make sure that `node` installed before running the `make build`.
 
 ```
