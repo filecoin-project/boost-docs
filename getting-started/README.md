@@ -42,8 +42,6 @@ export FFI_BUILD_FROM_SOURCE=1
 ```
 {% endhint %}
 
-Please make sure that `node` installed before running the `make build`.
-
 ```
 git clone https://github.com/filecoin-project/boost
 cd boost
@@ -52,8 +50,6 @@ sudo make install
 ```
 
 #### MacOS
-
-Please make sure that `node` installed before running the `make build`.
 
 ```
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
