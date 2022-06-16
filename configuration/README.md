@@ -4,7 +4,7 @@ description: Boost configuration options with examples and description.
 
 # Configuration
 
-Sample boost config file
+## Sample config file
 
 ```
 # The version of the config file (used for migrations)
@@ -614,9 +614,10 @@ This guide covers all the configuration in use by boostd process. Some of the co
 
 ## LotusFees
 
-| Parameter          | Example    | Description                                                  |
-| ------------------ | ---------- | ------------------------------------------------------------ |
-| MaxPublishDealsFee | "0.05 FIL" | Maximum fee user is willing to pay for a PublishDeal message |
+| Parameter              | Example     | Description                                                                         |
+| ---------------------- | ----------- | ----------------------------------------------------------------------------------- |
+| MaxPublishDealsFee     | "0.05 FIL"  | Maximum fee user is willing to pay for a PublishDeal message                        |
+| MaxMarketBalanceAddFee | "0.007 FIL" | The maximum fee to pay when sending the AddBalance message (used by legacy markets) |
 
 ## DAGStore
 
