@@ -4,9 +4,30 @@ description: >-
   boostd, as well as how to roll-back if you are not happy with boostd
 ---
 
-# Upgrade from Lotus to Boost
+# Migrate from Lotus to Boost
 
-{% hint style="warning" %}
-If you are running a `monolith` `lotus-miner`and have not yet split the `markets` service into an individual process, refer to the [Lotus documentation](https://lotus.filecoin.io/storage-providers/configure/split-markets-miners/) and first do that, before upgrading to Boost.
+A storage provider can run the lotus as a monolith process where everything is handled by a single `lotus-miner` process or separate the mining and market subsystems on different machines.
+
+Boost supports migration from both monolith and a split-market miner. You can follow the below guides to migrate to boost.
+
+{% content-ref url="migrate-a-monolith-lotus-miner-to-boost.md" %}
+[migrate-a-monolith-lotus-miner-to-boost.md](migrate-a-monolith-lotus-miner-to-boost.md)
+{% endcontent-ref %}
+
+{% content-ref url="migrate-a-lotus-markets-service-process-to-boost.md" %}
+[migrate-a-lotus-markets-service-process-to-boost.md](migrate-a-lotus-markets-service-process-to-boost.md)
+{% endcontent-ref %}
+
+### **Rollback**
+
+{% hint style="danger" %}
+Please note that Boost uses a sqllite DB for the deal metadata and logs. Once boost has been enabled, the new deals cannot be rolled back to the lotus market. If you decide to roll back after making boost deals, you will lose all the metadata for the deal made with boost. However, this will have no impact on the sealed data itself.
 {% endhint %}
 
+{% content-ref url="roll-back-to-legacy-markets.md" %}
+[roll-back-to-legacy-markets.md](roll-back-to-legacy-markets.md)
+{% endcontent-ref %}
+
+
+
+\
