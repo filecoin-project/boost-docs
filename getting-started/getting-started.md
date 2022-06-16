@@ -120,6 +120,13 @@ ssh -L 8080:localhost:8080 myserver
 Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.&#x20;
 
 ```
+boostd auth api-info --perm=admin
+
 export BOOST_API_INFO=<TOKEN>:<API Address>
-boostd auth api-info -perm auth
+```
+
+You can also directly evaluate the `boostd auth` command with:
+
+```
+export $(boostd auth api-info --perm=admin)
 ```
