@@ -21,7 +21,7 @@ Boost supports migration from both monolith and a split-market miner. You can fo
 ### **Rollback**
 
 {% hint style="danger" %}
-Please note that Boost uses a sqllite DB for the deal metadata and logs. Once boost has been enabled, the new deals cannot be rolled back to the lotus market. If you decide to roll back after making boost deals, you will lose all the metadata for the deal made with boost. However, this will have no impact on the sealed data itself.
+Please note that Boost uses a SQLite database for the deal metadata and logs. Once Boost has been enabled, the new deals cannot be rolled back to the Lotus market. If you decide to roll back after making Boost deals, you will lose all the metadata for the deal made with Boost. However, this will have no impact on the sealed data itself.
 {% endhint %}
 
 {% content-ref url="roll-back-to-legacy-markets.md" %}
