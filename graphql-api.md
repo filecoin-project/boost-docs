@@ -18,3 +18,9 @@ curl -X POST
 -d '{"query":"query { deals(offset: 5, limit: 10) { deals { ID CreatedAt PieceCid } } }"}'
 http://localhost:8080/graphql/query | jq
 ```
+
+This 1m video shows how to use these tools to build an run a GraphQL query against Boost:
+
+{% embed url="https://youtu.be/yN_H-hDrBao" %}
+Use the GraphQL explorer to create a query against Boost
+{% endembed %}
