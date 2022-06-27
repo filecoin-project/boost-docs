@@ -53,6 +53,8 @@ make build
 sudo make install
 ```
 
+Please ignore any output or onscreen instruction during the `npm build` unless there is an error.
+
 #### MacOS
 
 ```
@@ -62,6 +64,8 @@ cd boost
 make build
 sudo make install
 ```
+
+Please ignore any output or onscreen instruction during the `npm build` unless there is an error.
 
 ### Upgrading Boost
 
@@ -76,7 +80,9 @@ make build
 sudo make install
 ```
 
-2\. Start the boost daemon.
+2\. Please ignore any onscreen instruction during the `npm build` unless there is an error.
+
+3\. Start the boost daemon.
 
 #### MacOS
 
@@ -90,4 +96,6 @@ make build
 sudo make install
 ```
 
-2\. Start the boost daemon.
+2\. Please ignore any onscreen instruction during the `npm build` unless there is an error.
+
+3\. Start the boost daemon.
