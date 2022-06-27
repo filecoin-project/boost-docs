@@ -76,7 +76,7 @@ lotus-shed market export-datastore --repo <repo> --backup-dir <backup-dir>
 6\. Set the environment variable `LOTUS_FULLNODE_API` to allow access to the lotus node API.
 
 ```
-lotus auth api-info -perm auth
+lotus auth api-info -perm admin
 ```
 
 ### Migrate from the lotus-miner repo to the Boost repo
