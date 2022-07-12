@@ -24,4 +24,6 @@
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
 * [Need help?](need-help.md)
 * [Troubleshooting](troubleshooting.md)
+* [Experimental Features](experimental-features/README.md)
+  * [HTTP Retrieval](experimental-features/http-retrieval.md)
 * [FAQ](faq.md)
