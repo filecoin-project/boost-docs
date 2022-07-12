@@ -1,12 +1,15 @@
 ---
-description: This section covers the experimental features released with boost
+description: This section covers the current experimental features available in Boost
 ---
 
 # Experimental Features
 
-Boost is developing new market features on regular basis as part of the overall market development. This section covers the experimental features release by boost along with the details on how to use them.\
-Boost team strong discourages from deploying these experimental features on the production environments. The features should be tested as per your requirements and any issues should be reported to the team via Github or Slack.\
-Once the new features have been tested and vetted, they will released as part of the stable Boost release and document pages concerning to those featured will be moved out of this section.\
+Boost is developing new market features on a regular basis as part of the overall market development. This section covers the experimental features release by boost along with the details on how to use them.
+
+It is **not** recommended to run experimental features in production environments. The features should be tested as per your requirements and any issues, or requests should be reported to the team via Github or Slack.
+
+Once the new features have been tested and vetted, they will released as part of a stable Boost release and all documentation concerning those featured will be moved to an appropriate section of this site.
+
 Current experimental features are listed below.
 
 {% content-ref url="http-retrieval.md" %}
