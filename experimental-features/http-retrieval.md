@@ -1,6 +1,6 @@
 # HTTP Retrieval
 
-Boost is introducing a new binary, `boosted-http`, with release v1.2.0-rc2. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.&#x20;
+Boost is introducing a new binary, `booster-http`, with release v1.2.0-rc2. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.&#x20;
 
 Currently, there is no payment method or security integrated in the new binary. It can be run with any stable release of `boostd` and can also be run on a separate machine from the `boostd` process.
 
