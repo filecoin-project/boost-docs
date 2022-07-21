@@ -26,4 +26,5 @@
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [HTTP Retrieval](experimental-features/http-retrieval.md)
+  * [Remote CommP](experimental-features/remote-commp.md)
 * [FAQ](faq.md)
