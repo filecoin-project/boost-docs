@@ -37,12 +37,14 @@ Linux / Ubuntu
 ```
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y
 ```
 
 MacOS
 
 ```
 brew install node
+brew install bzr jq pkg-config hwloc coreutils
 ```
 
 #### Linux
