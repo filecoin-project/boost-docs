@@ -63,7 +63,8 @@ export $(lotus-miner auth api-info --perm=admin)
 10\. Set the publish storage deals wallet as a control wallet.
 
 ```
-lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET
+export OLD_CONTROL_ADDRESS=`lotus-miner actor control list  --verbose | awk '{print $3}' | grep -v key | tr -s '\n'  ' '`
+lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET $OLD_CONTROL_ADDRESS
 ```
 
 11\. Run `boostd migrate-markets` to initialize the repository and start the migration:

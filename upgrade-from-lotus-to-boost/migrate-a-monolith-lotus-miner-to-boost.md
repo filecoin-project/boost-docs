@@ -38,7 +38,8 @@ lotus send --from mywallet $COLLAT_WALLET 10
 3\. Set the publish storage deals wallet as a control wallet.
 
 ```
-lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET
+export OLD_CONTROL_ADDRESS=`lotus-miner actor control list  --verbose | awk '{print $3}' | grep -v key | tr -s '\n'  ' '`
+lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET $OLD_CONTROL_ADDRESS
 ```
 
 4\. Set up environment variables needed for Boost migration
@@ -173,7 +174,7 @@ ssh -L 8080:localhost:8080 myserver
 
 ### API Access
 
-Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.&#x20;
+Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.
 
 ```
 export BOOST_API_INFO=<TOKEN>:<API Address>
