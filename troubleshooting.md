@@ -9,7 +9,7 @@ The new inspect page in the Boost UI helps with debugging retrieval problems. It
 * Check for an unsealed copy of the piece
 * Verify that the payload CID -> piece CID index has been created correctly
 
-![Inspect a payload or piece CID](<.gitbook/assets/inspect (1).jpg>)
+{% embed url="https://www.youtube.com/watch?v=KLH2_LzfTtw" %}
 
 ## Failed to connect to peer
 
