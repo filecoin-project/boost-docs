@@ -2,14 +2,14 @@
 
 ## Inspect
 
-The new boost inspect page in the UI to help debug problems with retrievals. It allows the users to check the following using a payload CID or piece CID
+The new inspect page in the Boost UI helps with debugging retrieval problems. It allows the user to check the following using a payload CID or piece CID:
 
-* Inspect allows you to look up a piece by piece CID or payload CID and verify if the piece has been correctly added to the Piece Store
-* If the piece has been indexed in the DAG store
-* Do we have an unsealed copy of the piece
-* The payload CID -> piece CID index has been created correctly
+* Verify if the piece has been correctly added to the Piece Store
+* Validate if the piece is indexed in the DAG store
+* Check for an unsealed copy of the piece
+* Verify that the payload CID -> piece CID index has been created correctly
 
-![Inspect a payload or piece CID](.gitbook/assets/inspect.jpg)
+![Inspect a payload or piece CID](<.gitbook/assets/inspect (1).jpg>)
 
 ## Failed to connect to peer
 
@@ -54,7 +54,7 @@ ERROR: fatal error calling 'Filecoin.MarketListIncompleteDeals': panic in rpc me
 
 #### Problem:
 
-`lotus-miner` is making a call on `lotus-market` process which has been replaced by Boost. But, `lotus-miner` command is not aware of the new market process.
+`lotus-miner` is making a call on `lotus-market` process which has been replaced by Boost, but `lotus-miner` is not aware of the new market process.
 
 #### Solution:
 
