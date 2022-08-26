@@ -1,6 +1,6 @@
 # HTTP Retrieval
 
-Boost is introducing a new binary, `booster-http`, with release v1.2.0-rc2. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.&#x20;
+Boost is introducing a new binary, `booster-http`, with release v1.2.0-rc2. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.
 
 Currently, there is no payment method or built-in security integrated in the new binary. It can be run with any stable release of `boostd` and can also be run on a separate machine from the `boostd` process.
 
@@ -48,7 +48,7 @@ curl http://localhost:7777/piece/<piece cid> > /tmp/download.piece
 # Download CAR by piece CID
 curl http://localhost:7777/piece/<piece cid>.car > /tmp/download.car
 # Download piece by payload CID (piece must be indexed)
-curl http://localhost:7777/payload/<payload cid> > /tmp/download.piece
+curl http://localhost:7777/payload/<payload cid> > /tmp/download.payload
 # Download CAR by payload CID
 curl http://localhost:7777/payload/<payload cid>.car > /tmp/download.car
 ```
@@ -56,33 +56,36 @@ curl http://localhost:7777/payload/<payload cid>.car > /tmp/download.car
 ## Running Public Boost HTTP Retrieval
 
 The Boost HTTP instance runs by default simply listening on localhost. If you want to make retrievals public, you'll want to run a reverse proxy such as NGINX to handle operational concerns like:
-- SSL
-- Authentication if you want it
-- Load balancing if you want to run multiple instances of booster-http
+
+* SSL
+* Authentication if you want it
+* Load balancing if you want to run multiple instances of booster-http
 
 While booster-http may get more operational features over time, the intent is that providers who want to scale their HTTP operations will handle most of operational concerns via software in front of booster-http rather than booster-http itself
 
 ### Making HTTP Retrieval Discoverable
 
-If you are running Boost HTTP Retrieval publicly, you will want to set your domain root by editing Boost's `config.toml` and under the `[DealMaking]` section, set `HTTPRetrievalURL` to the public domain root you will serve HTTP retrievals.
+If you are running Boost HTTP Retrieval publicly, you will want to set your domain root by editing Boost's `config.toml` and under the `[DealMaking]` section, set `HTTPRetrievalMultiaddr` to the public domain root you will serve HTTP retrievals.
 
 Example `config.toml` section:
 
 ```
 [DealMaking]
-  HTTPRetrievalURL = "https://www.awesomestorageprovider.com"
+  HTTPRetrievalMultiaddr = "/dns/foo.com/tcp/443/https"
 ```
 
-If HTTPRetrievalURL is set, anyone running boost client can determine if you offer a given piece over HTTP by running:
+If `HTTPRetrievalMultiaddr` is set, anyone running boost client can determine if you offer a given piece over HTTP by running:
 
 ```
-boost retrieve-piece --provider <your provider address> --piece-cid <piece-cid>
+boost provider retrieval-transports <miner id>
 ```
 
-If you have the piece and have set HTTPRetrievalURL, they will receive a URL like:
+If you have the piece and the storage provider have set `HTTPRetrievalMultiaddr`, you can download the piece or payload using the below URL:
 
-```
-https://www.awesomestorageprovider.com/piece/<piece cid>
-```
+<pre><code># Download piece by piece CID
+<strong>curl http://&#x3C;HTTP URL>/piece/&#x3C;piece cid> > /tmp/download.piece
+</strong>
+# Download piece by payload CID (piece must be indexed)
+curl http://&#x3C;HTTP URL>/payload/&#x3C;payload cid> > /tmp/download.payload</code></pre>
 
 Which they can then `curl` to get the piece from you.
