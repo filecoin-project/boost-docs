@@ -40,7 +40,7 @@ lotus-miner auth api-info --perm=admin
 booster-http run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO --api-sealer=$MINER_API_INFO
 ```
 
-4\. To download files from the new http-server locally, you can run the following commands.
+5\. To download files from the new http-server locally, you can run the following commands.
 
 ```
 # Download piece by piece CID
@@ -82,10 +82,12 @@ boost provider retrieval-transports <miner id>
 
 If you have the piece and the storage provider have set `HTTPRetrievalMultiaddr`, you can download the piece or payload using the below URL:
 
-<pre><code># Download piece by piece CID
-<strong>curl http://&#x3C;HTTP URL>/piece/&#x3C;piece cid> > /tmp/download.piece
-</strong>
+```
+# Download piece by piece CID
+curl http://<HTTP URL>/piece/<piece cid> > /tmp/download.piece
+
 # Download piece by payload CID (piece must be indexed)
-curl http://&#x3C;HTTP URL>/payload/&#x3C;payload cid> > /tmp/download.payload</code></pre>
+curl http://<HTTP URL>/payload/<payload cid> > /tmp/download.payload
+```
 
 Which they can then `curl` to get the piece from you.
