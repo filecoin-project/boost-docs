@@ -37,17 +37,6 @@ This new configuration has been introduced in the `ConfigVersion = 3` of the boo
 
 ### How TransferLimiter works
 
-```
-type TransferLimiterConfig struct {
-	// The maximum number of concurrent transfers (soft limit - see comment below)
-	MaxConcurrent uint64
-	// The period between checking if a connection has stalled
-	StallCheckPeriod time.Duration
-	// The time that can elapse before a download is considered stalled
-	StallTimeout time.Duration
-}
-```
-
 The `transferLimiter` maintains a queue of transfers with a soft upper limit on the number of concurrent transfers.
 
 To prevent slow or stalled transfers from blocking up the queue there are a couple of mitigations: The queue is ordered such that we
