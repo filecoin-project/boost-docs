@@ -16,6 +16,7 @@
   * [Roll back to Lotus markets service process](upgrade-from-lotus-to-boost/roll-back-to-legacy-markets.md)
 * [Configuration](configuration/README.md)
   * [UI Settings](configuration/ui-settings.md)
+  * [HTTP Transfer limit](configuration/http-transfer-limit.md)
 * [JSON-RPC API](json-rpc-api.md)
 * [GraphQL API](graphql-api.md)
 * [Hardware requirements](hardware-requirements.md)
