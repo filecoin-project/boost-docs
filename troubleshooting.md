@@ -44,7 +44,7 @@ To fix the problem, the SP should register the new peer id on chain:
 lotus-miner actor set-peer-id <new peer id>
 ```
 
-### Error in _lotus-miner info_ output
+## Error in _lotus-miner info_ output
 
 After migrating to Boost, following error is seen when running `lotus-miner info` :
 
@@ -66,7 +66,7 @@ Export the `LOTUS_MARKET_PATH` variable on your lotus-miner node.
 export LOTUS_MARKETS_PATH=<BOOST REPO PATH>
 ```
 
-### Fix retrievals with error "failed to lookup index for mh"
+## Fix retrievals with error "failed to lookup index for mh"
 
 The following error shows up when trying to retrieve the data from a storage provider.
 
