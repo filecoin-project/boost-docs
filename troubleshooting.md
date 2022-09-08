@@ -108,7 +108,7 @@ boostd dagstore list-shards | wc -l
 boostd dagstore list-shards > shard_list.txt
 ```
 
-3.. Identify the missing shards
+3\. Identify the missing shards
 
 ```
 comm -13 <(sort shard_list.txt) <(sort piece_list.txt)
@@ -126,7 +126,7 @@ Please note that expired deals are not removed from the piece store. So, there a
 boostd pieces piece-info <piece CID>
 ```
 
-5\. Register the shards with dagstore in an automated fashion.
+6\. Register the shards with dagstore in an automated fashion.
 
 ```
 for i in `cat verified_pieces.txt` | do boostd dagstore register-shard; done
