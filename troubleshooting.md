@@ -48,9 +48,11 @@ lotus-miner actor set-peer-id <new peer id>
 
 After migrating to Boost, following error is seen when running `lotus-miner info` :
 
+{% code overflow="wrap" %}
 ```
 ERROR: fatal error calling 'Filecoin.MarketListIncompleteDeals': panic in rpc method 'Filecoin.MarketListIncompleteDeals': runtime error: invalid memory address or nil pointer dereference
 ```
+{% endcode %}
 
 #### Problem:
 
@@ -64,3 +66,70 @@ Export the `LOTUS_MARKET_PATH` variable on your lotus-miner node.
 export LOTUS_MARKETS_PATH=<BOOST REPO PATH>
 ```
 
+### Fix retrievals with error "failed to lookup index for mh"
+
+The following error shows up when trying to retrieve the data from a storage provider.
+
+{% code overflow="wrap" %}
+```
+ERROR: offer error: retrieval query offer errored: failed to fetch piece to retrieve from: getting pieces for cid Qmf1ykhUo63qB5dJ8KRyeths9MZfyxpVdT5xwnmoLKefz7: getting pieces containing block Qmf1ykhUo63qB5dJ8KRyeths92mfyxpVdT5xi1moLKefz7: failed to lookup index for mh 1220f7ce2d20772b959c1071868e9495712f12785b1710ee88752af120dd49338190, err: datastore: key not found
+```
+{% endcode %}
+
+The error indicates that dagstore does not have a corresponding index shard for the piece containing the requested data. When a retrieval is requested, the dagstore on storage provider side is queried and a reverse look up is used to determine the key(piece CID). This key is then used to query the piece store to find the sector containing the data and byte offset.
+
+If for any reason the shard is not registered with the dagstore then reverse look up to find the piece CID fails and the above error is seen. The most widely know reason for not having the shard registered with dagstore is the below error.
+
+{% code overflow="wrap" %}
+```
+2022-02-21T20:06:03.950+1100 INFO markets loggers/loggers.go:20 storage provider event {"name": "ProviderEventFailed", "proposal CID": "bafyreihr743zllr2eckgfiweouiap7pgcjqa3mg3t75jjt7sfcpu", "state": "StorageDealError", "message": "error awaiting deal pre-commit: failed to set up called handler: called check error (h: 1570875): failed to look up deal on chain: deal 3964985 not found - deal may not have completed sealing before deal proposal start epoch, or deal may have been slashed"}
+```
+{% endcode %}
+
+To fix the deals where retrievals are impacted by above error, user will need to register the shards manually with dagstore:
+
+```
+boostd dagstore register-shard <piece CID>
+```
+
+If you have multiple deals in such state then you will need to generate a list of registered pieces with piece store and then compare with the shards available in the dagstore to create a list of missing shards.
+
+1\. Create a list of all registered pieces with piece store and count them
+
+```
+boostd pieces list-pieces |wc -l
+boostd pieces list-pieces > piece_list.txt
+```
+
+2\. Create a list of registered shards and count them
+
+```
+boostd dagstore list-shards | wc -l
+boostd dagstore list-shards > shard_list.txt
+```
+
+3.. Identify the missing shards
+
+```
+comm -13 <(sort shard_list.txt) <(sort piece_list.txt)
+```
+
+4\. If the piece count and shard count is similar or close to each other, we should manually identify the missing pieces and not use an automated procedure to register them. The reason for this approach is to avoid trying to register a shard for the deal that is still being sealed or is under process. These deals should automatically get registered with the dagstore once they finish sealing. If there is a huge difference in the number of the shards and pieces then proceed to the next step.
+
+{% hint style="danger" %}
+Please note that expired deals are not removed from the piece store. So, there are chances that you might see piece CIDs pointing to the sectors that no longer exists. Registering these sectors with dagtore will trigger an unseal job on a non existent sector. We would request you to verify that piece about to be registered is part of an active sector or not.
+{% endhint %}
+
+5\. For each CID in the output of step 3, verify that it is pointing to an active sector.
+
+```
+boostd pieces piece-info <piece CID>
+```
+
+5\. Register the shards with dagstore in an automated fashion.
+
+```
+for i in `cat verified_pieces.txt` | do boostd dagstore register-shard; done
+```
+
+Please note that each shard may take upto 3-5 minutes to get registered. So, the above command might take hours or days to complete depending upon the number of missing shards.
