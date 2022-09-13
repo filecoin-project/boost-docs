@@ -12,6 +12,8 @@ This new configuration has been introduced in the `ConfigVersion = 3` of the boo
 
 ### Configuration Variables
 
+#### HTTP variables
+
 ```
   # The maximum number of concurrent storage deal HTTP downloads.
   # Note that this is a soft maximum; if some downloads stall,
@@ -33,6 +35,37 @@ This new configuration has been introduced in the `ConfigVersion = 3` of the boo
   # type: Duration
   # env var: LOTUS_DEALMAKING_HTTPTRANSFERSTALLTIMEOUT
   #HttpTransferStallTimeout = "5m0s"
+```
+
+#### Storage variables
+
+```
+  # The maximum allowed disk usage size in bytes of downloaded deal data
+  # that has not yet been passed to the sealing node by boost.
+  # When the client makes a new deal proposal to download data from a host,
+  # boost checks this config value against the sum of:
+  # - the amount of data downloaded in the staging area
+  # - the amount of data that is queued for download
+  # - the amount of data in the proposed deal
+  # If the total amount would exceed the limit, boost rejects the deal.
+  # Set this value to 0 to indicate there is no limit.
+  #
+  # type: int64
+  # env var: LOTUS_DEALMAKING_MAXSTAGINGDEALSBYTES
+  MaxStagingDealsBytes = 50000000000
+
+  # The percentage of MaxStagingDealsBytes that is allocated to each host.
+  # When the client makes a new deal proposal to download data from a host,
+  # boost checks this config value against the sum of:
+  # - the amount of data downloaded from the host in the staging area
+  # - the amount of data that is queued for download from the host
+  # - the amount of data in the proposed deal
+  # If the total amount would exceed the limit, boost rejects the deal.
+  # Set this value to 0 to indicate there is no limit per host.
+  #
+  # type: uint64
+  # env var: LOTUS_DEALMAKING_MAXSTAGINGDEALSPERCENTPERHOST
+  #MaxStagingDealsPercentPerHost = 0
 ```
 
 ### How TransferLimiter works
