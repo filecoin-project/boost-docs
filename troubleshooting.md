@@ -144,7 +144,7 @@ comm -13 <(sort pieces_without_sectors.txt) <(sort <OUTPUT OF STEP 3 IN A FILE>)
 
 {% code overflow="wrap" %}
 ```
-for i in `cat <OUTPUT OF STEP 6 IN A FILE>` | do boostd dagstore register-shard; done
+for i in `cat <OUTPUT OF STEP 7 IN A FILE>` | do boostd dagstore register-shard; done
 ```
 {% endcode %}
 
