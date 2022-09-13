@@ -130,7 +130,7 @@ Please note that expired deals are not removed from the piece store. So, there a
 lotus-miner sectors list | awk '{print $1 " " $2}' | grep -v ID > aclist.txt
 ```
 
-6\. Generate a list of pieces not found in any sector.
+6\. Generate a list of pieces not found in any active sector (output of step 5).
 
 <pre data-overflow="wrap"><code><strong>for i in $(boostd pieces list-pieces); do sector_list=`boostd pieces piece-info $i | awk '{print $2}'| sed -ne '/SectorID/,$p' | grep -v SectorID`; for j in $sector_list; do grep -w $j aclist.txt > /dev/null; if [ $? -eq 0 ]; then break; else echo "Piece $i not found in any sector"; break; fi; done; done > pieces_without_sectors.txt</strong></code></pre>
 
