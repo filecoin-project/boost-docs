@@ -108,8 +108,8 @@ boostd pieces list-pieces > piece_list.txt
 2\. Create a list of registered shards and count them
 
 ```
-boostd dagstore list-shards | wc -l
-boostd dagstore list-shards > shard_list.txt
+boostd dagstore list-shards | grep -v Key | awk '{print $1}' | wc -l
+boostd dagstore list-shards | grep -v Key | awk '{print $1}' > shard_list.txt
 ```
 
 3\. Identify the missing shards
