@@ -108,8 +108,8 @@ boostd pieces list-pieces > piece_list.txt
 2\. Create a list of registered shards and count them
 
 ```
-boostd dagstore list-shards | grep -v Key | awk '{print $1}' | wc -l
-boostd dagstore list-shards | grep -v Key | awk '{print $1}' > shard_list.txt
+boostd dagstore list-shards | awk '{print $1}' | sed 1d | wc -l
+boostd dagstore list-shards | awk '{print $1}' | sed 1d > shard_list.txt
 ```
 
 3\. Identify the missing shards
@@ -132,7 +132,7 @@ lotus-miner sectors list | awk '{print $1 " " $2}' | grep -v ID > aclist.txt
 
 6\. Generate a list of pieces not found in any active sector (output of step 5).
 
-<pre data-overflow="wrap"><code><strong>for i in $(boostd pieces list-pieces); do sector_list=`boostd pieces piece-info $i | awk '{print $2}'| sed -ne '/SectorID/,$p' | grep -v SectorID`; for j in $sector_list; do grep -w $j aclist.txt > /dev/null; if [ $? -eq 0 ]; then break; else echo "Piece $i not found in any sector"; break; fi; done; done > pieces_without_sectors.txt</strong></code></pre>
+<pre data-overflow="wrap"><code><strong>for i in $(boostd pieces list-pieces); do sector_list=`boostd pieces piece-info $i | awk '{print $2}'| sed -ne '/SectorID/,$p' | grep -v SectorID`; for j in $sector_list; do grep -w $j aclist.txt > /dev/null; if [ $? -eq 0 ]; then break; else echo "Piece $i not found in any sector"; fi; done; done > pieces_without_sectors.txt</strong></code></pre>
 
 7\. Create a list of shards to be registered with the dagstore.
 
@@ -144,7 +144,7 @@ comm -13 <(sort pieces_without_sectors.txt) <(sort <OUTPUT OF STEP 3 IN A FILE>)
 
 {% code overflow="wrap" %}
 ```
-for i in `cat <OUTPUT OF STEP 7 IN A FILE>` | do boostd dagstore register-shard $i; done
+for i in `cat <OUTPUT OF STEP 7 IN A FILE>` ; do boostd dagstore register-shard $i; done
 ```
 {% endcode %}
 
