@@ -60,10 +60,10 @@ ERROR: fatal error calling 'Filecoin.MarketListIncompleteDeals': panic in rpc me
 
 #### Solution:
 
-Export the `LOTUS_MARKET_PATH` variable on your lotus-miner node.
+Export the MARKETS\_API\_INFO variable on your lotus-miner node.
 
 ```
-export LOTUS_MARKETS_PATH=<BOOST REPO PATH>
+export MARKETS_API_INFO=<Boost token:api>
 ```
 
 ## Fix retrievals with error "failed to lookup index for mh"
