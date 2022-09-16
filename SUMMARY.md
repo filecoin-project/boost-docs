@@ -20,6 +20,7 @@
 * [JSON-RPC API](json-rpc-api.md)
 * [GraphQL API](graphql-api.md)
 * [Hardware requirements](hardware-requirements.md)
+* [Remote CommP](remote-commp.md)
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
@@ -27,5 +28,4 @@
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [HTTP Retrieval](experimental-features/http-retrieval.md)
-  * [Remote CommP](experimental-features/remote-commp.md)
 * [FAQ](faq.md)

@@ -10,10 +10,10 @@ To build `boostd` with remote commP feature please follow the below steps.
 git clone https://github.com/filecoin-project/boost.git
 ```
 
-2\. Checkout the v1.4.0-rc1 or higher tags
+2\. Checkout the v1.4.0 or higher release
 
 ```
-git checkout v1.4.0-rc1
+git checkout v1.4.0
 ```
 
 3\. Build the boost binaries
