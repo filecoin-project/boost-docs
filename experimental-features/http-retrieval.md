@@ -38,11 +38,21 @@ lotus auth api-info --perm=admin
 lotus-miner auth api-info --perm=admin
 ```
 
+{% hint style="info" %}
+Output of the above commands is in the following format.\
+\<ENV VARIABLE NAME> = \<TOKEN>:\<API ADDRESS>\
+Please use only \<TOKEN>:\<API ADDRESS> part for the next step.&#x20;
+{% endhint %}
+
 4\. Start the `booster-http` server with the above details
 
 ```
 booster-http run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
+
+{% hint style="info" %}
+You can also run multiple processes on the same machine but you would need to use different port for each `booster-http` instance by specifying the value using the `--port` flag. You can run multiple instances of the `booster-http` spread over multiple machines.&#x20;
+{% endhint %}
 
 5\. To download files from the new http-server locally, you use the following endpoints:
 
