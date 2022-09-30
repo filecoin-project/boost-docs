@@ -91,6 +91,12 @@ See the `Libp2p` section of `config.toml` in the [architecture.md](../boost-arch
 
 ### Web UI
 
+{% hint style="info" %}
+When you build `boostd` using `make build` the react app is also part of the process. You can skip this section.
+
+Following steps are to be used only in case you are building binary and react app separately.
+{% endhint %}
+
 1. Build the React frontend
 
 ```
