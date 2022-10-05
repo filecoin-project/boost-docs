@@ -4,6 +4,55 @@ description: >-
   exposed as JSON-RPC 2.0 endpoints by the boostd daemon.
 ---
 
+
+# Go JSON-RPC client
+To use the Boost Go client, the Go RPC-API library can be used to interact with the Boost API node.
+
+1. Import the necessary Go module:
+```
+go get github.com/filecoin-project/go-jsonrpc
+```
+
+2. Create the following script:
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "net/http"
+
+    jsonrpc "github.com/filecoin-project/go-jsonrpc"
+    boostapi "github.com/filecoin-project/boost/api"
+)
+
+func main() {
+    authToken := "<value found in ~/.boost/token>"
+    headers := http.Header{"Authorization": []string{"Bearer " + authToken}}
+    addr := "127.0.0.1:1288"
+
+    var api boostapi.BoostStruct
+    closer, err := jsonrpc.NewMergeClient(context.Background(), "ws://"+addr+"/rpc/v0", "Filecoin", []interface{}{&api.Internal, &api.CommonStruct.Internal}, headers)
+    if err != nil {
+        log.Fatalf("connecting with boost failed: %s", err)
+    }
+    defer closer()
+
+    // Now you can call any API you're interested in.
+    netAddrs, err := api.NetAddrsListen(context.Background())
+    if err != nil {
+      log.Fatalf("calling netAddrsListen: %s", err)
+    }
+    fmt.Printf("Boost is listening on: %s", netAddrs.Addrs[0])
+}
+```
+
+3. Run `go mod init` to set up your `go.mod` file
+4. You should now be able to interact with the Boost API.
+
+
 # Groups
 * [Actor](#actor)
   * [ActorSectorSize](#actorsectorsize)
