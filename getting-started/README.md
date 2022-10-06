@@ -10,14 +10,14 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 
 ### Boost and Lotus compatibility Matrix
 
-| Boost Version | Lotus Version    |
-| ------------- | ---------------- |
-| v1.0.0        | v1.15.x          |
-| v1.1.0        | v1.16.x          |
-| v1.1.1        | v1.16.x          |
-| v1.2.0        | v1.16.x          |
-| v1.3.0        | v1.17.0, v1.17.1 |
-| v1.4.0        | v1.17.0, v1.17.1 |
+| Boost Version | Lotus Version             |
+| ------------- | ------------------------- |
+| v1.0.0        | v1.15.x                   |
+| v1.1.0        | v1.16.x                   |
+| v1.1.1        | v1.16.x                   |
+| v1.2.0        | v1.16.x                   |
+| v1.3.0        | v1.17.0, v1.17.1          |
+| v1.4.0        | v1.17.0, v1.17.1, v1.17.2 |
 
 ### Building and installing
 
