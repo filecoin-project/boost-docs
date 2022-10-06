@@ -24,3 +24,23 @@ This 1m video shows how to use these tools to build an run a GraphQL query again
 {% embed url="https://youtu.be/yN_H-hDrBao" %}
 Use the GraphQL explorer to create a query against Boost
 {% endembed %}
+
+### Example Queries
+
+1\. Query failed deals
+
+```
+curl -X POST \
+-H "Content-Type: application/json" \
+-d '{"query":"query { deals(limit: 10, query: \"failed to get size of imported\") { deals { ID CreatedAt Message } } }"}' \
+http://localhost:8080/graphql/query | jq
+```
+
+2\. Cancel a deal where `ab12345c-5678-90de-12f3-45a6b78cd9ef` is the deal ID
+
+```
+curl -X POST \
+-H "Content-Type: application/json" \
+-d '{"query":"mutation { dealCancel(id: \"ab12345c-5678-90de-12f3-45a6b78cd9ef\") }"}' \
+http://localhost:8080/graphql/query | jq
+```
