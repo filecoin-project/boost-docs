@@ -33,7 +33,7 @@ Please make sure you have installed:\
 **Node 16.x**
 {% endhint %}
 
-Linux / Ubuntu
+**Linux / Ubuntu**
 
 ```
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -41,7 +41,7 @@ sudo apt-get install -y nodejs
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y
 ```
 
-MacOS
+**MacOS**
 
 ```
 brew install node
@@ -79,6 +79,16 @@ sudo make install
 ```
 
 Please ignore any output or onscreen instruction during the `npm build` unless there is an error.
+
+#### **Calibration Network**
+
+To build boost for calibnet, please complete the above pre-requisites and build using the following commands.
+
+```
+git clone https://github.com/filecoin-project/boost
+cd boost
+make calibnet
+```
 
 ### Upgrading Boost
 
