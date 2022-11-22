@@ -17,6 +17,7 @@
 * [Configuration](configuration/README.md)
   * [UI Settings](configuration/ui-settings.md)
   * [HTTP Transfer limit](configuration/http-transfer-limit.md)
+  * [Deal Filters](configuration/deal-filters.md)
 * [JSON-RPC API](json-rpc-api.md)
 * [GraphQL API](graphql-api.md)
 * [Hardware requirements](hardware-requirements.md)
