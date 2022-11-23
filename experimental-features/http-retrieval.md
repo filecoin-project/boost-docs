@@ -57,23 +57,10 @@ You can also run multiple processes on the same machine but you would need to us
 5\. To download files from the new http-server locally, you use the following endpoints:
 
 ```
-# Download a piece by its PieceCID                                                                                                                                                                                                                                                                                                                          
-# Randomly selects the first deal/sector matching the CID                                                                                                                                                                                                                                                                                                   
-# This will transfer the entire piece including all its (compressible) padding                                                                                                                                                                                                                                                           
-curl http://localhost:7777/piece/bagaSomePieceCID -o $HOME/download.piece                                                                                                                                                                                                                                                                                   
-                                                                                                                                                                                                                                                                                                                                                            
-# Like above but download only the CAR portion contained within the selected piece
- # Relies on payload size information inferred during deal indexing                                                                                                                                                                                                       
-# If you require bit-for-bit piece identity, the method above is preferred                                                                                                                                                                                                                                                                                  
-curl http://localhost:7777/piece/bagaSomePieceCID.car -o $HOME/download.car                                                                                                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                            
-# Download a random piece containing a CAR containing the specified payload CID                                                                                                                                                                                                                                                                
-# A CAR file would match if it contains the requested CID at any (non-root) position                                                                                                                                                                                                                                       
-# Relies on payload contents information inferred during deal indexing                                                                                                                                                                                                                                                                                      
-curl http://localhost:7777/payload/bafySomePayloadCid -o $HOME/download.piece                                                                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                                                                                                                                            
-# Like above but download only the CAR portion contained within the selected piece                                                                                                                                                                                                                                                                          
-curl http://localhost:7777/payload/bafySomePayloadCid.car -o $HOME/download.car         
+# Download a piece by its PieceCID
+# Randomly selects the first deal/sector matching the CID
+# This will transfer the entire piece including all its (compressible) padding
+curl http://localhost:7777/piece/bagaSomePieceCID -o $HOME/download.piece 
 ```
 
 ## Running Public Boost HTTP Retrieval
@@ -103,12 +90,19 @@ Clients can determine if an SP offers HTTP retrieval by running:
 boost provider retrieval-transports <miner id>
 ```
 
+Clients can check the HTTP URL scheme version and supported queries
+
+```
+// Supported queries
+curl https://foo.com/index
+
+// Version
+curl https://foo.com/info
+```
+
 Clients can download a piece using the domain root configured by the SP:
 
 ```
-# Download piece by its CID
+# Download a piece by its CID
 curl https://foo.com/piece/bagaSomePieceCID -o $HOME/download.piece
-
-# Download random piece containing specified payload CID (piece must be indexed)
-curl https://foo.com/payload/bafySomePayloadCid -o $HOME/download.piece
 ```
