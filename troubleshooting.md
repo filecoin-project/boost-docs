@@ -98,53 +98,25 @@ If you have multiple deals in such state then you will need to generate a list o
 Please stop accepting any deals and ensure all current deals are handed off to the lotus-miner (sealer) subsystem before proceeding from here.
 {% endhint %}
 
-1\. Create a list of all registered pieces with piece store and count them
-
-```
-boostd pieces list-pieces |wc -l
-boostd pieces list-pieces > piece_list.txt
-```
-
-2\. Create a list of registered shards and count them
-
-```
-boostd dagstore list-shards | awk '{print $1}' | sed 1d | wc -l
-boostd dagstore list-shards | awk '{print $1}' | sed 1d > shard_list.txt
-```
-
-3\. Identify the missing shards
-
-```
-comm -13 <(sort shard_list.txt) <(sort piece_list.txt)
-```
-
-4\. If the piece count and shard count is similar or close to each other, we should manually identify the missing pieces and not use an automated procedure to register them. The reason for this approach is to avoid trying to register a shard for the deal that is still being sealed or is under process. These deals should automatically get registered with the dagstore once they finish sealing. If there is a huge difference in the number of the shards and pieces then proceed to the next step.
-
-{% hint style="danger" %}
-Please note that expired deals are not removed from the piece store. So, there are chances that you might see piece CIDs pointing to the sectors that no longer exists. Registering these sectors with dagtore will trigger an unseal job on a non existent sector. We would request you to verify that piece about to be registered is part of an active sector or not.
-{% endhint %}
-
-5\. Create a list of all sectors on `lotus-miner` and redirect the output to a file. Copy the output file to boost node to be used by the below command.&#x20;
+1\. Create a list of all sectors on `lotus-miner` and redirect the output to a file. Copy the output file to boost node to be used by the below command.&#x20;
 
 ```
 lotus-miner sectors list | awk '{print $1 " " $2}' | grep -v ID > aclist.txt
 ```
 
-6\. Generate a list of pieces not found in any active sector (output of step 5).
-
-<pre data-overflow="wrap"><code><strong>for i in $(boostd pieces list-pieces); do sector_list=`boostd pieces piece-info $i | awk '{print $2}'| sed -ne '/SectorID/,$p' | grep -v SectorID`; for j in $sector_list; do grep -w $j aclist.txt > /dev/null; if [ $? -eq 0 ]; then break; else echo "$i"; fi; done; done > pieces_without_sectors.txt</strong></code></pre>
-
-7\. Create a list of shards to be registered with the dagstore.
-
-```
-comm -13 <(sort pieces_without_sectors.txt) <(sort <OUTPUT OF STEP 3 IN A FILE>)
-```
-
-8\. Register the shards with dagstore in an automated fashion.
+2\. Generate a list of shards to be registered
 
 {% code overflow="wrap" %}
 ```
-for i in `cat <OUTPUT OF STEP 7 IN A FILE>` ; do boostd dagstore register-shard $i; done
+comm -13 <(for i in $(boostd pieces list-pieces); do sector_list=`boostd pieces piece-info $i | awk '{print $2}'| sed -ne '/SectorID/,$p' | grep -v SectorID`; for j in $sector_list; do grep -w $j aclist.txt > /dev/null; if [ $? -eq 0 ]; then break; else echo "$i"; fi; done; done) <(comm -13 <(boostd dagstore list-shards | awk '{print $1}' | sed 1d | sort) <(boostd pieces list-pieces | sort))
+```
+{% endcode %}
+
+3\. Register the shards with dagstore in an automated fashion.
+
+{% code overflow="wrap" %}
+```
+for i in `cat <OUTPUT OF STEP 2 IN A FILE>` ; do boostd dagstore register-shard $i; done
 ```
 {% endcode %}
 
