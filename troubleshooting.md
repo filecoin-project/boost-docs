@@ -44,6 +44,24 @@ To fix the problem, the SP should register the new peer id on chain:
 lotus-miner actor set-peer-id <new peer id>
 ```
 
+## Update storage provider's on chain address
+
+Clients would not be able to connect to Boost running on a Storage provider after an IP change. This happens as clients lookup the registered peer id and address on chain for a SP. When a SP changes their IP or address locally, they must update the same on chain.
+
+The SP should register the new peer id on chain using the following lotus-miner command
+
+{% code overflow="wrap" %}
+```
+lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS_OF_BOOST_NODE>/tcp/<Boostd Port>
+```
+{% endcode %}
+
+{% hint style="warning" %}
+Please make sure to use the public IP and port of the Boost node and not `lotus-miner` node if your miner and `boostd` runs on a separate machine.
+{% endhint %}
+
+The on chain address change requires access to the worker key and thus the command lives in `lotus-miner` instead of Boost.&#x20;
+
 ## Error in _lotus-miner info_ output
 
 After migrating to Boost, following error is seen when running `lotus-miner info` :
