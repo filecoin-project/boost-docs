@@ -30,4 +30,5 @@
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [HTTP Retrieval](experimental-features/http-retrieval.md)
+  * [Bitswap Retrieval](experimental-features/bitswap-retrieval.md)
 * [FAQ](faq.md)
