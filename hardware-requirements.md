@@ -24,3 +24,5 @@ Boost stores all data received from clients before Piece CID is calculated and c
 
 For small deployments **100 GiB of disk are needed at the very least** if we assume that Boost is to keep three 32 GiB sectors before passing them to the sealing subsystem.
 
+We recommend using **NVME disk** for Boost. As Dagstore grows in size, the overall performance might slow down due to slow disk.
+
