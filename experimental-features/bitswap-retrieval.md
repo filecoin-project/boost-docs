@@ -1,5 +1,5 @@
 ---
-description: How to configure and use HTTP retrievals in Boost
+description: How to configure and use bitswap retrievals in Boost
 ---
 
 # Bitswap Retrieval
