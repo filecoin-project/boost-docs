@@ -10,6 +10,10 @@ description: How to configure and use bitswap retrievals in Boost
 There is currently no payment method in booster-bitswap. This endpoint is intended to serve free content.
 {% endhint %}
 
+## Why enable retrievals via bitswap?  
+Bitswap retrieval introduces interoperability between IPFS and Filecoin, as it enables clients to retrieve Filecoin data over IPFS. This expands the reach of the Filecoin network considerably, increasing the value proposition for users to store data on the Filecoin network. This benefits the whole community, including SPs. Users will be able to access data directly via IPFS, as well as benefit from retrieval markets (e.g. Saturn) and compute over data projects (e.g. Bacalhau).
+
+## `Booster-bitswap` modes
 There are two primary "modes" for exposing `booster-bitswap` to the internet.
 
 1. In `private mode` the `booster-bitswap` peer ID is not publicly accessible to the internet. Instead, public Bitswap traffic goes to `boostd` itself, which then acts as a reverse proxy, forwarding that traffic on to `booster-bitswap`. This is similar to the way one might configure Nginx as a reverse proxy for an otherwise private web server. `private mode` is simpler to setup but may produce greater load on `boostd` as a protocol proxy.
@@ -69,7 +73,7 @@ booster-bitswap fetch /ip4/127.0.0.1/tcp/8888/p2p/{peerID} {rootCID} outfile.car
 
 Where `peerID` is the peer id recorded when you ran `booster-bitswap init` and `rootCID` is the CID of a data CID known to be stored on your SP.
 
-## Setup `booster-bitswap` To Serve Retrievals Publicly
+## Setup `booster-bitswap` To Serve Retrievals
 
 As described above, `booster-bitswap` can be configured to serve the retrievals in 2 modes. We recommend using `public mode` to avoid greater load on `boostd` as a protocol proxy.
 
