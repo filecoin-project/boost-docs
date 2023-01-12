@@ -15,3 +15,7 @@ Current experimental features are listed below.
 {% content-ref url="http-retrieval.md" %}
 [http-retrieval.md](http-retrieval.md)
 {% endcontent-ref %}
+
+{% content-ref url="bitswap-retrieval.md" %}
+[bitswap-retrieval.md](bitswap-retrieval.md)
+{% endcontent-ref %}
