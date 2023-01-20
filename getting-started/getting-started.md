@@ -18,8 +18,8 @@ Boost currently uses two wallets for storage deals:
 * The deal collateral wallet - When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the `StorageMarketActor`.
 
 ```
-PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
-COLLAT_WALLET=`lotus wallet new bls`
+export PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
+export COLLAT_WALLET=`lotus wallet new bls`
 lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $COLLAT_WALLET 10
 ```
@@ -27,7 +27,7 @@ lotus send --from mywallet $COLLAT_WALLET 10
 3\. Set the publish storage deals wallet as a control wallet.
 
 ```
-lotus-miner actor control set --really-do-it $PUBMSG_WALLET
+lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET
 ```
 
 4\. Create and initialize the Boost repository
