@@ -111,13 +111,13 @@ npm run build
 
 1. Open the Web UI
 
-Open http://localhost:8080 in your browser.
+Start the dev server with `npm run start` or prod with `npm install -g serve; serve -s build`. Open http://localhost:3000 in your browser.
 
 {% hint style="info" %}
 To access a web UI running on a remote server, you can open an SSH tunnel from your local machine:
 
 ```
-ssh -L 8080:localhost:8080 myserver
+ssh -L 3000:localhost:3000 myserver
 ```
 {% endhint %}
 
