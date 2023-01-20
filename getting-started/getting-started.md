@@ -39,7 +39,7 @@ run `boostd migrate` instead of `boostd init`
 See section [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention") for more details.
 {% endhint %}
 
-Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must preceed any paricular command verb, e.g. `boostd --boost-repo=/path init`).
+Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must precede any particular command verb, e.g. `boostd --boost-repo=/path init`).
 
 Export the environment variables needed for `boostd init` to connect to the lotus daemon and lotus miner.
 
