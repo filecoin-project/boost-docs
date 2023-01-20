@@ -103,7 +103,7 @@ Following steps are to be used only in case you are building binary and react ap
 cd react
 
 # Download and install npm packages needed by the React frontend
-npm install
+npm install --legacy-peer-deps
 
 # Build the optimized JavaScript and CSS in boost/react/build
 npm run build
