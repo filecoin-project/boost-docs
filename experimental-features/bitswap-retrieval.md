@@ -32,7 +32,7 @@ You can configure booster-bitswap in the demo mode and familiarise yourself with
 ```
 git clone https://github.com/filecoin-project/boost.git
 cd boost
-git checkout release/booster-bitswap
+git checkout release/1.5.1-rc3
 ```
 
 2\. Build the `booster-bitswap` binary:
