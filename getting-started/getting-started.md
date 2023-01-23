@@ -18,8 +18,8 @@ Boost currently uses two wallets for storage deals:
 * The deal collateral wallet - When the Storage Provider accepts a deal, they must put collateral for the deal into escrow. Boost moves funds from this wallet into escrow with the `StorageMarketActor`.
 
 ```
-PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
-COLLAT_WALLET=`lotus wallet new bls`
+export PUBLISH_STORAGE_DEALS_WALLET=`lotus wallet new bls`
+export COLLAT_WALLET=`lotus wallet new bls`
 lotus send --from mywallet $PUBLISH_STORAGE_DEALS_WALLET 10
 lotus send --from mywallet $COLLAT_WALLET 10
 ```
@@ -27,7 +27,7 @@ lotus send --from mywallet $COLLAT_WALLET 10
 3\. Set the publish storage deals wallet as a control wallet.
 
 ```
-lotus-miner actor control set --really-do-it $PUBMSG_WALLET
+lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET
 ```
 
 4\. Create and initialize the Boost repository
@@ -39,7 +39,7 @@ run `boostd migrate` instead of `boostd init`
 See section [migrate-a-lotus-markets-service-process-to-boost.md](../upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention") for more details.
 {% endhint %}
 
-Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter.
+Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must precede any particular command verb, e.g. `boostd --boost-repo=/path init`).
 
 Export the environment variables needed for `boostd init` to connect to the lotus daemon and lotus miner.
 
@@ -103,7 +103,7 @@ Following steps are to be used only in case you are building binary and react ap
 cd react
 
 # Download and install npm packages needed by the React frontend
-npm install
+npm install --legacy-peer-deps
 
 # Build the optimized JavaScript and CSS in boost/react/build
 npm run build
