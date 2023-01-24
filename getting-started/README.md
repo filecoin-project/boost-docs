@@ -46,7 +46,7 @@ sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config cu
 **MacOS**
 
 ```
-brew install node
+brew install node@16
 brew install bzr jq pkg-config hwloc coreutils
 ```
 
