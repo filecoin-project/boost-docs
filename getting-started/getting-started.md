@@ -72,7 +72,14 @@ boostd --vv init \
 
 5\. Update `ulimit` file descriptor limit if necessary. Boost deals will fail if the file descriptor limit for the process is not set high enough. This limit can be raised temporarily before starting the Boost process by running the command `ulimit -n 1048576`. We recommend setting it permanently by following the [Permanently Setting Your ULIMIT System Value](https://lotus.filecoin.io/kb/soft-fd-limit/) guide.
 
-6\. Run the `boostd` service, which will start:
+6\. Make sure that the correct \<PEER\_ID> and \<MULTIADDR> for your SP is set on chain, given that `boost init` generates a new identity. Use the following commands to update the values on chain:
+
+```
+lotus-miner actor set-addrs <MULTIADDR>
+lotus-miner actor set-peer-id <PEER_ID>
+```
+
+7\. Run the `boostd` service, which will start:
 
 * libp2p listeners for storage and retrieval
 * the JSON RPC API
@@ -123,7 +130,7 @@ ssh -L 8080:localhost:8080 myserver
 
 ### API Access
 
-Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.&#x20;
+Boost API can be accessed by setting the environment variable `BOOST_API_INFO` same as `LOTUS_MARKET_INFO`.
 
 ```
 boostd auth api-info --perm=admin
