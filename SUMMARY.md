@@ -23,6 +23,7 @@
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
+  * [Setting up a monitoring stack for Boost](tutorials/setting-up-a-monitoring-stack-for-boost.md)
 * [GraphQL API](graphql-api.md)
 * [Remote CommP](remote-commp.md)
 * [Troubleshooting](troubleshooting.md)
