@@ -254,3 +254,48 @@ booster-bitswap run --api-boost=$BOOST_API_INFO --api-filter-endpoint <URL> --ap
 {% endcode %}
 
 When you setup with an API endpoint, `booster-bitswap` will update its local configuration from the API every five minutes, so you won't have to restart `booster-bitswap` to make a change. Please, be aware that the remote config will overwrite, rather than merge, with the local config.
+
+### Bandwidth Limiting
+
+Limiting bandwidth within booster-bitswap will not provide the optimal user experience. Dependent on individual setup, setting up limitations within the software could have a larger impact on the storage provider operations. Therefore, we recommend storage providers to set up their own bandwidth limitations using existing tools.
+
+There are multiple options to setup bandwidth limitating.
+1. At the ISP level - dedicated bandwidth is provided to the node running booster-bitswap.
+2. At the router level - we recommend configuring the bandwidth at the router level as it provides more flexibility and can be updated as needed. To configure the bandwidth on your router, please check with your manufacturer.
+3. Limit the bandwidth using different tools available in Linux. Here are some of the examples of such tools. Please feel free to use any other tools not listed here and open a Github issue to add your example to this page.
+
+#### TC
+[TC](https://man7.org/linux/man-pages/man8/tc.8.html) is used to configure Traffic Control in the Linux kernel. There are examples available online detailing how to configure rate limiting using TC.
+
+You can use the below commands to run a very basic configuration.
+{% code overflow="wrap" %}
+```
+sudo tc qdisc add dev <network interface> root handle 1: htb
+sudo tc class add dev <network interface> parent 1: classid 1:20 htb rate 100mibit
+sudo tc qdisc add dev <network interface> parent 1:20 handle 20: sfq perturb 10
+sudo tc filter add dev <network interface> parent 1: protocol ip prio 1 basic match 'cmp(u16 at 0 layer transport eq 8888)' flowid 1:20
+```
+{% endcode %}
+
+#### Trickle
+[Trickle](https://wiki.archlinux.org/title/trickle) is a portable lightweight user space bandwidth shaper, that either runs in collaborative mode (together with trickled) or in standalone mode.
+You can read more about rate limiting with trickle [here](https://www.tecmint.com/limit-linux-network-bandwidth-usage-with-trickle/). Here's a starting point for configuration in trickle to rate limit the booster-bitswap service.
+{% code overflow="wrap" %}
+``` 
+[booster-bitswap]
+Priority = <value>
+Time-Smoothing = <value>
+Length-Smoothing = <value>
+```
+{% endcode %}
+
+#### Wondershaper
+Another way of controlling network traffic is to limit bandwidth on individual network interface cards (NICs). [Wondershaper](https://github.com/magnific0/wondershaper) is a small Bash script that uses the tc command-line utility in the background to let you regulate the amount of data flowing through a particular NIC. As you can imagine, while you can use wondershaper on a machine with a single NIC, its real advantage is on a machine with multiple NICs.
+Just like trickle, wondershaper is available in the official repositories of mainstream distributions. To limit network traffic with wondershaper, specify the NIC on which you wish to restrict traffic with the download and upload speed in kilobits per second. 
+
+For example,
+{% code overflow="wrap" %}
+```
+wondershaper enp5s0 4096 1024
+```
+{% endcode %}
