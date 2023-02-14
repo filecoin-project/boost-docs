@@ -197,7 +197,7 @@ booster-bitswap run --api-boost=$BOOST_API_INFO
 
 ### Bitswap Server Performance
 
-Depending on your hardware you may wish to increase or decrease the default parameters for the bitswap server internals. In the following example we are increasing the worker count for various components up to 600. This will utilize more CPU and I/O, but improve the performance of retrievals. 
+Depending on your hardware you may wish to increase or decrease the default parameters for the bitswap server internals. In the following example we are increasing the worker count for various components up to 600. This will utilize more CPU and I/O, but improve the performance of retrievals. See the command line help docs for details on each parameter. 
 
 {% code overflow="wrap" %}
 ```
