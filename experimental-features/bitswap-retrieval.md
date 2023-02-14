@@ -195,6 +195,21 @@ booster-bitswap run --api-boost=$BOOST_API_INFO
 
 `booster-bitswap` provides a number of performance and safety tools for managing a production grade bitswap server without overloading your infrastructure.
 
+### Bitswap Server Performance
+
+Depending on your hardware you may wish to increase or decrease the default parameters for the bitswap server internals. In the following example we are increasing the worker count for various components up to 600. This will utilize more CPU and I/O, but improve the performance of retrievals. 
+
+{% code overflow="wrap" %}
+```
+booster-bitswap run --api-boost=$BOOST_API_INFO \
+  --engine-blockstore-worker-count=600 \
+  --engine-task-worker-count=600 \
+  --max-outstanding-bytes-per-peer=33554432 \
+  --target-message-size=1048576 \
+  --task-worker-count=600
+```
+{% endcode %}
+
 ### BadBits filtering
 
 Booster-bitswap is automatically setup to deny all requests for CIDs that are on the BadBits Denylist. The default badbits list can be override or addition badbits list can be provided to the  `booster-bitswap` instance.
