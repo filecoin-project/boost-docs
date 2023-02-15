@@ -8,18 +8,22 @@ The client makes a deal proposal over `v1.2.0` of the Propose Storage Deal Proto
 
 It is a request / response protocol, where the request and response are CBOR-marshalled.
 
+There are two new fields in the Request of `v1.2.1` of the protocol, described in the table below.
+
 ### Request
 
-| Field              | Type               | Description                                                                                        |
-| ------------------ | ------------------ | -------------------------------------------------------------------------------------------------- |
-| DealUUID           | uuid               | A uuid for the deal specified by the client                                                        |
-| IsOffline          | boolean            | Indicates whether the deal is online or offline                                                    |
-| ClientDealProposal | ClientDealProposal | Same as `<v1 proposal>.DealProposal`                                                               |
-| DealDataRoot       | cid                | The root cid of the CAR file. Same as `<v1 proposal>.Piece.Root`                                   |
-| Transfer.Type      | string             | eg "http"                                                                                          |
-| Transfer.ClientID  | string             | Any id the client wants (useful for matching logs between client and server)                       |
-| Transfer.Params    | byte array         | Interpreted according to `Type`. eg for "http" `Transfer.Params` contains the http headers as JSON |
-| Transfer.Size      | integer            | The size of the data that is sent across the network                                               |
+| Field                       | Type               | Description                                                                                        |
+|-----------------------------|--------------------|----------------------------------------------------------------------------------------------------|
+| DealUUID                    | uuid               | A uuid for the deal specified by the client                                                        |
+| IsOffline                   | boolean            | Indicates whether the deal is online or offline                                                    |
+| ClientDealProposal          | ClientDealProposal | Same as `<v1 proposal>.DealProposal`                                                               |
+| DealDataRoot                | cid                | The root cid of the CAR file. Same as `<v1 proposal>.Piece.Root`                                   |
+| Transfer.Type               | string             | eg "http"                                                                                          |
+| Transfer.ClientID           | string             | Any id the client wants (useful for matching logs between client and server)                       |
+| Transfer.Params             | byte array         | Interpreted according to `Type`. eg for "http" `Transfer.Params` contains the http headers as JSON |
+| Transfer.Size               | integer            | The size of the data that is sent across the network                                               |
+| SkipIPNIAnnounce (v1.2.1)   | boolean            | Whether the provider should announce the deal to IPNI or not                                       |
+| RemoveUnsealedCopy (v1.2.1) | boolean            | Whether the provider should keep an unsealed copy of the deal                                      |
 
 ### Response
 
