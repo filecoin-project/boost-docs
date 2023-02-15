@@ -22,8 +22,8 @@ There are two new fields in the Request of `v1.2.1` of the protocol, described i
 | Transfer.ClientID           | string             | Any id the client wants (useful for matching logs between client and server)                       |
 | Transfer.Params             | byte array         | Interpreted according to `Type`. eg for "http" `Transfer.Params` contains the http headers as JSON |
 | Transfer.Size               | integer            | The size of the data that is sent across the network                                               |
-| SkipIPNIAnnounce (v1.2.1)   | boolean            | Whether the provider should announce the deal to IPNI or not                                       |
-| RemoveUnsealedCopy (v1.2.1) | boolean            | Whether the provider should keep an unsealed copy of the deal                                      |
+| SkipIPNIAnnounce (v1.2.1)   | boolean            | Whether the provider should announce the deal to IPNI or not  (default: false)                     |
+| RemoveUnsealedCopy (v1.2.1) | boolean            | Whether the provider should keep an unsealed copy of the deal  (default: false)                    |
 
 ### Response
 
