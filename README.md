@@ -8,4 +8,4 @@ Boost exposes libp2p interfaces for making storage and retrieval deals, a web in
 
 ![Web UI - Storage Space screen](<.gitbook/assets/Boost - storage space.png>)
 
-![Web UI - Sealing Pipeline screen](<.gitbook/assets/Boost - sealing pipeline.png>)
+![Web UI - Sealing Pipeline screen](<.gitbook/assets/Boost - sealing pipeline (1).png>)
