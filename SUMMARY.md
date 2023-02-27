@@ -30,6 +30,7 @@
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [HTTP Retrieval](experimental-features/http-retrieval.md)
+  * [FVM Contract Deals](experimental-features/fvm-contract-deals.md)
 * [JSON-RPC API](json-rpc-api.md)
 * [FAQ](faq.md)
 * [Need help?](need-help.md)
