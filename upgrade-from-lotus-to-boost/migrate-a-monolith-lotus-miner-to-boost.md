@@ -37,10 +37,9 @@ lotus send --from mywallet $COLLAT_WALLET 10
 
 3\. Set the publish storage deals wallet as a control wallet.
 
-```
-export OLD_CONTROL_ADDRESS=`lotus-miner actor control list  --verbose | awk '{print $3}' | grep -v key | tr -s '\n'  ' '`
-lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET $OLD_CONTROL_ADDRESS
-```
+<pre><code><strong>export OLD_CONTROL_ADDRESS=`lotus-miner actor control list  --verbose | grep -v owner | grep -v worker | grep -v beneficiary | awk '{print $3}' | grep -v key | tr -s '\n'  ' '`
+</strong>lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET $OLD_CONTROL_ADDRESS
+</code></pre>
 
 4\. Set up environment variables needed for Boost migration
 
