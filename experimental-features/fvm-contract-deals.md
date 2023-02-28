@@ -44,4 +44,11 @@ In order to enable DealProposal FRC, you have to edit your `config.toml` and ena
 
 `AllowlistContracts` field could be left empty if you want to accept deals from any client. If you only want to accept deals from some clients, you can specify their contract addresses in the field.
 
-`From` field has to be set to your SP's FEVM address, in case you want to accept deals from clients that check and have allowlist for the SPs that can publish their deal proposals.
+`From` field should be set to your SP's FEVM address. Some clients may implement a whitelist which allows specific SPs to accept deal proposals from their contract. This field will help those clients identify your SP and match it to their whitelist.
+
+### How contract deals work in Boost
+
+1. A contract publishes a `DealProposalCreate` event on the chain.
+2. Boost monitors the chain for such events from all the clients by default. When such an event is detected, we go and fetch the data for the deal.
+3. Deal is then run through the basic deal validation filters like clients has enough funds, SP has enough funds etc.
+4. Once deal passes the validation, we create a new deal handler in Boost and pass this deal for execution like other Boost deals.
