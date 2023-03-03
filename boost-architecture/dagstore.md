@@ -5,13 +5,13 @@ description: >-
   multihashes.
 ---
 
-# Dagstore
+# DAG store
 
 ## Directory structure
 
 By default, the dagstore root will be:
 
-* `$BOOST_REPO_PATH/dagstore`
+* `$BOOST_PATH/dagstore`
 
 The directory structure is as follows:
 
