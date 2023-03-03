@@ -82,7 +82,7 @@ The DAG store can be configured through the `config.toml` file of the node that 
   #  - ./indices: stores shard indices.
   #  - ./datastore: holds the KV store tracking the state of every shard
   #    known to the DAG store.
-  # Default value: <BOOST_REPO_PATH>/dagstore
+  # Default value: <BOOST_PATH>/dagstore
   # RootDir = ""
 
   # The maximum amount of indexing jobs that can run simultaneously.
