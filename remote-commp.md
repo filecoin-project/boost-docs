@@ -1,32 +1,14 @@
 # Remote CommP
 
-Boost is introducing a new feature that allows computing commP during the deal on a lotus worker node. This should alleviate any chokepoints in the market due to the commP calculation and reduce the overall resource utilisation on the market nodes.
+Boost is introducing a new feature that allows computing `commP` during the deal on a lotus-worker node.
 
-To build `boostd` with remote commP feature please follow the below steps.
+This should reduce the overall resource utilisation on the Boost node.
 
-1\. Clone the main branch from the boost repo
-
-```
-git clone https://github.com/filecoin-project/boost.git
-```
-
-2\. Checkout the v1.4.0 or higher release
-
-```
-git checkout v1.4.0
-```
-
-3\. Build the boost binaries
-
-```
-make build
-```
-
-4\. Enable remote commP in the config
+In order to enable remote commP on a Boost node, update your `config.toml`:
 
 ```
 [Dealmaking]
    RemoteCommp = true
 ```
 
-5\. Start the boost node
+Then restart the Boost node
