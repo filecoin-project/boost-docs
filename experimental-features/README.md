@@ -12,6 +12,6 @@ Once the new features have been tested and vetted, they will be released as part
 
 Current experimental features are listed below.
 
-{% content-ref url="http-retrieval.md" %}
-[http-retrieval.md](http-retrieval.md)
+{% content-ref url="fvm-contract-deals.md" %}
+[fvm-contract-deals.md](fvm-contract-deals.md)
 {% endcontent-ref %}
