@@ -79,12 +79,11 @@ As described above, `booster-bitswap` can be configured to serve the retrievals 
 
 ### Private Mode
 
-1\. Clone the `release/booster-bitswap` branch from the boost repo
+1\. Clone the `main` branch from the boost repo
 
 ```
 git clone https://github.com/filecoin-project/boost.git
 cd boost
-git checkout release/booster-bitswap
 ```
 
 2\. Build the `booster-bitswap` binary:
@@ -105,7 +104,7 @@ booster-bitswap init
 
 ```
 [DealMaking]
-  BitswapPeerID ="{peer id for bosoter bitswap you recorded earlier}"
+  BitswapPeerID ="{peer id for booster bitswap you recorded earlier}"
 ```
 
 6\. Start `boostd` service again
