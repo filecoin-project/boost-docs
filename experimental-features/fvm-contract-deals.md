@@ -52,3 +52,11 @@ In order to enable DealProposal FRC, you have to edit your `config.toml` and ena
 2. Boost monitors the chain for such events from all the clients by default. When such an event is detected, we go and fetch the data for the deal.
 3. Deal is then run through the basic deal validation filters like clients has enough funds, SP has enough funds etc.
 4. Once deal passes the validation, we create a new deal handler in Boost and pass this deal for execution like other Boost deals.
+
+### Reminders
+Make sure your Lotus default configurations are handled appropriately to take FVM contract deals as well. In particular, note the following:
+
+EnableEthRPC enables eth_ rpc, and enables storing a mapping of eth transaction hashes to filecoin message CIDs.
+type: bool
+env var: LOTUS_FEVM_ENABLEETHRPC
+EnableEthRPC = true
