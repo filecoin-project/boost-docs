@@ -25,7 +25,7 @@ You can take an online backup with the below command
 boostd backup <backup directory>
 ```
 
-The online backup supports running only once instance at a time and you might see a locking error if another instance of backup is already running.
+The online backup supports running only one instance at a time and you might see a locking error if another instance of backup is already running.
 
 ### Offline backup
 
