@@ -51,8 +51,8 @@ export $(lotus-miner auth api-info --perm=admin)
 Export environment variables that point to the API endpoints for the sealing and mining processes. They will be used by the `boost` node to make JSON-RPC calls to the `mining/sealing/proving` node.
 
 ```
-export APISEALER=`echo $MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
-export APISECTORINDEX=`echo $MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+export APISEALER=`echo $MINER_API_INFO`
+export APISECTORINDEX=`echo $MINER_API_INFO`
 ```
 
 Run `boostd init` to create and initialize the repository:
