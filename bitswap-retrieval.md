@@ -259,7 +259,7 @@ You can create a new `retrievalconfig.json` file if one does not exists
 
 To make changes to the current configuration, you need to edit the `retrievalconfig.json` file and restart `booster-bitswap` for the changes to take affect. All configs are optional and absent parameters generally default to no filtering at all for the given parameter.
 
-You can also configure `booster-bitswap` to fetch your retrieval config from a remote HTTP API, possibly one provided by a third party configuration tool like CIDGravity. To do this, start `booster-bitswap` with the --api-filter-endpoint {url} option where URL is the HTTP URL for an API serving the above JSON format. Optionally, add --api-filter-auth {authheader}, if you need to pass a value for the HTTP Authorization header with your API
+You can also configure `booster-bitswap` to fetch your retrieval config from a remote HTTP API, possibly one provided by a third party configuration tool like [CIDGravity](https://cidgravity.com). To do this, start `booster-bitswap` with the --api-filter-endpoint {url} option where URL is the HTTP URL for an API serving the above JSON format. Optionally, add --api-filter-auth {authheader}, if you need to pass a value for the HTTP Authorization header with your API
 
 {% code overflow="wrap" %}
 ```
