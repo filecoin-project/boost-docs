@@ -10,11 +10,11 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 
 ### Boost and Lotus compatibility Matrix
 
-| Boost Version          | Lotus Version                          |
-| ---------------------- | -------------------------------------- |
-| v1.5.0                 | v1.18.0                                |
-| v1.5.1, v1.5.2, v1.5.3 | v1.18.0, v1.19.0                       |
-| v1.6.0, v1.6.1         | v1.20.x                                |
+| Boost Version          | Lotus Version    |
+| ---------------------- | ---------------- |
+| v1.5.0                 | v1.18.0          |
+| v1.5.1, v1.5.2, v1.5.3 | v1.18.0, v1.19.0 |
+| v1.6.0, v1.6.1         | v1.20.x          |
 
 ### Building and installing
 
@@ -59,6 +59,7 @@ export FFI_BUILD_FROM_SOURCE=1
 ```
 git clone https://github.com/filecoin-project/boost
 cd boost
+git checkout <Stable tag or branch>
 make build
 sudo make install
 ```
@@ -71,6 +72,7 @@ Please ignore any output or onscreen instruction during the `npm build` unless t
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
 git clone https://github.com/filecoin-project/boost
 cd boost
+git checkout <Stable tag or branch>
 make build
 sudo make install
 ```
@@ -84,6 +86,7 @@ To build boost for calibnet, please complete the above pre-requisites and build 
 ```
 git clone https://github.com/filecoin-project/boost
 cd boost
+git checkout <Stable tag or branch>
 make calibnet
 ```
 
@@ -95,7 +98,9 @@ make calibnet
 
 ```
 cd boost
+git checkout main
 git pull
+git checkout <New release>
 make build
 sudo make install
 ```
@@ -111,7 +116,9 @@ sudo make install
 ```
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
 cd boost
+git checkout main
 git pull
+git checkout <New release>
 make build
 sudo make install
 ```
