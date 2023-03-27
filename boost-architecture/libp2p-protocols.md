@@ -4,7 +4,7 @@ Boost supports the same libp2p protocols as legacy markets, and adds new version
 
 ## Propose Storage Deal Protocol
 
-The client makes a deal proposal over `v1.2.0` of the Propose Storage Deal Protocol: `/fil/storage/mk/1.2.0`
+The client makes a deal proposal over `v1.2.0` or `v1.2.1` of the Propose Storage Deal Protocol: `/fil/storage/mk/1.2.0` or `/fil/storage/mk/1.2.1`
 
 It is a request / response protocol, where the request and response are CBOR-marshalled.
 
@@ -13,7 +13,7 @@ There are two new fields in the Request of `v1.2.1` of the protocol, described i
 ### Request
 
 | Field                       | Type               | Description                                                                                        |
-|-----------------------------|--------------------|----------------------------------------------------------------------------------------------------|
+| --------------------------- | ------------------ | -------------------------------------------------------------------------------------------------- |
 | DealUUID                    | uuid               | A uuid for the deal specified by the client                                                        |
 | IsOffline                   | boolean            | Indicates whether the deal is online or offline                                                    |
 | ClientDealProposal          | ClientDealProposal | Same as `<v1 proposal>.DealProposal`                                                               |
@@ -22,8 +22,8 @@ There are two new fields in the Request of `v1.2.1` of the protocol, described i
 | Transfer.ClientID           | string             | Any id the client wants (useful for matching logs between client and server)                       |
 | Transfer.Params             | byte array         | Interpreted according to `Type`. eg for "http" `Transfer.Params` contains the http headers as JSON |
 | Transfer.Size               | integer            | The size of the data that is sent across the network                                               |
-| SkipIPNIAnnounce (v1.2.1)   | boolean            | Whether the provider should announce the deal to IPNI or not  (default: false)                     |
-| RemoveUnsealedCopy (v1.2.1) | boolean            | Whether the provider should keep an unsealed copy of the deal  (default: false)                    |
+| SkipIPNIAnnounce (v1.2.1)   | boolean            | Whether the provider should announce the deal to IPNI or not (default: false)                      |
+| RemoveUnsealedCopy (v1.2.1) | boolean            | Whether the provider should keep an unsealed copy of the deal (default: false)                     |
 
 ### Response
 
@@ -60,4 +60,3 @@ It is a request / response protocol, where the request and response are CBOR-mar
 | SignedProposalCid   | cid          | cid of the client deal proposal + signature                                                                                                                                                   |
 | PublishCid          | cid          | The cid of the publish message, if the deal has been published                                                                                                                                |
 | ChainDealID         | integer      | The ID of the deal on chain, if it's been published                                                                                                                                           |
-
