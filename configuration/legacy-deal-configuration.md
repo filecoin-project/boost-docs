@@ -1,5 +1,5 @@
 ---
-description: Advanced configurations you can tune to optimize your legacy deal onbo
+description: Advanced configurations you can tune to optimize your legacy deal onboarding
 ---
 
 # Legacy Deal configuration
@@ -8,39 +8,146 @@ description: Advanced configurations you can tune to optimize your legacy deal o
 
 This section controls parameters for making storage and retrieval deals:
 
-```toml
-[Dealmaking]
-  # When enabled, the miner can accept online deals
-  ConsiderOnlineStorageDeals = true
+<pre class="language-toml"><code class="lang-toml"><strong>[LotusDealmaking]
+</strong>  # When enabled, the miner can accept online deals
+  #
+  # type: bool
+  # env var: LOTUS_LOTUSDEALMAKING_CONSIDERONLINESTORAGEDEALS
+  #ConsiderOnlineStorageDeals = true
+
   # When enabled, the miner can accept offline deals
-  ConsiderOfflineStorageDeals = true
+  #
+  # type: bool
+  # env var: LOTUS_LOTUSDEALMAKING_CONSIDEROFFLINESTORAGEDEALS
+  #ConsiderOfflineStorageDeals = true
+
   # When enabled, the miner can accept retrieval deals
-  ConsiderOnlineRetrievalDeals = true
+  #
+  # type: bool
+  # env var: LOTUS_LOTUSDEALMAKING_CONSIDERONLINERETRIEVALDEALS
+  #ConsiderOnlineRetrievalDeals = true
+
   # When enabled, the miner can accept offline retrieval deals
-  ConsiderOfflineRetrievalDeals = true
+  #
+  # type: bool
+  # env var: LOTUS_LOTUSDEALMAKING_CONSIDEROFFLINERETRIEVALDEALS
+  #ConsiderOfflineRetrievalDeals = true
+
   # When enabled, the miner can accept verified deals
-  ConsiderVerifiedStorageDeals = true
+  #
+  # type: bool
+  # env var: LOTUS_LOTUSDEALMAKING_CONSIDERVERIFIEDSTORAGEDEALS
+  #ConsiderVerifiedStorageDeals = true
+
   # When enabled, the miner can accept unverified deals
-  ConsiderUnverifiedStorageDeals = true
-  # A list made of Data CIDs to reject when making deals
-  PieceCidBlocklist = []
+  #
+  # type: bool
+  # env var: LOTUS_LOTUSDEALMAKING_CONSIDERUNVERIFIEDSTORAGEDEALS
+  #ConsiderUnverifiedStorageDeals = true
+
+  # A list of Data CIDs to reject when making deals
+  #
+  # type: []cid.Cid
+  # env var: LOTUS_LOTUSDEALMAKING_PIECECIDBLOCKLIST
+  #PieceCidBlocklist = []
+
   # Maximum expected amount of time getting the deal into a sealed sector will take
   # This includes the time the deal will need to get transferred and published
   # before being assigned to a sector
-  # for more info, see below.
-  ExpectedSealDuration = "24h0m0s"
+  #
+  # type: Duration
+  # env var: LOTUS_LOTUSDEALMAKING_EXPECTEDSEALDURATION
+  #ExpectedSealDuration = "24h0m0s"
+
+  # Maximum amount of time proposed deal StartEpoch can be in future
+  #
+  # type: Duration
+  # env var: LOTUS_LOTUSDEALMAKING_MAXDEALSTARTDELAY
+  #MaxDealStartDelay = "336h0m0s"
+
   # When a deal is ready to publish, the amount of time to wait for more
   # deals to be ready to publish before publishing them all as a batch
-  PublishMsgPeriod = "1h0m0s"
-  # The maximum number of deals to include in a single publish deals message
-  MaxDealsPerPublishMsg = 8
+  #
+  # type: Duration
+  # env var: LOTUS_LOTUSDEALMAKING_PUBLISHMSGPERIOD
+  # PublishMsgPeriod = "40m0s"
 
-  # A command used for fine-grained evaluation of storage deals (see below)
-  Filter = "/absolute/path/to/storage_filter_program"
+  # The maximum number of deals to include in a single PublishStorageDeals
+  # message
+  #
+  # type: uint64
+  # env var: LOTUS_LOTUSDEALMAKING_MAXDEALSPERPUBLISHMSG
+  #MaxDealsPerPublishMsg = 8
 
-  # A command used for fine-grained evaluation of retrieval deals (see below)
-  RetrievalFilter = "/absolute/path/to/retrieval_filter_program"
-```
+  # The maximum collateral that the provider will put up against a deal,
+  # as a multiplier of the minimum collateral bound
+  #
+  # type: uint64
+  # env var: LOTUS_LOTUSDEALMAKING_MAXPROVIDERCOLLATERALMULTIPLIER
+  #MaxProviderCollateralMultiplier = 2
+
+  # The maximum allowed disk usage size in bytes of staging deals not yet
+  # passed to the sealing node by the markets service. 0 is unlimited.
+  #
+  # type: int64
+  # env var: LOTUS_LOTUSDEALMAKING_MAXSTAGINGDEALSBYTES
+  # MaxStagingDealsBytes = 100000000000
+
+  # The maximum number of parallel online data transfers for storage deals
+  #
+  # type: uint64
+  # env var: LOTUS_LOTUSDEALMAKING_SIMULTANEOUSTRANSFERSFORSTORAGE
+  #SimultaneousTransfersForStorage = 20
+
+  # The maximum number of simultaneous data transfers from any single client
+  # for storage deals.
+  # Unset by default (0), and values higher than SimultaneousTransfersForStorage
+  # will have no effect; i.e. the total number of simultaneous data transfers
+  # across all storage clients is bound by SimultaneousTransfersForStorage
+  # regardless of this number.
+  #
+  # type: uint64
+  # env var: LOTUS_LOTUSDEALMAKING_SIMULTANEOUSTRANSFERSFORSTORAGEPERCLIENT
+  #SimultaneousTransfersForStoragePerClient = 0
+
+  # The maximum number of parallel online data transfers for retrieval deals
+  #
+  # type: uint64
+  # env var: LOTUS_LOTUSDEALMAKING_SIMULTANEOUSTRANSFERSFORRETRIEVAL
+  #SimultaneousTransfersForRetrieval = 20
+
+  # Minimum start epoch buffer to give time for sealing of sector with deal.
+  #
+  # type: uint64
+  # env var: LOTUS_LOTUSDEALMAKING_STARTEPOCHSEALINGBUFFER
+  #StartEpochSealingBuffer = 480
+
+  # A command used for fine-grained evaluation of storage deals
+  # see https://lotus.filecoin.io/storage-providers/advanced-configurations/market/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
+  #
+  # type: string
+  # env var: LOTUS_LOTUSDEALMAKING_FILTER
+  #Filter = ""
+
+  # A command used for fine-grained evaluation of retrieval deals
+  # see https://lotus.filecoin.io/storage-providers/advanced-configurations/market/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
+  #
+  # type: string
+  # env var: LOTUS_LOTUSDEALMAKING_RETRIEVALFILTER
+  #RetrievalFilter = ""
+
+  [LotusDealmaking.RetrievalPricing]
+    # env var: LOTUS_LOTUSDEALMAKING_RETRIEVALPRICING_STRATEGY
+    #Strategy = "default"
+
+    [LotusDealmaking.RetrievalPricing.Default]
+      # env var: LOTUS_LOTUSDEALMAKING_RETRIEVALPRICING_DEFAULT_VERIFIEDDEALSFREETRANSFER
+      #VerifiedDealsFreeTransfer = true
+
+    [LotusDealmaking.RetrievalPricing.External]
+      # env var: LOTUS_LOTUSDEALMAKING_RETRIEVALPRICING_EXTERNAL_PATH
+      #Path = ""
+</code></pre>
 
 `ExpectedSealDuration` is an estimate of how long sealing will take and is used to reject deals whose start epoch might be earlier than the expected completion of sealing. It can be estimated by [benchmarking](https://lotus.filecoin.io/storage-providers/operate/benchmarks/) or by [pledging a sector](https://lotus.filecoin.io/storage-providers/operate/sector-pledging/).
 
@@ -89,7 +196,7 @@ The most trivial filter rejecting any retrieval deal would be something like: `R
 
 [This Perl script](https://gist.github.com/ribasushi/53b7383aeb6e6f9b030210f4d64351d5/9bd6e898f94d20b50e7c7586dc8b8f3a45dab07c#file-dealfilter-pl) lets the miner deny specific clients and only accept deals that are set to start relatively soon.
 
-You can also use a third party content policy framework like `bitscreen` by Murmuration Labs:
+You can also use a third party content policy framework like [CIDgravity](https://www.cidgravity.com/) or `bitscreen` by Murmuration Labs:
 
 ```shell
 # grab filter program

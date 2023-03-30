@@ -11,19 +11,19 @@ description: Boost configuration options with examples and description.
 #
 # type: int
 # env var: LOTUS__CONFIGVERSION
-ConfigVersion = 1
+ConfigVersion = 4
 
 # The connect string for the sealing RPC API (lotus miner)
 #
 # type: string
 # env var: LOTUS__SEALERAPIINFO
-SealerApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.nbSvy11-tSUbXqo465hZqzTohGDfSdgh28C4irkmE10:/ip4/0.0.0.0/tcp/2345/http"
+SealerApiInfo = ""
 
 # The connect string for the sector index RPC API (lotus miner)
 #
 # type: string
 # env var: LOTUS__SECTORINDEXAPIINFO
-SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.nbSvy11-tSUbXqo465hZqzTohGDfSdgh28C4irkmE10:/ip4/0.0.0.0/tcp/2345/http"
+SectorIndexApiInfo = ""
 
 
 [API]
@@ -31,11 +31,11 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: string
   # env var: LOTUS_API_LISTENADDRESS
-  ListenAddress = "/ip4/127.0.0.1/tcp/8787/http"
+  #ListenAddress = "/ip4/127.0.0.1/tcp/2345/http"
 
   # type: string
   # env var: LOTUS_API_REMOTELISTENADDRESS
-  RemoteListenAddress = "127.0.0.1:8787"
+  #RemoteListenAddress = ""
 
   # type: Duration
   # env var: LOTUS_API_TIMEOUT
@@ -57,7 +57,7 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: []string
   # env var: LOTUS_LIBP2P_LISTENADDRESSES
-  ListenAddresses = ["/ip4/0.0.0.0/tcp/24001", "/ip6/::/tcp/24001"]
+  # ListenAddresses = ["/ip4/0.0.0.0/tcp/24001", "/ip6/::/tcp/24001"]
 
   # Addresses to explicitally announce to other peers. If not specified,
   # all interface addresses are announced
@@ -65,14 +65,14 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: []string
   # env var: LOTUS_LIBP2P_ANNOUNCEADDRESSES
-  AnnounceAddresses = ["/ip4/209.94.92.3/tcp/24001"]
+  # AnnounceAddresses = []
 
   # Addresses to not announce
   # Format: multiaddress
   #
   # type: []string
   # env var: LOTUS_LIBP2P_NOANNOUNCEADDRESSES
-  #NoAnnounceAddresses = []
+  # NoAnnounceAddresses = []
 
   # When not disabled (default), lotus asks NAT devices (e.g., routers), to
   # open up an external port and forward it to the port lotus is running on.
@@ -81,14 +81,14 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: bool
   # env var: LOTUS_LIBP2P_DISABLENATPORTMAP
-  #DisableNatPortMap = false
+  # DisableNatPortMap = false
 
   # ConnMgrLow is the number of connections that the basic connection manager
   # will trim down to.
   #
   # type: uint
   # env var: LOTUS_LIBP2P_CONNMGRLOW
-  #ConnMgrLow = 150
+  # ConnMgrLow = 350
 
   # ConnMgrHigh is the number of connections that, when exceeded, will trigger
   # a connection GC operation. Note: protected/recently formed connections don't
@@ -96,14 +96,14 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: uint
   # env var: LOTUS_LIBP2P_CONNMGRHIGH
-  #ConnMgrHigh = 180
+  # ConnMgrHigh = 400
 
   # ConnMgrGrace is a time duration that new connections are immune from being
   # closed by the connection manager.
   #
   # type: Duration
   # env var: LOTUS_LIBP2P_CONNMGRGRACE
-  #ConnMgrGrace = "20s"
+  # ConnMgrGrace = "20s"
 
 
 [Pubsub]
@@ -123,7 +123,7 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: int
   # env var: LOTUS_STORAGE_PARALLELFETCHLIMIT
-  #ParallelFetchLimit = 10
+  # ParallelFetchLimit = 10
 
 
 [Dealmaking]
@@ -183,26 +183,6 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   # env var: LOTUS_DEALMAKING_MAXDEALSTARTDELAY
   #MaxDealStartDelay = "336h0m0s"
 
-  # When a deal is ready to publish, the amount of time to wait for more
-  # deals to be ready to publish before publishing them all as a batch
-  #
-  # type: Duration
-  # env var: LOTUS_DEALMAKING_PUBLISHMSGPERIOD
-  #PublishMsgPeriod = "1h0m0s"
-
-  # The maximum number of deals to include in a single PublishStorageDeals
-  # message
-  #
-  # type: uint64
-  # env var: LOTUS_DEALMAKING_PUBLISHMSGMAXDEALSPERMSG
-  #PublishMsgMaxDealsPerMsg = 8
-
-  # The maximum network fees to pay when sending the PublishStorageDeals message
-  #
-  # type: types.FIL
-  # env var: LOTUS_DEALMAKING_PUBLISHMSGMAXFEE
-  #PublishMsgMaxFee = "0.05 FIL"
-
   # The maximum collateral that the provider will put up against a deal,
   # as a multiplier of the minimum collateral bound
   #
@@ -210,24 +190,32 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   # env var: LOTUS_DEALMAKING_MAXPROVIDERCOLLATERALMULTIPLIER
   #MaxProviderCollateralMultiplier = 2
 
-  # The maximum allowed disk usage size in bytes of staging deals not yet
-  # passed to the sealing node by the markets service. 0 is unlimited.
+  # The maximum allowed disk usage size in bytes of downloaded deal data
+  # that has not yet been passed to the sealing node by boost.
+  # When the client makes a new deal proposal to download data from a host,
+  # boost checks this config value against the sum of:
+  # - the amount of data downloaded in the staging area
+  # - the amount of data that is queued for download
+  # - the amount of data in the proposed deal
+  # If the total amount would exceed the limit, boost rejects the deal.
+  # Set this value to 0 to indicate there is no limit.
   #
   # type: int64
   # env var: LOTUS_DEALMAKING_MAXSTAGINGDEALSBYTES
-  MaxStagingDealsBytes = 50000000000
+  # MaxStagingDealsBytes = 500000000
 
-  # The maximum number of parallel online data transfers for storage deals
+  # The percentage of MaxStagingDealsBytes that is allocated to each host.
+  # When the client makes a new deal proposal to download data from a host,
+  # boost checks this config value against the sum of:
+  # - the amount of data downloaded from the host in the staging area
+  # - the amount of data that is queued for download from the host
+  # - the amount of data in the proposed deal
+  # If the total amount would exceed the limit, boost rejects the deal.
+  # Set this value to 0 to indicate there is no limit per host.
   #
   # type: uint64
-  # env var: LOTUS_DEALMAKING_SIMULTANEOUSTRANSFERSFORSTORAGE
-  #SimultaneousTransfersForStorage = 20
-
-  # The maximum number of parallel online data transfers for retrieval deals
-  #
-  # type: uint64
-  # env var: LOTUS_DEALMAKING_SIMULTANEOUSTRANSFERSFORRETRIEVAL
-  #SimultaneousTransfersForRetrieval = 20
+  # env var: LOTUS_DEALMAKING_MAXSTAGINGDEALSPERCENTPERHOST
+  # MaxStagingDealsPercentPerHost = 50
 
   # Minimum start epoch buffer to give time for sealing of sector with deal.
   #
@@ -241,15 +229,21 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   # env var: LOTUS_DEALMAKING_DEALPROPOSALLOGDURATION
   #DealProposalLogDuration = "24h0m0s"
 
+  # The amount of time to keep retrieval deal logs for before cleaning them up.
+  #
+  # type: Duration
+  # env var: LOTUS_DEALMAKING_RETRIEVALLOGDURATION
+  #RetrievalLogDuration = "24h0m0s"
+
   # A command used for fine-grained evaluation of storage deals
-  # see https://docs.filecoin.io/mine/lotus/miner-configuration/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
+  # see https://boost.filecoin.io/configuration/deal-filters for more details
   #
   # type: string
   # env var: LOTUS_DEALMAKING_FILTER
   #Filter = ""
 
   # A command used for fine-grained evaluation of retrieval deals
-  # see https://docs.filecoin.io/mine/lotus/miner-configuration/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
+  # see https://boost.filecoin.io/configuration/deal-filters for more details
   #
   # type: string
   # env var: LOTUS_DEALMAKING_RETRIEVALFILTER
@@ -260,6 +254,66 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   # type: Duration
   # env var: LOTUS_DEALMAKING_MAXTRANSFERDURATION
   #MaxTransferDuration = "24h0m0s"
+
+  # Whether to do commp on the Boost node (local) or on the Sealer (remote)
+  #
+  # type: bool
+  # env var: LOTUS_DEALMAKING_REMOTECOMMP
+  #RemoteCommp = false
+
+  # The maximum number of commp processes to run in parallel on the local
+  # boost process
+  #
+  # type: uint64
+  # env var: LOTUS_DEALMAKING_MAXCONCURRENTLOCALCOMMP
+  #MaxConcurrentLocalCommp = 1
+
+  # The public multi-address for retrieving deals with booster-http.
+  # Note: Must be in multiaddr format, eg /dns/foo.com/tcp/443/https
+  #
+  # type: string
+  # env var: LOTUS_DEALMAKING_HTTPRETRIEVALMULTIADDR
+  #HTTPRetrievalMultiaddr = ""
+
+  # The maximum number of concurrent storage deal HTTP downloads.
+  # Note that this is a soft maximum; if some downloads stall,
+  # more downloads are allowed to start.
+  #
+  # type: uint64
+  # env var: LOTUS_DEALMAKING_HTTPTRANSFERMAXCONCURRENTDOWNLOADS
+  HttpTransferMaxConcurrentDownloads = 5
+
+  # The period between checking if downloads have stalled.
+  #
+  # type: Duration
+  # env var: LOTUS_DEALMAKING_HTTPTRANSFERSTALLCHECKPERIOD
+  #HttpTransferStallCheckPeriod = "30s"
+
+  # The time that can elapse before a download is considered stalled (and
+  # another concurrent download is allowed to start).
+  #
+  # type: Duration
+  # env var: LOTUS_DEALMAKING_HTTPTRANSFERSTALLTIMEOUT
+  #HttpTransferStallTimeout = "5m0s"
+
+  # The peed id used by booster-bitswap. To set, copy the value
+  # printed by running 'booster-bitswap init'. If this value is set,
+  # Boost will:
+  # - listen on bitswap protocols on its own peer id and forward them
+  # to booster bitswap
+  # - advertise bitswap records to the content indexer
+  # - list bitswap in available transports on the retrieval transport protocol
+  #
+  # type: string
+  # env var: LOTUS_DEALMAKING_BITSWAPPEERID
+  # BitswapPeerID = ""
+
+  # The deal logs older than DealLogDurationDays are deleted from the logsDB
+  # to keep the size of logsDB in check. Set the value as "0" to disable log cleanup
+  #
+  # type: int
+  # env var: LOTUS_DEALMAKING_DEALLOGDURATIONDAYS
+  #DealLogDurationDays = 30
 
   [Dealmaking.RetrievalPricing]
     # env var: LOTUS_DEALMAKING_RETRIEVALPRICING_STRATEGY
@@ -279,14 +333,14 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: string
   # env var: LOTUS_WALLETS_MINER
-  Miner = "f032187"
+  Miner = ""
 
   # The wallet used to send PublishStorageDeals messages.
   # Must be a control or worker address of the miner.
   #
   # type: string
   # env var: LOTUS_WALLETS_PUBLISHSTORAGEDEALS
-  PublishStorageDeals = "f3syzhufifmnbzcznoquhy4mlxo3byetqlamzbeijk62bjpoohrj3wiphkgxe3yjrlh5dmxlca3zqxp3yvd33a"
+  PublishStorageDeals = ""
 
   # The wallet used as the source for storage deal collateral
   #
@@ -298,8 +352,15 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: string
   # env var: LOTUS_WALLETS_PLEDGECOLLATERAL
-  PledgeCollateral = "f3wg5epqx46k6mj2h65arxdelqn7pen6caoydhrmgefxpmn3dmm2ngho5layysqojsoexshs5hbbcin25npofq"
+  PledgeCollateral = ""
 
+
+[Graphql]
+  # The port that the graphql server listens on
+  #
+  # type: uint64
+  # env var: LOTUS_GRAPHQL_PORT
+  #Port = 8080
 
 [LotusDealmaking]
   # When enabled, the miner can accept online deals
@@ -363,7 +424,7 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: Duration
   # env var: LOTUS_LOTUSDEALMAKING_PUBLISHMSGPERIOD
-  #PublishMsgPeriod = "1h0m0s"
+  #PublishMsgPeriod = "40m0s"
 
   # The maximum number of deals to include in a single PublishStorageDeals
   # message
@@ -384,7 +445,7 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: int64
   # env var: LOTUS_LOTUSDEALMAKING_MAXSTAGINGDEALSBYTES
-  #MaxStagingDealsBytes = 0
+  MaxStagingDealsBytes = 100000000000
 
   # The maximum number of parallel online data transfers for storage deals
   #
@@ -416,14 +477,14 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #StartEpochSealingBuffer = 480
 
   # A command used for fine-grained evaluation of storage deals
-  # see https://docs.filecoin.io/mine/lotus/miner-configuration/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
+  # see https://lotus.filecoin.io/storage-providers/advanced-configurations/market/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
   #
   # type: string
   # env var: LOTUS_LOTUSDEALMAKING_FILTER
-  #Filter = ""
+  Filter = ""
 
   # A command used for fine-grained evaluation of retrieval deals
-  # see https://docs.filecoin.io/mine/lotus/miner-configuration/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
+  # see https://lotus.filecoin.io/storage-providers/advanced-configurations/market/#using-filters-for-fine-grained-storage-and-retrieval-deal-acceptance for more details
   #
   # type: string
   # env var: LOTUS_LOTUSDEALMAKING_RETRIEVALFILTER
@@ -447,7 +508,7 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: types.FIL
   # env var: LOTUS_LOTUSFEES_MAXPUBLISHDEALSFEE
-  #MaxPublishDealsFee = "0.05 FIL"
+  MaxPublishDealsFee = "0.5 FIL"
 
   # The maximum fee to pay when sending the AddBalance message (used by legacy markets)
   #
@@ -494,7 +555,7 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   #
   # type: int
   # env var: LOTUS_DAGSTORE_MAXCONCURRENTUNSEALS
-  MaxConcurrentUnseals = 5
+  #MaxConcurrentUnseals = 0
 
   # The maximum number of simultaneous inflight API calls to the storage
   # subsystem.
@@ -515,11 +576,11 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
 
 [IndexProvider]
   # Enable set whether to enable indexing announcement to the network and expose endpoints that
-  # allow indexer nodes to process announcements. Disabled by default.
+  # allow indexer nodes to process announcements. Enabled by default.
   #
   # type: bool
   # env var: LOTUS_INDEXPROVIDER_ENABLE
-  Enable = false
+  #Enable = true
 
   # EntriesCacheCapacity sets the maximum capacity to use for caching the indexing advertisement
   # entries. Defaults to 1024 if not specified. The cache is evicted using LRU policy. The
@@ -556,6 +617,8 @@ SectorIndexApiInfo = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
   # type: bool
   # env var: LOTUS_INDEXPROVIDER_PURGECACHEONSTART
   #PurgeCacheOnStart = false
+[ContractDeals]
+  Enabled = true
 ```
 
 {% hint style="info" %}
