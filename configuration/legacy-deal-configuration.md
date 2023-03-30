@@ -44,7 +44,7 @@ This section controls parameters for making storage and retrieval deals:
 
 `ExpectedSealDuration` is an estimate of how long sealing will take and is used to reject deals whose start epoch might be earlier than the expected completion of sealing. It can be estimated by [benchmarking](https://lotus.filecoin.io/storage-providers/operate/benchmarks/) or by [pledging a sector](https://lotus.filecoin.io/storage-providers/operate/sector-pledging/).
 
-{% hint style="info" %}
+{% hint style="warning" %}
 The final value of `ExpectedSealDuration` should equal `(TIME_TO_SEAL_A_SECTOR + WaitDealsDelay) * 1.5`. This equation ensures that the miner does not commit to having the sector sealed too soon
 {% endhint %}
 
@@ -75,7 +75,7 @@ For example, if `PublishMsgPeriod` is 1 hour:
 
 If `MaxDealsPerPublishMsg` is 2, then in the above example, when deal 2 is ready to be published at 1:30, Lotus would immediately publish Deals 1 & 2 in a single `PublishStorageDeals` message. Deal 3 would be published in a subsequent `PublishStorageDeals` message.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 If any of the deals in the `PublishStorageDeals` fails validation upon execution, or if the start epoch has passed, all deals will fail to be published
 {% endhint %}
 

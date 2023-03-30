@@ -37,6 +37,10 @@ lotus send --from mywallet $COLLAT_WALLET 10
 
 3\. Set the publish storage deals wallet as a control wallet.
 
+{% hint style="warning" %}
+Add the value of`PUBLISH_STORAGE_DEALS_WALLET` to the parameter `DealPublishControl` in the `Address` section of lotus-miner configuration if not present. Restart lotus-miner if configuration has been updated.
+{% endhint %}
+
 <pre><code><strong>export OLD_CONTROL_ADDRESS=`lotus-miner actor control list  --verbose | grep -v owner | grep -v worker | grep -v beneficiary | awk '{print $3}' | grep -v key | tr -s '\n'  ' '`
 </strong>lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET $OLD_CONTROL_ADDRESS
 </code></pre>
