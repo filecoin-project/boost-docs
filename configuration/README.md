@@ -600,10 +600,6 @@ This guide covers all the configuration in use by boostd process. Some of the co
 
 `Dealmaking` section handles deal making configuration explicitly for boost deal that uses the new `/fil/storage/mk/1.2.0` protocol.
 
-## LotusDealmaking
-
-`LotusDealmaking` section handles deal making configuration explicitly for the deal that uses the older `/fil/storage/mk/1.1.0` protocol.
-
 ## Wallets
 
 | Parameter           | Example                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                    |
