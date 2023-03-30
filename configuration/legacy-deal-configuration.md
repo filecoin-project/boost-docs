@@ -48,32 +48,24 @@ This section controls parameters for making storage and retrieval deals:
 The final value of `ExpectedSealDuration` should equal `(TIME_TO_SEAL_A_SECTOR + WaitDealsDelay) * 1.5`. This equation ensures that the miner does not commit to having the sector sealed too soon
 {% endhint %}
 
-`StartEpochSealingBuffer` allows `lotus-miner` to seal a sector before a certain epoch. For example: if the current epoch is 1000 and a deal within a sector must start on epoch 1500, then `lotus-miner` must wait until the current epoch is 1500 before it can start sealing that sector. However, if `lotus-miner` sets `StartEpochSealingBuffer` to 500, the `lotus-miner` can start sealing the sector at epoch 1000.
+`StartEpochSealingBuffer` allows `lotus-miner` to seal a sector before a certain epoch. For example: if the current epoch is 1000 and a deal within a sector must start on epoch 1500, then `lotus-miner` must wait until the current epoch is 1500 before it can start sealing that sector. However, if Boost sets `StartEpochSealingBuffer` to 500, the `lotus-miner` can start sealing the sector at epoch 1000.
 
-If there are multiple deals in a sector, the deal with a start time closest to the current epoch is what `StartEpochSealingBuffer` will be based off. So, if the sector in our example has three deals that start on epoch 1000, 1200, and 1400, then we `lotus-miner` will start sealing the sector at epoch 500.
-
-#### Disabling new sector for deal
-
-If `MakeNewSectorForDeals` is set to `true` then `lotus-miner` will create new sectors for incoming deals. This option can set to `false` to ensure that all new deals are sealed as snap-deals into CC sectors. This can help reduce the sealing time for the new deals as long as CC sectors are ready for the snap-deals.
-
-#### Make new CC sector available for snap-deal
-
-`MakeCCSectorsAvailable` makes all the new CC sectors available to be upgraded with snap-deals. When this boolean is set to `true`, all pledged "CC" sectors from that point onwards will be converted to "Available" state after sealing. This enables sealing the incoming storage deals more quickly into these "Available" sectors compared to creating a new sector for the deals.
+If there are multiple deals in a sector, the deal with a start time closest to the current epoch is what `StartEpochSealingBuffer` will be based off. So, if the sector in our example has three deals that start on epoch 1000, 1200, and 1400, then `lotus-miner` will start sealing the sector at epoch 500.
 
 #### Publishing several deals in one message
 
-The `PublishStorageDeals` message can publish multiple deals in a single message. When a deal is ready to be published, Lotus will wait up to `PublishMsgPeriod` for other deals to be ready before sending the `PublishStorageDeals` message.
+The `PublishStorageDeals` message can publish multiple deals in a single message. When a deal is ready to be published, Boost will wait up to `PublishMsgPeriod` for other deals to be ready before sending the `PublishStorageDeals` message.
 
-However, once `MaxDealsPerPublishMsg` is ready, Lotus will immediately publish all the deals.
+However, once `MaxDealsPerPublishMsg` is ready, Boost will immediately publish all the deals.
 
 For example, if `PublishMsgPeriod` is 1 hour:
 
-* At 1:00 pm, deal 1 is ready to publish. Lotus will wait until 2:00 pm for other deals to be ready before sending `PublishStorageDeals`.
+* At 1:00 pm, deal 1 is ready to publish. Boost will wait until 2:00 pm for other deals to be ready before sending `PublishStorageDeals`.
 * At 1:30 pm, Deal 2 is ready to publish
 * At 1:45 pm, Deal 3 is ready to publish
-* At 2:00pm, lotus publishes Deals 1, 2, and 3 in a single `PublishStorageDeals` message.
+* At 2:00pm, Boost publishes Deals 1, 2, and 3 in a single `PublishStorageDeals` message.
 
-If `MaxDealsPerPublishMsg` is 2, then in the above example, when deal 2 is ready to be published at 1:30, Lotus would immediately publish Deals 1 & 2 in a single `PublishStorageDeals` message. Deal 3 would be published in a subsequent `PublishStorageDeals` message.
+If `MaxDealsPerPublishMsg` is 2, then in the above example, when deal 2 is ready to be published at 1:30, Boost would immediately publish Deals 1 & 2 in a single `PublishStorageDeals` message. Deal 3 would be published in a subsequent `PublishStorageDeals` message.
 
 {% hint style="danger" %}
 If any of the deals in the `PublishStorageDeals` fails validation upon execution, or if the start epoch has passed, all deals will fail to be published
@@ -83,7 +75,7 @@ If any of the deals in the `PublishStorageDeals` fails validation upon execution
 
 Your use case might demand very precise and dynamic control over a combination of deal parameters.
 
-Lotus provides two IPC hooks allowing you to name a command to execute for every deal before the miner accepts it:
+Boost provides two IPC hooks allowing you to name a command to execute for every deal before the miner accepts it:
 
 * `Filter` for storage deals.
 * `RetrievalFilter` for retrieval deals.
