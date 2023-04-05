@@ -31,7 +31,7 @@ Please make sure you have installed:\
 **Node 16.x**
 {% endhint %}
 
-**Environment Variables in Boost**
+#### **Environment Variables in Boost**
 
 ```
 BOOST_CLIENT_REPO         - repo directory for Boost client
