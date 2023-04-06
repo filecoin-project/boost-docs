@@ -11,7 +11,7 @@ You can use the regular Unix OS signals
 Yes, boost should work with any client given it supports the storage market protocol / default standard of Filecoin network today.
 
 **Does Boost provide retrieval functionality?**\
-Yes, Boost provides 3 protocols for retrievals as of now. By default, Boost has Graphsync retrieval enabled. SPs can run Bitswap and HTTP retrievals by running [`booster-bitswap`](bitswap-retrieval.md) and [`booster-http`](http-retrieval.md) respectively.
+Yes, Boost provides 3 protocols for retrievals as of now. By default, Boost has Graphsync retrieval enabled. SPs can run Bitswap and HTTP retrievals by running [`booster-bitswap`](bitswap-retrieval.md) and [`booster-http`](http-retrieval/) respectively.
 
 **Does Boost client have retreival functionality?**\
 Yes, Boost client supports retrieval over graphsync protocol. But we highly recommend, using [`Lassie`](https://docs.filecoin.io/basics/how-retrieval-works/basic-retrieval/#lassie) client for Filecoin/IPFS retrievals.
@@ -20,4 +20,4 @@ Yes, Boost client supports retrieval over graphsync protocol. But we highly reco
 Yes, payments for deals can be made either from a regular wallet, or from DataCap. Deals that are paid for with DataCap are called `verified` deals.
 
 **Can I run both Boost and markets at the same time?**\
-****No, Boost replaces the legacy markets process. See [migrate-a-lotus-markets-service-process-to-boost.md](upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")
+No, Boost replaces the legacy markets process. See [migrate-a-lotus-markets-service-process-to-boost.md](upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")

@@ -32,7 +32,7 @@ You can configure booster-bitswap in the demo mode and familiarise yourself with
 ```
 git clone https://github.com/filecoin-project/boost.git
 cd boost
-git checkout release/1.5.1-rc3
+git checkout <release>
 ```
 
 2\. Build the `booster-bitswap` binary:
@@ -51,11 +51,10 @@ booster-bitswap init
 
 5\. Collect the boost API Info
 
-```
-export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
-
-export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
-```
+<pre><code><strong>export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
+</strong>
+<strong>export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+</strong></code></pre>
 
 6\. Run booster-bitswap
 
@@ -84,6 +83,7 @@ As described above, `booster-bitswap` can be configured to serve the retrievals 
 ```
 git clone https://github.com/filecoin-project/boost.git
 cd boost
+git checkout <release>
 ```
 
 2\. Build the `booster-bitswap` binary:
