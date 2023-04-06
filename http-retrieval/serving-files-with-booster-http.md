@@ -8,6 +8,10 @@ With the release v1.7.0-rc1 of booster-http, Storage Providers can now serve blo
 
 SPs can take advantage of the ecosystem of tools to manage HTTP traffic, like load balancers and reverse proxies.
 
+{% embed url="https://youtu.be/P8Yhy_naQlk" %}
+Browsing deal data served via booster-http from web browser
+{% endembed %}
+
 {% hint style="danger" %}
 Before proceeding any further, we request you to read [basics of HTTP retrieval configuration](./). This section is an extension of HTTP retrievals and deals with configuration specific to serving files and raw blocks.
 {% endhint %}
@@ -31,7 +35,7 @@ This allows SPs to run multiple `booster-http` instances, each serving specific 
 
 ## Enable serving files
 
-In the curl request below we appended the query parameter format=raw to the URL to get the raw block data for the file.&#x20;
+In the curl request below we appended the query parameter format=raw to the URL to get the raw block data for the file.
 
 ```
 $ curl --output /tmp/museum.jpg "http://localhost:7777/ipfs/bafybeidqindpi4ucx7kmrtnw3woc6jtl7bqvyiokrkpbbuy6gs6trn57tm/vincent/Vincent%20van%20Gogh_files/Caf%C3%A9tafel_met_absint_-_s0186V1962_-_Van_Gogh_Museum.jpg?format=raw"
@@ -204,4 +208,3 @@ server {
    Note the difference in the Average Dload column (the average download speed).
 
 <figure><img src="../.gitbook/assets/download_speed.jpg" alt=""><figcaption><p>Bandwidth limiting result</p></figcaption></figure>
-
