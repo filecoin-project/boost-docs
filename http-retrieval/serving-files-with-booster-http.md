@@ -6,7 +6,7 @@ description: Configuring booster-http to serve blocks and files
 
 With the release v1.7.0-rc1 of booster-http, Storage Providers can now serve blocks and files directly over the HTTP protocol. `booster-http` now implements a [IPFS HTTP gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview) with a [path resolution style](https://specs.ipfs.tech/http-gateways/path-gateway/). This will allow the clients to download individual [IPFS blocks](https://docs.ipfs.tech/how-to/work-with-blocks/), car files and request uploaded files directly from their browser.
 
-SPs can take advantage of the ecosystem of tools to manage HTTP traffic, like load balancers and reverse proxies.&#x20;
+SPs can take advantage of the ecosystem of tools to manage HTTP traffic, like load balancers and reverse proxies.
 
 {% hint style="danger" %}
 Before proceeding any further, we request you to read [basics of HTTP retrieval configuration](./). This section is an extension of HTTP retrievals and deals with configuration specific to serving files and raw blocks.
@@ -27,7 +27,7 @@ The `booster-http` service can be started with specific type of content on IPFS 
    --help, -h                                               show help
 ```
 
-This allows SPs to run multiple `booster-http` instances, each serving specific type of content like car files only or raw block only.
+This allows SPs to run multiple `booster-http` instances, each serving specific type of content like car files only or raw blocks only.
 
 ## Enable serving files
 
@@ -96,8 +96,8 @@ Let’s limit access to the IPFS gateway using the standard `.htaccess` file. We
 $ mkdir /etc/nginx/ipfs-gateway.conf.d
 
 $ htpasswd -c /etc/nginx/ipfs-gateway.conf.d/.htpasswd alice
-New password: 
-Re-type new password: 
+New password:
+Re-type new password:
 Adding password for user alice
 ```
 
@@ -190,7 +190,7 @@ server {
                 # htaccess authentication
                 auth_basic "Restricted Server";
                 auth_basic_user_file /etc/nginx/ipfs-gateway.conf.d/.htpasswd;
-                
+
                 limit_rate $bandwidth_limit;
 
                 limit_req zone=client_ip_10rs;
@@ -205,4 +205,3 @@ server {
 
 <figure><img src="../.gitbook/assets/download_speed.jpg" alt=""><figcaption><p>Bandwidth limiting result</p></figcaption></figure>
 
-\
