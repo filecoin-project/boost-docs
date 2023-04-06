@@ -17,7 +17,7 @@ When performing certain actions, such as replicating deals, it can be convenient
 curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID.piece
 ```
 
-### Retriving a CAR file
+### Retrieving a CAR file
 To return the CAR file for a given CID, you can pass an `Accept` header with the `application/vnd.ipld.car;` format. This can be useful for retrieving the raw, unpadded data of a deal.
 
 ```
@@ -82,7 +82,7 @@ booster-http run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO -
 ```
 
 {% hint style="info" %}
-You can also run multiple processes on the same machine but you would need to use different port for each `booster-http` instance by specifying the value using the `--port` flag. You can run multiple instances of the `booster-http` spread over multiple machines.
+You can run multiple `booster-http` processes on the same machine by using a different port for each instance with the `--port` flag. You can also run multiple instances of the `booster-http` on different machines.
 {% endhint %}
 
 ## Running Public Boost HTTP Retrieval
