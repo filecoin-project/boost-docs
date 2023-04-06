@@ -8,27 +8,43 @@ Boost introduced a new binary, `booster-http`, with release v1.2.0. This binary 
 
 Currently, there is no payment method or built-in security integrated in the new binary. It can be run with any stable release of `boostd` and can also be run on a separate machine from the `boostd` process.
 
-With release v1.7.0-rc1, `booster-http` now supports an [IPFS gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview) like retrievals from Filecoin SP. Clients can query the SP's HTTP retrieval URL in below formats.
+Release v1.7.0-rc1 introduced support in `booster-http` for running an [IPFS gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview), which enables Storage Providers to serve content to their users in multiple formats as described below and demonstrated using `curl`.
 
-1. To retrieve a full piece
-
-```
-curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o $HOME/download.piece 
-```
-
-2. To retrieve files and blocks&#x20;
+### Retrieving a full Piece
+When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure commp integrity.
 
 ```
-http://{SP's http retrieval URL}/ipfs/{content ID}/{optional path to resource}
+curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID.piece
 ```
 
-### Local Setup
+### Retrieving a CAR file
+To return the CAR file for a given CID, you can pass an `Accept` header with the `application/vnd.ipld.car;` format. This can be useful for retrieving the raw, unpadded data of a deal.
+
+```
+curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bagaSomePayloadCID -o bagaSomePayloadCID.car
+```
+
+### Retrieving specific files
+For Storage Providers that have enabled serving raw files (disabled by default), users can retrieve specific files, such as images by their cid and path where applicable. See [Enable serving files](https://boost.filecoin.io/http-retrieval/serving-files-with-booster-http#enable-serving-files) for a more in depth example.
+
+```
+curl http://{SP's http retrieval URL}/ipfs/{content ID}/{optional path to resource} -o myimage.png
+```
+
+### Retrieving IPLD blocks
+For advanced IPFS and IPLD use cases, you can now retrieve individual blocks by passing an `Accept` header with the `application/vnd.ipld.raw;` format
+
+```
+curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bagaSomeBlockCID -o bagaSomeBlockCID
+```
+
+## Local Setup
 
 SPs should try a local setup and test their HTTP retrievals before proceeding to run `booster-http` in production.
 
-To build and run `booster-http` :\
-\
-1\. Clone the main branch from the boost repo
+To build and run `booster-http` :
+
+1. Clone the boost repo and checkout the latest release
 
 ```
 git clone https://github.com/filecoin-project/boost.git
@@ -36,13 +52,13 @@ cd boost
 git checkout <release>
 ```
 
-2\. Build the new binary
+2. Build the new binary
 
 ```
 make booster-http
 ```
 
-3\. Collect the token information for boost, lotus-miner and lotus daemon API
+3. Collect the token information for boost, lotus-miner and lotus daemon API
 
 ```
 export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
@@ -59,28 +75,15 @@ export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
 export MINER_API_INFO=echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'
 ```
 
-4\. Start the `booster-http` server with the above details
+4. Start the `booster-http` server with the above details
 
 ```
 booster-http run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
 
 {% hint style="info" %}
-You can also run multiple processes on the same machine but you would need to use different port for each `booster-http` instance by specifying the value using the `--port` flag. You can run multiple instances of the `booster-http` spread over multiple machines.&#x20;
+You can run multiple `booster-http` processes on the same machine by using a different port for each instance with the `--port` flag. You can also run multiple instances of the `booster-http` on different machines.
 {% endhint %}
-
-5\. To download files from the new http-server locally, you use the following endpoints:
-
-```
-# car file
-curl -s -H "Accept:application/vnd.ipld.car;" -o $HOME/download.car http://localhost:7777/ipfs/bafykbzacecyrmvxl7shftg5qpebpkrdtdzihjnoymc7voyiyomvaydomddxcw
-# raw, root block
-curl -s -H "Accept:application/vnd.ipld.raw;" -o $HOME/download.raw http://localhost:7777/ipfs/bafykbzacecyrmvxl7shftg5qpebpkrdtdzihjnoymc7voyiyomvaydomddxcw
-# raw content
-curl -s -o $HOME/download.raw http://localhost:7777/ipfs/bafykbzacecyrmvxl7shftg5qpebpkrdtdzihjnoymc7voyiyomvaydomddxcw
-# whole piece
-curl -o $HOME/download.piece http://localhost:7777/piece/baga6ea4seaqexju64hfftlf5xsvyjahfv2ly3czi2lhrmhleg7xshyfmpcfj2ly
-```
 
 ## Running Public Boost HTTP Retrieval
 
@@ -94,7 +97,7 @@ While booster-http may get more operational features over time, the intent is th
 
 ### Making HTTP Retrieval Discoverable
 
-To enable public discovery of the Boost HTTP server, SPs should set the domain root in boostd's `config.toml`: Under the `[DealMaking]` section, set `HTTPRetrievalMultiaddr` to the public domain root in multi-address format.
+To enable public discovery of the Boost HTTP server, SPs should set the domain root in boostd's `config.toml`. Under the `[DealMaking]` section, set `HTTPRetrievalMultiaddr` to the public domain root in multi-address format.
 
 Example `config.toml` section:
 
@@ -123,6 +126,6 @@ Clients can download a piece using the domain root configured by the SP:
 
 ```
 # Download a piece by its CID
-curl https://foo.com/piece/bagaSomePieceCID -o $HOME/download.piece
+curl https://foo.com/piece/bagaSomePieceCID -o download.piece
 ```
 
