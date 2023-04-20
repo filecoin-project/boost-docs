@@ -15,9 +15,9 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 | v1.5.0                     | v1.18.0                           | 1.18.x         |
 | v1.5.1, v1.5.2, v1.5.3     | v1.18.0, v1.19.0                  | 1.18.x         |
 | v1.6.0, v1.6.1, v1.6.2-rc1 | v1.20.x                           | 1.18.x         |
-| v1.6.3 (planned)           | v1.22.x (planned)                 | 1.18.x         |
+| v1.6.3                     | v1.22.x (planned)                 | 1.18.x         |
 | v1.6.2-rc2, v1.7.0-rc1     | v1.21.0-rc1, v1.21.0-rc2          | 1.20.x         |
-| v1.7.0 (planned)           | v1.23.x (planned)                 | 1.20.x         |
+| v1.7.0                     | v1.23.x (planned)                 | 1.20.x         |
 
 ### Building and installing
 
