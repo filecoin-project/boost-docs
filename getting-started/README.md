@@ -72,7 +72,7 @@ export FFI_BUILD_FROM_SOURCE=1
 git clone https://github.com/filecoin-project/boost
 cd boost
 git checkout <Stable tag or branch>
-make build
+make clean build
 sudo make install
 ```
 
@@ -85,7 +85,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
 git clone https://github.com/filecoin-project/boost
 cd boost
 git checkout <Stable tag or branch>
-make build
+make clean build
 sudo make install
 ```
 
@@ -99,7 +99,7 @@ To build boost for calibnet, please complete the above pre-requisites and build 
 git clone https://github.com/filecoin-project/boost
 cd boost
 git checkout <Stable tag or branch>
-make calibnet
+make clean calibnet
 ```
 
 ### Upgrading Boost
@@ -113,7 +113,7 @@ cd boost
 git checkout main
 git pull
 git checkout <New release>
-make build
+make clean build
 sudo make install
 ```
 
@@ -131,7 +131,7 @@ cd boost
 git checkout main
 git pull
 git checkout <New release>
-make build
+make clean build
 sudo make install
 ```
 
