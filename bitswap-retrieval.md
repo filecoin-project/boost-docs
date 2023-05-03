@@ -138,7 +138,7 @@ You can get a `boostd` multiaddress by running `boostd net listen` and using any
 ```
 git clone https://github.com/filecoin-project/boost.git
 cd boost
-git checkout release/booster-bitswap
+git checkout <release>
 ```
 
 2\. Build the `booster-bitswap` binary:
