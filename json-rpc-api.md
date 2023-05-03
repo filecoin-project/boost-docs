@@ -55,6 +55,35 @@ func main() {
 1. Run `go mod init` to set up your `go.mod` file
 2. You should now be able to interact with the Boost API.
 
+### JSON-RPC in Other Languages
+
+The JSON-RPC API can also be communicated with programmatically from other languages. Here is an example written in Python.
+Note that the `method` must be prefixed with `Filecoin.`
+
+```
+import requests
+import json
+
+def main():
+    url = "http://localhost:3051/rpc/v0"
+    headers = {'content-type': 'application/json', "Authorization": "Bearer <token>"}
+    payload = {
+        "method": "Filecoin.BoostOfflineDealWithData",
+        "params": [
+            "<deal-uuid>",
+            "<file-path>",
+            True
+        ],
+        "jsonrpc": "2.0",
+        "id": 1,
+    }
+    response = requests.post(url, data=json.dumps(payload), headers=headers)
+    print(response.text)
+
+if __name__ == "__main__":
+    main()
+```
+
 ## Groups
 
 * [Actor](#actor)
