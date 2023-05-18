@@ -6,6 +6,10 @@ description: >-
 
 # Local Index Directory
 
+{% hint style="warning" %}
+Local Index Directory is not yet released. This is a placeholder page for its documentation.
+{% endhint %}
+
 ## Background
 
 The Local Index Directory (_LID_) manages and stores indices of deal data so that it can be retrieved by a content identifier (_cid_).
