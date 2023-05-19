@@ -61,7 +61,7 @@ To verify that your system supports SSE4.2, run the following command:
 SSDs (solid state disks) are required.
 ```
 
-We recommend a minimum of 1TiB allocated for YugabyteDB, depending on the amount of data you store and its average block size.
+We recommend a minimum of 1TiB or more allocated for YugabyteDB, depending on the amount of deal data you store and its average block size.
 
 {% hint style="warning" %}
 Assuming you've kept unsealed copies of all your data and have consistently indexed deal data, the size of your DAG store directory should be comparable with the requirements for YugabyteDB
