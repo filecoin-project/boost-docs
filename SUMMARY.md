@@ -34,6 +34,7 @@
   * [FVM Contract Deals](experimental-features/fvm-contract-deals.md)
   * [Local Index Directory](experimental-features/local-index-directory/README.md)
     * [Architecture](experimental-features/local-index-directory/architecture.md)
+    * [Requirements](experimental-features/local-index-directory/requirements.md)
     * [Initialisation](experimental-features/local-index-directory/initialisation.md)
 * [GraphQL API](graphql-api.md)
 * [JSON-RPC API](json-rpc-api.md)
