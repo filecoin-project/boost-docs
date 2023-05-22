@@ -164,7 +164,7 @@ server {
 
 ### Bandwidth Limiting
 
-It is also recommended to limit the amount of bandwidth that clients can take up when downloading data from `booster-http`. This ensure a fair bandwidth distribution to each client and prevents the situations where one client end up chocking the `booster-http` instance.
+It is also recommended to limit the amount of bandwidth that clients can take up when downloading data from `booster-http`. This ensures a fair bandwidth distribution to each client and prevents situations where one client ends up choking the `booster-http` instance.
 
 1. Create a new .htaccess user called _`bob`_
 
