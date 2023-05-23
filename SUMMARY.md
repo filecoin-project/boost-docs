@@ -21,6 +21,7 @@
   * [Deal Filters](configuration/deal-filters.md)
   * [Remote CommP](configuration/remote-commp.md)
   * [Legacy Deal configuration](configuration/legacy-deal-configuration.md)
+  * [HTTP indexer announcement](configuration/http-indexer-announcement.md)
 * [Backup and Restore](backup-and-restore.md)
 * [Tutorials](tutorials/README.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
