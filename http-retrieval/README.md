@@ -11,6 +11,7 @@ Currently, there is no payment method or built-in security integrated in the new
 Release v1.7.0-rc1 introduced support in `booster-http` for running an [IPFS gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview), which enables Storage Providers to serve content to their users in multiple formats as described below and demonstrated using `curl`.
 
 ### Retrieving a full Piece
+
 When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure commp integrity.
 
 ```
@@ -18,6 +19,7 @@ curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID
 ```
 
 ### Retrieving a CAR file
+
 To return the CAR file for a given CID, you can pass an `Accept` header with the `application/vnd.ipld.car;` format. This can be useful for retrieving the raw, unpadded data of a deal.
 
 ```
@@ -25,6 +27,7 @@ curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs
 ```
 
 ### Retrieving specific files
+
 For Storage Providers that have enabled serving raw files (disabled by default), users can retrieve specific files, such as images by their cid and path where applicable. See [Enable serving files](https://boost.filecoin.io/http-retrieval/serving-files-with-booster-http#enable-serving-files) for a more in depth example.
 
 ```
@@ -32,6 +35,7 @@ curl http://{SP's http retrieval URL}/ipfs/{content ID}/{optional path to resour
 ```
 
 ### Retrieving IPLD blocks
+
 For advanced IPFS and IPLD use cases, you can now retrieve individual blocks by passing an `Accept` header with the `application/vnd.ipld.raw;` format
 
 ```
@@ -62,17 +66,17 @@ make booster-http
 
 ```
 export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
-export BOOST_API_INFO=echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'
+export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 ```
 export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
-export FULLNODE_API_INFO=echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'
+export FULLNODE_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 ```
 export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
-export MINER_API_INFO=echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'
+export MINER_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 4. Start the `booster-http` server with the above details
@@ -128,4 +132,3 @@ Clients can download a piece using the domain root configured by the SP:
 # Download a piece by its CID
 curl https://foo.com/piece/bagaSomePieceCID -o download.piece
 ```
-
