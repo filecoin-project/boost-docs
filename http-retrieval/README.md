@@ -71,12 +71,12 @@ export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a
 
 ```
 export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
-export FULLNODE_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INF | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 ```
 export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
-export MINER_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 4. Start the `booster-http` server with the above details
