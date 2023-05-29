@@ -5,7 +5,7 @@ description: Local Index Directory architecture and index types
 # Architecture
 
 When designing the Local Index Directory we considered the needs of various Storage Providers (SPs) and the operational overhead LID would have on their systems. We built a solution for:\
-\- small- SPs - holding up to 1PiB), and\
+&#x20;small- SPs - holding up to 1PiB), and\
 \- mid- and large- size SPs - holding anywhere from 1PiB, up to 100PiB data
 
 Depending on underlying block size and data format, index size can vary in size. Typically block sizes are between 16KiB and 1MiB.
