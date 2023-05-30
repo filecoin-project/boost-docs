@@ -1,10 +1,10 @@
 ---
 description: >-
-  This section details how to get started with Boost if you are a storage
-  provider or as a client
+  This section details how to compile and install Boost if you are a storage
+  provider or a client
 ---
 
-# Getting started
+# Installation
 
 The Boost source code repository is hosted at [github.com/filecoin-project/boost](https://github.com/filecoin-project/boost)
 
@@ -47,7 +47,7 @@ sudo apt-get install -y nodejs
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y
 ```
 
-**MacOS**
+**macOS**
 
 ```
 brew install node@16
@@ -81,7 +81,7 @@ Please ignore any output or onscreen instruction during the `npm build` unless t
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
 git clone https://github.com/filecoin-project/boost
 cd boost
-git checkout <Stable tag or branch>
+git checkout <stable tag or branch>
 make clean build
 sudo make install
 ```
@@ -95,43 +95,6 @@ To build boost for _calibnet_, please complete the above pre-requisites and buil
 ```
 git clone https://github.com/filecoin-project/boost
 cd boost
-git checkout <Stable tag or branch>
+git checkout <stable tag or branch>
 make clean calibnet
 ```
-
-### Upgrading Boost
-
-#### Linux
-
-1\. Make sure that Boost daemon is not running. Run the below commands to upgrade the binary.
-
-```
-cd boost
-git checkout main
-git pull
-git checkout <New release>
-make clean build
-sudo make install
-```
-
-2\. Please ignore any onscreen instruction during the `npm build` unless there is an error.
-
-3\. Start the boost daemon.
-
-#### macOS
-
-1\. Make sure that Boost daemon is not running. Run the below commands to upgrade the binary.
-
-```
-export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
-cd boost
-git checkout main
-git pull
-git checkout <New release>
-make clean build
-sudo make install
-```
-
-2\. Please ignore any onscreen instruction during the `npm build` unless there is an error.
-
-3\. Start the boost daemon.
