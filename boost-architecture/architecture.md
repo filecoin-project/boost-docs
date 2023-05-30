@@ -14,7 +14,6 @@ It contains the following files:
 
 It has the following directories:
 
-* `dagstore` Contains indexes of CAR files stored with Boost
 * `datastore` Contains metadata about deals for legacy markets
 * `deal-staging` The directory used by legacy markets for incoming data transfers
 * `incoming` The directory used by Boost for incoming data transfers
