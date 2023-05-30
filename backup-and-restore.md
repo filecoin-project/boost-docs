@@ -15,7 +15,7 @@ Boost now supports both online and offline backups. The backup command will outp
 5. `config` - directory containing all config files and `config.toml` link
 6. `storage.json` - file containing storage details
 
-Backup does not backs up the deal logs and dagstore.
+Backup does not back up deal logs and Local Index Directory.
 
 ### Online backup
 
@@ -36,10 +36,6 @@ The online backup supports running only one instance at a time and you might see
 boostd backup --offline <backup directory>
 ```
 
-{% hint style="info" %}
-Boost offline backup does not include Dagstore and user can copy dagstore directory to a backup location manually. Dagstore can be reinitialized if there is no backup.
-{% endhint %}
-
 ## Restore
 
 1. Make sure that `--boost-repo` flag is set if you wish to restore to a custom location. Otherwise, it will be restored to `~/.boost` directory
@@ -48,7 +44,3 @@ Boost offline backup does not include Dagstore and user can copy dagstore direct
 ```
 boostd restore <backup directory>
 ```
-
-{% hint style="info" %}
-Once restore is complete, Dagstore can be manually copied inside the boost repo to restore it.
-{% endhint %}
