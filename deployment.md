@@ -14,7 +14,7 @@ The **Lotus** stack is responsible for running a Filecoin full chain node, handl
 | **lotus-miner**  | Lotus Miner handling sector storage, jobs scheduling, etc.                |
 | **lotus-worker** | Lotus Worker handling various types of jobs (PC1, UNS, PC2, C1, DC, etc.) |
 
-The **Boost** stack is responsible for handling storage and retrieval requests, transferring data, indexing data, announcing data to network indexers, and ensuring that clients can retrieve their data once it is store on the SP's infrastructure.
+The **Boost** stack is responsible for handling storage and retrieval requests, transferring data, indexing data, announcing data to network indexers, and ensuring that clients can retrieve their data once it is stored on the SP's infrastructure.
 
 | Component           | Description                                                                                                                          |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
