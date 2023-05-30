@@ -1,14 +1,15 @@
 # libp2p Protocols
 
-Boost supports the same libp2p protocols as legacy markets, and adds new versions of the protocols used to propose a storage deal and to check the deal's status.
+Boost exposes libp2p protocols so that clients can initiate storage deals with the SP.
 
 ## Propose Storage Deal Protocol
 
-The client makes a deal proposal over `v1.2.0` or `v1.2.1` of the Propose Storage Deal Protocol: `/fil/storage/mk/1.2.0` or `/fil/storage/mk/1.2.1`
+The client makes a deal proposal over `v1.2.0` or `v1.2.1` of the Propose Storage Deal Protocol: - `/fil/storage/mk/1.2.0` or\
+\- `/fil/storage/mk/1.2.1`
 
 It is a request / response protocol, where the request and response are CBOR-marshalled.
 
-There are two new fields in the Request of `v1.2.1` of the protocol, described in the table below.
+There are two new fields in the request of `v1.2.1` of the protocol, described in the table below.
 
 ### Request
 
