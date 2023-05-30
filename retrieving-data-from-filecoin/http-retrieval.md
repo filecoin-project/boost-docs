@@ -2,7 +2,7 @@
 description: How to configure and use HTTP retrievals in Boost
 ---
 
-# HTTP Retrieval
+# HTTP retrieval
 
 Boost introduced a new binary, `booster-http`, with release v1.2.0. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.
 
@@ -42,7 +42,7 @@ For advanced IPFS and IPLD use cases, you can now retrieve individual blocks by 
 curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs/bagaSomeBlockCID -o bagaSomeBlockCID
 ```
 
-## Local Setup
+## Local setup
 
 SPs should try a local setup and test their HTTP retrievals before proceeding to run `booster-http` in production.
 
@@ -89,15 +89,15 @@ booster-http run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO -
 You can run multiple `booster-http` processes on the same machine by using a different port for each instance with the `--port` flag. You can also run multiple instances of the `booster-http` on different machines.
 {% endhint %}
 
-## Running Public Boost HTTP Retrieval
+## Running public Boost HTTP retrieval
 
-The booster-http server listens on localhost. To expose the server publically, SPs should run a reverse proxy such as [NGINX](https://nginx.org/en/docs/) to handle operational concerns like:
+The `booster-http` server listens on `localhost`. To expose the server publically, SPs should run a reverse proxy such as [NGINX](https://nginx.org/en/docs/) to handle operational concerns like:
 
 * SSL
 * Authentication
 * Load balancing
 
-While booster-http may get more operational features over time, the intent is that providers who want to scale their HTTP operations will handle most of operational concerns via software in front of booster-http. You can setup a simple NGINX proxy using the [example provided](serving-files-with-booster-http.md#protecting-booster-http-with-nginx) in [serving-files-with-booster-http.md](serving-files-with-booster-http.md "mention")
+While `booster-http` may get more operational features over time, the intent is that providers who want to scale their HTTP operations will handle most of operational concerns via software in front of `booster-http`. You can setup a simple NGINX proxy using the [example provided](serving-files-with-booster-http.md#protecting-booster-http-with-nginx) in [serving-files-with-booster-http.md](serving-files-with-booster-http.md "mention")
 
 ### Making HTTP Retrieval Discoverable
 

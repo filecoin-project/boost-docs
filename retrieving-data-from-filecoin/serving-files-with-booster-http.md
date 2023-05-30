@@ -1,5 +1,5 @@
 ---
-description: Configuring booster-http to serve blocks and files
+description: How to configure booster-http to serve blocks and files
 ---
 
 # Serving files with booster-http
@@ -13,7 +13,7 @@ Browsing deal data served via booster-http from web browser
 {% endembed %}
 
 {% hint style="danger" %}
-Before proceeding any further, we request you to read [basics of HTTP retrieval configuration](./). This section is an extension of HTTP retrievals and deals with configuration specific to serving files and raw blocks.
+Before proceeding any further, we request you to read [basics of HTTP retrieval configuration](http-retrieval.md). This section is an extension of HTTP retrievals and deals with configuration specific to serving files and raw blocks.
 {% endhint %}
 
 ## Configuring what to serve
@@ -33,7 +33,7 @@ The `booster-http` service can be started with specific type of content on IPFS 
 
 This allows SPs to run multiple `booster-http` instances, each serving specific type of content like car files only or raw blocks only.
 
-## Enable serving files
+## Enable serving of files
 
 In the curl request below we appended the query parameter format=raw to the URL to get the raw block data for the file.
 
@@ -124,7 +124,7 @@ server {
 
 Now when we open any URL under the path `/ipfs` we will be presented with a Sign in dialog.
 
-<figure><img src="../../.gitbook/assets/secure_login.jpg" alt=""><figcaption><p>Login prompt when accessing booster-http url</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/secure_login.jpg" alt=""><figcaption><p>Login prompt when accessing booster-http url</p></figcaption></figure>
 
 ### Rate Limiting
 
@@ -207,4 +207,4 @@ server {
 4. To verify bandwidth limiting, use `curl` to download a file with user _`alice`_ and then _`bob`_\
    Note the difference in the Average Dload column (the average download speed).
 
-<figure><img src="../../.gitbook/assets/download_speed.jpg" alt=""><figcaption><p>Bandwidth limiting result</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/download_speed.jpg" alt=""><figcaption><p>Bandwidth limiting result</p></figcaption></figure>

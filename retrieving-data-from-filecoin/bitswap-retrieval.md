@@ -2,7 +2,7 @@
 description: How to configure and use Bitswap retrievals in Boost
 ---
 
-# Bitswap Retrieval
+# Bitswap retrieval
 
 `booster-bitswap` is a binary that runs alongside the `boostd` process, to serve retrievals over the Bitswap protocol. This experimental feature of boost provides a number of tools for managing a production grade Bitswap retrieval service for a Storage Provider's content.
 
@@ -72,7 +72,7 @@ booster-bitswap fetch /ip4/127.0.0.1/tcp/8888/p2p/{peerID} {rootCID} outfile.car
 
 Where `peerID` is the peer id recorded when you ran `booster-bitswap init` and `rootCID` is the CID of a data CID known to be stored on your SP.
 
-## Setup `booster-bitswap` To Serve Retrievals
+## Setup `booster-bitswap` to serve retrievals
 
 As described above, `booster-bitswap` can be configured to serve the retrievals in 2 modes. We recommend using `public mode` to avoid greater load on `boostd` as a protocol proxy.
 
@@ -131,7 +131,7 @@ You can get a `boostd` multiaddress by running `boostd net listen` and using any
 
 10\. Try to fetch a payload CID over bitswap to verify your configuration
 
-### Public Mode
+### Public mode
 
 1\. Clone the `release/booster-bitswap` branch from the boost repo
 
@@ -190,11 +190,11 @@ booster-bitswap run --api-boost=$BOOST_API_INFO
 
 10\. Try to fetch a payload CID over bitswap to verify your configuration
 
-## `Booster-bitswap` configuration
+## `booster-bitswap` configuration
 
 `booster-bitswap` provides a number of performance and safety tools for managing a production grade bitswap server without overloading your infrastructure.
 
-### Bitswap Server Performance
+### Bitswap server performance
 
 Depending on your hardware you may wish to increase or decrease the default parameters for the bitswap server internals. In the following example we are increasing the worker count for various components up to 600. This will utilize more CPU and I/O, but improve the performance of retrievals. See the command line help docs for details on each parameter.
 
@@ -229,7 +229,7 @@ booster-bitswap run --api-boost=$BOOST_API_INFO --badbits-denylists https://badb
 ```
 {% endcode %}
 
-### Request Filtering
+### Request filtering
 
 `booster-bitswap` provides a number of controls for filtering requests and limiting resource usage. These are expressed in a JSON configuration file `<booster-bitswap repo>/retrievalconfig.json`
 
@@ -269,7 +269,7 @@ booster-bitswap run --api-boost=$BOOST_API_INFO --api-filter-endpoint <URL> --ap
 
 When you setup with an API endpoint, `booster-bitswap` will update its local configuration from the API every five minutes, so you won't have to restart `booster-bitswap` to make a change. Please, be aware that the remote config will overwrite, rather than merge, with the local config.
 
-### Bandwidth Limiting
+### Bandwidth limiting
 
 Limiting bandwidth within booster-bitswap will not provide the optimal user experience. Dependent on individual setup, setting up limitations within the software could have a larger impact on the storage provider operations. Therefore, we recommend storage providers to set up their own bandwidth limitations using existing tools.
 
