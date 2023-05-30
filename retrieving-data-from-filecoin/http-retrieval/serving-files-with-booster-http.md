@@ -124,7 +124,7 @@ server {
 
 Now when we open any URL under the path `/ipfs` we will be presented with a Sign in dialog.
 
-<figure><img src="../.gitbook/assets/secure_login.jpg" alt=""><figcaption><p>Login prompt when accessing booster-http url</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/secure_login.jpg" alt=""><figcaption><p>Login prompt when accessing booster-http url</p></figcaption></figure>
 
 ### Rate Limiting
 
@@ -207,4 +207,4 @@ server {
 4. To verify bandwidth limiting, use `curl` to download a file with user _`alice`_ and then _`bob`_\
    Note the difference in the Average Dload column (the average download speed).
 
-<figure><img src="../.gitbook/assets/download_speed.jpg" alt=""><figcaption><p>Bandwidth limiting result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/download_speed.jpg" alt=""><figcaption><p>Bandwidth limiting result</p></figcaption></figure>

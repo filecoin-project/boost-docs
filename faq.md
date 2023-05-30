@@ -11,7 +11,7 @@ You can use the regular Unix OS signals
 Yes, boost should work with any client given it supports the storage market protocol / default standard of Filecoin network today.
 
 **Does Boost provide retrieval functionality?**\
-Yes, Boost provides 3 protocols for retrievals as of now. By default, Boost has Graphsync retrieval enabled. SPs can run Bitswap and HTTP retrievals by running [`booster-bitswap`](bitswap-retrieval.md) and [`booster-http`](http-retrieval/) respectively.
+Yes, Boost provides 3 protocols for retrievals as of now. By default, Boost has Graphsync retrieval enabled. SPs can run Bitswap and HTTP retrievals by running [`booster-bitswap`](retrieving-data-from-filecoin/bitswap-retrieval.md) and [`booster-http`](retrieving-data-from-filecoin/http-retrieval/) respectively.
 
 **Does Boost client have retreival functionality?**\
 Yes, Boost client supports retrieval over graphsync protocol. But we highly recommend, using [`Lassie`](https://docs.filecoin.io/basics/how-retrieval-works/basic-retrieval/#lassie) client for Filecoin/IPFS retrievals.

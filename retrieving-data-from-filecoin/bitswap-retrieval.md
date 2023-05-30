@@ -1,5 +1,5 @@
 ---
-description: How to configure and use bitswap retrievals in Boost
+description: How to configure and use Bitswap retrievals in Boost
 ---
 
 # Bitswap Retrieval
@@ -21,7 +21,7 @@ There are two primary "modes" for exposing `booster-bitswap` to the internet.
 1. In `private mode` the `booster-bitswap` peer ID is not publicly accessible to the internet. Instead, public Bitswap traffic goes to `boostd` itself, which then acts as a reverse proxy, forwarding that traffic on to `booster-bitswap`. This is similar to the way one might configure Nginx as a reverse proxy for an otherwise private web server. `private mode` is simpler to setup but may produce greater load on `boostd` as a protocol proxy.
 2. In `public mode` the public internet firewall must be configured to forward traffic directly to the `booster-bitswap` instance. `boostd` is configured to announce the public address of `booster-bitswap` to the network indexer (the network indexer is the service that clients can query to discover where to retrieve content). This mode offers greater flexibility and performance. You can even setup `booster-bitswap` to run over a separate internet connection from `boostd`. However, it might require additional configuration and changes to your overall network infrastructure.
 
-<figure><img src=".gitbook/assets/bitswap.png" alt=""><figcaption><p>Bitswap architecture and possible configurations</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/bitswap.png" alt=""><figcaption><p>Bitswap architecture and possible configurations</p></figcaption></figure>
 
 ### Demo configuration
 
