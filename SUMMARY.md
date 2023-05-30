@@ -2,6 +2,7 @@
 
 * [What is Boost?](README.md)
 * [Features](features.md)
+* [Components](deployment.md)
 * [Architecture](boost-architecture/README.md)
   * [Repository](boost-architecture/architecture.md)
   * [Database](boost-architecture/getting-started-1.md)
@@ -12,7 +13,6 @@
   * [libp2p Protocols](boost-architecture/libp2p-protocols.md)
 * [Hardware requirements](hardware-requirements.md)
   * [YugabyteDB](hardware-requirements/yugabytedb.md)
-* [Components](deployment.md)
 * [Installation](getting-started/README.md)
 * [Configuration](configuration/README.md)
   * [UI Settings](configuration/ui-settings.md)

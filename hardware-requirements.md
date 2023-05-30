@@ -1,12 +1,12 @@
 ---
-description: Hardware requirements for Boost
+description: Hardware requirements for Storage Providers running Boost
 ---
 
 # Hardware requirements
 
-The hardware requirements for Boost are tied to the sealer part of the Lotus deployment it is attached to.
+The hardware requirements for Boost are tied to the Lotus stack in a Filecoin SP deployment.
 
-Depending on how much data you need to onboard, and how many deals you need to make with clients, hardware requirements in terms of CPU and Disk will vary.
+Depending on how much data you need to onboard, and how many deals you need to make with clients, hardware requirements in terms of _CPU_ and _Disk_ will vary.
 
 ## General hardware requirements
 
