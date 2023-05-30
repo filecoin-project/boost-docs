@@ -1,5 +1,5 @@
 ---
-description: The page details the Boost SP daemon - boostd
+description: This page details the Boost SP daemon - boostd
 ---
 
 # boostd
