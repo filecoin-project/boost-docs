@@ -1,5 +1,7 @@
 ---
-description: Overview of all SP components and how Boost fits in a deployment
+description: >-
+  Overview of all components and how Boost fits in a Filecoin Storage Provider
+  (SP) deployment
 ---
 
 # Components
