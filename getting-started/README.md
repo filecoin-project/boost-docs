@@ -30,16 +30,6 @@ Please make sure you have installed:\
 **Node 16.x**
 {% endhint %}
 
-#### **Environment Variables in Boost**
-
-```
-BOOST_PATH                - repo directory for Boost SP daemon
-BOOST_CLIENT_REPO         - repo directory for Boost client
-BOOSTER_BITSWAP_RERO      - repo directory for Booster bitswap
-FULLNODE_API_INFO         - Lotus daemon node API connection string
-MINER_API_INFO            - Lotus miner node API connection string
-```
-
 **Linux / Ubuntu**
 
 ```
