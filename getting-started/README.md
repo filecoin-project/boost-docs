@@ -33,10 +33,11 @@ Please make sure you have installed:\
 #### **Environment Variables in Boost**
 
 ```
+BOOST_PATH                - repo directory for Boost SP daemon
 BOOST_CLIENT_REPO         - repo directory for Boost client
-BOOSTER_BITSWAP_REP       - repo directory for Booster bitswap
-BOOST_PATH                - boost repo path
+BOOSTER_BITSWAP_RERO      - repo directory for Booster bitswap
 FULLNODE_API_INFO         - Lotus daemon node API connection string
+MINER_API_INFO            - Lotus miner node API connection string
 ```
 
 **Linux / Ubuntu**
