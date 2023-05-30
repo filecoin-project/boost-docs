@@ -1,8 +1,8 @@
 # Architecture
 
-The `boostd` executable runs as a daemon alongside a lotus node and lotus miner. This daemon replaces the current markets subsystem in the lotus miner. The boost daemon exposes a libp2p interface for storage and retrieval deals. It performs on-chain operations by making API calls to the lotus node. The daemon hands off downloaded data to the lotus miner for sealing via API calls to the lotus miner.
+The `boostd` executable runs as a daemon alongside a Lotus full node and Lotus miner. The daemon exposes a libp2p interface for storage and retrieval deals. It performs on-chain operations by making API calls to the Lotus node. The daemon hands off downloaded data to the Lotus miner for sealing via API calls to the Lotus miner.
 
-`boostd` has a web interface for fund management and deal monitoring. The web interface is a react app that consumes a graphql interface exposed by the daemon.
+`boostd` has a web interface for fund management and deal monitoring. The web interface is a React application that consumes a GraphQL interface exposed by the daemon.
 
 ![](<../.gitbook/assets/Boost Interfaces.png>)
 
@@ -21,8 +21,8 @@ The typical flow for a Storage Deal is:
 
 ![](<../.gitbook/assets/Boost Flow.png>)
 
-Boost exposes a libp2p interface to listen for storage deal proposals from clients. This is similar to the libp2p interface exposed by the lotus market subsystem.&#x20;
+Boost exposes a libp2p interface to listen for storage deal proposals from clients.
 
-Boost communicates with the lotus node over its JSON-RPC API for on-chain operations like checking client funds and publishing the deal.
+Boost communicates with the Lotus node over its JSON-RPC API for on-chain operations like checking client funds and publishing the deal.
 
 Once the deal has been published, Boost hands off the downloaded file to `lotus-miner` for sealing.
