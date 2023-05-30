@@ -1,6 +1,10 @@
-# libp2p Protocols
+---
+description: >-
+  Boost exposes libp2p protocols so that clients can initiate storage deals with
+  the SP
+---
 
-Boost exposes libp2p protocols so that clients can initiate storage deals with the SP.
+# libp2p Protocols
 
 ## Propose Storage Deal Protocol
 

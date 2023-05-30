@@ -1,6 +1,8 @@
-# YugabyteDB
+---
+description: YugabyteDB is the backend database that hosts the Local Index Directory
+---
 
-YugabyteDB is the backend database that hosts the Local Index Directory
+# YugabyteDB
 
 Depending on the size of data your SP is holding, you can run YugabyteDB in a variety of ways. Find more information about how to run YugabyteDB at [https://docs.yugabyte.com/preview/launch-and-manage/](https://docs.yugabyte.com/preview/launch-and-manage/)
 
