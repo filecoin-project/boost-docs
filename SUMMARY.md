@@ -13,7 +13,7 @@
 * [Hardware requirements](hardware-requirements.md)
   * [YugabyteDB](hardware-requirements/yugabytedb.md)
 * [Components](deployment.md)
-* [Getting started](getting-started/README.md)
+* [Installation](getting-started/README.md)
   * [As a storage provider](getting-started/getting-started.md)
   * [As a client](getting-started/boost-client.md)
 * [Configuration](configuration/README.md)
