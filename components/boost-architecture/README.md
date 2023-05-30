@@ -4,7 +4,7 @@ The `boostd` executable runs as a daemon alongside a Lotus full node and Lotus m
 
 `boostd` has a web interface for fund management and deal monitoring. The web interface is a React application that consumes a GraphQL interface exposed by the daemon.
 
-![](<../.gitbook/assets/Boost Interfaces.png>)
+![](<../../.gitbook/assets/Boost Interfaces.png>)
 
 ### Storage Deal Flow
 
@@ -19,7 +19,7 @@ The typical flow for a Storage Deal is:
 7. Boost publishes the deal on chain.
 8. The client checks that the deal was successfully published on chain.
 
-![](<../.gitbook/assets/Boost Flow.png>)
+![](<../../.gitbook/assets/Boost Flow.png>)
 
 Boost exposes a libp2p interface to listen for storage deal proposals from clients.
 

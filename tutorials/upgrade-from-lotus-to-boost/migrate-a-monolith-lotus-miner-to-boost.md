@@ -146,7 +146,7 @@ boostd --vv run
 
 {% hint style="info" %}
 In your firewall you will need to ensure that the libp2p ports that Boost listens on are open, so that Boost can receive storage and retrieval deals.\
-See the `Libp2p` section of `config.toml` in the [architecture.md](../../boost-architecture/architecture.md "mention")
+See the `Libp2p` section of `config.toml` in the [architecture.md](../../components/boost-architecture/architecture.md "mention")
 {% endhint %}
 
 ### Web UI
@@ -179,7 +179,7 @@ Once the Boost has been split from the monolith miner, it can be moved to anothe
 3. Set the environment variable `LOTUS_FULLNODE_API` to allow access to the lotus node API.
 4. Open the required port on the firewall on the monolith miner machine to allow connection to lotus-miner API.
 5. In your firewall you will need to ensure that the libp2p ports that Boost listens on are open, so that Boost can receive storage and retrieval deals.\
-   See the `Libp2p` section of `config.toml` in the [architecture.md](../../boost-architecture/architecture.md "mention")
+   See the `Libp2p` section of `config.toml` in the [architecture.md](../../components/boost-architecture/architecture.md "mention")
 6. Start the `boostd` process.
 
 ```
