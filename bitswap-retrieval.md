@@ -10,11 +10,11 @@ description: How to configure and use bitswap retrievals in Boost
 There is currently no payment method in booster-bitswap. This endpoint is intended to serve free content.
 {% endhint %}
 
-## Why enable retrievals via bitswap?
+## Why enable retrievals via Bitswap?
 
 Bitswap retrieval introduces interoperability between IPFS and Filecoin, as it enables clients to retrieve Filecoin data over IPFS. This expands the reach of the Filecoin network considerably, increasing the value proposition for users to store data on the Filecoin network. This benefits the whole community, including SPs. Users will be able to access data directly via IPFS, as well as benefit from retrieval markets (e.g. Saturn) and compute over data projects (e.g. Bacalhau).
 
-## `Booster-bitswap` modes
+## `booster-bitswap` modes
 
 There are two primary "modes" for exposing `booster-bitswap` to the internet.
 

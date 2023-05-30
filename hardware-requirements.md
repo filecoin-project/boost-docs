@@ -1,3 +1,7 @@
+---
+description: Hardware requirements for Boost
+---
+
 # Hardware requirements
 
 The hardware requirements for Boost are tied to the sealer part of the Lotus deployment it is attached to.

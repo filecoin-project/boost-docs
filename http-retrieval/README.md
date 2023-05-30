@@ -10,7 +10,7 @@ Currently, there is no payment method or built-in security integrated in the new
 
 Release v1.7.0-rc1 introduced support in `booster-http` for running an [IPFS gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview), which enables Storage Providers to serve content to their users in multiple formats as described below and demonstrated using `curl`.
 
-### Retrieving a full Piece
+### Retrieving a full Filecoin Piece
 
 When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure commp integrity.
 
