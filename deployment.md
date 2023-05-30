@@ -6,15 +6,15 @@ description: >-
 
 # Components
 
+The **Lotus** stack is responsible for running a Filecoin full chain node, handling sector lifecycle, storing sectors, sector sealing, sector proving, handling wallets, and more. You can read about the Lotus components at [https://docs.filecoin.io/storage-provider/architecture/lotus-components/](https://docs.filecoin.io/storage-provider/architecture/lotus-components/)
+
 | Component        | Description                                                               |
 | ---------------- | ------------------------------------------------------------------------- |
 | **lotus**        | Lotus Daemon following the Filecoin chain                                 |
 | **lotus-miner**  | Lotus Miner handling sector storage, jobs scheduling, etc.                |
 | **lotus-worker** | Lotus Worker handling various types of jobs (PC1, UNS, PC2, C1, DC, etc.) |
 
-The **Lotus** stack is responsible for running a Filecoin full chain node, as well as handling sector lifecycle, sector sealing, sector proving. You can read more about the Lotus components at [https://docs.filecoin.io/storage-provider/architecture/lotus-components/](https://docs.filecoin.io/storage-provider/architecture/lotus-components/)
-
-The **Boost** stack is responsible for handling storage and retrieval requests as well as indexing user data, so that clients can easily retrieve their data once it is store on the SP infrastructure
+The **Boost** stack is responsible for handling storage and retrieval requests, transferring data, indexing data, announcing data to network indexers, and ensuring that clients can retrieve their data once it is store on the SP's infrastructure.
 
 | Component           | Description                                                                                                                          |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
