@@ -174,7 +174,7 @@ boostd auth api-info -perm auth
 
 Once the Boost has been split from the monolith miner, it can be moved to another physical or virtual machine by following the below steps.
 
-1. Build the boost binary on the new machine by following the [Getting Started](../../getting-started.md) step.
+1. Build the boost binary on the new machine by following the [Getting Started](../../getting-started/) step.
 2. Copy the boost repo from the original monolith miner machine to the new dedicated boost machine.
 3. Set the environment variable `LOTUS_FULLNODE_API` to allow access to the lotus node API.
 4. Open the required port on the firewall on the monolith miner machine to allow connection to lotus-miner API.
