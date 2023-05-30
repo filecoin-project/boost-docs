@@ -5,6 +5,7 @@
 * [Components](deployment.md)
   * [boostd - Boost SP daemon](boost-architecture/README.md)
   * [boostd-data - Boost Data service](components/boostd-data-boost-data-service.md)
+  * [YugabyteDB](components/yugabytedb.md)
   * [Repository](boost-architecture/architecture.md)
   * [Database](boost-architecture/getting-started-1.md)
   * [Local Index Directory](boost-architecture/local-index-directory/README.md)
