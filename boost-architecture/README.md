@@ -1,4 +1,4 @@
-# Architecture
+# boostd - Boost SP daemon
 
 The `boostd` executable runs as a daemon alongside a Lotus full node and Lotus miner. The daemon exposes a libp2p interface for storage and retrieval deals. It performs on-chain operations by making API calls to the Lotus node. The daemon hands off downloaded data to the Lotus miner for sealing via API calls to the Lotus miner.
 

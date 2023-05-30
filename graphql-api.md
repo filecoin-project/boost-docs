@@ -10,7 +10,7 @@ Boost has a built-in GraphQL explorer at [http://localhost:8080/graphiql](http:/
 
 You can test out queries, or explore the GraphQL API by clicking on the `< Docs` link at the top right of the page:
 
-![](<../.gitbook/assets/Screen Shot 2022-04-21 at 10.06.16 AM.png>)
+![](<.gitbook/assets/Screen Shot 2022-04-21 at 10.06.16 AM.png>)
 
 To run a GraphQL query with `curl`:
 
