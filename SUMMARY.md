@@ -6,7 +6,7 @@
   * [Repository](boost-architecture/architecture.md)
   * [Database](boost-architecture/getting-started-1.md)
   * [Local Index Directory](boost-architecture/local-index-directory/README.md)
-    * [Overview](boost-architecture/local-index-directory/architecture.md)
+    * [Index types](boost-architecture/local-index-directory/architecture.md)
     * [Dependencies](boost-architecture/local-index-directory/requirements.md)
     * [Initialisation](boost-architecture/local-index-directory/initialisation.md)
   * [libp2p Protocols](boost-architecture/libp2p-protocols.md)

@@ -10,11 +10,21 @@ description: >-
 
 The Local Index Directory (_LID_) manages and stores indices of deal data so that it can be retrieved by a content identifier (_cid_).
 
-Currently this task is performed by the _DAG store_ component. The DAG store keeps its indexes on disk on a single machine. LID replaces the DAG store and introduces a horizontally scalable backend database for storing the data - YugabyteDB.
+Currently this task is performed by the _DAG store_ component. The DAG store keeps its indices on disk on a single machine. LID replaces the DAG store and introduces a horizontally scalable backend database for storing the data - YugabyteDB.
 
 LID is designed to provide a more intuitive experience for the user, by surfacing problems and providing various repair tools.
 
 To summarize, LID is the component which keeps fine-grained metadata about all the deals on Filecoin that a given Storage Provider stores, and without it client would only be able to retrieve full pieces, which generally are between 8GiB and 32GiB in size.
+
+At the moment there are two implementations of LID:\
+\- a simple **LevelDB** implementation, for small SPs who want to keep all information in a single process database.\
+\- a scalable [**YugabyteDB**](#user-content-fn-1)[^1] implementation, for medium and large size SPs with tens of thousands of deals.
+
+When designing LID we considered the needs of various Storage Providers (SPs) and the operational overhead LID would have on their systems. We built a solution for:\
+\- small- SPs - holding up to 1PiB), and\
+\- mid- and large- size SPs - holding anywhere from 1PiB, up to 100PiB data
+
+Depending on underlying block size and data format, index size can vary in size. Typically block sizes are between 16KiB and 1MiB.
 
 ## Storing data on Filecoin
 
@@ -73,3 +83,5 @@ LID is able to:\
 \- look up which piece contains the block\
 \- look up which sector contains the piece\
 \- for each block, get the offset into the piece for the block
+
+[^1]: 
