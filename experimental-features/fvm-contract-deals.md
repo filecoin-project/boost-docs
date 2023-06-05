@@ -14,23 +14,15 @@ DataDAOs, as well as other clients who want to store data on Filecoin, can now d
 
 Boost already has support for the DealProposal FRC.
 
-The code for FVM monitoring resides in the `main` and `ntwk/hyperspace` branch of the Boost and should not be used for production use.
+The code for FVM monitoring resides in the latest release of the Boost. It should be used with caution for production use. SPs must [enable FEVM on lotus daemon](https://lotus.filecoin.io/lotus/configure/ethereum-rpc/) before proceeding to the next step.
 
 To build for mainnet:
 
 ```
 git clone https://github.com/filecoin-project/boost.git
 cd boost
+git checkout <Release>
 make build
-```
-
-To build for hyperspacenet:
-
-```
-git clone https://github.com/filecoin-project/boost.git
-cd boost
-git checkout ntwk/hyperspace
-make hyperspacenet
 ```
 
 In order to enable DealProposal FRC, you have to edit your `config.toml` and enable contract deal monitoring. By default it is disabled. Here is an example configuration:
