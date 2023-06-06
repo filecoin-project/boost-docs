@@ -43,6 +43,7 @@
     * [Migrate a monolith lotus-miner to Boost](tutorials/upgrade-from-lotus-to-boost/migrate-a-monolith-lotus-miner-to-boost.md)
     * [Migrate a Lotus markets service process to Boost](tutorials/upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md)
     * [Roll back to Lotus markets service process](tutorials/upgrade-from-lotus-to-boost/roll-back-to-legacy-markets.md)
+  * [How to set up booster-http](tutorials/how-to-set-up-booster-http.md)
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [FVM Contract Deals](experimental-features/fvm-contract-deals.md)

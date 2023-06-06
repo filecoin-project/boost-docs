@@ -39,7 +39,7 @@ Update `extra_hosts` in `docker-compose.yaml` for `prometheus`, so that the Prom
 
 Depending on where your Filecoin processes (`boostd`, `lotus`, `lotus-miner`, `booster-bitswap`, etc.) are running, you need to confirm that they are reachable from Prometheus so that it can scrape their metrics.
 
-By default the setup expects to find them within the same Docker network, so if you are running them elsewhere (i.e. on the \`host\` network), add the following arguments:
+By default the setup expects to find them within the same Docker network, so if you are running them elsewhere (i.e. on the \`host\` network), make sure to update the docker-compose file for the same.
 
 3. ### Prometheus targets
 
