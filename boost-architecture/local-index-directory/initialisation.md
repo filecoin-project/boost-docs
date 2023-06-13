@@ -18,10 +18,8 @@ There are two ways a Storage Provider can do that:
    \
    SPs can use the `boostd recover lid` utility to produce an index for all deal data within an unsealed sector and store it in LID so that they enable retrievals for the data. Depending on SPs deployment and where unsealed copies are hosted (NFS, Ceph, external disks, etc.) and the performance of the hosting system, producing an index for a 32GiB sector can take anywhere from a few seconds up to a few minutes, as the unsealed copy needs to be processed by the utility.
 
-## Migrate existing indices from the DAG store into LID
+If you are migrating from Boost v1, make sure to read the tutorial:
 
-TODO
-
-## Recreate indices for deal data based on unsealed copies of sectors
-
-TODO
+{% content-ref url="../../tutorials/how-to-migrate-boost-v1-to-boost-v2-lid-dagstore-etc..md" %}
+[how-to-migrate-boost-v1-to-boost-v2-lid-dagstore-etc..md](../../tutorials/how-to-migrate-boost-v1-to-boost-v2-lid-dagstore-etc..md)
+{% endcontent-ref %}
