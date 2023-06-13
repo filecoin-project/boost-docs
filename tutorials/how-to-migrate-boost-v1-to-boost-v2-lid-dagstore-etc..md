@@ -6,11 +6,11 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 ## Instructions
 
-### Install Yugabyte database
+### Install YugabyteDB database
 
-The Local Index Directory stores retrieval indexes in a [Yugabyte](https://www.yugabyte.com) database.
+The Local Index Directory stores retrieval indexes in a YugabyteDB database.
 
-We recommend running Yugabyte DB on a dedicated machine with SSD drives. The indexes require up to 2% of the size of the data, eg 20 GiB index for 1 TiB of raw data. Review the size of your existing DAG store and account for similar disk requirements.
+We recommend running YugabyteDB on a dedicated machine with SSD drives. The indexes require up to 2% of the size of the data, eg 20 GiB index for 1 TiB of raw data. Review the size of your existing DAG store and account for similar disk requirements.
 
 ### Migrate DAG store to Local Index Directory
 
@@ -30,11 +30,9 @@ cd boostv2
 git checkout release/v2
 ```
 
-**3. Build the Local Index Directory migration tool**
+**3. Build from source**
 
 ```
-make deps
-cd cmd/migrate-lid
 make
 ```
 
@@ -62,8 +60,6 @@ It will output a progress bar, and also a log file with detailed migration infor
 boostd, booster-http, etc interface with LID through the boostd-data service. Start the boostd-data service with parameters to connect to Yugabyte DB on its Cassandra and Postgres interfaces:
 
 ```
-cd /tmp/boostv2/extern/boostd-data
-make
 ./boostd-data run yugabyte \
   --hosts 127.0.0.1 \
   --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
@@ -84,10 +80,7 @@ For example:
 **7. Install Boost v2**
 
 ```
-cd /tmp/boostv2
 make install
-make booster-http
-make booster-bitswap
 ```
 
 Note that in v2 `booster-http` and `booster-bitswap` take slightly different parameters (see below).
@@ -101,7 +94,6 @@ Note: You need to stop `boostd` before migrating piece info data.
 This should take no more than a few minutes.
 
 ```
-cd /tmp/boostv2/cmd/migrate-lid
 ./migrate-lid yugabyte \
   --hosts 127.0.0.1 \
   --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
