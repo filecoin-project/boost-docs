@@ -35,6 +35,7 @@ git checkout release/v2
 **3. Build the Local Index Directory migration tool**
 
 ```
+make deps
 cd cmd/migrate-lid
 make
 ```
@@ -66,7 +67,9 @@ boostd, booster-http, etc interface with LID through the boostd-data service.
 Start the boostd-data service with parameters to connect to Yugabyte DB on its Cassandra and Postgres interfaces:
 
 ```
-boostd-data run yugabyte \
+cd /tmp/boostv2/extern/boostd-data
+make
+./boostd-data run yugabyte \
   --hosts 127.0.0.1 \
   --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
   --addr 0.0.0.0:8044
@@ -104,10 +107,11 @@ Note: You need to stop boostd before migrating piece info data.
 This should take no more than a few minutes.
 
 ```
+cd /tmp/boostv2/cmd/migrate-lid
 ./migrate-lid yugabyte \
   --hosts 127.0.0.1 \
   --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
-  piecestore
+  pieceinfo
 ```
 
 **10. Start v2 of boostd, booster-http and booster-bitswap**
@@ -116,3 +120,4 @@ Note that booster-http and booster-bitswap take slightly different parameters:
 
 * The parameter `api-boost` is removed
 * There is a new parameter `api-lid` that points to the LID service
+* eg `--api-lid="ws://1.2.3.4:8044"`
