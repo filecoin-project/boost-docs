@@ -24,7 +24,7 @@ git clone git@github.com:filecoin-project/boost.git boostv2
 cd boostv2
 ```
 
-**2. Check out the boost v2 branch**
+**2. Check out the Boost v2 branch**
 
 ```
 git checkout release/v2
@@ -55,7 +55,7 @@ Run the migration with parameters to connect to Yugabyte DB on its Cassandra and
 
 It will output a progress bar, and also a log file with detailed migration information at `migrate-yugabyte.log`
 
-**5. Run the boostd-data service**
+**5. Run the `boostd-data` service**
 
 boostd, booster-http, etc interface with LID through the boostd-data service. Start the boostd-data service with parameters to connect to Yugabyte DB on its Cassandra and Postgres interfaces:
 
@@ -66,7 +66,7 @@ boostd, booster-http, etc interface with LID through the boostd-data service. St
   --addr 0.0.0.0:8044
 ```
 
-**6. Update boostd repo config**
+**6. Update `boostd` repository config**
 
 Add the `boostd-data` service config to `<boost repo>/config.toml`. Note that the connection must be configured to go over a websocket, and the host and port must point to the boostd-data service.
 
@@ -85,7 +85,7 @@ make install
 
 Note that in v2 `booster-http` and `booster-bitswap` take slightly different parameters (see below).
 
-**8. Stop boostd, booster-http and booster-bitswap**
+**8. Stop `boostd`, `booster-http` and `booster-bitswap`**
 
 Note: You need to stop `boostd` before migrating piece info data.
 
@@ -100,7 +100,7 @@ This should take no more than a few minutes.
   pieceinfo
 ```
 
-**10. Start v2 of boostd, booster-http and booster-bitswap**
+**10. Start the upgraded versions of `boostd`, `booster-http` and `booster-bitswap`**
 
 Note that `booster-http` and `booster-bitswap` take slightly different parameters:
 
