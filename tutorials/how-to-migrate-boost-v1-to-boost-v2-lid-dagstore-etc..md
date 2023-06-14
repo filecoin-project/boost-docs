@@ -16,7 +16,9 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 The Local Index Directory stores retrieval indexes in a YugabyteDB database.
 
-We recommend running YugabyteDB on a dedicated machine with SSD drives. The indexes require up to 2% of the size of the data, eg 20 GiB index for 1 TiB of raw data. Review the size of your existing DAG store and account for similar disk requirements.
+We recommend running YugabyteDB on a dedicated machine with SSD drives. Depending on the structure of the user data, indices may require up to 2% of the size of the user data, e.g. 20 GiB index for 1 TiB of raw data.
+
+Review the size of your existing DAG store and account for similar disk space requirements for YugabyteDB.
 
 ### Migrate DAG store to Local Index Directory
 
