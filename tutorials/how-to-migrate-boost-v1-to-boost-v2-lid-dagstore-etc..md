@@ -44,7 +44,7 @@ Depending on the amount of data your SP is storing, this step could take anywher
 ./migrate-lid yugabyte dagstore --help
 ```
 
-Run the migration with parameters to connect to Yugabyte DB on its Cassandra and Postgres interfaces:
+Run the migration with parameters to connect to YugabyteDB on its Cassandra and PostgreSQL interfaces:
 
 ```
 ./migrate-lid yugabyte \
@@ -57,7 +57,9 @@ It will output a progress bar, and also a log file with detailed migration infor
 
 **5. Run the `boostd-data` service**
 
-boostd, booster-http, etc interface with LID through the boostd-data service. Start the boostd-data service with parameters to connect to Yugabyte DB on its Cassandra and Postgres interfaces:
+`boostd-data` is a data proxy service which abstracts the access to LID through an established interface. It makes it easier to secure the underlying database and not expose it. `boostd-data` listens to a websocket interface, which is the entrypoint which should be exposed to `boostd`, and`booster-http`
+
+Start the `boostd-data` service with parameters to connect to YugabyteDB on its Cassandra and PostgreSQL interfaces:
 
 ```
 ./boostd-data run yugabyte \
@@ -68,7 +70,7 @@ boostd, booster-http, etc interface with LID through the boostd-data service. St
 
 **6. Update `boostd` repository config**
 
-Add the `boostd-data` service config to `<boost repo>/config.toml`. Note that the connection must be configured to go over a websocket, and the host and port must point to the boostd-data service.
+Add the `boostd-data` service config to `<boost repo>/config.toml`. Note that the connection must be configured to go over a websocket, and the host and port must point to the `boostd-data` service.
 
 For example:
 
@@ -87,7 +89,7 @@ Note that in v2 `booster-http` and `booster-bitswap` take slightly different par
 
 **8. Stop `boostd`, `booster-http` and `booster-bitswap`**
 
-Note: You need to stop `boostd` before migrating piece info data.
+You need to stop `boostd` before migrating `piece info` data.
 
 **9. Migrate piece info data (information about which sector each deal is stored in)**
 
