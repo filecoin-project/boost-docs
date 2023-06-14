@@ -111,4 +111,4 @@ This should take no more than a few minutes.
 Note that `booster-http` and `booster-bitswap` take slightly different parameters:
 
 * `--api-boost` is removed
-* There is a new parameter `--api-lid` that points to the LID service, e.g. `--api-lid="ws://1.2.3.4:8044"`
+* There is a new parameter `--api-lid` that points to the `boostd-data` service (which hosts LID), e.g. `--api-lid="ws://1.2.3.4:8044"`
