@@ -56,7 +56,7 @@ Run the migration with parameters to connect to YugabyteDB on its Cassandra and 
 
 ```
 ./migrate-lid yugabyte \
-  --hosts 127.0.0.1 \
+  --hosts <yugabytedb-hosts> \
   --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   dagstore
 ```
@@ -71,7 +71,7 @@ Start the `boostd-data` service with parameters to connect to YugabyteDB on its 
 
 ```
 ./boostd-data run yugabyte \
-  --hosts 127.0.0.1 \
+  --hosts <yugabytedb-hosts> \
   --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   --addr 0.0.0.0:8044
 ```
@@ -105,7 +105,7 @@ This should take no more than a few minutes.
 
 ```
 ./migrate-lid yugabyte \
-  --hosts 127.0.0.1 \
+  --hosts <yugabytedb-hosts> \
   --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   pieceinfo
 ```
