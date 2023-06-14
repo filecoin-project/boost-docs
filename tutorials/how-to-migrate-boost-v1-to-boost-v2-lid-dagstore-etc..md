@@ -74,7 +74,7 @@ Start the `boostd-data` service with parameters to connect to YugabyteDB on its 
 
 **6. Update `boostd` repository config**
 
-Add the `boostd-data` service config to `<boost repo>/config.toml`. Note that the connection must be configured to go over a websocket, and the host and port must point to the `boostd-data` service.
+Configure `boostd` repository config (located at `<boostd repo>/config.toml`) to point to the exposed `boostd-data` service endpoint. Note that the connection must be configured to go over a websocket.
 
 For example:
 
