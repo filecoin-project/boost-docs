@@ -1,5 +1,9 @@
 # How to migrate from Boost v1 to Boost v2
 
+{% hint style="warning" %}
+Make sure you have read the [**Components**](../deployment.md) page before proceeding. Boost v2 introduces a new service called **boostd-data** which requires a database to be installed - YugabyteDB or LevelDB.
+{% endhint %}
+
 ## Introduction
 
 Boost v2 introduces the Local Index Directory as a replacement for the DAG store. It scales horizontally and provides a more intuitive experience for users, by surfacing problems in the UI and providing repair functionality.
