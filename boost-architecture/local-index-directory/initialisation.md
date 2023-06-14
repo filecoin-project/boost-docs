@@ -20,6 +20,6 @@ There are two ways a Storage Provider can do that:
 
 If you are migrating from Boost v1, make sure to read the tutorial:
 
-{% content-ref url="../../tutorials/how-to-migrate-boost-v1-to-boost-v2-lid-dagstore-etc..md" %}
-[how-to-migrate-boost-v1-to-boost-v2-lid-dagstore-etc..md](../../tutorials/how-to-migrate-boost-v1-to-boost-v2-lid-dagstore-etc..md)
+{% content-ref url="../../tutorials/how-to-migrate-boost-v1-to-boost-v2.md" %}
+[how-to-migrate-boost-v1-to-boost-v2.md](../../tutorials/how-to-migrate-boost-v1-to-boost-v2.md)
 {% endcontent-ref %}
