@@ -57,7 +57,7 @@ Run the migration with parameters to connect to YugabyteDB on its Cassandra and 
 ```
 ./migrate-lid yugabyte \
   --hosts 127.0.0.1 \
-  --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
+  --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   dagstore
 ```
 
@@ -72,7 +72,7 @@ Start the `boostd-data` service with parameters to connect to YugabyteDB on its 
 ```
 ./boostd-data run yugabyte \
   --hosts 127.0.0.1 \
-  --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
+  --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   --addr 0.0.0.0:8044
 ```
 
@@ -84,7 +84,7 @@ For example:
 
 ```
 [LocalIndexDirectory]
-  ServiceApiInfo = "ws://1.2.3.4:8044"
+  ServiceApiInfo = "ws://<boostd-data>:8044"
 ```
 
 **7. Install Boost v2**
@@ -106,7 +106,7 @@ This should take no more than a few minutes.
 ```
 ./migrate-lid yugabyte \
   --hosts 127.0.0.1 \
-  --connect-string="postgresql://postgres:postgres@127.0.0.1:5433" \
+  --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   pieceinfo
 ```
 
@@ -115,4 +115,4 @@ This should take no more than a few minutes.
 Note that `booster-http` and `booster-bitswap` take slightly different parameters:
 
 * `--api-boost` is removed
-* There is a new parameter `--api-lid` that points to the `boostd-data` service (which hosts LID), e.g. `--api-lid="ws://1.2.3.4:8044"`
+* There is a new parameter `--api-lid` that points to the `boostd-data` service (which hosts LID), e.g. `--api-lid="ws://<boostd-data>:8044"`
