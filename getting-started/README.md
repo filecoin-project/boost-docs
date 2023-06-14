@@ -28,6 +28,8 @@ Please make sure you have installed:\
 **Rust** - following [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
 
 **Node 16.x**
+
+**YugabyteDB** - For v2+, follow [installation instructions](https://boost.filecoin.io/v/v2/deployment/yugabytedb)
 {% endhint %}
 
 **Linux / Ubuntu**
