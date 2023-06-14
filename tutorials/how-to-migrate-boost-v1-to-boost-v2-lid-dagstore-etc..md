@@ -8,6 +8,8 @@ Make sure you have read the [**Components**](../deployment.md) page before proce
 
 Boost v2 introduces the Local Index Directory as a replacement for the DAG store. It scales horizontally and provides a more intuitive experience for users, by surfacing problems in the UI and providing repair functionality.
 
+<figure><img src="../.gitbook/assets/Screenshot 2023-06-14 at 13.13.54.png" alt=""><figcaption></figcaption></figure>
+
 ## Instructions
 
 ### Install YugabyteDB database
