@@ -1,4 +1,4 @@
-# How to migrate from Boost v1 to Boost v2
+# How to upgrade from Boost v1 to Boost v2
 
 {% hint style="warning" %}
 Make sure you have read the [**Components**](../deployment.md) page before proceeding. Boost v2 introduces a new service called **boostd-data** which requires a database to be installed - YugabyteDB or LevelDB.
@@ -10,7 +10,7 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-06-14 at 13.13.54.png" alt=""><figcaption></figcaption></figure>
 
-## Instructions
+## Prerequisites
 
 ### Install YugabyteDB database
 
@@ -20,7 +20,9 @@ We recommend running YugabyteDB on a dedicated machine with SSD drives. Dependin
 
 Review the size of your existing DAG store and account for similar disk space requirements for YugabyteDB.
 
-### Migrate DAG store to Local Index Directory
+## Instructions
+
+Follow these instructions in order to migrate your existing DAG store into the new Local Index Directory and upgrade from Boost v1 to Boost v2:
 
 **1. Clone the Boost repository to a temporary directory**
 
@@ -47,10 +49,6 @@ make
 **4. Migrate dagstore indices**
 
 Depending on the amount of data your SP is storing, this step could take anywhere from a few minutes to a few hours. You can run it even while Boost v1 continues to run. The command can be stopped and restarted. It will continue from where it left off.
-
-```
-./migrate-lid yugabyte dagstore --help
-```
 
 Run the migration with parameters to connect to YugabyteDB on its Cassandra and PostgreSQL interfaces:
 

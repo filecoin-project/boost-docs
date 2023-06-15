@@ -36,7 +36,7 @@
   * [Bitswap retrieval](retrieving-data-from-filecoin/bitswap-retrieval.md)
 * [Backup and Restore](backup-and-restore.md)
 * [Tutorials](tutorials/README.md)
-  * [How to migrate from Boost v1 to Boost v2](tutorials/how-to-migrate-boost-v1-to-boost-v2.md)
+  * [How to upgrade from Boost v1 to Boost v2](tutorials/how-to-migrate-boost-v1-to-boost-v2.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
   * [Setting up a monitoring stack for Boost](tutorials/setting-up-a-monitoring-stack-for-boost.md)
