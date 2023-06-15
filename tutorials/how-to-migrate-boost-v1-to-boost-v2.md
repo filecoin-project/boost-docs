@@ -20,7 +20,7 @@ We recommend running YugabyteDB on a dedicated machine with SSD drives. Dependin
 
 Review the size of your existing DAG store and account for similar disk space requirements for YugabyteDB.
 
-You can find more information about YugabyteDB at:
+You can find more information about YugabyteDB on its page within the `Components` section:
 
 {% content-ref url="../components/yugabytedb.md" %}
 [yugabytedb.md](../components/yugabytedb.md)
