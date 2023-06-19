@@ -120,3 +120,24 @@ Note that `booster-http` and `booster-bitswap` take slightly different parameter
 
 * `--api-boost` is removed
 * There is a new parameter `--api-lid` that points to the `boostd-data` service (which hosts LID), e.g. `--api-lid="ws://<boostd-data>:8044"`
+
+## Conclusion
+
+At this stage you should have the latest version of Boost running with the Local Index Directory. Go to the **Local Index Directory** page and review the number sections:
+
+#### Pieces
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-06-19 at 13.43.34.png" alt=""><figcaption></figcaption></figure>
+
+Pieces section shows counters for total pieces of user data that your SP is storing as well as whether you are keeping _unsealed_ and _indexed_ copies of them.
+
+_Sealed only_ copies of data are not retrievable and are only being proven on-chain within the corresponding _deadline_ / _window_. Typically sealed only data is considered as archival as it is not immediately retrievable. If the client requests it, the SP sealing pipeline must first unseal it, which typically takes 1-2 hours, and only then the data becomes available.
+
+_Flagged (unsealed)_ pieces is user data that your SP is hosting, but which is not indexed.
+
+{% hint style="info" %}
+&#x20;We recommend that you trigger re-indexing for these pieces, so that data becomes retrievable.
+{% endhint %}
+
+
+
