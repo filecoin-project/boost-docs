@@ -131,13 +131,29 @@ At this stage you should have the latest version of Boost running with the Local
 
 Pieces section shows counters for total pieces of user data that your SP is storing as well as whether you are keeping _unsealed_ and _indexed_ copies of them.
 
+#### Flagged pieces
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-06-19 at 16.31.18.png" alt=""><figcaption></figcaption></figure>
+
+_Flagged pieces_ are pieces that either lack an unsealed copy or are missing an index. For the sealed-only user data, you should make sure that you unseal individual sectors if you want this data to be retrievable.
+
 _Sealed only_ copies of data are not retrievable and are only being proven on-chain within the corresponding _deadline_ / _window_. Typically sealed only data is considered as archival as it is not immediately retrievable. If the client requests it, the SP sealing pipeline must first unseal it, which typically takes 1-2 hours, and only then the data becomes available.
 
-_Flagged (unsealed)_ pieces is user data that your SP is hosting, but which is not indexed.
+_Flagged (unsealed)_ pieces is user data that your SP is hosting, which is not indexed.
 
 {% hint style="info" %}
-&#x20;We recommend that you trigger re-indexing for these pieces, so that data becomes retrievable.
+&#x20;We recommend that you trigger re-indexing for these pieces, so that data becomes retrievable. Check the [tutorial on re-indexing flagged unsealed pieces](how-to-re-index-unsealed-pieces-that-are-flagged-by-lid-in-boost-v2.md) for more information.
 {% endhint %}
 
+#### Deal Sector Copies
 
+<figure><img src="../.gitbook/assets/Screenshot 2023-06-19 at 16.34.41.png" alt=""><figcaption></figcaption></figure>
+
+Deal Sector Copies section displays counters of your sectors state - whether you keep unsealed copies for all sectors or not. Ideally the SP should keep unsealed copies for all data that should be immediately retrievable.
+
+#### Sector Proving State
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-06-19 at 16.34.46.png" alt=""><figcaption></figcaption></figure>
+
+Sector Proving State section displays counters of your active and inactive sectors - active sectors are those that are actively proven on-chain, inactive sectors are those that you might have failed to publish a _WindowPoSt_ for, or are expired or removed.
 
