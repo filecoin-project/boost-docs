@@ -4,7 +4,7 @@ description: How to configure and use HTTP retrievals in Boost
 
 # HTTP Retrieval
 
-Boost introduced a new binary, `booster-http`, with release v1.2.0. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.
+Boost introduced a new binary, `booster-http`, with release v1.7.0. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.
 
 Currently, there is no payment method or built-in security integrated in the new binary. It can be run with any stable release of `boostd` and can also be run on a separate machine from the `boostd` process.
 
