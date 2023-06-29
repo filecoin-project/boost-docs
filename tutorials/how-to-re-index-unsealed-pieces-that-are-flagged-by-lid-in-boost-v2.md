@@ -18,11 +18,11 @@ If the SP has a lot of flagged pieces, you can automate the re-indexing of piece
 
 {% code overflow="wrap" %}
 ```
-// GraphQL query to get the first 1000 flagged unsealed pieces from LID.
-// If you have more than 1000 flagged unsealed pieces, you need to modify the query
+// GraphQL query to get the first 100 flagged unsealed pieces from LID.
+// If you have more than 100 flagged unsealed pieces, you need to modify the query
 // and adjust the pagination parameters
 
-curl -X POST -H "Content-Type: application/json" -d '{"query":"query { piecesFlagged(hasUnsealedCopy: true, limit: 2) { totalCount pieces { CreatedAt PieceCid IndexStatus { Status Error } } } }" }' http://localhost:8080/graphql/query | jq -r ".data.piecesFlagged.pieces[] | .PieceCid"
+curl -X POST -H "Content-Type: application/json" -d '{"query":"query { piecesFlagged(hasUnsealedCopy: true, limit: 100) { totalCount pieces { CreatedAt PieceCid IndexStatus { Status Error } } } }" }' http://localhost:8080/graphql/query | jq -r ".data.piecesFlagged.pieces[] | .PieceCid"
 ```
 {% endcode %}
 
