@@ -22,7 +22,7 @@ If the SP has a lot of flagged pieces, you can automate the re-indexing of piece
 // If you have more than 1000 flagged unsealed pieces, you need to modify the query
 // and adjust the pagination parameters
 
-curl -X POST -H "Content-Type: application/json" -d '{"operationName":"AppFlaggedPiecesQuery","variables":{"cursor":null,"offset":0,"limit":1000,"hasUnsealedCopy":true},"query":"query AppFlaggedPiecesQuery($hasUnsealedCopy: Boolean, $cursor: BigInt, $offset: Int, $limit: Int) {\n  piecesFlagged(\n    hasUnsealedCopy: $hasUnsealedCopy\n    cursor: $cursor\n    offset: $offset\n    limit: $limit\n  ) {\n    pieces {\n      CreatedAt\n      Piece {\n        PieceCid\n        }\n      }\n    totalCount\n    more\n    }\n}\n"}' http://localhost:8080/graphql/query | jq ".data.piecesFlagged.pieces[] | .Piece.PieceCid"
+curl -X POST -H "Content-Type: application/json" -d '{"query":"query { piecesFlagged(hasUnsealedCopy: true, limit: 1000) { totalCount pieces { CreatedAt Piece { PieceCid IndexStatus { Status Error } } } } }" }' http://localhost:8080/graphql/query | jq ".data.piecesFlagged.pieces[] | .Piece.PieceCid"
 ```
 {% endcode %}
 
