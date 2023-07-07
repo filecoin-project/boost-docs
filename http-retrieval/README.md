@@ -23,7 +23,7 @@ curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID
 To return the CAR file for a given CID, you can pass an `Accept` header with the `application/vnd.ipld.car;` format. This can be useful for retrieving the raw, unpadded data of a deal.
 
 ```
-curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bagaSomePayloadCID -o bagaSomePayloadCID.car
+curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bafySomePayloadCID -o bafySomePayloadCID.car
 ```
 
 ### Retrieving specific files
@@ -39,7 +39,7 @@ curl http://{SP's http retrieval URL}/ipfs/{content ID}/{optional path to resour
 For advanced IPFS and IPLD use cases, you can now retrieve individual blocks by passing an `Accept` header with the `application/vnd.ipld.raw;` format
 
 ```
-curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs/bagaSomeBlockCID -o bagaSomeBlockCID
+curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs/bafySomeBlockCID -o bafySomeBlockCID
 ```
 
 ## Local Setup
