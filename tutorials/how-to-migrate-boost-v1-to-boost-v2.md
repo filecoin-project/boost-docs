@@ -1,3 +1,7 @@
+---
+description: Migrate from Boost version 1 to version 2
+---
+
 # How to upgrade from Boost v1 to Boost v2
 
 {% hint style="warning" %}
@@ -14,12 +18,9 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 ### Install YugabyteDB
 
-The Local Index Directory stores retrieval indices in a YugabyteDB database.
-Retrieval indices store the size and location of each block in the deal data.
+The Local Index Directory stores retrieval indices in a YugabyteDB database. Retrieval indices store the size and location of each block in the deal data.
 
-We recommend running YugabyteDB on a dedicated machine with SSD drives.
-Depending on how many blocks there are in the user data, the retrieval indices may require up to 2% of the size of the unsealed data.
-e.g. 1 TiB of unsealed user data may require a 20 GiB index.
+We recommend running YugabyteDB on a dedicated machine with SSD drives. Depending on how many blocks there are in the user data, the retrieval indices may require up to 2% of the size of the unsealed data. e.g. 1 TiB of unsealed user data may require a 20 GiB index.
 
 YugabyteDB should require about the same amount of space as your DAG store requires today.
 
@@ -145,7 +146,7 @@ _Sealed only_ copies of data are not retrievable and are only being proven on-ch
 _Flagged (unsealed)_ pieces is user data that your SP is hosting, which is not indexed.
 
 {% hint style="info" %}
-&#x20;We recommend that you trigger re-indexing for these pieces, so that data becomes retrievable. Check the [tutorial on re-indexing flagged unsealed pieces](how-to-re-index-unsealed-pieces-that-are-flagged-by-lid-in-boost-v2.md) for more information.
+We recommend that you trigger re-indexing for these pieces, so that data becomes retrievable. Check the [tutorial on re-indexing flagged unsealed pieces](how-to-re-index-unsealed-pieces-that-are-flagged-by-lid-in-boost-v2.md) for more information.
 {% endhint %}
 
 #### Deal Sector Copies
@@ -159,4 +160,3 @@ Deal Sector Copies section displays counters of your sectors state - whether you
 <figure><img src="../.gitbook/assets/Screenshot 2023-06-19 at 16.34.46.png" alt=""><figcaption></figcaption></figure>
 
 Sector Proving State section displays counters of your active and inactive sectors - active sectors are those that are actively proven on-chain, inactive sectors are those that you might have failed to publish a _WindowPoSt_ for, or are expired or removed.
-

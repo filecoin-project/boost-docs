@@ -109,18 +109,22 @@ booster-bitswap init
 
 6\. Start `boostd` service again
 
-7\. Collect the boost API Info
+7\. Collect the token information for lotus-miner and lotus daemon API
 
 ```
-export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
+export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
+export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INF | awk '{split($0,a,"="); print a[2]}'`
+```
 
-export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+```
+export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
+export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 8\. Run booster-bitswap
 
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO --proxy={boostd multiaddress}
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044" --proxy={boostd multiaddress} --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
 
 {% hint style="info" %}
@@ -172,18 +176,22 @@ The reason boost needs to know the public multiaddresses and libp2p private key 
 
 6\. Start `boostd` service again
 
-7\. Collect the boost API Info
+7\. Collect the token information for lotus-miner and lotus daemon API
 
 ```
-export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
+export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
+export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INF | awk '{split($0,a,"="); print a[2]}'`
+```
 
-export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+```
+export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
+export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 8\. Run booster-bitswap
 
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO
+booster-bitswap run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
 
 9\. By default, booster-bitswap runs on port 8888. You can use `--port` to override this behaviour

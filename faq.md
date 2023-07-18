@@ -20,4 +20,4 @@ Yes, Boost client supports retrieval over graphsync protocol. But we highly reco
 Yes, payments for deals can be made either from a regular wallet, or from DataCap. Deals that are paid for with DataCap are called `verified` deals.
 
 **Can I run both Boost and markets at the same time?**\
-No, Boost replaces the legacy markets process. See [migrate-a-lotus-markets-service-process-to-boost.md](tutorials/upgrade-from-lotus-to-boost/migrate-a-lotus-markets-service-process-to-boost.md "mention")
+No, Boost replaces the legacy markets process. See [Broken link](broken-reference "mention")

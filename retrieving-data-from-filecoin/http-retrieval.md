@@ -62,12 +62,7 @@ git checkout <release>
 make booster-http
 ```
 
-3. Collect the token information for boost, lotus-miner and lotus daemon API
-
-```
-export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
-export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
-```
+3. Collect the token information for lotus-miner and lotus daemon API
 
 ```
 export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
@@ -82,7 +77,7 @@ export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a
 4. Start the `booster-http` server with the above details
 
 ```
-booster-http run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
+booster-http run --api-lid="ws://<boostd-data IP>:8044" --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
 
 {% hint style="info" %}

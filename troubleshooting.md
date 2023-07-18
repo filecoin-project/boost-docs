@@ -1,16 +1,5 @@
 # Troubleshooting
 
-## Inspect
-
-The new inspect page in the Boost UI helps with debugging retrieval problems. It allows the user to check the following using a payload CID or piece CID:
-
-* Verify if the piece has been correctly added to the Piece Store
-* Validate if the piece is indexed in the DAG store
-* Check for an unsealed copy of the piece
-* Verify that the payload CID -> piece CID index has been created correctly
-
-{% embed url="https://www.youtube.com/watch?v=KLH2_LzfTtw" %}
-
 ## Failed to connect to peer
 
 If the client cannot connect to Boost running on a Storage provider, with an error similar to the following:

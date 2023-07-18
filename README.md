@@ -1,3 +1,7 @@
+---
+description: Boost introduction
+---
+
 # What is Boost?
 
 Boost is a tool for Storage Providers to manage data onboarding and retrieval on the Filecoin network.
