@@ -6,7 +6,7 @@ description: >-
 
 # Migrate from Lotus to Boost
 
-An SP migrating from a monolith Lotus node or Lotus markets is a 2 step process.
+The migrating from a monolith Lotus node or Lotus markets is a 2 step process.
 
 1. Migrate from Lotus to Boost v1
 2. [Migrate from Boost v1 to Boost v2](how-to-migrate-boost-v1-to-boost-v2.md)
