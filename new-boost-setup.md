@@ -36,7 +36,7 @@ You can find more information about YugabyteDB in the `Components` section:
 
 ## Instructions
 
-Follow these instructions in order to setup a new Boost instance with boostd-data service:
+Follow these instructions in order to setup a new Boost instance with `boostd-data` service:
 
 1. Make sure you have a Lotus node and miner running
 2. Create and send funds to two new wallets on the lotus node to be used for Boost. Boost currently uses two wallets for storage deals:
@@ -62,7 +62,7 @@ lotus-miner actor control set --really-do-it $PUBLISH_STORAGE_DEALS_WALLET
 4. [Build the latest Boost V2 binaries](getting-started/#building-and-installing)
 5. Run the `boostd-data` service
 
-`boostd-data` is a data proxy service which abstracts the access to LID through an established interface. It makes it easier to secure the underlying database and not expose it. `boostd-data` listens to a websocket interface, which is the entrypoint which should be exposed to `boostd`, and`booster-http`
+`boostd-data` is a data proxy service which abstracts the access to LID through an established API. It makes it easier to secure the underlying database and not expose it. `boostd-data` listens to a _websocket_ interface, which is the entrypoint which should be exposed to `boostd`, and`booster-http`
 
 Start the `boostd-data` service with parameters to connect to YugabyteDB on its Cassandra and PostgreSQL interfaces:
 
@@ -86,7 +86,7 @@ run `boostd migrate` instead of `boostd init`
 See section [Broken link](broken-reference "mention") for more details.
 {% endhint %}
 
-Boost keeps all data in a directory called the repository. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must precede any particular command verb, e.g. `boostd --boost-repo=/path init`).
+Boost keeps all data in a directory called the _repository_. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must precede any particular command verb, e.g. `boostd --boost-repo=<PATH> init`).
 
 Export the environment variables needed for `boostd init` to connect to the lotus daemon and lotus miner.
 
@@ -118,7 +118,7 @@ boostd --vv init \
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
 7. Update `ulimit` file descriptor limit if necessary. Boost deals will fail if the file descriptor limit for the process is not set high enough. This limit can be raised temporarily before starting the Boost process by running the command `ulimit -n 1048576`. We recommend setting it permanently by following the [Permanently Setting Your ULIMIT System Value](https://lotus.filecoin.io/kb/soft-fd-limit/) guide.
-8. Make sure that the correct \<PEER\_ID> and \<MULTIADDR> for your SP is set on chain, given that `boost init` generates a new identity. Use the following commands to update the values on chain:
+8. Make sure that the correct _peer id_ and _multiaddr_ for your SP is set on chain, given that `boost init` generates a new identity. Use the following commands to update the values on chain:
 
 ```
 lotus-miner actor set-addrs <MULTIADDR>
