@@ -82,8 +82,6 @@ The `boostd-data` service can run a separate machine from Boost as long as the s
 {% hint style="warning" %}
 If you are already running a Lotus markets service process, you should\
 run `boostd migrate` instead of `boostd init`
-
-See section [Broken link](broken-reference "mention") for more details.
 {% endhint %}
 
 Boost keeps all data in a directory called the _repository_. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must precede any particular command verb, e.g. `boostd --boost-repo=<PATH> init`).
