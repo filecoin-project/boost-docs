@@ -27,7 +27,9 @@ There are two primary "modes" for exposing `booster-bitswap` to the internet.
 
 You can configure booster-bitswap in the demo mode and familiarise yourself with the configuration. Once you are confident and familiar with the options, please go ahead and configure `booster-bitswap` for [production use](bitswap-retrieval.md#setup-booster-bitswap-to-serve-retrievals-publicly).
 
-1\. Clone the the boost repo and checkout the latest stable release
+The `booster-bitswap` binary is built and installed with `boostd` binary. If you are planning to run `booster-bitswap` on a different node, you can build and install the new binary. Otherwise, skip to step 3.
+
+1\. Clone the Boost repo and checkout the same release as your `boostd` version
 
 ```
 git clone https://github.com/filecoin-project/boost.git
@@ -35,10 +37,11 @@ cd boost
 git checkout <release>
 ```
 
-2\. Build the `booster-bitswap` binary:
+2\. Build and install the `booster-bitswap` binary:
 
 ```
-make booster-bitswap
+make build
+sudo make build
 ```
 
 3\. Initialize `booster-bitswap`:
@@ -78,7 +81,9 @@ As described above, `booster-bitswap` can be configured to serve the retrievals 
 
 ### Private Mode
 
-1\. Clone the `main` branch from the boost repo
+The `booster-bitswap` binary is built and installed with `boostd` binary. If you are planning to run `booster-bitswap` on a different node, you can build and install the new binary. Otherwise, skip to step 3.
+
+1\. Clone the Boost repo and checkout the same release as your `boostd` version
 
 ```
 git clone https://github.com/filecoin-project/boost.git
@@ -86,10 +91,11 @@ cd boost
 git checkout <release>
 ```
 
-2\. Build the `booster-bitswap` binary:
+2\. Build and install the `booster-bitswap` binary:
 
 ```
-make booster-bitswap
+make build
+sudo make build
 ```
 
 3\. Initialize `booster-bitswap`:
@@ -137,7 +143,9 @@ You can get a `boostd` multiaddress by running `boostd net listen` and using any
 
 ### Public mode
 
-1\. Clone the `release/booster-bitswap` branch from the boost repo
+The `booster-bitswap` binary is built and installed with `boostd` binary. If you are planning to run `booster-bitswap` on a different node, you can build and install the new binary. Otherwise, skip to step 3.
+
+1\. Clone the Boost repo and checkout the same release as your `boostd` version
 
 ```
 git clone https://github.com/filecoin-project/boost.git
@@ -145,10 +153,11 @@ cd boost
 git checkout <release>
 ```
 
-2\. Build the `booster-bitswap` binary:
+2\. Build and install the `booster-bitswap` binary:
 
 ```
-make booster-bitswap
+make build
+sudo make build
 ```
 
 3\. Initialize `booster-bitswap`:

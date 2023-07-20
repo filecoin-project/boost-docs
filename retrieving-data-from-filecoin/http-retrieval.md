@@ -46,9 +46,9 @@ curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs
 
 SPs should try a local setup and test their HTTP retrievals before proceeding to run `booster-http` in production.
 
-To build and run `booster-http` :
+The `booster-http` binary is built and installed with `boostd` binary. If you are planning to run `booster-http` on a different node, you can build and install the new binary. Otherwise, skip to step 3.
 
-1. Clone the boost repo and checkout the latest release
+1. Clone the Boost repo and checkout the same release as your `boostd` version
 
 ```
 git clone https://github.com/filecoin-project/boost.git
@@ -56,10 +56,11 @@ cd boost
 git checkout <release>
 ```
 
-2. Build the new binary
+2. Build and install the new binary
 
 ```
-make booster-http
+make build
+sudo make build
 ```
 
 3. Collect the token information for lotus-miner and lotus daemon API
