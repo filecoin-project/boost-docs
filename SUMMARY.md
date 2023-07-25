@@ -28,6 +28,7 @@
   * [Remote CommP](configuration/remote-commp.md)
   * [Legacy Deal configuration](configuration/legacy-deal-configuration.md)
   * [HTTP indexer announcement](configuration/http-indexer-announcement.md)
+  * [Manual Publish Storage Deal Message](configuration/manual-publish-storage-deal-message.md)
 * [Storing data on Filecoin](storing-data-on-filecoin.md)
 * [Retrieving data from Filecoin](retrieving-data-from-filecoin/README.md)
   * [HTTP retrieval](retrieving-data-from-filecoin/http-retrieval.md)
