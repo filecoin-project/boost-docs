@@ -44,10 +44,10 @@ git clone git@github.com:filecoin-project/boost.git boostv2
 cd boostv2
 ```
 
-**2. Check out the Boost v2 branch**
+**2. Check out the Boost v2 release**
 
 ```
-git checkout release/v2
+git checkout v2.0.0-rc1
 ```
 
 **3. Build from source**
