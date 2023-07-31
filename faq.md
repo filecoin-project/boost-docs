@@ -8,7 +8,7 @@ description: Frequently asked questions about Boost
 You can use the regular Unix OS signals
 
 **Is Boost compatible with the Lotus client? Can a client use `lotus client deal` to send a deal to Boost storage providers or do they have to use the boost client?**\
-No. Boost no longer supports deals from lotus client.
+No. Boost no longer supports deals from lotus client. Boost will work with any client if the client uses deal making protocol `/fil/storage/mk/1.2.0` or newer.
 
 **Does Boost provide retrieval functionality?**\
 Yes, Boost provides 3 protocols for retrievals as of now. By default, Boost has Graphsync retrieval enabled. SPs can run Bitswap and HTTP retrievals by running [`booster-bitswap`](retrieving-data-from-filecoin/bitswap-retrieval.md) and [`booster-http`](retrieving-data-from-filecoin/http-retrieval.md) respectively.
