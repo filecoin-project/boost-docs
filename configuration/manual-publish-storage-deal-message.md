@@ -6,7 +6,7 @@ description: >-
 
 # Manual Publish Storage Deal Message
 
-The new feature allows SPs to turn on manual PSD. Once this feature is turned on, Boost will no longer send any PSD messages unless explicitly prompted by the user. The feature can be turned on with the below config variable:
+By default boost publishes storage deals automatically once 8 deals are in the publish queue, or after 24 hours. However some SPs need to be able to control exactly which deals to publish and when. This new feature allows SPs to turn on manual PSD. Once it is turned on, Boost will no longer send any PSD messages unless explicitly prompted by the user. The feature can be turned on with the below config variable:
 
 ```
 [Dealmaking]
