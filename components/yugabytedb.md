@@ -8,6 +8,10 @@ Depending on the size of data your SP is holding, you can run [YugabyteDB](https
 
 For production use, we highly recommend creating a highly available (HA) cluster of YugabyteDB. The cluster can be deployed on a [Kubernetes instance](https://docs.yugabyte.com/preview/deploy/kubernetes/) or as a [manual deployment](https://docs.yugabyte.com/preview/deploy/manual-deployment/). Please ensure to read all the [pre-requisites](https://docs.yugabyte.com/preview/deploy/checklist/) before proceeding with any deployments as switching DBs after deployment is very risky.
 
+{% hint style="danger" %}
+We DO NOT recommend using the \`yugabyted\` command to create a production grade cluster for LID. The command is only meant to be used as a learning tool.
+{% endhint %}
+
 You can then start `boostd-data` on `:8044` and connect it to the `yugabyte` with:
 
 ```
@@ -35,8 +39,5 @@ boostd-data run yugabyte --hosts 127.0.0.1 \
 5. **Can I convert YugabyteDB processes to systemd services?**\
    YugabyteDB does not ship as a systemd service by default. You will need to create a new service based on the commands you are running to start YT-Master and YT-Server processes. These commands can be customized based on user requirements and infrastructure.\
 
-6. **Should I use yugabyted to set up my database?**\
-   We DO NOT recommend using the \`yugabyted\` command to create a production grade cluster for LID. The command is only meant to be used as a learning tool.\
-
-7. **Once the DB is deployed, do I need to perform any additional steps?**\
+6. **Once the DB is deployed, do I need to perform any additional steps?**\
    Ideally, once the deployment is complete and DB can be reached over the network by \`boostd-data\` service, users do not need to perform any additional steps. If you wish to change the default username/password for SQL, you must also update the same on the connect string of \`boostd-data\` service.
