@@ -29,7 +29,7 @@ A large miner with many incoming retrieval requests needs many
 boostd / booster-http / booster-bitswap processes to serve those requests.
 These processes need to look up block locations in a centralized index.
 
-The boost team tested several databases and found that Yugabyte DB
+We tested several databases and found that YugabyteDB
 is best suited to the indexing workload because
 - it performs well on off-the-shelf hardware
 - it's easy to scale up by adding more machines
