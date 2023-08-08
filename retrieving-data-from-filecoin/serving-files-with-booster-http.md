@@ -68,6 +68,10 @@ We can also browse all files in the CAR archive.
 
 SPs must secure their `booster-http` before exposing it to the public. SPs can feel free to use any tool available to limit who can download files, the number of requests per second, and the download bandwidth each client can use per second.
 
+{% hint style="danger" %}
+Please note that the below example is bare-bone (minimal) and user should secure their booster-http production instance with a much more sophisticated configuration. We also recommend the use of TLS encryption and signed certificates.
+{% endhint %}
+
 Users can follow this example to use [NGNIX](https://nginx.org/en/docs/) reverse proxy to secure their `booster-http` instance. In this section we’ve just scratched the surface of the ways in which nginx can set access limits, rate limits and bandwidth limits. In particular it’s possible to add limits by request token, or using JWT tokens. The examples in this section are adapted from [Deploying NGINX as an API Gateway](http://nginx.com/blog/deploying-nginx-plus-as-an-api-gateway-part-1) which goes into more detail.
 
 By default nginx puts configuration files into `/etc/nginx`

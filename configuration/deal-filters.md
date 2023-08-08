@@ -22,7 +22,7 @@ The most trivial filter rejecting any retrieval deal would be something like: `R
 
 [This Perl script](https://gist.github.com/ribasushi/53b7383aeb6e6f9b030210f4d64351d5/9bd6e898f94d20b50e7c7586dc8b8f3a45dab07c#file-dealfilter-pl) lets the miner deny specific clients and only accept deals that are set to start relatively soon.
 
-You can also use a third party content policy framework like `bitscreen` by Murmuration Labs:
+You can also use a third party content policy framework like [CIDgravity](https://www.cidgravity.com/) or `bitscreen` by Murmuration Labs:
 
 ```shell
 # grab filter program
