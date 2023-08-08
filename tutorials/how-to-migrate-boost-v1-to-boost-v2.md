@@ -14,6 +14,28 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-06-14 at 13.13.54.png" alt=""><figcaption></figcaption></figure>
 
+### Architecture
+
+When boost receives a storage deal, it creates an index of all the block
+locations in the deal data, and stores the index in LID.
+
+When boostd / booster-http etc gets a request for a block it:
+- gets the block sector and offset from the LID index
+- requests the data at that sector and offset from the miner
+
+![LID Flow](./assets/LID-flow.png)
+
+A large miner with many incoming retrieval requests needs many
+boostd / booster-http / booster-bitswap processes to serve those requests.
+These processes need to look up block locations in a centralized index.
+
+The boost team tested several databases and found that Yugabyte DB
+is best suited to the indexing workload because
+- it performs well on off-the-shelf hardware
+- it's easy to scale up by adding more machines
+- it has great documentation
+- once set up, it can be managed through a web UI
+
 ## Prerequisites
 
 ### Install YugabyteDB
