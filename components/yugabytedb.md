@@ -41,3 +41,16 @@ boostd-data run yugabyte --hosts 127.0.0.1 \
 
 6. **Once the DB is deployed, do I need to perform any additional steps?**\
    Ideally, once the deployment is complete and DB can be reached over the network by \`boostd-data\` service, users do not need to perform any additional steps. If you wish to change the default username/password for SQL, you must also update the same on the connect string of \`boostd-data\` service.
+
+## YugabyteDB Maintenance and Upgrades
+
+Boost is not currently tied to a specific version of YugabyteDB. We recommend setting up the latest stable version of the YugabyteDB when creating a new LID instance. Over the time, users can decide to upgrade their YugabyteDB. When upgrading, please remember a few key points:
+
+1. To upgrade YugabyteDB, all boost related process must be stopped beforehand. If YugabyteDB is being utilised by other services apart from Boost then those services must be stopped as well.
+2. Read through the [upgrade guide](https://docs.yugabyte.com/preview/manage/upgrade-deployment/) thoroughly and reach out to [Yugabyte team on slack](https://communityinviter.com/apps/yugabyte-db/register) if you have any questions.
+
+As per the industry best practices, YugabyteDB should be [regularly backed up](https://docs.yugabyte.com/preview/manage/backup-restore/) for redundancy. [YugabyteDB docs](https://docs.yugabyte.com/preview/) are your friend and first source of information if you need any help with DB management.
+
+## YugabyteDB Troubleshooting
+
+If you require help with YugabyteDB, we recommend checking out the YugabyteDB [troubleshooting guide](https://docs.yugabyte.com/preview/troubleshoot/) within their documentation. If the problems is not resolved then users should reach out to Yugabyte team via [Slack](https://communityinviter.com/apps/yugabyte-db/register) or [Github](https://github.com/yugabyte/yugabyte-db) for any support. You can also reach out to other users in #boost-help channel of filecoin slack to seek help from your peers.

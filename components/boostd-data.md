@@ -17,3 +17,16 @@ boostd-data run yugabyte --hosts <HOSTS> \
                          --addr <LISTEN-ADDR>
 ```
 
+We recommend creating a systemd file for this service and utilising it to easily start and stop the `boostd-data` service. Please note that this service is an independent process and is not controlled by any other Boost process.
+
+
+
+{% hint style="info" %}
+\--hosts takes the IP addresses of the YugabyteDB YT-Servers separated by ","\
+Example:
+
+&#x20;\-- hosts 10.0.0.1,10.0.0.2,10.0.0.3
+
+\
+\--addr is the \<IP>:\<PORT> where `boostd-data` service should be listening on. The IP here can be a private one (recommended) and should reachable by all boost related processes. Please ensure to update your firewall configuration accordingly.
+{% endhint %}

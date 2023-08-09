@@ -16,25 +16,23 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 ### Architecture
 
-When boost receives a storage deal, it creates an index of all the block
-locations in the deal data, and stores the index in LID.
+When boost receives a storage deal, it creates an index of all the block locations in the deal data, and stores the index in LID.
 
 When boostd / booster-http etc gets a request for a block it:
-- gets the block sector and offset from the LID index
-- requests the data at that sector and offset from the miner
 
-![LID Flow](./assets/LID-flow.png)
+* gets the block sector and offset from the LID index
+* requests the data at that sector and offset from the miner
 
-A large miner with many incoming retrieval requests needs many
-boostd / booster-http / booster-bitswap processes to serve those requests.
-These processes need to look up block locations in a centralized index.
+![LID Flow](assets/LID-flow.png)
 
-We tested several databases and found that YugabyteDB
-is best suited to the indexing workload because
-- it performs well on off-the-shelf hardware
-- it's easy to scale up by adding more machines
-- it has great documentation
-- once set up, it can be managed through a web UI
+A large miner with many incoming retrieval requests needs many boostd / booster-http / booster-bitswap processes to serve those requests. These processes need to look up block locations in a centralized index.
+
+We tested several databases and found that YugabyteDB is best suited to the indexing workload because
+
+* it performs well on off-the-shelf hardware
+* it's easy to scale up by adding more machines
+* it has great documentation
+* once set up, it can be managed through a web UI
 
 ## Prerequisites
 
@@ -62,14 +60,14 @@ Note: Don’t overwrite your existing boost instance at this stage
 
 ```
 cd /tmp
-git clone git@github.com:filecoin-project/boost.git boostv2
+git clone https://github.com/filecoin-project/boost.git boostv2
 cd boostv2
 ```
 
 **2. Check out the Boost v2 release**
 
 ```
-git checkout v2.0.0-rc1
+git checkout v2.x.x
 ```
 
 **3. Build from source**
@@ -105,6 +103,16 @@ Start the `boostd-data` service with parameters to connect to YugabyteDB on its 
   --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   --addr 0.0.0.0:8044
 ```
+
+{% hint style="info" %}
+\--hosts takes the IP addresses of the YugabyteDB YT-Servers separated by ","\
+Example:
+
+&#x20;\-- hosts 10.0.0.1,10.0.0.2,10.0.0.3
+
+\
+\--addr is the \<IP>:\<PORT> where `boostd-data` service should be listening on. The IP here can be a private one (recommended) and should reachable by all boost related processes. Please ensure to update your firewall configuration accordingly.
+{% endhint %}
 
 **6. Update `boostd` repository config**
 
@@ -146,6 +154,16 @@ Note that `booster-http` and `booster-bitswap` take slightly different parameter
 
 * `--api-boost` is removed
 * There is a new parameter `--api-lid` that points to the `boostd-data` service (which hosts LID), e.g. `--api-lid="ws://<boostd-data>:8044"`
+
+**11. Clean up the dagstore directory from `boostd` repo and the temporary boost github repo**
+
+{% hint style="danger" %}
+Be careful when running the below command to ensure that you do not remove incorrect directory\
+\
+$ rm -rf \<boostd repo>/dagstore
+
+$ rm -rf /tmp/boostv2
+{% endhint %}
 
 ## Conclusion
 
