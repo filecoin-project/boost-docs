@@ -173,7 +173,7 @@ $ rm -rf /tmp/boostv2
 time boostd lid gen-index <piece CID>
 ```
 
-**2. Perform a retrivel using Graphsync, Bitswap and HTTP**
+**2. Perform a retrieval using Graphsync, Bitswap and HTTP**
 
 ```
 boost retrieve --provider=<miner id> -o output.dat <cid>
