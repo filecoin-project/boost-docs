@@ -165,6 +165,20 @@ $ rm -rf \<boostd repo>/dagstore
 $ rm -rf /tmp/boostv2
 {% endhint %}
 
+## Verify the setup
+
+**1. Test how long it takes to reindex a piece**
+
+```
+time boostd lid gen-index <piece CID>
+```
+
+**2. Perform a retrivel using Graphsync, Bitswap and HTTP**
+
+```
+boost retrieve --provider=<miner id> -o output.dat <cid>
+```
+
 ## Conclusion
 
 At this stage you should have the latest version of Boost running with the Local Index Directory. Go to the **Local Index Directory** page and review the number sections:
