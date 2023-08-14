@@ -67,7 +67,7 @@ sudo make build
 
 ```
 export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
-export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INF | awk '{split($0,a,"="); print a[2]}'`
+export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 ```
