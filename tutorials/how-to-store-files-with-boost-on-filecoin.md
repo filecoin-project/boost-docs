@@ -34,12 +34,13 @@ boostx market-add 1
 
 You can confirm that the market actor has funds by running `boost init` again.
 
-After that you need to generate a `car` file for data you want to store on Filecoin, and note down its `payload-cid`:
+After that you need to generate a `car` file for data you want to store on Filecoin, and note down its `payload-cid.` We recommend using [`go-car`](https://github.com/ipld/go-car/releases/latest) CLI to generate the car file.
 
 ```
-boostx generate-car ./my-data ./my-data.car
+car create -f my-data.car --version 1 <my-data>
+car root my-data.car
 
-Payload CID:  bafykbzacedzjq6jvlqnclrseq8pp5lypa6ozuqgug3wjie3orh67berkwv7e4
+bafykbzacedzjq6jvlqnclrseq8pp5lypa6ozuqgug3wjie3orh67berkwv7e4
 ```
 
 Then you need to calculate the `commp` and `piece size` for the generated `car` file:
