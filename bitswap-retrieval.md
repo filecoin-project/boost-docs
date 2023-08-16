@@ -4,7 +4,7 @@ description: How to configure and use bitswap retrievals in Boost
 
 # Bitswap Retrieval
 
-`booster-bitswap` is a binary that runs alongside the `boostd` process, to serve retrievals over the Bitswap protocol. This experimental feature of boost provides a number of tools for managing a production grade Bitswap retrieval service for a Storage Provider's content.
+`booster-bitswap` is a binary that runs alongside the `boostd` process, to serve retrievals over the Bitswap protocol. This feature of boost provides a number of tools for managing a production grade Bitswap retrieval service for a Storage Provider's content.
 
 {% hint style="info" %}
 There is currently no payment method in booster-bitswap. This endpoint is intended to serve free content.
