@@ -22,7 +22,7 @@ We recommend creating a systemd file for this service and utilising it to easily
 
 
 {% hint style="info" %}
-\--hosts takes the IP addresses of the YugabyteDB YT-Servers separated by ","\
+\--hosts takes the IP addresses of the YugabyteDB YT-Servers.\
 Example:
 
 &#x20;\--hosts=10.0.0.1 --hosts=10.0.0.2 --hosts=10.0.0.3
