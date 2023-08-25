@@ -25,7 +25,7 @@ We recommend creating a systemd file for this service and utilising it to easily
 \--hosts takes the IP addresses of the YugabyteDB YT-Servers separated by ","\
 Example:
 
-&#x20;\-- hosts 10.0.0.1,10.0.0.2,10.0.0.3
+&#x20;\--hosts=10.0.0.1 --hosts=10.0.0.2 --hosts=10.0.0.3
 
 \
 \--addr is the \<IP>:\<PORT> where `boostd-data` service should be listening on. The IP here can be a private one (recommended) and should reachable by all boost related processes. Please ensure to update your firewall configuration accordingly.
