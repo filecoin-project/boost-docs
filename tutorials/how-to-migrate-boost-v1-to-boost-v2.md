@@ -34,6 +34,35 @@ We tested several databases and found that YugabyteDB is best suited to the inde
 * it has great documentation
 * once set up, it can be managed through a web UI
 
+### Connecting multiple boost instances to a single LID
+
+It is possible to connect multiple boostd instances to a single LID instance.
+In this scenario, each boostd instance still stores data to a single miner.
+eg boostd A stores data to miner A, boostd B stores data to miner B.
+However each boostd instance saves retrieval indexes in a single, shared LID instance.
+
+![LID Flow](assets/LID-multi-store.png)
+
+For retrieval, each boostd instance can query the shared LID
+instance (to find out which miner has the data) and retrieve data from any miner
+in the cluster.
+
+![LID Flow](assets/LID-multi-fetch.png)
+
+booster-bitswap and booster-http can also be configured to query the shared LID
+instance, and retrieve data from any miner in the cluster.
+
+![LID Flow](assets/LID-multi.png)
+
+{% hint style="warning" %}
+If you are deploying multiple boost instances with a single LID
+instance you will need to set up the networking so that each boost instance
+can query all miners in the cluster.
+Note also that the Yugabyte DB instance will need enough space for retrieval
+indexes for all of the miners.
+{% endhint %}
+
+
 ## Prerequisites
 
 ### Install YugabyteDB
@@ -91,6 +120,12 @@ Run the migration with parameters to connect to YugabyteDB on its Cassandra and 
 
 It will output a progress bar, and also a log file with detailed migration information at `migrate-yugabyte.log`
 
+{% hint style="info" %}
+If you are deploying a single LID instance with multiple boost instances, you will
+need to repeat this step for each boost instance in the cluster.
+{% endhint %}
+
+
 **5. Run the `boostd-data` service**
 
 `boostd-data` is a data proxy service which abstracts the access to LID through an established interface. It makes it easier to secure the underlying database and not expose it. `boostd-data` listens to a websocket interface, which is the entrypoint which should be exposed to `boostd`, and`booster-http`
@@ -112,6 +147,11 @@ Example:
 
 \
 \--addr is the \<IP>:\<PORT> where `boostd-data` service should be listening on. The IP here can be a private one (recommended) and should reachable by all boost related processes. Please ensure to update your firewall configuration accordingly.
+
+If you are deploying a single LID instance with multiple boost instances, you should
+run a single boostd-data process. All boost instances should be able to reach this
+single boostd-data process.
+
 {% endhint %}
 
 **6. Update `boostd` repository config**
@@ -123,6 +163,28 @@ For example:
 ```
 [LocalIndexDirectory]
   ServiceApiInfo = "ws://<boostd-data>:8044"
+```
+
+**6.1 Add miners to `boostd` repository config**
+
+If you are deploying a single LID instance with multiple boost instances, you will
+also need to add to config the RPC endpoint for each miner in the cluster.
+This allows boostd to serve data for each miner over Graphsync.
+
+```
+[DealMaking]
+  GraphsyncStorageAccessApiInfo = [
+    # Make sure to include the miner that this boostd instance
+    # stores data to, as well as the other miners.
+    # Use `lotus-miner auth api-info` to get the RPC API connect string.
+    "<auth token>:/ip4/<ip>/tcp/2345/http",
+    "<auth token>:/ip4/<ip>/tcp/2345/http"
+  ]
+```
+
+Make sure to test that this boostd instance can reach each miner by running
+```
+$ MINER_API_INFO=<auth token>:/ip4/<ip>/tcp/2345/http lotus-miner info
 ```
 
 **7. Install Boost v2**
@@ -154,6 +216,13 @@ Note that `booster-http` and `booster-bitswap` take slightly different parameter
 
 * `--api-boost` is removed
 * There is a new parameter `--api-lid` that points to the `boostd-data` service (which hosts LID), e.g. `--api-lid="ws://<boostd-data>:8044"`
+* If you are deploying a single LID instance with multiple boost instances, you should supply a `--api-storage` flag for each one
+  * eg `--api-storage=MINER_API_INFO_1 --api-storage=MINER_API_INFO_2`
+  * Make sure to test that this booster-http / booster-bitswap instance can reach each miner by running
+    ```
+    $ MINER_API_INFO=MINER_API_INFO_1 lotus-miner info
+    ```
+
 
 **11. Clean up the dagstore directory from `boostd` repo and the temporary boost github repo**
 
