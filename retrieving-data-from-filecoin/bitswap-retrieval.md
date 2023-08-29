@@ -210,7 +210,7 @@ Depending on your hardware you may wish to increase or decrease the default para
 
 {% code overflow="wrap" %}
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO \
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044" \
   --engine-blockstore-worker-count=600 \
   --engine-task-worker-count=600 \
   --max-outstanding-bytes-per-peer=33554432 \
