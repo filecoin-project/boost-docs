@@ -57,7 +57,7 @@ instance, and retrieve data from any miner in the cluster.
 {% hint style="warning" %}
 If you are deploying multiple boost instances with a single LID
 instance you will need to set up the networking so that each boost instance
-can query all miners in the cluster.
+can query all miners in the cluster. We recommend assigning all of your miner instances and boostd instances to the same subnet.
 Note also that the Yugabyte DB instance will need enough space for retrieval
 indexes for all of the miners.
 {% endhint %}
