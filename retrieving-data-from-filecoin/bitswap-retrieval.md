@@ -52,22 +52,15 @@ booster-bitswap init
 
 4\. Record the peer ID output by `booster-bitswap init` -- we will need this peer id later
 
-5\. Collect the boost API Info
-
-<pre><code><strong>export ENV_BOOST_API_INFO=`boostd auth api-info --perm=admin`
-</strong>
-<strong>export BOOST_API_INFO=`echo $ENV_BOOST_API_INFO | awk '{split($0,a,"="); print a[2]}'`
-</strong></code></pre>
-
-6\. Run booster-bitswap
+5\. Run booster-bitswap
 
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044"
 ```
 
-7\. By default, booster-bitswap runs on port 8888. You can use `--port` to override this behaviour
+6\. By default, booster-bitswap runs on port 8888. You can use `--port` to override this behaviour
 
-8\. Fetching over bitswap by running
+7\. Fetching over bitswap by running
 
 ```
 booster-bitswap fetch /ip4/127.0.0.1/tcp/8888/p2p/{peerID} {rootCID} outfile.car
@@ -200,7 +193,7 @@ export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a
 8\. Run booster-bitswap
 
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044" --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
 
 9\. By default, booster-bitswap runs on port 8888. You can use `--port` to override this behaviour
@@ -234,7 +227,7 @@ Booster-bitswap is automatically setup to deny all requests for CIDs that are on
 
 {% code overflow="wrap" %}
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO --badbits-denylists <URL>
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044" --badbits-denylists <URL>
 ```
 {% endcode %}
 
@@ -242,7 +235,7 @@ booster-bitswap run --api-boost=$BOOST_API_INFO --badbits-denylists <URL>
 
 {% code overflow="wrap" %}
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO --badbits-denylists https://badbits.dwebops.pub/denylist.json <URL1> <URL2>
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044" --badbits-denylists https://badbits.dwebops.pub/denylist.json <URL1> <URL2>
 ```
 {% endcode %}
 
@@ -280,7 +273,7 @@ You can also configure `booster-bitswap` to fetch your retrieval config from a r
 
 {% code overflow="wrap" %}
 ```
-booster-bitswap run --api-boost=$BOOST_API_INFO --api-filter-endpoint <URL> --api-filter-auth <OPTIONAL SCURITY HEADERS>
+booster-bitswap run --api-lid="ws://<boostd-data IP>:8044" --api-filter-endpoint <URL> --api-filter-auth <OPTIONAL SCURITY HEADERS>
 ```
 {% endcode %}
 
