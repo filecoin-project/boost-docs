@@ -26,7 +26,8 @@ boostd-data run yugabyte --hosts 127.0.0.1 \
 
 1. **What is YugabyteDB and why YugabyteDB?**\
    YugabyteDB is a high-performance distributed SQL database. Built using a unique combination of high-performance document store, per-shard distributed consensus replication and multi-shard ACID transactions (inspired by Google Spanner), YugabyteDB serves both scale-out RDBMS and internet-scale OLTP workloads with low query latency, extreme resilience against failures and global data distribution.\
-   We tested multiple open source DBs for our use case and found YugabyteDB to be perfectly suited in terms of scalability and performance.\
+   \
+   We tested multiple open source databases for the Boost use case and found YugabyteDB to be well suited as it is highly performant and scales well horizonally.\
 
 2. **How do I learn about YugabyteDB and what do I need to know about YugabyteDB as an SP?**\
    SPs should familiarize themselves with the “[Deploy and Manage](https://docs.yugabyte.com/preview/launch-and-manage/)” section of the [documentation](https://docs.yugabyte.com/preview/) along with the [architecture](https://docs.yugabyte.com/preview/architecture/concepts/) before deploying YugabyteDB.\
