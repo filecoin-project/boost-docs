@@ -8,7 +8,7 @@ YugabyteDB is used to store the retrievals indexes. When a client makes a retrie
 
 Depending on the size of data your SP is holding, you can run [YugabyteDB](https://docs.yugabyte.com/preview/architecture/concepts/) in a variety of ways. You can find more information about how to run YugabyteDB [here](https://docs.yugabyte.com/preview/launch-and-manage/).
 
-For production use, YugabyteDB can be deployed as a highly available (HA) cluster. The cluster can be deployed on a [Kubernetes instance](https://docs.yugabyte.com/preview/deploy/kubernetes/) or as a [manual deployment](https://docs.yugabyte.com/preview/deploy/manual-deployment/). Please ensure to read all the [pre-requisites](https://docs.yugabyte.com/preview/deploy/checklist/) before proceeding with any deployments as switching DBs after deployment is very risky.
+For production use, YugabyteDB can be deployed as a highly available (HA) cluster. The cluster can be deployed on a [Kubernetes instance](https://docs.yugabyte.com/preview/deploy/kubernetes/) or as a [manual deployment](https://docs.yugabyte.com/preview/deploy/manual-deployment/). Please ensure to read all the [pre-requisites](https://docs.yugabyte.com/preview/deploy/checklist/) before proceeding.
 
 {% hint style="danger" %}
 We DO NOT recommend using the \`yugabyted\` command to create a production grade cluster for LID. The command is only meant to be used as a learning tool.
@@ -39,15 +39,15 @@ boostd-data run yugabyte --hosts 127.0.0.1 \
 4. **Can I convert YugabyteDB processes to systemd services?**\
    YugabyteDB does not ship as a systemd service by default. You will need to create a new service based on the commands you are running to start YT-Master and YT-Server processes. These commands can be customized based on user requirements and infrastructure.\
 
-5. **Once the DB is deployed, do I need to perform any additional steps?**\
-   Ideally, once the deployment is complete and DB can be reached over the network by \`boostd-data\` service, users do not need to perform any additional steps. If you wish to change the default username/password for SQL, you must also update the same on the connect string of \`boostd-data\` service.
+5. **Once YugabyteDB is deployed, do I need to perform any additional steps?**\
+   Ideally, once the deployment is complete and can be reached over the network by `boostd-data` service, users do not need to perform any additional steps. If you wish to change the default username/password, you must also update the same on the `--connect-string` of `boostd-data` service.
 
 ## YugabyteDB Maintenance and Upgrades
 
 Boost is not currently tied to a specific version of YugabyteDB. We recommend setting up the latest stable version of the YugabyteDB when creating a new LID instance. Over the time, users can decide to upgrade their YugabyteDB. When upgrading, please remember a few key points:
 
-1. To upgrade YugabyteDB, all boost related process must be stopped beforehand. If YugabyteDB is being utilised by other services apart from Boost then those services must be stopped as well.
-2. Read through the [upgrade guide](https://docs.yugabyte.com/preview/manage/upgrade-deployment/) thoroughly and reach out to [Yugabyte team on slack](https://communityinviter.com/apps/yugabyte-db/register) if you have any questions.
+1. To upgrade YugabyteDB, all Boost-related processes must be stopped beforehand. If YugabyteDB is being utilised by other services apart from Boost then those services must be stopped as well.
+2. Read through the [upgrade guide](https://docs.yugabyte.com/preview/manage/upgrade-deployment/) thoroughly and reach out to [YugabyteDB team on Slack](https://communityinviter.com/apps/yugabyte-db/register) if you have any questions.
 
 As per the industry best practices, YugabyteDB should be [regularly backed up](https://docs.yugabyte.com/preview/manage/backup-restore/) for redundancy. [YugabyteDB docs](https://docs.yugabyte.com/preview/) are your friend and first source of information if you need any help with DB management.
 
