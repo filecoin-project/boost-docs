@@ -14,6 +14,7 @@ The Boost source code repository is hosted at [github.com/filecoin-project/boost
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | < v2.0.0      | [https://boost.filecoin.io/v/v1/getting-started#boost-and-lotus-compatibility-matrix](https://boost.filecoin.io/v/v1/getting-started#boost-and-lotus-compatibility-matrix) | [https://boost.filecoin.io/v/v1/getting-started#boost-and-lotus-compatibility-matrix](https://boost.filecoin.io/v/v1/getting-started#boost-and-lotus-compatibility-matrix) |
 | v2.0.0        | v1.23.x                                                                                                                                                                    | 1.20.x                                                                                                                                                                     |
+| v2.1.0-rc1    | v1.23.x                                                                                                                                                                    | 1.20.x                                                                                                                                                                     |
 
 ### Building and Installing
 
