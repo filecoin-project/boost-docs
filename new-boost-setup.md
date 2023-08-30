@@ -22,11 +22,11 @@ Boost v2 introduces the Local Index Directory as a replacement for the DAG store
 
 ### Install YugabyteDB
 
-The Local Index Directory stores retrieval indices in a YugabyteDB database. Retrieval indices store the size and location of each block in the deal data.
+The Local Index Directory (LID) stores retrieval indices in YugabyteDB. Retrieval indices store the size and location of each block in the deal data.
 
-We recommend running YugabyteDB on a dedicated machine with SSD drives. Depending on how many blocks there are in the user data, the retrieval indices may require up to 2% of the size of the unsealed data. e.g. 1 TiB of unsealed user data may require a 20 GiB index.
+It is recommend to run YugabyteDB on a dedicated host with SSD drives. Depending on how many blocks there are in the user data, the retrieval indices may require up to 2% of the size of the unsealed data. e.g. 1 TiB of unsealed user data may require a 20 GiB index.
 
-YugabyteDB should require about the same amount of space as your DAG store requires today.
+YugabyteDB requires about the same amount of space as your DAG store requires today.
 
 You can find more information about YugabyteDB in the `Components` section:
 
