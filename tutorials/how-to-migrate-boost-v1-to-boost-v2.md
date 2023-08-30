@@ -149,8 +149,8 @@ Example:
 \--addr is the \<IP>:\<PORT> where `boostd-data` service should be listening on. The IP here can be a private one (recommended) and should reachable by all boost related processes. Please ensure to update your firewall configuration accordingly.
 
 If you are deploying a single LID instance with multiple boost instances, you should
-run a single boostd-data process. All boost instances should be able to reach this
-single boostd-data process.
+run a single boostd-data process on the host where Yugabyte DB is installed.
+All boost instances should be able to reach this single boostd-data process.
 
 {% endhint %}
 
@@ -209,6 +209,11 @@ This should take no more than a few minutes.
   --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   pieceinfo
 ```
+
+{% hint style="info" %}
+If you are deploying a single LID instance with multiple boost instances, you will
+need to repeat this step for each boost instance in the cluster.
+{% endhint %}
 
 **10. Start the upgraded versions of `boostd`, `booster-http` and `booster-bitswap`**
 
