@@ -4,9 +4,11 @@ description: YugabyteDB is the backend database that hosts the Local Index Direc
 
 # YugabyteDB
 
+YugabyteDB is used to store the retrievals indexes. When a client makes a retrieval request, LID service is used to lookup the requested data within the Lotus miner. For more details see the [architecture of LID](../boost-architecture/local-index-directory/).
+
 Depending on the size of data your SP is holding, you can run [YugabyteDB](https://docs.yugabyte.com/preview/architecture/concepts/) in a variety of ways. You can find more information about how to run YugabyteDB [here](https://docs.yugabyte.com/preview/launch-and-manage/).
 
-For production use, we highly recommend creating a highly available (HA) cluster of YugabyteDB. The cluster can be deployed on a [Kubernetes instance](https://docs.yugabyte.com/preview/deploy/kubernetes/) or as a [manual deployment](https://docs.yugabyte.com/preview/deploy/manual-deployment/). Please ensure to read all the [pre-requisites](https://docs.yugabyte.com/preview/deploy/checklist/) before proceeding with any deployments as switching DBs after deployment is very risky.
+For production use, YugabyteDB can be deployed as a highly available (HA) cluster. The cluster can be deployed on a [Kubernetes instance](https://docs.yugabyte.com/preview/deploy/kubernetes/) or as a [manual deployment](https://docs.yugabyte.com/preview/deploy/manual-deployment/). Please ensure to read all the [pre-requisites](https://docs.yugabyte.com/preview/deploy/checklist/) before proceeding with any deployments as switching DBs after deployment is very risky.
 
 {% hint style="danger" %}
 We DO NOT recommend using the \`yugabyted\` command to create a production grade cluster for LID. The command is only meant to be used as a learning tool.
