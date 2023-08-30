@@ -34,8 +34,7 @@ boostd-data run yugabyte --hosts 127.0.0.1 \
    YugabyteDB will also be utilized by Lotus V2 architecture as well. We plan to allow SPs to connect all of their Boost instances to a single LID (YugabyteDB) with Boost v2.1.0 release. This will also allow SPs to serve retrievals from any of their miners using a single `booster-http` or `booster-bitswap` process. \
 
 3. **Which deployment should I choose?**\
-   We recommend deployed either locally on bare metal or using a managed deployment. Users can choose to deploy on the cloud if they can guarantee that scaling up the DB will not be impacted by the network bandwidth and infrastructure. We recommend a local deployment for security reasons as well. As your deal making will scale, so will the DB requirements. We recommend that your DB is highly available so even if one of the DB nodes is not available, your operations are not impacted.\
-   Users should enable Cassandra and PostgreSQL APIs on the DB(enabled by default).\
+   We recommend deploying YugabyteDB either locally on bare metal or using a managed deployment. Users can choose to deploy on the cloud if they can guarantee that scaling up the DB will not be impacted by the network bandwidth and infrastructure. It is recommended that YugabyteDB is highly available so that if one of the nodes is not available, your SP operations will not be impacted.\
 
 4. **Can I convert YugabyteDB processes to systemd services?**\
    YugabyteDB does not ship as a systemd service by default. You will need to create a new service based on the commands you are running to start YT-Master and YT-Server processes. These commands can be customized based on user requirements and infrastructure.\
