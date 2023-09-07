@@ -14,33 +14,41 @@ Release v1.7.0-rc1 introduced support in `booster-http` for running an [IPFS gat
 
 When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure commp integrity.
 
+{% code overflow="wrap" %}
 ```
 curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID.piece
 ```
+{% endcode %}
 
 ### Retrieving a CAR file
 
 To return the CAR file for a given CID, you can pass an `Accept` header with the `application/vnd.ipld.car;` format. This can be useful for retrieving the raw, unpadded data of a deal.
 
+{% code overflow="wrap" %}
 ```
-curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bagaSomePayloadCID -o bagaSomePayloadCID.car
+curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bafySomePayloadCID -o bafySomePayloadCID.car
 ```
+{% endcode %}
 
 ### Retrieving specific files
 
 For Storage Providers that have enabled serving raw files (disabled by default), users can retrieve specific files, such as images by their cid and path where applicable. See [Enable serving files](https://boost.filecoin.io/http-retrieval/serving-files-with-booster-http#enable-serving-files) for a more in depth example.
 
+{% code overflow="wrap" %}
 ```
 curl http://{SP's http retrieval URL}/ipfs/{content ID}/{optional path to resource} -o myimage.png
 ```
+{% endcode %}
 
 ### Retrieving IPLD blocks
 
 For advanced IPFS and IPLD use cases, you can now retrieve individual blocks by passing an `Accept` header with the `application/vnd.ipld.raw;` format
 
+{% code overflow="wrap" %}
 ```
-curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs/bagaSomeBlockCID -o bagaSomeBlockCID
+curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs/bafySomeBlockCID -o bafySomeBlockCID
 ```
+{% endcode %}
 
 ## Local setup
 

@@ -239,7 +239,7 @@ time boostd lid gen-index <piece CID>
 
 # booster-bitswap fetch /ip4/127.0.0.1/tcp/8888/p2p/{peerID} {rootCID} outfile.car
 
-# curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bagaSomePayloadCID -o bagaSomePayloadCID.car
+# curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bafySomePayloadCID -o bafySomePayloadCID.car
 ```
 {% endcode %}
 
