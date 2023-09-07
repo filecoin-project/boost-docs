@@ -233,9 +233,15 @@ time boostd lid gen-index <piece CID>
 
 **2. Perform a retrieval using Graphsync, Bitswap and HTTP**
 
+{% code overflow="wrap" %}
 ```
-boost retrieve --provider=<miner id> -o output.dat <cid>
+# boost retrieve --provider=<miner id> -o output.dat <cid>
+
+# booster-bitswap fetch /ip4/127.0.0.1/tcp/8888/p2p/{peerID} {rootCID} outfile.car
+
+# curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bagaSomePayloadCID -o bagaSomePayloadCID.car
 ```
+{% endcode %}
 
 ## Conclusion
 
