@@ -79,11 +79,6 @@ The `boostd-data` service can run a separate machine from Boost as long as the s
 
 6. Create and initialize the Boost repository
 
-{% hint style="warning" %}
-If you are already running a Lotus markets service process, you should\
-run `boostd migrate` instead of `boostd init`
-{% endhint %}
-
 Boost keeps all data in a directory called the _repository_. By default the repository is at `~/.boost`. To use a different location pass the `--boost-repo` parameter (must precede any particular command verb, e.g. `boostd --boost-repo=<PATH> init`).
 
 Export the environment variables needed for `boostd init` to connect to the lotus daemon and lotus miner.
@@ -116,7 +111,28 @@ boostd --vv init \
 * `--max-staging-deals-bytes` is the maximum amount of storage to be used for downloaded files (once the limit is reached Boost will reject subsequent incoming deals)
 
 7. Update `ulimit` file descriptor limit if necessary. Boost deals will fail if the file descriptor limit for the process is not set high enough. This limit can be raised temporarily before starting the Boost process by running the command `ulimit -n 1048576`. We recommend setting it permanently by following the [Permanently Setting Your ULIMIT System Value](https://lotus.filecoin.io/kb/soft-fd-limit/) guide.
-8. Make sure that the correct _peer id_ and _multiaddr_ for your SP is set on chain, given that `boost init` generates a new identity. Use the following commands to update the values on chain:
+8.  Before you start your boostd, it is important that it is reachable from any peer in the Filecoin network. For this, you will need a stable public IP and edit your `<boostd repo>/config.toml` as follows:
+
+    ```toml
+    [Libp2p]
+      ListenAddresses = ["/ip4/0.0.0.0/tcp/24001"] # choose a fixed port
+      AnnounceAddresses = ["/ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001"] # important!
+    ```
+9.  Add `boostd-data` details to the `boostd` config\
+    Configure `boostd` repository config (located at `<boostd repo>/config.toml`) to point to the exposed `boostd-data` service endpoint. Note that the connection must be configured to go over a websocket.\
+    \
+    For example:
+
+    ```
+      [LocalIndexDirectory]
+      ServiceApiInfo = "ws://<boostd-data>:8044"
+    ```
+10. Start the `boostd` process
+
+    ```
+    boostd --vv run
+    ```
+11. Make sure that the correct _peer id_ and _multiaddr_ for your SP is set on chain, given that `boost init` generates a new identity. Use the following commands to update the values on chain:
 
 ```
 lotus-miner actor set-addrs <MULTIADDR>
@@ -127,23 +143,6 @@ lotus-miner actor set-peer-id <PEER_ID>
 \<MULTIADDR> should be the same as the `ListenAddresses` you set in the `Libp2p` section of the config.toml of Boost\
 \<PEER\_ID> can be found in the output of `boostd net id` command
 {% endhint %}
-
-9. Update `boostd` repository config
-
-Configure `boostd` repository config (located at `<boostd repo>/config.toml`) to point to the exposed `boostd-data` service endpoint. Note that the connection must be configured to go over a websocket.
-
-For example:
-
-```
-[LocalIndexDirectory]
-  ServiceApiInfo = "ws://<boostd-data>:8044"
-```
-
-10. Start the `boostd` process
-
-```
-boostd --vv run
-```
 
 ## Conclusion
 
