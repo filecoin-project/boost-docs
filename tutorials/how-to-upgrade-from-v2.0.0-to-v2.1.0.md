@@ -4,7 +4,7 @@ description: This is a step by step guide to upgrade from Boost v2.0.0 to Boost 
 
 # How to Upgrade from v2.0.0 to v2.1.0
 
-Boost v2.1.0 supports connecting multiple miners to a single LID instance. This would enable the SP to serve retrievals from all the connected miners via a single `boostd`, `booster-bitswap` or `booster-http` instance. To enable this feature, we need to update our existing LID tables to add minerID to the piece metadata.
+Boost v2.1.0 supports [connecting multiple miners to a single LID instance](https://boost.filecoin.io/tutorials/how-to-migrate-boost-v1-to-boost-v2#connecting-multiple-boost-instances-to-a-single-lid). This would enable the SP to serve retrievals from all the connected miners via a single `boostd`, `booster-bitswap` or `booster-http` instance. To enable this feature, we need to update our existing LID tables to add minerID to the piece metadata.
 
 1. Pull the new stable release v2.1.0 or RC candidate v2.1.0-rcx
 2. Rebuild the binaries with the new version
@@ -22,7 +22,7 @@ The Postgres \<CONNECT\_STRING> will need to be updated to not use SSL mode. Oth
 
 {% code overflow="wrap" %}
 ```
-You must set the miner-address flag to do the migration. Set it to the address of the storage miner eg f1234
+The database needs to be migrated. Run `boostd-data run yugabyte-migrate`
 ```
 {% endcode %}
 
