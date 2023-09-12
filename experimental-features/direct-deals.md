@@ -4,6 +4,8 @@
 
 lotus repo:
 ```
+git clone https://github.com/filecoin-project/lotus lotus-direct-deal
+cd lotus-direct-deal
 git checkout nonsense/ddo-integration-and-allocation-and-claim-apis
 docker build --build-arg FFI_BUILD_FROM_SOURCE=1 --build-arg GOFLAGS=-tags=debug -t filecoin/lotus-all-in-one:feat-ddo-integration-debug --target lotus-all-in-one -f Dockerfile .
 ```
