@@ -55,7 +55,6 @@ docker-compose up -d
     lotus wallet list
     sleep 10
     boostx market-add 5
-    lotus filplus grant-datacap --from=$NOTARY_1 `boost wallet default` 100000000
     ```
 3.  Grant the datacap to the client\
 
