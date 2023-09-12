@@ -48,6 +48,6 @@
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [FVM Contract Deals](experimental-features/fvm-contract-deals.md)
-* [Direct Deals](direct-deals.md)
+  * [Direct Deals](experimental-features/direct-deals.md)
 * [FAQ](faq.md)
 * [Need help?](need-help.md)

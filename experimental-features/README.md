@@ -15,3 +15,7 @@ Current experimental features are listed below.
 {% content-ref url="fvm-contract-deals.md" %}
 [fvm-contract-deals.md](fvm-contract-deals.md)
 {% endcontent-ref %}
+
+{% content-ref url="direct-deals.md" %}
+[direct-deals.md](direct-deals.md)
+{% endcontent-ref %}
