@@ -31,8 +31,7 @@ make docker/boost docker/booster-http docker/booster-bitswap ffi_from_source=1 b
 ### Start docker devnet
 
 ```
-cd docker/devnet
-docker-compose up -d
+make devnet/up
 ```
 
 ### Setup notaries and grant datacap
@@ -78,4 +77,10 @@ echo $COMMP_CID
 boost allocate --miner=t01000 --piece-info=$COMMP_CID=8388608
 boost list-allocations
 boostd import-direct --client-addr=`boost wallet default` --allocation-id=2 $COMMP_CID /app/public/$PAYLOAD_CID.car
+```
+
+## Stop the devnet
+
+```
+make devnet/down
 ```
