@@ -37,7 +37,7 @@ docker-compose up -d
 
 ### Setup notaries and grant datacap
 
-1.  Open a terminal to the `boost` container\
+1.  Wait till the Boost UI is reachable at http://localhost and then, open a terminal to the `boost` container\
 
 
     ```
