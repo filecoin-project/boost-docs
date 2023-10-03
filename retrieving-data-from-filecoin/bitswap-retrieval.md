@@ -102,7 +102,7 @@ booster-bitswap init
 5\. Stop `boostd` and edit \~/.boost/config.toml to set the peer ID for bitswap
 
 ```
-[DealMaking]
+[Dealmaking]
   BitswapPeerID ="{peer id for booster bitswap you recorded earlier}"
 ```
 
@@ -111,13 +111,11 @@ booster-bitswap init
 7\. Collect the token information for lotus-miner and lotus daemon API
 
 ```
-export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
-export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INF | awk '{split($0,a,"="); print a[2]}'`
+export `lotus auth api-info --perm=admin`
 ```
 
 ```
-export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
-export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+export `lotus-miner auth api-info --perm=admin`
 ```
 
 8\. Run booster-bitswap
@@ -181,13 +179,11 @@ The reason boost needs to know the public multiaddresses and libp2p private key 
 7\. Collect the token information for lotus-miner and lotus daemon API
 
 ```
-export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
-export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INF | awk '{split($0,a,"="); print a[2]}'`
+export `lotus auth api-info --perm=admin`
 ```
 
 ```
-export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
-export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
+export `lotus-miner auth api-info --perm=admin`
 ```
 
 8\. Run booster-bitswap
