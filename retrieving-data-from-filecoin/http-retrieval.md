@@ -2,55 +2,65 @@
 description: How to configure and use HTTP retrievals in Boost
 ---
 
-# HTTP retrieval
+# HTTP Retrieval
 
-Boost introduced a new binary, `booster-http`, with release v1.2.0. This binary can be run alongside the `boostd` market process in order to serve retrievals over http.
+`booster-http` is a binary that can be run alongside the `boostd` process in order to serve retrievals over HTTP. This can be used to serve full _pieces_ and also block data in the form of CAR files or raw block bytes. This can be further extended using a [bifrost-gateway](https://github.com/ipfs/bifrost-gateway) server if a Storage Provider wishes to also serve plain files and directories.
 
-Currently, there is no payment method or built-in security integrated in the new binary. It can be run with any stable release of `boostd` and can also be run on a separate machine from the `boostd` process.
+HTTP retrievals currently have no in-built payment or permissioning mechanism. Storage Providers may wish to front the `booster-http` server with a reverse proxy such as [NGINX](https://nginx.org/en/docs/) to handle operational concerns like SSL, authentication and load balancing.
 
-Release v1.7.0-rc1 introduced support in `booster-http` for running an [IPFS gateway](https://docs.ipfs.tech/concepts/ipfs-gateway/#overview), which enables Storage Providers to serve content to their users in multiple formats as described below and demonstrated using `curl`.
+## Version History
 
-### Retrieving a full Filecoin Piece
+* `booster-http` was introduced with Boost v1.2.0, able to serve full pieces using the /piece/ endpoint.
+* In Boost v1.7.0 `booster-http` was extended to be able to serve CAR files, IPLD blocks and a full "trusted" gateway (files and directories).
+* In Boost v2.1.0 `booster-http` was simplified to only serve "trustless" data: full pieces, CAR files and IPLD blocks; deferring optional "trusted" mode to [bifrost-gateway](https://github.com/ipfs/bifrost-gateway) for those Storage Providers who wish to offer this service to their users.
 
-When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure commp integrity.
+## Trustless vs Trusted
 
-{% code overflow="wrap" %}
+"**Trustless**" refers to a mode in which the client does not need to trust a data provider in order to have confidence in the integrity and authenticity of the data they are receiving. Instead, trust is achieved by content-addressing, by having the server deliver to the client everything they require in order to verify the data they are receiving.
+
+"**Trusted**" refers to a mode in which the client must trust the data provider to deliver the correct data. This is the standard mode that most web servers operate in, and is a common method of interacting with IPFS gateways (including `bifrost-gateway`). In this mode, the client must trust that the server is delivering the correct data, and that the server is not maliciously modifying the data in transit. Typically, the client does not receive enough information in order to verify the relationship between the content received and the content-address (CID) requested, hence the need to "trust" the server.
+
+Trustless retrievals are always preferable where there does not exist a trust relationship between parties. By serving data only in a trustless mode, Storage Providers can avoid accusations of data alteration, and clients can be confident that they are receiving the data they requested. It also reduces the risk of having an HTTP endpoint as being flagged for serving illicit content. Learn more at [Gateways and gatekeepers](https://blog.nft.storage/posts/2022-04-29-gateways-and-gatekeepers).
+
+However, there are many circumstances in which a Storage Provider may wish to offer a trusted retrieval service, particularly due to convenience and interoperability with standard HTTP clients.
+
+### Piece retrievals
+
+When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure CommP integrity. When piece retrievals are enabled with `booster-http` with the `--serve-pieces` flag (enabled by default), the `/piece/` endpoint is exposed.
+
 ```
-curl http://{SP's http retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID.piece
+curl http://{SP's HTTP retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID.piece
 ```
-{% endcode %}
 
-### Retrieving a CAR file
+### Payload retrievals (CAR and raw)
 
-To return the CAR file for a given CID, you can pass an `Accept` header with the `application/vnd.ipld.car;` format. This can be useful for retrieving the raw, unpadded data of a deal.
+`booster-http` supports the [IPFS Trustless Gateway](https://specs.ipfs.tech/http-gateways/trustless-gateway/) specification for both CAR and raw IPLD data contained within deal payloads. When `booster-http` is run with the `--serve-cars` flag (enabled by default), the `/ipfs/` endpoint is exposed.
 
-{% code overflow="wrap" %}
+To download a CAR file containing all the blocks linked under a given root CID, you can either pass an `Accept: application/vnd.ipld.car` header, or a `?format=car` query parameter to the `/ipfs/` endpoint. Likewise, to download raw single IPLD block bytes, you can either pass an `Accept: application/vnd.ipld.raw` header, or a `?format=raw` query parameter to the `/ipfs/` endpoint.
+
+The `/ipfs/` endpoint must be followed by a CID and one of the indicators above, for example:
+
 ```
-curl -H "Accept:application/vnd.ipld.car;" http://{SP's http retrieval URL}/ipfs/bafySomePayloadCID -o bafySomePayloadCID.car
+curl 'http://{SP's HTTP retrieval URL}/ipfs/bafySomePayloadCID?format=car' -o bafySomePayloadCID.car
 ```
-{% endcode %}
 
-### Retrieving specific files
+It is also possible to use [Lassie](https://github.com/filecoin-project/lassie), a Trustless retrieval client, to perform and verify retrievals from `booster-http`:
 
-For Storage Providers that have enabled serving raw files (disabled by default), users can retrieve specific files, such as images by their cid and path where applicable. See [Enable serving files](https://boost.filecoin.io/http-retrieval/serving-files-with-booster-http#enable-serving-files) for a more in depth example.
-
-{% code overflow="wrap" %}
 ```
-curl http://{SP's http retrieval URL}/ipfs/{content ID}/{optional path to resource} -o myimage.png
+lassie fetch --provider http://{SP's HTTP retrieval URL} bafySomePayloadCID
 ```
-{% endcode %}
 
-### Retrieving IPLD blocks
+### Trusted (plain file/directory) retrievals
 
-For advanced IPFS and IPLD use cases, you can now retrieve individual blocks by passing an `Accept` header with the `application/vnd.ipld.raw;` format
+For Storage Providers that wish to offer trusted access to payload data, in the same way that an IPFS Gateway bridges IPLD data to standard browser-accessible files and directories, [bifrost-gateway](https://github.com/ipfs/bifrost-gateway) can be used to translate `booster-http`'s trustless data into trusted data. This is a separate process that must be configured to communicate with `booster-http`.
 
-{% code overflow="wrap" %}
+See [Trusted HTTP Gateway Setup](https://boost.filecoin.io/http-retrieval/advanced-http-configuration#trusted-retrieval-setup) for full setup instructions.
+
 ```
-curl -H "Accept:application/vnd.ipld.raw;" http://{SP's http retrieval URL}/ipfs/bafySomeBlockCID -o bafySomeBlockCID
+curl http://{SP's trusted HTTP retrieval URL}/ipfs/{content ID}/{optional path to resource} -o myimage.png
 ```
-{% endcode %}
 
-## Local setup
+## Local Setup
 
 SPs should try a local setup and test their HTTP retrievals before proceeding to run `booster-http` in production.
 
@@ -93,19 +103,23 @@ booster-http run --api-lid="ws://<boostd-data IP>:8044" --api-fullnode=$FULLNODE
 You can run multiple `booster-http` processes on the same machine by using a different port for each instance with the `--port` flag. You can also run multiple instances of the `booster-http` on different machines.
 {% endhint %}
 
-## Running public Boost HTTP retrieval
+## Running Public Boost HTTP Retrieval
 
-The `booster-http` server listens on `localhost`. To expose the server publically, SPs should run a reverse proxy such as [NGINX](https://nginx.org/en/docs/) to handle operational concerns like:
+By default, the `booster-http` server listens to `0.0.0.0` port `7777`. This can be changed with `--address` and `--port`; for example, you may wish to change the `--address` to `127.0.0.1` to restrict it to localhost-only.
+
+When exposing `booster-http` to a public address for general retrievals, it is recommended that you run an HTTP reverse proxy such as [NGINX](https://nginx.org/en/docs/) to handle operational concerns such as:
 
 * SSL
-* Authentication
+* Authentication and authorization
+* Compression
 * Load balancing
+* Logging
 
-While `booster-http` may get more operational features over time, the intent is that providers who want to scale their HTTP operations will handle most of operational concerns via software in front of `booster-http`. You can setup a simple NGINX proxy using the [example provided](serving-files-with-booster-http.md#protecting-booster-http-with-nginx) in [serving-files-with-booster-http.md](serving-files-with-booster-http.md "mention")
+`booster-http` can provide some of this functionality itself, but dedicated reverse proxy software is recommended for scalable production deployments. See [HTTP Reverse Proxy Setup](https://boost.filecoin.io/http-retrieval/http-reverse-proxy-setup) for more information and example configuration.
 
 ### Making HTTP Retrieval Discoverable
 
-To enable public discovery of the Boost HTTP server, SPs should set the domain root in boostd's `config.toml`. Under the `[DealMaking]` section, set `HTTPRetrievalMultiaddr` to the public domain root in multi-address format.
+To enable public discovery of the Boost HTTP server, Storage Providers should set the domain root in boostd's `config.toml`. Under the `[DealMaking]` section, set `HTTPRetrievalMultiaddr` to the public domain root in multi-address format.
 
 Example `config.toml` section:
 
@@ -114,25 +128,18 @@ Example `config.toml` section:
   HTTPRetrievalMultiaddr = "/dns/foo.com/tcp/443/https"
 ```
 
-Clients can determine if an SP offers HTTP retrieval by running:
+Clients can determine if a Storage Provider offers HTTP retrieval by running:
 
 ```
 boost provider retrieval-transports <miner id>
 ```
 
-Clients can check the HTTP URL scheme version and supported queries
+Clients can also check the HTTP URL scheme version and supported queries
 
 ```
-// Supported queries
-curl https://foo.com/index
-
 // Version
-curl https://foo.com/info
-```
+curl http://{SP's trusted HTTP retrieval URL}/info
 
-Clients can download a piece using the domain root configured by the SP:
-
-```
-# Download a piece by its CID
-curl https://foo.com/piece/bagaSomePieceCID -o download.piece
+// Supported queries
+curl http://{SP's trusted HTTP retrieval URL}/
 ```
