@@ -1,7 +1,7 @@
 ---
 description: >-
   This section describes how to upgrade your lotus-miner markets service to
-  boostd v2.x.x, as well as how to roll-back if you are not happy with boostd
+  boostd v2.x.x
 ---
 
 # Migrate from Lotus to Boost
