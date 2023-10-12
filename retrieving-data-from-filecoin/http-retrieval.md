@@ -28,8 +28,8 @@ However, there are many circumstances in which a Storage Provider may wish to of
 
 When performing certain actions, such as replicating deals, it can be convenient to retrieve the entire Piece (with padding) to ensure CommP integrity. When piece retrievals are enabled with `booster-http` with the `--serve-pieces` flag (enabled by default), the `/piece/` endpoint is exposed.
 
-```
-curl http://{SP's HTTP retrieval URL}/piece/bagaSomePieceCID -o bagaSomePieceCID.piece
+```sh
+curl 'http://{booster-http exposed url}/piece/bagaSomePieceCID' -o bagaSomePieceCID.piece
 ```
 
 ### Payload retrievals (CAR and raw)
@@ -40,15 +40,29 @@ To download a CAR file containing all the blocks linked under a given root CID, 
 
 The `/ipfs/` endpoint must be followed by a CID and one of the indicators above, for example:
 
+```sh
+# Fetch a complete DAG
+curl 'http://{booster-http exposed url}/ipfs/bafySomePayloadCID?format=car' -o bafySomePayloadCID.car
+# Fetch an individual block's bytes
+curl 'http://{booster-http exposed url}/ipfs/bafySomeBlockCID?format=raw' -o bafySomeBlockCID.block
 ```
-curl 'http://{SP's HTTP retrieval URL}/ipfs/bafySomePayloadCID?format=car' -o bafySomePayloadCID.car
+
+Alternatively, using `Accept` header:
+
+```sh
+# Fetch a complete DAG
+curl -H 'Accept: application/vnd.ipld.car' 'http://{booster-http exposed url}/ipfs/bafySomePayloadCID' -o bafySomePayloadCID.car
+# Fetch an individual block's bytes
+curl -H 'Accept: application/vnd.ipld.car' 'http://{booster-http exposed url}/ipfs/bafySomeBlockCID' -o bafySomeBlockCID.block
 ```
 
 It is also possible to use [Lassie](https://github.com/filecoin-project/lassie), a Trustless retrieval client, to perform and verify retrievals from `booster-http`:
 
+```sh
+lassie fetch --provider 'http://{booster-http exposed url}' bafySomePayloadCID
 ```
-lassie fetch --provider http://{SP's HTTP retrieval URL} bafySomePayloadCID
-```
+
+See the [IPFS Trustless Gateway](https://specs.ipfs.tech/http-gateways/trustless-gateway/) specification for more information on the ranges of queries possible with this protocol; most of which are implemented by Lassie as a client.
 
 ### Trusted (plain file/directory) retrievals
 
@@ -56,8 +70,8 @@ For Storage Providers that wish to offer trusted access to payload data, in the 
 
 See [Trusted HTTP Gateway Setup](https://boost.filecoin.io/http-retrieval/advanced-http-configuration#trusted-retrieval-setup) for full setup instructions.
 
-```
-curl http://{SP's trusted HTTP retrieval URL}/ipfs/{content ID}/{optional path to resource} -o myimage.png
+```sh
+curl 'http://{bifrost-gateway exposed url}/ipfs/{content ID}/{optional path to resource}' -o myimage.png
 ```
 
 ## Local Setup
@@ -68,7 +82,7 @@ The `booster-http` binary is built and installed with `boostd` binary. If you ar
 
 1. Clone the Boost repo and checkout the same release as your `boostd` version
 
-```
+```sh
 git clone https://github.com/filecoin-project/boost.git
 cd boost
 git checkout <release>
@@ -76,26 +90,26 @@ git checkout <release>
 
 2. Build and install the new binary
 
-```
+```sh
 make build
 sudo make build
 ```
 
 3. Collect the token information for lotus-miner and lotus daemon API
 
-```
+```sh
 export ENV_FULLNODE_API_INFO=`lotus auth api-info --perm=admin`
 export FULLNODE_API_INFO=`echo $ENV_FULLNODE_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
-```
+```sh
 export ENV_MINER_API_INFO=`lotus-miner auth api-info --perm=admin`
 export MINER_API_INFO=`echo $ENV_MINER_API_INFO | awk '{split($0,a,"="); print a[2]}'`
 ```
 
 4. Start the `booster-http` server with the above details
 
-```
+```sh
 booster-http run --api-lid="ws://<boostd-data IP>:8044" --api-fullnode=$FULLNODE_API_INFO --api-storage=$MINER_API_INFO
 ```
 
@@ -130,16 +144,16 @@ Example `config.toml` section:
 
 Clients can determine if a Storage Provider offers HTTP retrieval by running:
 
-```
+```sh
 boost provider retrieval-transports <miner id>
 ```
 
 Clients can also check the HTTP URL scheme version and supported queries
 
-```
-// Version
-curl http://{SP's trusted HTTP retrieval URL}/info
+```sh
+# Version
+curl 'http://{bifrost-gateway exposed url}/info'
 
-// Supported queries
-curl http://{SP's trusted HTTP retrieval URL}/
+# Supported queries
+curl 'http://{bifrost-gateway exposed url}/'
 ```

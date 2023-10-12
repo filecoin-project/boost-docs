@@ -35,9 +35,9 @@ Before proceeding any further, we suggest you read about the [basics of HTTP ret
 
 ### booster-http, boostd and lotus
 
-`booster-http` must have network, or localhost access to a full `lotus` node, a `lotus-miner` and a `boostd` instance. The following options are required:
+`booster-http` must have network, or localhost access to a full `lotus` node, a `lotus-miner` and a `LID` instance. The following options are required:
 
-* `--api-lid` - the `boostd` Local Index Directory (_LID_)
+* `--api-lid` - the Local Index Directory (_LID_) service endpoint
 * `--api-fullnode` - the `lotus` full node API endpoint, discoverable by running `lotus auth api-info --perm=admin`
 * `--api-storage` - the `lotus-miner` API endpoint, discoverable by running `lotus-miner auth api-info --perm=admin`
 
@@ -53,7 +53,7 @@ Piece retrieval is typically performed to replicate deals, or by clients that ar
 
 `--serve-cars` is enabled by default and allows [IPFS Trustless Gateway](https://specs.ipfs.tech/http-gateways/trustless-gateway/) retrievals on the `/ipfs/` endpoint. This is not a full "trusted" gateway, and requests must either ask for CARs containing one or more blocks from a root CID, or raw block bytes for a single CID. Requests can either pass an `Accept: application/vnd.ipld.car` header, or a `?format=car` query parameter for CAR data. Or, to download raw single IPLD block bytes, either an `Accept: application/vnd.ipld.raw` header, or a `?format=raw` query parameter.
 
-A trustless retrieval client is recommended for performing and verifying retrievals from `booster-http`. See [Lassie](https://github.com/filecoin-project/lassie) for more information. Providing Lassie with the `--provider http://{SP's HTTP retrieval URL}` will perform verified, trustless retrievals to your `booster-http` instance.
+A trustless retrieval client is recommended for performing and verifying retrievals from `booster-http`. See [Lassie](https://github.com/filecoin-project/lassie) for more information. Providing Lassie with the `--provider http://{booster-http exposed url}` will perform verified, trustless retrievals to your `booster-http` instance.
 
 ### BadBits denylist
 
@@ -100,7 +100,7 @@ Be aware that trusted HTTP responses typically do not count as "successful" retr
 
 When running `bifrost-gateway`, two environment variables must be set:
 
-* `PROXY_GATEWAY_URL=http://{SP's HTTP retrieval URL}` to point to the `booster-http` address (without path)
+* `PROXY_GATEWAY_URL=http://{booster-http exposed url}` to point to the `booster-http` address (without path)
 * `GRAPH_BACKEND=true` to instruct `bifrost-gateway` to perform full CAR retrievals rather than individual IPLD block retrievals for efficiency
 
 Additionally, `--gateway-port` may be used to override the default listen port of `8081`.
@@ -160,10 +160,9 @@ Alternatively, to only forward `/ipfs/` requests to `booster-http` our `location
 
 We can limit access to the IPFS gateway using the standard `.htaccess` file. This file contains usernames and passwords. In this example we create a user named _`alice`_:
 
-```
-$ mkdir /etc/nginx/ipfs-gateway.conf.d
-
-$ htpasswd -c /etc/nginx/ipfs-gateway.conf.d/.htpasswd alice
+```sh
+mkdir /etc/nginx/ipfs-gateway.conf.d
+htpasswd -c /etc/nginx/ipfs-gateway.conf.d/.htpasswd alice
 New password:
 Re-type new password:
 Adding password for user alice
@@ -221,7 +220,7 @@ server {
 }
 ```
 
-1. Click the refresh button in your browser on any path under `/ipfs/` more than once per second you will see a 429 error page.
+4. Click the refresh button in your browser on any path under `/ipfs/` more than once per second you will see a 429 error page.
 
 <figure><img src="https://lh6.googleusercontent.com/d-wTXF49wBDA8q-RiTRmZ7tAW4ZnH8nNRvpMxilJwr9hgyhtRemO5cceBfveUqsDUYEA1fINOyEOrHKVX0eL4WS8U9FjoKzYNNjef6OZl_FlrlQsg-slRftPCClEJLq9MxvF7EIwQKgfhJRVKx2Fz1M" alt=""><figcaption><p>HTTP error 429</p></figcaption></figure>
 
@@ -231,8 +230,8 @@ It is also recommended to limit the amount of bandwidth that clients can take up
 
 1. Create a new .htaccess user called _`bob`_
 
-```
-$ htpasswd /etc/nginx/ipfs-gateway.conf.d/.htpasswd bob
+```sh
+htpasswd /etc/nginx/ipfs-gateway.conf.d/.htpasswd bob
 ```
 
 2. Add a mapping from `.htaccess` username to bandwidth limit in `/etc/nginx/ipfs-gateway.conf.d/ipfs-gateway.conf`
