@@ -19,3 +19,7 @@ Current experimental features are listed below.
 {% content-ref url="direct-deals.md" %}
 [direct-deals.md](direct-deals.md)
 {% endcontent-ref %}
+
+{% content-ref url="data-segment-indexing.md" %}
+[data-segment-indexing.md](data-segment-indexing.md)
+{% endcontent-ref %}
