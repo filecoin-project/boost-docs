@@ -18,7 +18,7 @@ This is a critical link in enabling and exposing small pieces of data to the FEV
 
 ### How to enable Data Segment Indexing on Storage Provider?
 
-After upgrading to Boost v2.1.0-rc2 or higher, this feature is automatically enabled on the storage provider side.
+After upgrading to Boost v2.1.0-rc1, users can build `boostd` using the branch `feat/noncar-files`. Once the new binary is used to start the `boostd` process, the feature is automatically enabled on the storage provider side.
 
 ### Retrievals for aggregated car deals
 
