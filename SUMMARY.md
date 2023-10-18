@@ -49,5 +49,6 @@
 * [Experimental Features](experimental-features/README.md)
   * [FVM Contract Deals](experimental-features/fvm-contract-deals.md)
   * [Direct Deals](experimental-features/direct-deals.md)
+  * [Data Segment Indexing](experimental-features/data-segment-indexing.md)
 * [FAQ](faq.md)
 * [Need help?](need-help.md)

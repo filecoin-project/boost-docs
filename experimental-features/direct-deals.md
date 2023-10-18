@@ -22,7 +22,6 @@ docker build --build-arg FFI_BUILD_FROM_SOURCE=1 --build-arg GOFLAGS=-tags=debug
 ```
 git clone https://github.com/filecoin-project/boost boost-direct-deal
 cd boost-direct-deal
-git checkout nonsense/ddo
 make docker/lotus ffi_from_source=1 build_lotus=0 lotus_version=feat-ddo-integration
 make docker/lotus-miner ffi_from_source=1 build_lotus=0 lotus_version=feat-ddo-integration
 make docker/boost docker/booster-http docker/booster-bitswap ffi_from_source=1 build_lotus=0 lotus_version=feat-ddo-integration
