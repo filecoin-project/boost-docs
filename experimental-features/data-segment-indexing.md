@@ -23,3 +23,33 @@ After upgrading to Boost v2.1.0-rc2 or higher, this feature is automatically ena
 ### Retrievals for aggregated car deals
 
 The attached index at the end of the aggregated cars allow Boost to index the aggregated deals correctly. Once the deals are indexed, client can retrieve any payload CIDs from that deal using one of the 3 available data transfer protocols.&#x20;
+
+### How to create an aggregated file
+
+Client can use the [mkpiece utility](https://github.com/willscott/mkpiece) to generate an aggregated car file for the deal making. The utility takes multiple car files and generates the resulting aggregated file on the standard output.
+
+{% hint style="info" %}
+Please note that each car file is padded to the nearest 2^n bytes. So, the resultant aggregated file can be much larger than the original car files.
+
+Example:
+
+car1 - 4.5 GiB - Padded to 8 GiB
+
+car2 - 10 GiB - Padded to 16 GiB
+
+car3 - 5 GiB - Padded to 8 GiB
+
+Total car size = 4.5+10+5 = 19.5 GiB
+
+Aggregated car size = 8+16+8 = 32 GiB
+{% endhint %}
+
+```
+mkpiece a.car b.car c.car ... > out.dat
+```
+
+This aggregated file can be used to generate the piece CID and size for a Boost deal.
+
+```
+boostx commp out.dat
+```
