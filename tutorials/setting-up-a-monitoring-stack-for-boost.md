@@ -35,11 +35,18 @@ We have tested this setup with Docker 20.10.23 on macOS and Ubuntu.
 2. ### DNS resolution for Prometheus
 
 Update `extra_hosts` in `docker-compose.yaml` for `prometheus`, so that the Prometheus container can reach all its targets - `boostd`, `lotus-miner`, `booster-bitswap`, `booster-http`, etc.\
-[https://github.com/filecoin-project/boost/blob/main/docker/monitoring/docker-compose.yaml#L47-L55](https://github.com/filecoin-project/boost/blob/main/docker/monitoring/docker-compose.yaml#L47-L55)
+[https://github.com/filecoin-project/boost/blob/9a140e93482adb301905a0cbcd5dcfb98a7e6e6c/docker/monitoring/docker-compose.yaml#L54-L58](https://github.com/filecoin-project/boost/blob/9a140e93482adb301905a0cbcd5dcfb98a7e6e6c/docker/monitoring/docker-compose.yaml#L54-L58)
 
 Depending on where your Filecoin processes (`boostd`, `lotus`, `lotus-miner`, `booster-bitswap`, etc.) are running, you need to confirm that they are reachable from Prometheus so that it can scrape their metrics.
 
 By default the setup expects to find them within the same Docker network, so if you are running them elsewhere (i.e. on the \`host\` network), make sure to update the docker-compose file for the same.
+
+Start the monitoring stack using docker-compose.
+
+```
+cd docker/monitoring
+docker-compose up -d
+```
 
 3. ### Prometheus targets
 
