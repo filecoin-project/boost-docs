@@ -39,7 +39,7 @@
   * [How to upgrade from Boost v1 to Boost v2](tutorials/how-to-migrate-boost-v1-to-boost-v2.md)
   * [How to re-index unsealed pieces that are flagged by LID in Boost v2](tutorials/how-to-re-index-unsealed-pieces-that-are-flagged-by-lid-in-boost-v2.md)
   * [How to upgrade from v2.0.0 to v2.1.0](tutorials/how-to-upgrade-from-v2.0.0-to-v2.1.0.md)
-  * [Start and Stop Boost processes](tutorials/start-and-stop-boost-processes.md)
+  * [Start and stop Boost processes](tutorials/start-and-stop-boost-processes.md)
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
   * [Setting up a monitoring stack for Boost](tutorials/setting-up-a-monitoring-stack-for-boost.md)
