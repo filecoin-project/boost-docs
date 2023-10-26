@@ -51,7 +51,7 @@ docker-compose up -d
 
 3. ### Prometheus targets
 
-Confirm that Prometheus targets are scraped at [http://localhost:9090](http://localhost:9090) / Targets
+Confirm that Prometheus targets are scraped at [http://localhost:9190](http://localhost:9190) Targets
 
 ![](https://lh4.googleusercontent.com/sUGTMb0S5lp2sog0DdG9ecSRmCPDtMSmyAIwQ-k-91Pw1IUahhCiudKXkmKUJTHajXrPMR6RGLMmFEU9szwRlvcf9B4DgAIBuAaLTPB7-XaGPvtCrg2A9XGdhDIaTxZYi5wdbpTLdpsC98YcrorNVA2R1K7NLlK2xlk6RJRZ0jJ6qZ28QW543N0Imsrbzg)
 
