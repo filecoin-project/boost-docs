@@ -65,4 +65,8 @@ If you are running software firewall like \`ufw\`, you might need to modify your
 
 Go to Grafana at [http://localhost:3333](http://localhost:3333) and inspect the dashboards:
 
+{% hint style="info" %}
+The default username and password for Grafana dashboard is "admin" and "admin" respectively.
+{% endhint %}
+
 ![](https://lh4.googleusercontent.com/Uat6-bsTHiMvzwm854YT2W9M7fN5uiqdvQ8oFs1WsWqn98716AO56VCWD8Pok98W019mrjZVRM6fFv2qZ\_hY18OR0GmCMa5eVR45mh0OT8ZbX47HT3\_lLhuEvNt3CRy9eJ-t2O0De2hf3UDOsYERCgSaDR\_atH9czc1gkdUbo6dDC5ZYP75xaLJugAo8VQ)
