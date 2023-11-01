@@ -31,6 +31,6 @@ description: >-
 9. Try to fetch all types of data and browse the car archive using your domain name. You can skip this step if you are not planning to use a domain name.
 10. Now, [we are going to update our `boostd` config to start advertising](../retrieving-data-from-filecoin/http-retrieval.md#making-http-retrieval-discoverable) the fact that we are serving the data over HTTP and how can client access the data over HTTP.
 11. Install docker on a machine that you will use for monitoring purpose.
-12. [Setup the monitoring](setting-up-a-monitoring-stack-for-boost.md) and go to the Grafana dashboards for HTTP retrievals.
+12. [Setup the monitoring](../monitoring/setting-up-a-monitoring-stack-for-boost.md) and go to the Grafana dashboards for HTTP retrievals.
 13. One last time, fetch the data and browse a car archive using a web browser. You should see the retrievals in the monitoring dashboards.
 
