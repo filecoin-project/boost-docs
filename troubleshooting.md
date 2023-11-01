@@ -72,3 +72,30 @@ Export the MARKETS\_API\_INFO variable on your lotus-miner node.
 ```
 export MARKETS_API_INFO=<Boost token:api>
 ```
+
+## CQL Timeout
+
+Users might find log lines indicating client timeouts when reading or writing to the YugabyteDB's Cassandra API
+
+{% code overflow="wrap" %}
+```
+Error: getting pieces count: gocql: no response received from cassandra within timeout period
+```
+{% endcode %}
+
+#### Problem:
+
+The CQL timeouts can be caused by multiple issues.
+
+1. YugabyteDB prerequisites are not met. This can be due to lack of hardware resources or incorrect hardware types.&#x20;
+2. Slow network connection between `boostd-data` service and YugabyteDB.
+3. A low client timeout value.&#x20;
+4. Multiple indexing operation in parallel for large indexes (millions of indexes per piece).
+5. YugabyteDB has not been scaled up to support the workload in case of extreme workloads.
+
+#### Solution:
+
+1. We recommend verifying that all prerequisites for YugabyteDB are met.
+2. Verify that you are running the latest version of Boost. If you are running an older version, we recommend you to upgrade to latest stable version and check issue persists.
+3. Reduce the parallel indexing operation to 1 from default 4 by updating the value of `ParallelAddIndexLimit` in config.toml file
+4. Open a support ticket if issue persists even after trying the above steps. Please make sure to include details about your Yugabyte hardware and DEBUG logs from `boostd` and `boostd-data` service.
