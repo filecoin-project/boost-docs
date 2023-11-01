@@ -54,7 +54,7 @@ The `loki` plugin for docker is required to allow collecting logs from the servi
 
 4. **Storage location**
 
-The prometheus and tempo services requires access to local storage to ensure all historical data is safe across the docker restarts. This path can be defined in the \<INSET FILE PATH> file.
+The prometheus and tempo services requires access to local storage to ensure all historical data is safe across the docker restarts. This path can be defined in the [env file](https://github.com/filecoin-project/boost/blob/main/docker/monitoring/.env).
 
 The default value is `$HOME/.boost-monitoring`
 

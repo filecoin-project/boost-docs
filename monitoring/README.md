@@ -6,7 +6,7 @@ description: How to setup monitoring for Boost services
 
 Boost provides multiple metrics for monitoring the services and APIs. All the metrics are emitted in Prometheus format and can be used to monitor and identify bottlenecks.
 
-The metrics endpoint for all Boost services is `/metrics`. The full list of metrics emitted by `boostd`, `booster-http` and `booster-bitswap` are here\<INSERTLINK>. The `boostd-data` (LID) metrics are separate from the other metrics and their list can be found here\<INSERTLINK>.
+The metrics endpoint for all Boost services is `/metrics`. The full list of metrics emitted by `boostd`, `booster-http` and `booster-bitswap` are [here](https://github.com/filecoin-project/boost/blob/main/metrics/metrics.go#L30-L90). The `boostd-data` (LID) metrics are separate from the other metrics and their list can be found [here](https://github.com/filecoin-project/boost/blob/main/extern/boostd-data/metrics/metrics.go#L28-L75).
 
 Apart from the prometheus metrics, all Boost services also provides tracing spans. These tracing spans can be useful to debug the bottleneck and low performance sections of the execution. You can enable tracing using `--tracing` flag.
 
