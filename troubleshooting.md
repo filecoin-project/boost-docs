@@ -99,4 +99,5 @@ The CQL timeouts can be caused by multiple issues:
 1. We recommend verifying that all prerequisites for YugabyteDB are met.
 2. Verify that you are running the latest version of Boost. If you are running an older version, we recommend you to upgrade to latest stable version and check issue persists.
 3. Reduce the parallel indexing operation to 1 from the default of 4 by updating the value of `ParallelAddIndexLimit` in `config.toml` file
-4. Open a support ticket if issue persists even after trying the above steps. Please make sure to include details about your YugabyteDB hardware and `DEBUG` logs from `boostd` and `boostd-data` service.
+4. Consider moving CommP computations to remote nodes if you are running YugabyteDB on the same host as `boostd` using the `RemoteCommp` flag in `config.toml` file
+5. Open a support ticket if issue persists even after trying the above steps. Please make sure to include details about your YugabyteDB hardware and `DEBUG` logs from `boostd` and `boostd-data` service.
