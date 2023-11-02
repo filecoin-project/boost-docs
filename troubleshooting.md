@@ -92,6 +92,7 @@ The CQL timeouts can be caused by multiple issues:
 3. A low client timeout value.&#x20;
 4. Multiple indexing operation in parallel for large indices (tens of millions of records within the piece index).
 5. YugabyteDB has not been scaled up to support the workload in case of extreme workloads.
+6. Make sure that you don't have `commp` hash computations running locally for incoming deals, while you also have YugabyteDB on the same node. YugabyteDB is CPU intensive, if another process (such as `boostd` `commp` computation) takes over its resources, it is possible that you are seeing `cql timeout` errors.
 
 #### Solution:
 
