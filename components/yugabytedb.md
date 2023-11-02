@@ -36,12 +36,17 @@ boostd-data run yugabyte --hosts 127.0.0.1 \
 
 3. **Which deployment should I choose?**\
    We recommend deploying YugabyteDB either locally on bare metal or using a managed deployment. Users can choose to deploy on the cloud if they can guarantee that scaling up the DB will not be impacted by the network bandwidth and infrastructure. It is recommended that YugabyteDB is highly available so that if one of the nodes is not available, your SP operations will not be impacted.\
+   You can find some of [the example YugabyteDB deployment ](https://github.com/filecoin-project/boost/discussions/1797)here. Please feel free to add your experience and deployment details to the discussion.\
 
 4. **Can I convert YugabyteDB processes to systemd services?**\
    YugabyteDB does not ship as a systemd service by default. You will need to create a new service based on the commands you are running to start YT-Master and YT-Server processes. These commands can be customized based on user requirements and infrastructure.\
 
 5. **Once YugabyteDB is deployed, do I need to perform any additional steps?**\
    Ideally, once the deployment is complete and can be reached over the network by `boostd-data` service, users do not need to perform any additional steps. If you wish to change the default username/password, you must also update the same on the `--connect-string` of `boostd-data` service.
+
+{% hint style="info" %}
+You can find some of [the example YugabyteDB deployment ](https://github.com/filecoin-project/boost/discussions/1797)here. Please feel free to add your experience and deployment details to the discussion.
+{% endhint %}
 
 ## YugabyteDB Maintenance and Upgrades
 
