@@ -58,11 +58,11 @@ The prometheus and tempo services requires access to local storage to ensure all
 
 The default value is `$HOME/.boost-monitoring`
 
-Please ensure that the storage directory exists and has permission 0775.
+Please ensure that the storage directory exists and has permission 0775 or 0777 depending on your user.
 
 ```
 mkdir ~/.boost-monitoring
-chmod 0775 ~/.boost-monitoring
+chmod 0777 ~/.boost-monitoring
 ```
 
 5. **Update metrics endpoints for Prometheus**
