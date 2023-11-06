@@ -2,7 +2,7 @@
 description: This is a step by step guide to upgrade from Boost v2.0.0 to Boost v2.1.0
 ---
 
-# How to Upgrade from v2.0.0 to v2.1.0
+# How to upgrade from v2.0.0 to v2.1.0
 
 Boost v2.1.0 supports [connecting multiple miners to a single LID instance](https://boost.filecoin.io/tutorials/how-to-migrate-boost-v1-to-boost-v2#connecting-multiple-boost-instances-to-a-single-lid). This would enable the SP to serve retrievals from all the connected miners via a single `boostd`, `booster-bitswap` or `booster-http` instance. To enable this feature, we need to update our existing LID tables to add minerID to the piece metadata.
 
@@ -18,7 +18,18 @@ The Postgres \<CONNECT\_STRING> will need to be updated to not use SSL mode. Oth
 `postgresql://<username>:<password>@<yugabytedb>:5433?sslmode=disable`
 {% endhint %}
 
-6. Once `boostd-data` service starts, it will throw the below error and quit the process
+{% hint style="info" %}
+The PGX driver from Yugabyte supports cluster aware Postgres connection out of the box. If you are deploying a multi-node YugabyteDB cluster, then please update your connect-string to use a cluster aware connection.
+
+
+
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
+
+
+With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
+{% endhint %}
+
+5. Once `boostd-data` service starts, it will throw the below error and quit the process
 
 {% code overflow="wrap" %}
 ```
@@ -26,8 +37,8 @@ The database needs to be migrated. Run `boostd-data run yugabyte-migrate`
 ```
 {% endcode %}
 
-7. If you do not see the above error and process does not exit, then you do not require a migration. At this point, please skip to step 9.
-8. Run the one time migration.
+6. If you do not see the above error and process does not exit, then you do not require a migration. At this point, please skip to step 9.
+7. Run the one time migration.
 
 {% code overflow="wrap" %}
 ```
@@ -39,7 +50,7 @@ boostd-data run yugabyte-migrate --hosts <HOSTS> --connect-string <CONNECT-STRIN
 Please ensure to use the minerID of already connected miner. Other miners can only be connected once the migration is complete.
 {% endhint %}
 
-9. Once the migration is finished (few seconds to 2 minutes), SPs using systemd to maintain `boostd-data` service should also update their `connect-string` in the systemd service files.
-10. Start the `boostd-data` process (or service) and start your `boostd` instance. Go to the UI and confirm that you can see your minerID on the top left side of the page and the LID page is being populated correctly.
-11. Start `booster-http` and `booster-bitswap` services.
-12. If you wish to connected other miners to the upgraded LID service, then please follow the [migration guide for each miner](how-to-migrate-boost-v1-to-boost-v2.md).
+8. Once the migration is finished (few seconds to 2 minutes), SPs using systemd to maintain `boostd-data` service should also update their `connect-string` in the systemd service files.
+9. Start the `boostd-data` process (or service) and start your `boostd` instance. Go to the UI and confirm that you can see your minerID on the top left side of the page and the LID page is being populated correctly.
+10. Start `booster-http` and `booster-bitswap` services.
+11. If you wish to connected other miners to the upgraded LID service, then please follow the [migration guide for each miner](how-to-migrate-boost-v1-to-boost-v2.md).

@@ -19,7 +19,16 @@ boostd-data run yugabyte --hosts <HOSTS> \
 
 We recommend creating a systemd file for this service and utilising it to easily start and stop the `boostd-data` service. Please note that this service is an independent process and is not controlled by any other Boost process.
 
+{% hint style="info" %}
+The PGX driver from Yugabyte supports cluster aware Postgres connection out of the box. If you are deploying a multi-node YugabyteDB cluster, then please update your connect-string to use a cluster aware connection.
 
+
+
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
+
+
+With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
+{% endhint %}
 
 {% hint style="info" %}
 \--hosts takes the IP addresses of the YugabyteDB YT-Servers.\

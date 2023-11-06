@@ -107,6 +107,17 @@ Run the migration with parameters to connect to YugabyteDB on its Cassandra and 
   dagstore
 ```
 
+{% hint style="info" %}
+The PGX driver from Yugabyte supports cluster aware Postgres connection out of the box. If you are deploying a multi-node YugabyteDB cluster, then please update your connect-string to use a cluster aware connection.
+
+
+
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
+
+
+With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
+{% endhint %}
+
 It will output a progress bar, and also a log file with detailed migration information at `migrate-yugabyte.log`
 
 {% hint style="info" %}
@@ -125,6 +136,17 @@ Start the `boostd-data` service with parameters to connect to YugabyteDB on its 
   --connect-string="postgresql://<username>:<password>@<yugabytedb>:5433" \
   --addr 0.0.0.0:8044
 ```
+
+{% hint style="info" %}
+The PGX driver from Yugabyte supports cluster aware Postgres connection out of the box. If you are deploying a multi-node YugabyteDB cluster, then please update your connect-string to use a cluster aware connection.
+
+
+
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
+
+
+With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
+{% endhint %}
 
 {% hint style="info" %}
 \--hosts takes the IP addresses of the YugabyteDB YT-Servers separated by ","\
