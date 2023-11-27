@@ -34,7 +34,7 @@
 * [Storing data on Filecoin](storing-data-on-filecoin.md)
 * [Retrieving data from Filecoin](retrieving-data-from-filecoin/README.md)
   * [HTTP retrieval](retrieving-data-from-filecoin/http-retrieval.md)
-  * [Serving files with booster-http](retrieving-data-from-filecoin/serving-files-with-booster-http.md)
+  * [Advanced Configuration of booster-http](retrieving-data-from-filecoin/advanced-http-configuration.md)
   * [Bitswap retrieval](retrieving-data-from-filecoin/bitswap-retrieval.md)
 * [Backup and Restore](backup-and-restore.md)
 * [Tutorials](tutorials/README.md)
