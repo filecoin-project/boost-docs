@@ -45,7 +45,6 @@
   * [How to store files with Boost on Filecoin](tutorials/how-to-store-files-with-boost-on-filecoin.md)
   * [Using filters for storage and retrieval deals](tutorials/using-filters-for-storage-and-retrieval-deals.md)
   * [Migrate from Lotus to Boost](tutorials/upgrade-from-lotus-to-boost.md)
-  * [How to set up booster-http](tutorials/how-to-set-up-booster-http.md)
 * [Troubleshooting](troubleshooting.md)
 * [Experimental Features](experimental-features/README.md)
   * [FVM Contract Deals](experimental-features/fvm-contract-deals.md)
