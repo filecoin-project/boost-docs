@@ -140,7 +140,7 @@ lotus-miner actor set-peer-id <PEER_ID>
 ```
 
 {% hint style="info" %}
-\<MULTIADDR> should be the same as the `ListenAddresses` you set in the `Libp2p` section of the config.toml of Boost\
+\<MULTIADDR> should be the same as the `AnnounceAddresses` you set in the `Libp2p` section of the config.toml of Boost\
 \<PEER\_ID> can be found in the output of `boostd net id` command
 {% endhint %}
 
