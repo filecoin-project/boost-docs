@@ -34,3 +34,13 @@ curl -X POST -H "Content-Type: application/json" -d '{"query":"query { piecesFla
 
 boostd lid gen-index <piececid>
 ```
+
+#### Automatically re-index marked pieces only
+
+This little script will fetch up to a thousand flagged pieces that are not processed yet, and will process them one by one.
+
+{% code overflow="wrap" %}
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"query":"query { piecesFlagged(hasUnsealedCopy: true, limit: 1000) { totalCount pieces { CreatedAt PieceCid IndexStatus { Status Error } } } }" }' http://localhost:8080/graphql/query | jq -rc ".data.piecesFlagged.pieces[]" | grep Registered | jq -r ".PieceCid" | xargs -L1 boostd lid gen-index
+```
+{% endcode %}
