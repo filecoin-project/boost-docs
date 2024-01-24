@@ -16,10 +16,6 @@ Boost comes with a web interface that can be used to manage deals, watch disk us
 
 ![Boost Web UI](<.gitbook/assets/Screen Shot 2022-03-23 at 10.12.26 AM.png>)
 
-## Backwards compatibility with go-fil-markets package
-
-Boost supports the same endpoints as `go-fil-markets` package for making storage and retrieval deals, getting the storage and retrieval ask, and getting the status of ongoing deals. This ensures that clients running lotus can make deals with Storage Providers running boost.
-
 ## A client for proposing deals that doesn't require a Lotus node
 
 Boost comes with a client that can be used to make storage deals, and can be configured to point at a public Filecoin API endpoint. That means clients don't need to run a Filecoin node or sync from chain.
