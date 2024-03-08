@@ -12,7 +12,7 @@ YugabyteDB is designed to run on bare-metal machines, virtual machines (VMs), an
 
 You should allocate adequate CPU and RAM. YugabyteDB has adequate defaults for running on a wide range of machines, and has been tested from 2 core to 64 core machines, and up to 200GB RAM.
 
-#### Minimum requirement
+#### Minimum requirement (Testing)
 
 ```
 2 cores
