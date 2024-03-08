@@ -16,7 +16,7 @@ The most significant computation that Boost has to do is the _Piece CID calculat
 
 ### RAM
 
-**2 GiB of RAM** are needed at the very least.
+**128 GiB of RAM** are needed at the very least.
 
 ### Disk
 
