@@ -11,7 +11,7 @@ Boost v2.2.0 enables support for Direct Data Onbording (DDO) and no longer suppo
 3. Pull the new stable release v2.2.0 or RC candidate v2.2.0-rcx
 4. Rebuild the binaries with the new version
 5. Stop `booster-http`, `booster-bitswap`, `boostd` and `boostd-data` in that order
-6. Start `boostd-data` service first. If you are using systemd service files to manage the process, then please start it manually without using the systemd files.
+6. Start `boostd-data` service first.&#x20;
 7. Start `boostd` after upgrade and shutdown after a successful start
 8. Review the `<boost repo>/config.toml` for configuration parameters saved in step 1 and update them if they have been reset to default values.
 9. Start `boostd`, `booster-http` and `booster-bitswap` services.
