@@ -6,7 +6,7 @@ description: This is a step by step guide to upgrade from Boost v2.1.x to Boost 
 
 Boost v2.2.0 enables support for Direct Data Onbording (DDO) and no longer support legacy deals in any form. These changes resulted in some breaking changes in the configuration. Please follow the below steps to upgrade.
 
-1. Please save you current configuration to a file with `boostd config update --diff`
+1. Please save you current configuration to a file with `boostd config updated --diff`
 2. Note down the asking price setting from the `boostd` UI.
 3. Pull the new stable release v2.2.0 or RC candidate v2.2.0-rcx
 4. Rebuild the binaries with the new version
