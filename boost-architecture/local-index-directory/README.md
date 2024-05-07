@@ -14,7 +14,7 @@ Currently this task is performed by the _DAG store_ component. The DAG store kee
 
 LID is designed to provide a more intuitive experience for the user, by surfacing problems and providing various repair tools.
 
-To summarize, LID is the component which keeps fine-grained metadata about all the deals on Filecoin that a given Storage Provider stores, and without it client would only be able to retrieve full pieces, which generally are between 8GiB and 32GiB in size.
+To summarize, LID is the component which keeps fine-grained metadata about all the deals on Filecoin that a given Storage Provider stores, and without it, the client would only be able to retrieve full pieces, which generally are between 8GiB and 32GiB in size.
 
 At the moment there are two implementations of LID:\
 \- a simple **LevelDB** implementation, for small SPs who want to keep all information in a single process database.\
