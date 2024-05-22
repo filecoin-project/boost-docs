@@ -11,7 +11,7 @@ Depending on the size of data your SP is holding, you can run [YugabyteDB](https
 For production use, YugabyteDB can be deployed as a highly available (HA) cluster. The cluster can be deployed on a [Kubernetes instance](https://docs.yugabyte.com/preview/deploy/kubernetes/) or as a [manual deployment](https://docs.yugabyte.com/preview/deploy/manual-deployment/). Please ensure to read all the [pre-requisites](https://docs.yugabyte.com/preview/deploy/checklist/) before proceeding.
 
 {% hint style="danger" %}
-We DO NOT recommend using the \`yugabyted\` command to create a production grade cluster for LID. The command is only meant to be used as a learning tool.
+YugabyteDB must be backed up regularly to avoid loosing deal metadata. Once this data is lost, there is no reliable way to recover it.
 {% endhint %}
 
 You can then start `boostd-data` on `:8044` and connect it to the `yugabyte` with:
