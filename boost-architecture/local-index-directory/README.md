@@ -28,7 +28,7 @@ Depending on underlying block size and data format, index size can vary in size.
 
 ## Storing data on Filecoin
 
-When a client uploads deal data to Boost, LID records the sector that the deal data is stored in and scans the deal data to create an index of all its blocks indexed by block cid. This way cilents can later retrieve subsets of the original deal data, without retrieving the full deal data.
+When a client uploads deal data to Boost, LID records the sector that the deal data is stored in and scans the deal data to create an index of all its blocks indexed by block cid. This way clients can later retrieve subsets of the original deal data, without retrieving the full deal data.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-05-18 at 13.39.53.png" alt=""><figcaption><p>How Boost stores deal data from clients</p></figcaption></figure>
 
