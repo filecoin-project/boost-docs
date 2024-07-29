@@ -276,8 +276,8 @@ Response:
       "PieceCID": null,
       "PieceSize": 1032,
       "VerifiedDeal": true,
-      "Client": "\u003cempty\u003e",
-      "Provider": "\u003cempty\u003e",
+      "Client": "f01234",
+      "Provider": "f01234",
       "Label": "",
       "StartEpoch": 10101,
       "EndEpoch": 10101,
@@ -338,8 +338,8 @@ Response:
       "PieceCID": null,
       "PieceSize": 1032,
       "VerifiedDeal": true,
-      "Client": "\u003cempty\u003e",
-      "Provider": "\u003cempty\u003e",
+      "Client": "f01234",
+      "Provider": "f01234",
       "Label": "",
       "StartEpoch": 10101,
       "EndEpoch": 10101,
@@ -390,7 +390,7 @@ Inputs:
     "DealUUID": "07070707-0707-0707-0707-070707070707",
     "AllocationID": 0,
     "PieceCid": null,
-    "ClientAddr": "\u003cempty\u003e",
+    "ClientAddr": "f01234",
     "StartEpoch": 10101,
     "EndEpoch": 10101,
     "FilePath": "string value",
@@ -425,8 +425,8 @@ Inputs:
         "PieceCID": null,
         "PieceSize": 1032,
         "VerifiedDeal": true,
-        "Client": "\u003cempty\u003e",
-        "Provider": "\u003cempty\u003e",
+        "Client": "f01234",
+        "Provider": "f01234",
         "Label": "",
         "StartEpoch": 10101,
         "EndEpoch": 10101,
@@ -485,8 +485,8 @@ Inputs:
         "PieceCID": null,
         "PieceSize": 1032,
         "VerifiedDeal": true,
-        "Client": "\u003cempty\u003e",
-        "Provider": "\u003cempty\u003e",
+        "Client": "f01234",
+        "Provider": "f01234",
         "Label": "",
         "StartEpoch": 10101,
         "EndEpoch": 10101,
@@ -619,8 +619,8 @@ Response:
     "PieceCID": null,
     "PieceSize": 1032,
     "VerifiedDeal": true,
-    "Client": "\u003cempty\u003e",
-    "Provider": "\u003cempty\u003e",
+    "Client": "f01234",
+    "Provider": "f01234",
     "Label": "",
     "StartEpoch": 10101,
     "EndEpoch": 10101,
@@ -686,6 +686,7 @@ Response:
 }
 ```
 
+
 ## Log
 
 
@@ -736,7 +737,7 @@ Response:
     "VerifiedPrice": "0",
     "MinPieceSize": 1032,
     "MaxPieceSize": 1032,
-    "Miner": "\u003cempty\u003e",
+    "Miner": "f01234",
     "Timestamp": 10101,
     "Expiry": 10101,
     "SeqNo": 42
@@ -749,8 +750,6 @@ Response:
 ```
 
 ## Net
-
-
 
 ### ID
 
