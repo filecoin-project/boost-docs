@@ -31,13 +31,13 @@ Please make sure you have installed:\
 
 **Rust** - following [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
 
-**Node 16.x**
+**Node 20.x**
 {% endhint %}
 
 **Linux / Ubuntu**
 
 ```
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash - 
 sudo apt-get install -y nodejs
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y
 ```
@@ -45,8 +45,8 @@ sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config cu
 **macOS**
 
 ```
-brew install node@16
-brew install bzr jq pkg-config hwloc coreutils
+brew install node@20
+brew install jq pkg-config hwloc coreutils
 ```
 
 #### Linux
