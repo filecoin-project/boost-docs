@@ -2,7 +2,7 @@
 description: How to configure and use HTTP retrievals in Boost
 ---
 
-# HTTP Retrieval
+# HTTP retrieval
 
 `booster-http` is a binary that can be run alongside the `boostd` process in order to serve retrievals over HTTP. This can be used to serve full _pieces_ and also block data in the form of CAR files or raw block bytes. This can be further extended using a [bifrost-gateway](https://github.com/ipfs/bifrost-gateway) server if a Storage Provider wishes to also serve plain files and directories.
 
@@ -68,7 +68,7 @@ See the [IPFS Trustless Gateway](https://specs.ipfs.tech/http-gateways/trustless
 
 For Storage Providers that wish to offer trusted access to payload data, in the same way that an IPFS Gateway bridges IPLD data to standard browser-accessible files and directories, [bifrost-gateway](https://github.com/ipfs/bifrost-gateway) can be used to translate `booster-http`'s trustless data into trusted data. This is a separate process that must be configured to communicate with `booster-http`.
 
-See [Trusted HTTP Gateway Setup](https://boost.filecoin.io/http-retrieval/advanced-http-configuration#trusted-retrieval-setup) for full setup instructions.
+See [Trusted HTTP Gateway Setup](advanced-http-configuration.md#trusted-http-gateway-setup) for full setup instructions.
 
 ```sh
 curl 'http://{bifrost-gateway exposed url}/ipfs/{content ID}/{optional path to resource}' -o myimage.png
@@ -129,7 +129,7 @@ When exposing `booster-http` to a public address for general retrievals, it is r
 * Load balancing
 * Logging
 
-`booster-http` can provide some of this functionality itself, but dedicated reverse proxy software is recommended for scalable production deployments. See [HTTP Reverse Proxy Setup](https://boost.filecoin.io/http-retrieval/http-reverse-proxy-setup) for more information and example configuration.
+`booster-http` can provide some of this functionality itself, but dedicated reverse proxy software is recommended for scalable production deployments. See [HTTP Reverse Proxy Setup](advanced-http-configuration.md#reverse-proxy-setup) for more information and example configuration.
 
 ### Making HTTP Retrieval Discoverable
 
