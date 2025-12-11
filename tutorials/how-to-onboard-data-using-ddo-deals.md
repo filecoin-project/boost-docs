@@ -4,8 +4,7 @@ description: This is a step by step guide of how to make verified DDO deals with
 
 # How to onboard data using DDO deals
 
-1.  First, you need to initialise a new Boost client and also set the endpoint for a public Filecoin node. In this example we are using [https://glif.io](https://glif.io/)\
-
+1.  First, you need to initialise a new Boost client and also set the endpoint for a public Filecoin node. In this example we are using [https://glif.io](https://glif.io/)<br>
 
     ```
     export FULLNODE_API_INFO=https://api.node.glif.io
@@ -43,8 +42,7 @@ description: This is a step by step guide of how to make verified DDO deals with
 
 
 5.  Then you need to calculate the `commp` and `piece size` for the generated `car` file:\
-    boostx generate-rand-car -c=50 -l=$links -s=5120000 .\
-
+    boostx generate-rand-car -c=50 -l=$links -s=5120000 .<br>
 
     ```
     boostx commp bafykbzacedr7avw5yvxgjftkhfgzgbinq523csw3ir5hyukx2ulewaigyjdrm.car
@@ -55,8 +53,7 @@ description: This is a step by step guide of how to make verified DDO deals with
     ```
 
 
-6.  Create a new verified allocation for this piece using `boost` client. You can use other method to create allocations as long as piece details match the generated commP.\
-
+6.  Create a new verified allocation for this piece using `boost` client. You can use other method to create allocations as long as piece details match the generated commP.<br>
 
     ```
     boost allocate --miner=t01013 --piece-info=baga6ea4seaqjpldhlgodxw2vjj6g46xra7jthe2g37kt7577ep5euxipkupfsly=8388608 --wallet t3tejq3lb3szsq7spvttqohsfpsju2jof2dbive2qujgz2idqaj2etuolzgbmro3owsmpuebmoghwxgt6ricvq
@@ -78,8 +75,7 @@ description: This is a step by step guide of how to make verified DDO deals with
     ```
 
 
-7.  Import the piece for the newly create allocation using `boostd` \
-
+7.  Import the piece for the newly create allocation using `boostd` <br>
 
     ```
     boostd import-direct --client-addr=t3tejq3lb3szsq7spvttqohsfpsju2jof2dbive2qujgz2idqaj2etuolzgbmro3owsmpuebmoghwxgt6ricvq --allocation-id=31825 baga6ea4seaqjpldhlgodxw2vjj6g46xra7jthe2g37kt7577ep5euxipkupfsly ~/bafykbzacedr7avw5yvxgjftkhfgzgbinq523csw3ir5hyukx2ulewaigyjdrm.car

@@ -23,8 +23,7 @@ The PGX driver from Yugabyte supports cluster aware Postgres connection out of t
 
 
 
-With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
-
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"<br>
 
 With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
 {% endhint %}

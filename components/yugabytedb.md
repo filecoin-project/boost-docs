@@ -27,8 +27,7 @@ The PGX driver from Yugabyte supports cluster aware Postgres connection out of t
 
 
 
-With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
-
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"<br>
 
 With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
 {% endhint %}
@@ -38,20 +37,16 @@ With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmo
 1. **What is YugabyteDB and why YugabyteDB?**\
    YugabyteDB is a high-performance distributed SQL database. Built using a unique combination of high-performance document store, per-shard distributed consensus replication and multi-shard ACID transactions (inspired by Google Spanner), YugabyteDB serves both scale-out RDBMS and internet-scale OLTP workloads with low query latency, extreme resilience against failures and global data distribution.\
    \
-   We tested multiple open source databases for the Boost use case and found YugabyteDB to be well suited as it is highly performant and scales well horizonally.\
-
+   We tested multiple open source databases for the Boost use case and found YugabyteDB to be well suited as it is highly performant and scales well horizonally.<br>
 2. **How do I learn about YugabyteDB and what do I need to know about YugabyteDB as an SP?**\
    SPs should familiarize themselves with the “[Deploy and Manage](https://docs.yugabyte.com/preview/launch-and-manage/)” section of the [documentation](https://docs.yugabyte.com/preview/) along with the [architecture](https://docs.yugabyte.com/preview/architecture/concepts/) before deploying YugabyteDB.\
    \
-   YugabyteDB will also be utilized by Lotus V2 architecture as well. We plan to allow SPs to connect all of their Boost instances to a single LID (YugabyteDB) with Boost v2.1.0 release. This will also allow SPs to serve retrievals from any of their miners using a single `booster-http` or `booster-bitswap` process. \
-
+   YugabyteDB will also be utilized by Lotus V2 architecture as well. We plan to allow SPs to connect all of their Boost instances to a single LID (YugabyteDB) with Boost v2.1.0 release. This will also allow SPs to serve retrievals from any of their miners using a single `booster-http` or `booster-bitswap` process. <br>
 3. **Which deployment should I choose?**\
    We recommend deploying YugabyteDB either locally on bare metal or using a managed deployment. Users can choose to deploy on the cloud if they can guarantee that scaling up the DB will not be impacted by the network bandwidth and infrastructure. It is recommended that YugabyteDB is highly available so that if one of the nodes is not available, your SP operations will not be impacted.\
-   You can find some of [the example YugabyteDB deployment ](https://github.com/filecoin-project/boost/discussions/1797)here. Please feel free to add your experience and deployment details to the discussion.\
-
+   You can find some of [the example YugabyteDB deployment ](https://github.com/filecoin-project/boost/discussions/1797)here. Please feel free to add your experience and deployment details to the discussion.<br>
 4. **Can I convert YugabyteDB processes to systemd services?**\
-   YugabyteDB does not ship as a systemd service by default. You will need to create a new service based on the commands you are running to start YT-Master and YT-Server processes. These commands can be customized based on user requirements and infrastructure.\
-
+   YugabyteDB does not ship as a systemd service by default. You will need to create a new service based on the commands you are running to start YT-Master and YT-Server processes. These commands can be customized based on user requirements and infrastructure.<br>
 5. **Once YugabyteDB is deployed, do I need to perform any additional steps?**\
    Ideally, once the deployment is complete and can be reached over the network by `boostd-data` service, users do not need to perform any additional steps. If you wish to change the default username/password, you must also update the same on the `--connect-string` of `boostd-data` service.
 

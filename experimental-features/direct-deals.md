@@ -35,14 +35,12 @@ make devnet/up
 
 ### Setup notaries and grant datacap
 
-1.  Wait till the Boost UI is reachable at http://localhost and then, open a terminal to the `boost` container\
-
+1.  Wait till the Boost UI is reachable at http://localhost and then, open a terminal to the `boost` container<br>
 
     ```
     docker compose exec boost /bin/bash
     ```
-2.  Setup notary and add balance to client market actor\
-
+2.  Setup notary and add balance to client market actor<br>
 
     ```
     export `lotus auth api-info --perm=admin`
@@ -54,14 +52,10 @@ make devnet/up
     sleep 10
     boostx market-add 5
     ```
-3.  Grant the datacap to the client\
+3.  Grant the datacap to the client<br>
 
-
-    {% code overflow="wrap" %}
-    ```
-    lotus filplus grant-datacap --from=$NOTARY_1 `boost wallet default` 100000000
-    ```
-    {% endcode %}
+    <pre data-overflow="wrap"><code>lotus filplus grant-datacap --from=$NOTARY_1 `boost wallet default` 100000000
+    </code></pre>
 
 ## Make a deal
 

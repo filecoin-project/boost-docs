@@ -23,7 +23,7 @@ When boostd / booster-http etc gets a request for a block it:
 * gets the block sector and offset from the LID index
 * requests the data at that sector and offset from the miner
 
-![LID Flow](assets/LID-flow.png)
+![LID Flow](../.gitbook/assets/LID-flow.png)
 
 A large miner with many incoming retrieval requests needs many boostd / booster-http / booster-bitswap processes to serve those requests. These processes need to look up block locations in a centralized index.
 
@@ -38,15 +38,15 @@ We tested several databases and found that YugabyteDB is best suited to the inde
 
 It is possible to connect multiple boostd instances to a single LID instance. In this scenario, each boostd instance still stores data to a single miner. eg boostd A stores data to miner A, boostd B stores data to miner B. However each boostd instance saves retrieval indexes in a single, shared LID instance.
 
-![LID Flow](assets/LID-multi-store.png)
+![LID Flow](../.gitbook/assets/LID-multi-store.png)
 
 For retrieval, each boostd instance can query the shared LID instance (to find out which miner has the data) and retrieve data from any miner in the cluster.
 
-![LID Flow](assets/LID-multi-fetch.png)
+![LID Flow](../.gitbook/assets/LID-multi-fetch.png)
 
 booster-bitswap and booster-http can also be configured to query the shared LID instance, and retrieve data from any miner in the cluster.
 
-![LID Flow](assets/LID-multi.png)
+![LID Flow](../.gitbook/assets/LID-multi.png)
 
 {% hint style="danger" %}
 If you are deploying multiple `boostd` instances with a single LID instance you will need to set up the networking so that each `boostd`, `booster-bitswap` and `booster-http` instance can query all miners and workers in the cluster. We recommend assigning all of your miner instances and boostd instances to the same subnet. Note also that the Yugabyte DB instance will need enough space for retrieval indexes for all of the miners.
@@ -112,8 +112,7 @@ The PGX driver from Yugabyte supports cluster aware Postgres connection out of t
 
 
 
-With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
-
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"<br>
 
 With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
 {% endhint %}
@@ -142,8 +141,7 @@ The PGX driver from Yugabyte supports cluster aware Postgres connection out of t
 
 
 
-With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"\
-
+With Cluster Mode: "postgresql://postgres:postgres@127.0.0.1:5433?load\_balance=true"<br>
 
 With Cluster Mode + No SSL: "postgresql://postgres:postgres@127.0.0.1:5433?sslmode=disable\&load\_balance=true"
 {% endhint %}
