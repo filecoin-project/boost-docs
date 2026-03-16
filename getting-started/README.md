@@ -44,7 +44,7 @@ Please make sure you have installed:\
 **Linux / Ubuntu**
 
 ```
-curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash - 
+curl -sL https://deb.nodesource.com/setup_24.x | sudo -E bash - 
 sudo apt-get install -y nodejs
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y
 ```
@@ -52,7 +52,7 @@ sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config cu
 **macOS**
 
 ```
-brew install node@20
+brew install node@24
 brew install jq pkg-config hwloc coreutils
 ```
 
