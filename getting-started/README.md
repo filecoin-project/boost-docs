@@ -38,7 +38,7 @@ Please make sure you have installed:\
 
 **Rust** - following [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
 
-**Node 20.x**
+**Node 24.x**
 {% endhint %}
 
 **Linux / Ubuntu**
